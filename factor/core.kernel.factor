@@ -42,3 +42,13 @@ USING: math ; #! + - *
 [ 15                ] [ 2 3 [ + ] [ * ] bi           ] unit-test
 [ 20                ] [ 2 3 4 [ + ] [ * ] bi*        ] unit-test
 [ 0 1 2 12          ] [ 0 1 2 3 4 5 [ + ] bi@        ] unit-test
+
+USING: classes.tuple ; IN: scratchpad
+TUPLE: tu ; TUPLE: pl ; TUPLE: ee ;
+[ T{ tu f } pl T{ ee f } ] [ T{ tu } pl ee boa       ] unit-test
+
+[ t                 ] [ 1 2 [ 3 < ] both?            ] unit-test
+[ t                 ] [ build 438 >=                 ] unit-test
+[ 5                 ] [ [ 2 3 + ] call               ] unit-test
+[ [ call-clear ]    ] [ [ call-clear ]               ] unit-test
+[ [ callstack ]     ] [ [ callstack ]                ] unit-test
