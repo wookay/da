@@ -1,3 +1,6 @@
+#! core.kernel
+#!                               wookay.noh at gmail.com
+
 USING: kernel ;
 USING: tools.test ; #! unit-test
 USING: math ; #! + - *

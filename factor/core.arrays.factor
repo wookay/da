@@ -1,3 +1,6 @@
+#! core.arrays
+#!                               wookay.noh at gmail.com
+
 USING: arrays ;
 USING: tools.test ; #! unit-test
 
