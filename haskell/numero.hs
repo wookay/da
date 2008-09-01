@@ -32,3 +32,4 @@ main = do
   assert_equals True (One < Two)
   assert_equals 3 (One + Two)
   assert_equals Six (1 + 2 + 3)
+  assert_equals Six (1 + 2 + Three)
