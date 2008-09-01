@@ -21,7 +21,7 @@ instance Num Numero where
   (*) x y = toEnum(fromEnum x * fromEnum y)
   abs = id
   signum = id
-  fromInteger _ = Zero
+  fromInteger = toEnum . fromEnum 
 
 assert_equals expected got = putStrLn $ show (expected == got)
 
@@ -30,3 +30,5 @@ main = do
   assert_equals Six (One * Two * Three)
   assert_equals True (One + Two == Three)
   assert_equals True (One < Two)
+  assert_equals 3 (One + Two)
+  assert_equals Six (1 + 2 + 3)
