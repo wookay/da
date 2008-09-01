@@ -11,7 +11,7 @@ class Fixnum
   def self.numero_methods ops, opt
     require 'md5'
     for op in ops
-      m = "m#{MD5::md5 op.to_s}"
+      m = "m#{MD5::md5 op}"
       class_eval <<-EOF
         alias :#{m} #{op}
         def #{op} a

@@ -1,0 +1,22 @@
+UnitTest for Objective-C
+
+== Example ==
+  NSString* str = @"1 2 3";
+  NSArray* ary = [str componentsSeparatedByString:@" "];
+
+  UnitTest* assert_equals = [UnitTest alloc];
+  [assert_equals a:@"(1, 2, 3)" b:[ary description]];
+  [assert_equals a:@"(1, 2, 3)" b:ary];
+  [assert_equals a:@"1,2,3" b:[ary componentsJoinedByString:@","]];
+  [assert_equals i:6 j:1+2+3];
+
+$ make
+gcc -c -Wall -O7 test.m -o test.o
+gcc -c -Wall -O7 UnitTest.m -o UnitTest.o
+gcc -lobjc -framework Foundation -o test test.o UnitTest.o 
+
+$ ./test 
+2008-09-02 00:34:59.774 test[541] true: (1, 2, 3)
+2008-09-02 00:34:59.775 test[541] true: (1, 2, 3)
+2008-09-02 00:34:59.775 test[541] true: 1,2,3
+2008-09-02 00:34:59.775 test[541] true: 6
