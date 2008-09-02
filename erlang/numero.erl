@@ -3,12 +3,8 @@
 -export([numero/0]).
 
 assert_equal(Expected, Got) ->
-  case Expected == Got of
-    true ->
-      io:format("true: ~w~n", [Expected]);
-    _ ->
-      io:format("Assertion failed~nExpected: ~w~nGot: ~w~n", [Expected, Got])
-  end.
+  Expected = Got,
+  io:format("true: ~w~n", [Expected]).
 
 numero() ->
   [Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten] =
