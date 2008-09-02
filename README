@@ -2,21 +2,20 @@ da
 ==
 
 
-objc/
-  unittest
+erlang/
+  numero
 
 factor/
   core
 
 haskell/
-  numero
-  fixnum
+  numero, fixnum
 
 j/
   parts of speech
 
-ruby/ 
-  numero
+objc/
+  unittest, nstest
 
-erlang/
+ruby/ 
   numero
