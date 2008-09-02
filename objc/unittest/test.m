@@ -8,11 +8,11 @@ int main (int argc, const char * argv[]) {
   NSString* str = @"1 2 3";
   NSArray* ary = [str componentsSeparatedByString:@" "];
 
-  UnitTest* assert_equals = [UnitTest alloc];
-  [assert_equals a:@"(1, 2, 3)" b:[ary description]];
-  [assert_equals a:@"(1, 2, 3)" b:ary];
-  [assert_equals a:@"1,2,3" b:[ary componentsJoinedByString:@","]];
-  [assert_equals i:6 j:1+2+3];
+  UnitTest* assert_equal = [UnitTest alloc];
+  [assert_equal a:@"(1, 2, 3)" b:[ary description]];
+  [assert_equal a:@"(1, 2, 3)" b:ary];
+  [assert_equal a:@"1,2,3" b:[ary componentsJoinedByString:@","]];
+  [assert_equal i:6 j:1+2+3];
 
   [pool release];
   return 0;

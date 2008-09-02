@@ -56,15 +56,19 @@ class Symbol
   numero_methods %w{+ - * /}, '.send :to_symbol'
 end
 
-def assert_equals expected, got
-  puts expected == got
+def assert_equal expected, got
+  case expected == got
+  when true
+    puts "true: #{expected}"
+  else
+    puts "Assertion failed\nExpected: #{expected}\nGot: #{got}"
+  end
 end
 
-
-assert_equals :six, :one + :two + :three
-assert_equals :six, :one * :two * :three
-assert_equals true, :one + :two == :three
-assert_equals true, :one < :two
-assert_equals 3, :one + :two
-assert_equals :six, 1 + 2 + 3
-assert_equals :six, 1 + 2 + :three
+assert_equal :six, :one + :two + :three
+assert_equal :six, :one * :two * :three
+assert_equal true, :one + :two == :three
+assert_equal true, :one < :two
+assert_equal 3, :one + :two
+assert_equal :six, 1 + 2 + 3
+assert_equal :six, 1 + 2 + :three

@@ -23,13 +23,17 @@ instance Num Numero where
   signum = id
   fromInteger = toEnum . fromEnum 
 
-assert_equals expected got = putStrLn $ show (expected == got)
+assert_equal expected got =
+  case expected == got of
+    True -> putStrLn $ "True: " ++ show expected;
+    _ -> putStrLn $ "Assertion failed\nExpected: " ++ show expected
+           ++ "\nGot: " ++ show got
 
 main = do
-  assert_equals Six (One + Two + Three)
-  assert_equals Six (One * Two * Three)
-  assert_equals True (One + Two == Three)
-  assert_equals True (One < Two)
-  assert_equals 3 (One + Two)
-  assert_equals Six (1 + 2 + 3)
-  assert_equals Six (1 + 2 + Three)
+  assert_equal Six (One + Two + Three)
+  assert_equal Six (One * Two * Three)
+  assert_equal True (One + Two == Three)
+  assert_equal True (One < Two)
+  assert_equal 3 (One + Two)
+  assert_equal Six (1 + 2 + 3)
+  assert_equal Six (1 + 2 + Three)

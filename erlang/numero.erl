@@ -2,7 +2,7 @@
 -author('wookay.noh@gmail.com').
 -export([numero/0]).
 
-assert_equals(Expected, Got) ->
+assert_equal(Expected, Got) ->
   case (Expected == Got) of
     true ->
       io:format("true: ~w~n", [Expected]);
@@ -15,10 +15,10 @@ numero() ->
     lists:seq(0,10),
    Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
 
-  assert_equals(Six, One + Two + Three),
-  assert_equals(Six, One * Two * Three),
-  assert_equals(true, One + Two == Three),
-  assert_equals(true, One < Two),
-  assert_equals(3, One + Two),
-  assert_equals(Six, 1 + 2 + 3),
-  assert_equals(Six, 1 + 2 + Three).
+  assert_equal(Six, One + Two + Three),
+  assert_equal(Six, One * Two * Three),
+  assert_equal(true, One + Two == Three),
+  assert_equal(true, One < Two),
+  assert_equal(3, One + Two),
+  assert_equal(Six, 1 + 2 + 3),
+  assert_equal(Six, 1 + 2 + Three).
