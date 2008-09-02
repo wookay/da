@@ -1,8 +1,13 @@
 # Makefile
 #                           wookay.noh at gmail.com
 
-CLASSES=NSObjectTest.o NSNumberTest.o NSStringTest.o \
-        NSMutableSetTest.o
+CLASSES=NSObjectTest.o \
+        NSNumberTest.o \
+        NSStringTest.o \
+        NSArrayTest.o \
+        NSMutableArrayTest.o \
+        NSMutableSetTest.o \
+        NSMutableDictionaryTest.o
 APP=test
 UNITTEST=../unittest/UnitTest
 CC=gcc
