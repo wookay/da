@@ -3,7 +3,7 @@
 -export([numero/0]).
 
 assert_equal(Expected, Got) ->
-  case (Expected == Got) of
+  case Expected == Got of
     true ->
       io:format("true: ~w~n", [Expected]);
     _ ->
