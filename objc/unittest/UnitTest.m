@@ -6,29 +6,47 @@
 
 - (void) a:(id)expected b:(id)got {
   NSString* expectedClass = [expected className];
-  NSString* gotClass = [got className];
+  NSString* expectedDescription =
+    expected == nil ? @"nil" : [expected description];
+  NSString* gotDescription =
+    got == nil ? @"nil" : [got description];
   if ([expectedClass isEqualToString:@"NSCFString"]) {
-    if ([gotClass isEqualToString:@"NSCFArray"]) {
-      got = [got description];
-    } 
-    if ([expected isEqualToString:got]) {
-      NSLog(@"true: %@", expected);
+    if ([expected isEqualToString:gotDescription]) {
+      NSLog(@"passed: %@", expected);
     } else {
-      NSLog(@"Assertion failed\nExpected: %@\nGot: %@", expected, got);
+      NSLog(@"Assertion failed\nExpected: %@\nGot: %@",
+        expected, got);
     }
   } else if ([expectedClass isEqualToString:@"NSCFArray"]) {
     if ([expected isEqualToArray:got]) {
-      NSLog(@"true: %@", [expected description]);
+      NSLog(@"passed: %@", expectedDescription);
     } else {
       NSLog(@"Assertion failed\nExpected: %@\nGot: %@",
-        [expected description], [got description]);
+        expectedDescription, gotDescription);
+    }
+  } else {
+    if (expected == got) {
+      NSLog(@"passed: %@", expectedDescription);
+    } else {
+      NSLog(@"Assertion failed\nExpected: %@\nGot: %@",
+        expectedDescription, gotDescription);
     }
   }
 }
 
-- (void) i:(int)expected j:(int)got {
+- (void) bool:(BOOL)expected bool:(BOOL)got {
+  NSString* expectedBool = expected ? @"true" : @"false";
+  NSString* gotBool = got == true ? @"true" : @"false";
   if (expected == got) {
-    NSLog(@"true: %d", expected);
+    NSLog(@"passed: %@", expectedBool);
+  } else {
+    NSLog(@"Assertion failed\nExpected: %@\nGot: %@", expectedBool, gotBool);
+  }
+}
+
+- (void) int:(int)expected int:(int)got {
+  if (expected == got) {
+    NSLog(@"passed: %d", expected);
   } else {
     NSLog(@"Assertion failed\nExpected: %d\nGot: %d", expected, got);
   }

@@ -4,7 +4,7 @@
 
 assert_equal(Expected, Got) ->
   Expected = Got,
-  io:format("true: ~w~n", [Expected]).
+  io:format("passed: ~w~n", [Expected]).
 
 numero() ->
   [Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten] =

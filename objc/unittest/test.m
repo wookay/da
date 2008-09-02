@@ -12,7 +12,7 @@ int main (int argc, const char * argv[]) {
   [assert_equal a:@"(1, 2, 3)" b:[ary description]];
   [assert_equal a:@"(1, 2, 3)" b:ary];
   [assert_equal a:@"1,2,3" b:[ary componentsJoinedByString:@","]];
-  [assert_equal i:6 j:1+2+3];
+  [assert_equal int:6 int:1+2+3];
 
   [pool release];
   return 0;

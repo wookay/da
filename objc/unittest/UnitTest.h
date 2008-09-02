@@ -7,6 +7,7 @@
 }
 
 - (void) a:(id)expected b:(id)got ;
-- (void) i:(int)expected j:(int)got ;
+- (void) int:(int)expected int:(int)got ;
+- (void) bool:(BOOL)expected bool:(BOOL)got ;
 
 @end

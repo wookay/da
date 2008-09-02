@@ -59,7 +59,7 @@ end
 def assert_equal expected, got
   case expected == got
   when true
-    puts "true: #{expected}"
+    puts "passed: #{expected}"
   else
     puts "Assertion failed\nExpected: #{expected}\nGot: #{got}"
   end

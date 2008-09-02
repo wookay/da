@@ -25,7 +25,7 @@ instance Num Numero where
 
 assert_equal expected got =
   case expected == got of
-    True -> putStrLn $ "True: " ++ show expected;
+    True -> putStrLn $ "passed: " ++ show expected;
     _ -> putStrLn $ "Assertion failed\nExpected: " ++ show expected
            ++ "\nGot: " ++ show got
 
