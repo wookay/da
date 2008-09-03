@@ -6,11 +6,26 @@
 
 - (void) a:(id)expected b:(id)got {
   NSString* expectedClass = [expected className];
+  NSString* gotClass = [got className];
   NSString* expectedDescription =
     expected == nil ? @"nil" : [expected description];
   NSString* gotDescription =
     got == nil ? @"nil" : [got description];
   if ([expectedClass isEqualToString:@"NSCFString"]) {
+    if ([gotClass isEqualToString:@"NSCFArray"]) {
+      gotDescription = [NSString stringWithFormat:@"(%@)",
+        [got componentsJoinedByString:@", "]];
+    } else if ([gotClass isEqualToString:@"NSCFDictionary"]) { 
+      NSMutableArray* ary = [NSMutableArray array];
+      for (id key in got) {
+        [ary insertObject:
+          [NSString stringWithFormat:@"%@ = %@; ", key, [got objectForKey:key]]
+          atIndex: 0
+        ];
+      }
+      gotDescription = [NSString stringWithFormat:@"{%@}",
+        [ary componentsJoinedByString:@""]];
+    }
     if ([expected isEqualToString:gotDescription]) {
       NSLog(@"passed: %@", expected);
     } else {

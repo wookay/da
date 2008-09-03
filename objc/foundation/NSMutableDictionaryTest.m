@@ -12,6 +12,9 @@
 
   [hash setObject:@"value" forKey:@"key"];
   [assert_equal a:@"{key = value; }" b:hash];
+
+  [hash setObject:@"value2" forKey:@"key2"];
+  [assert_equal a:@"{key = value; key2 = value2; }" b:hash];
  
 }
 

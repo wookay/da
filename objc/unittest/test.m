@@ -9,7 +9,6 @@ int main (int argc, const char * argv[]) {
   NSArray* ary = [str componentsSeparatedByString:@" "];
 
   UnitTest* assert_equal = [UnitTest alloc];
-  [assert_equal a:@"(1, 2, 3)" b:[ary description]];
   [assert_equal a:@"(1, 2, 3)" b:ary];
   [assert_equal a:@"1,2,3" b:[ary componentsJoinedByString:@","]];
   [assert_equal int:6 int:1+2+3];

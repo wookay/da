@@ -7,8 +7,11 @@
 
 - (void) unittest:(id)assert_equal {
 
-  NSString* string = [NSString stringWithFormat:@"%d", 200];
-  [assert_equal a:@"200" b:string];
+  NSString* s = [NSString string];
+  [assert_equal a:@"" b:s];
+
+  s = [NSString stringWithFormat:@"%d", 200];
+  [assert_equal a:@"200" b:s];
 
 }
 
