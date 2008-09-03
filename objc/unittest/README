@@ -5,7 +5,6 @@ UnitTest for Objective-C
   NSArray* ary = [str componentsSeparatedByString:@" "];
 
   UnitTest* assert_equal = [UnitTest alloc];
-  [assert_equal a:@"(1, 2, 3)" b:[ary description]];
   [assert_equal a:@"(1, 2, 3)" b:ary];
   [assert_equal a:@"1,2,3" b:[ary componentsJoinedByString:@","]];
   [assert_equal int:6 int:1+2+3];
@@ -16,7 +15,6 @@ gcc -c -Wall -O7 UnitTest.m -o UnitTest.o
 gcc -lobjc -framework Foundation -o test test.o UnitTest.o 
 
 $ ./test 
-2008-09-02 21:39:42.193 test[2480] passed: (1, 2, 3)
-2008-09-02 21:39:42.193 test[2480] passed: (1, 2, 3)
-2008-09-02 21:39:42.193 test[2480] passed: 1,2,3
-2008-09-02 21:39:42.193 test[2480] passed: 6
+2008-09-03 18:45:27.968 test[2919:10b] passed: (1, 2, 3)
+2008-09-03 18:45:27.983 test[2919:10b] passed: 1,2,3
+2008-09-03 18:45:27.984 test[2919:10b] passed: 6
