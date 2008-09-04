@@ -4,10 +4,12 @@ UnitTest for Objective-C
   NSString* str = @"1 2 3";
   NSArray* ary = [str componentsSeparatedByString:@" "];
 
-  UnitTest* assert_equal = [UnitTest alloc];
+  UnitTest* assert_equal = [[UnitTest alloc] init];
   [assert_equal a:@"(1, 2, 3)" b:ary];
   [assert_equal a:@"1,2,3" b:[ary componentsJoinedByString:@","]];
-  [assert_equal int:6 int:1+2+3];
+  [assert_equal int:16 int:1+2+3];
+
+  assert_equal.report;
 
 $ make
 gcc -c -Wall -O7 test.m -o test.o
@@ -15,6 +17,7 @@ gcc -c -Wall -O7 UnitTest.m -o UnitTest.o
 gcc -lobjc -framework Foundation -o test test.o UnitTest.o 
 
 $ ./test 
-2008-09-03 18:45:27.968 test[2919:10b] passed: (1, 2, 3)
-2008-09-03 18:45:27.983 test[2919:10b] passed: 1,2,3
-2008-09-03 18:45:27.984 test[2919:10b] passed: 6
+2008-09-04 16:56:42.361 test[4353:10b] passed: (1, 2, 3)
+2008-09-04 16:56:42.363 test[4353:10b] passed: 1,2,3
+2008-09-04 16:56:42.364 test[4353:10b] passed: 6
+2008-09-04 16:56:42.364 test[4353:10b] OK, passed 3 tests.

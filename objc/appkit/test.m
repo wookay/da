@@ -1,17 +1,16 @@
 // test.m
 //                           wookay.noh at gmail.com
-#import "UnitTest.h"
+
+#import "test.h"
 
 int main (int argc, const char * argv[]) {
   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-  NSString* str = @"1 2 3";
-  NSArray* ary = [str componentsSeparatedByString:@" "];
-
   UnitTest* assert_equal = [[UnitTest alloc] init];
-  [assert_equal a:@"(1, 2, 3)" b:ary];
-  [assert_equal a:@"1,2,3" b:[ary componentsJoinedByString:@","]];
-  [assert_equal int:6 int:1+2+3];
+  NSLog(@"NSArrayControllerTest");
+  [[NSArrayControllerTest alloc] unittest:assert_equal];
+  NSLog(@"NSBoxTest");
+  [[NSBoxTest alloc] unittest:assert_equal];
 
   assert_equal.report;
 
