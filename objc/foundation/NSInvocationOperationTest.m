@@ -12,14 +12,14 @@
   NSInvocationOperation* op = [[NSInvocationOperation alloc]
     initWithTarget:target selector:selector object:nil];
   NSInvocation* invocation = [op invocation];
+  [assert_equal a:@"test target" b:[invocation target]];
+  [assert_equal a:@"length" SEL:[invocation selector]];
   [invocation invoke];
   int value;
   [invocation getReturnValue:&value];
-  [assert_equal a:@"test target" b:[invocation target]];
-  [assert_equal a:@"length" SEL:[invocation selector]];
   [assert_equal int:11 int:value];
 
-  int ret = (int) [target performSelector:@selector(length)];
+  NSUInteger ret = (NSUInteger) [target performSelector:@selector(length)];
   [assert_equal int:11 int:ret];
 
   id number = [NSDecimalNumber numberWithInt:100];
@@ -29,6 +29,8 @@
 
   Class class = NSClassFromString(@"NSString");
   [assert_equal a:@"NSString" b:NSStringFromClass(class)];
+  [assert_equal a:@"NSCFString" b:NSStringFromClass([@"" class])];
+  [assert_equal a:@"NSDecimalNumber" b:NSStringFromClass([number class])];
 
 }
 

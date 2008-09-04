@@ -12,6 +12,7 @@
 
   s = [NSString stringWithFormat:@"%d", 200];
   [assert_equal a:@"200" b:s];
+  [assert_equal int:200 int:[s intValue]];
 
 }
 

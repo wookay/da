@@ -5,17 +5,15 @@
 @implementation UnitTest
 
 - (void) a:(id)expected b:(id)got {
-  NSString* expectedClass = [expected className];
-  NSString* gotClass = [got className];
   NSString* expectedDescription =
     expected == nil ? @"nil" : [expected description];
   NSString* gotDescription =
     got == nil ? @"nil" : [got description];
-  if ([expectedClass isEqualToString:@"NSCFString"]) {
-    if ([gotClass isEqualToString:@"NSCFArray"]) {
+  if ([expected respondsToSelector:@selector(isEqualToString:)]) {
+    if ([got respondsToSelector:@selector(isEqualToArray:)]) {
       gotDescription = [NSString stringWithFormat:@"(%@)",
         [got componentsJoinedByString:@", "]];
-    } else if ([gotClass isEqualToString:@"NSCFDictionary"]) { 
+    } else if ([got respondsToSelector:@selector(isEqualToDictionary:)]) {
       NSMutableArray* ary = [NSMutableArray array];
       for (id key in got) {
         [ary insertObject:
@@ -29,7 +27,7 @@
     [self add_result:[expected isEqualToString:gotDescription]
           expected:expected
           got:got];
-  } else if ([expectedClass isEqualToString:@"NSCFArray"]) {
+  } else if ([expected respondsToSelector:@selector(isEqualToArray:)]) {
     [self add_result:[expected isEqualToArray:got]
           expected:expectedDescription
           got:gotDescription];
