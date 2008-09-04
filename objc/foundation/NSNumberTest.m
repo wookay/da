@@ -7,7 +7,7 @@
 
 - (void) unittest:(id)assert_equal {
 
-  NSNumber* number = [[NSNumber alloc] initWithInt:100];
+  NSNumber* number = [NSNumber numberWithInt:100];
   [assert_equal int:100 int:[number intValue]];
   [assert_equal int:100 b:number];
   [assert_equal bool:true bool:[number boolValue]];

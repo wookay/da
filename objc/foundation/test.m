@@ -11,6 +11,8 @@ int main (int argc, const char * argv[]) {
   [[NSNumberTest alloc] unittest:assert_equal];
   NSLog(@"NSStringTest");
   [[NSStringTest alloc] unittest:assert_equal];
+  NSLog(@"NSAttributedStringTest");
+  [[NSAttributedStringTest alloc] unittest:assert_equal];
   NSLog(@"NSArrayTest");
   [[NSArrayTest alloc] unittest:assert_equal];
   NSLog(@"NSMutableArrayTest");
@@ -19,6 +21,8 @@ int main (int argc, const char * argv[]) {
   [[NSMutableSetTest alloc] unittest:assert_equal];
   NSLog(@"NSMutableDictionaryTest");
   [[NSMutableDictionaryTest alloc] unittest:assert_equal];
+  NSLog(@"NSInvocationOperationTest");
+  [[NSInvocationOperationTest alloc] unittest:assert_equal];
 
   assert_equal.report;
 

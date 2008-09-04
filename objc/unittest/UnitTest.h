@@ -9,9 +9,16 @@
 }
 
 - (void) a:(id)expected b:(id)got ;
+- (void) a:(id)expected NSPoint:(NSPoint)got ;
+- (void) a:(id)expected NSSize:(NSSize)got ;
+- (void) a:(id)expected NSRect:(NSRect)got ;
+- (void) a:(id)expected NSRange:(NSRange)got ;
+- (void) a:(id)expected Class:(Class)got ;
+- (void) a:(id)expected SEL:(SEL)got ;
 - (void) bool:(BOOL)expected bool:(BOOL)got ;
 - (void) _true:(BOOL)got ;
 - (void) _false:(BOOL)got ;
+- (void) _nil:(id)got ;
 - (void) int:(int)expected int:(int)got ;
 - (void) int:(int)expected b:(id)got ;
 - (void) float:(float)expected float:(float)got ; 

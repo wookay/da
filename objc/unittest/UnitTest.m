@@ -4,38 +4,6 @@
 
 @implementation UnitTest
 
-- (id)init {
-  passed = [NSMutableArray array];
-  failed = [NSMutableArray array];
-  return self;
-}
-
-- (void) report {
-  if ([passed count] == 0) {
-  } else if ([passed count] == 1) {
-    NSLog(@"OK, passed 1 test.");
-  } else {
-    NSLog(@"OK, passed %d tests.", [passed count]);
-  }
-  if ([failed count] == 0) {
-  } else if ([failed count] == 1) {
-    NSLog(@"Oops, failed 1 test.");
-  } else {
-    NSLog(@"Oops, failed %d tests.", [failed count]);
-  }
-}
-
-- (void) add_result:(BOOL)cond expected:(id)expected got:(id)got {
-  if (cond) {
-    [passed addObject:[NSNumber numberWithBool:true]];
-    NSLog(@"passed: %@", expected);
-  } else {
-    [failed addObject:[NSNumber numberWithBool:false]];
-    NSLog(@"Assertion failed\nExpected: %@\nGot: %@", expected, got);
-  }
-  // NSAssert(cond, got);
-}
-
 - (void) a:(id)expected b:(id)got {
   NSString* expectedClass = [expected className];
   NSString* gotClass = [got className];
@@ -72,6 +40,30 @@
   }
 }
 
+- (void) a:(id)expected NSPoint:(NSPoint)got {
+  [self a:expected b:NSStringFromPoint(got)];
+}
+
+- (void) a:(id)expected NSSize:(NSSize)got {
+  [self a:expected b:NSStringFromSize(got)];
+}
+
+- (void) a:(id)expected NSRect:(NSRect)got {
+  [self a:expected b:NSStringFromRect(got)];
+}
+
+- (void) a:(id)expected NSRange:(NSRange)got {
+  [self a:expected b:NSStringFromRange(got)];
+}
+
+- (void) a:(id)expected Class:(Class)got {
+  [self a:expected b:NSStringFromClass(got)];
+}
+
+- (void) a:(id)expected SEL:(SEL)got {
+  [self a:expected b:NSStringFromSelector(got)];
+}
+
 - (void) bool:(BOOL)expected bool:(BOOL)got {
   NSString* expectedBool = expected ? @"true" : @"false";
   NSString* gotBool = got == true ? @"true" : @"false";
@@ -86,6 +78,10 @@
 
 - (void) _false:(BOOL)got {
   [self bool:false bool:got];
+}
+
+- (void) _nil:(id)got {
+  [self a:nil b:got];
 }
 
 - (void) int:(int)expected int:(int)got {
@@ -111,6 +107,38 @@
   [self add_result:[expectedNumber isEqualToNumber:got]
         expected:expectedString
         got:gotString];
+}
+
+- (id)init {
+  passed = [NSMutableArray array];
+  failed = [NSMutableArray array];
+  return self;
+}
+
+- (void) report {
+  if ([passed count] == 0) {
+  } else if ([passed count] == 1) {
+    NSLog(@"OK, passed 1 test.");
+  } else {
+    NSLog(@"OK, passed %d tests.", [passed count]);
+  }
+  if ([failed count] == 0) {
+  } else if ([failed count] == 1) {
+    NSLog(@"Oops, failed 1 test.");
+  } else {
+    NSLog(@"Oops, failed %d tests.", [failed count]);
+  }
+}
+
+- (void) add_result:(BOOL)cond expected:(id)expected got:(id)got {
+  if (cond) {
+    [passed addObject:[NSNumber numberWithBool:true]];
+    NSLog(@"passed: %@", expected);
+  } else {
+    [failed addObject:[NSNumber numberWithBool:false]];
+    NSLog(@"Assertion failed\nExpected: %@\nGot: %@", expected, got);
+  }
+  // NSAssert(cond, got);
 }
 
 @end

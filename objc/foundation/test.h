@@ -7,7 +7,10 @@
 
 @interface NSNumberTest : NSObjectTest {} @end
 @interface NSStringTest : NSObjectTest {} @end
+@interface NSAttributedStringTest : NSObjectTest {} @end
 @interface NSArrayTest : NSObjectTest {} @end
 @interface NSMutableArrayTest : NSObjectTest {} @end
 @interface NSMutableSetTest : NSObjectTest {} @end
 @interface NSMutableDictionaryTest : NSObjectTest {} @end
+@interface NSInvocationOperationTest : NSObjectTest {} @end
+@interface DataTypesTest : NSObjectTest {} @end
