@@ -13,4 +13,7 @@
 @interface NSMutableSetTest : NSObjectTest {} @end
 @interface NSMutableDictionaryTest : NSObjectTest {} @end
 @interface NSInvocationOperationTest : NSObjectTest {} @end
+@interface NSDataTest : NSObjectTest {} @end
+@interface NSDateTest : NSObjectTest {} @end
+@interface NSExceptionTest : NSObjectTest {} @end
 @interface DataTypesTest : NSObjectTest {} @end

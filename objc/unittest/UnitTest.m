@@ -39,19 +39,35 @@
 }
 
 - (void) a:(id)expected NSPoint:(NSPoint)got {
-  [self a:expected b:NSStringFromPoint(got)];
+  [self add_result:NSEqualPoints(NSPointFromString(expected), got)
+     expected:expected got:NSStringFromPoint(got)];
 }
 
 - (void) a:(id)expected NSSize:(NSSize)got {
-  [self a:expected b:NSStringFromSize(got)];
+  [self add_result:NSEqualSizes(NSSizeFromString(expected), got)
+     expected:expected got:NSStringFromSize(got)];
 }
 
 - (void) a:(id)expected NSRect:(NSRect)got {
-  [self a:expected b:NSStringFromRect(got)];
+  [self add_result:NSEqualRects(NSRectFromString(expected), got)
+     expected:expected got:NSStringFromRect(got)];
+}
+
+- (void) a:(id)expected CGPoint:(CGPoint)got {
+  [self a:expected NSPoint:NSPointFromCGPoint(got)];
+}
+
+- (void) a:(id)expected CGSize:(CGSize)got {
+  [self a:expected NSSize:NSSizeFromCGSize(got)];
+}
+
+- (void) a:(id)expected CGRect:(CGRect)got {
+  [self a:expected NSRect:NSRectFromCGRect(got)];
 }
 
 - (void) a:(id)expected NSRange:(NSRange)got {
-  [self a:expected b:NSStringFromRange(got)];
+  [self add_result:NSEqualRanges(NSRangeFromString(expected), got)
+     expected:expected got:NSStringFromRange(got)];
 }
 
 - (void) a:(id)expected Class:(Class)got {

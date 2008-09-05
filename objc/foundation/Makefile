@@ -10,6 +10,9 @@ CLASSES=NSObjectTest.o \
         NSMutableSetTest.o \
         NSMutableDictionaryTest.o \
         NSInvocationOperationTest.o \
+        NSDataTest.o \
+        NSDateTest.o \
+        NSExceptionTest.o \
         DataTypesTest.o
 APP=test
 UNITTEST=../unittest/UnitTest

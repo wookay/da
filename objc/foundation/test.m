@@ -23,6 +23,14 @@ int main (int argc, const char * argv[]) {
   [[NSMutableDictionaryTest alloc] unittest:assert_equal];
   NSLog(@"NSInvocationOperationTest");
   [[NSInvocationOperationTest alloc] unittest:assert_equal];
+  NSLog(@"NSDataTest");
+  [[NSDataTest alloc] unittest:assert_equal];
+  NSLog(@"NSDateTest");
+  [[NSDateTest alloc] unittest:assert_equal];
+  NSLog(@"NSExceptionTest");
+  [[NSExceptionTest alloc] unittest:assert_equal];
+  NSLog(@"DataTypesTest");
+  [[DataTypesTest alloc] unittest:assert_equal];
 
   assert_equal.report;
 

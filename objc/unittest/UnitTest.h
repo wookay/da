@@ -13,6 +13,9 @@
 - (void) a:(id)expected NSSize:(NSSize)got ;
 - (void) a:(id)expected NSRect:(NSRect)got ;
 - (void) a:(id)expected NSRange:(NSRange)got ;
+- (void) a:(id)expected CGPoint:(CGPoint)got ;
+- (void) a:(id)expected CGSize:(CGSize)got ;
+- (void) a:(id)expected CGRect:(CGRect)got ;
 - (void) a:(id)expected Class:(Class)got ;
 - (void) a:(id)expected SEL:(SEL)got ;
 - (void) bool:(BOOL)expected bool:(BOOL)got ;
