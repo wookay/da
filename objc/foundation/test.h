@@ -3,17 +3,23 @@
 
 #import <Foundation/Foundation.h>
 #import "../unittest/UnitTest.h"
-#import "NSObjectTest.h"
 
-@interface NSNumberTest : NSObjectTest {} @end
-@interface NSStringTest : NSObjectTest {} @end
-@interface NSAttributedStringTest : NSObjectTest {} @end
-@interface NSArrayTest : NSObjectTest {} @end
-@interface NSMutableArrayTest : NSObjectTest {} @end
-@interface NSMutableSetTest : NSObjectTest {} @end
-@interface NSMutableDictionaryTest : NSObjectTest {} @end
-@interface NSInvocationOperationTest : NSObjectTest {} @end
-@interface NSDataTest : NSObjectTest {} @end
-@interface NSDateTest : NSObjectTest {} @end
-@interface NSExceptionTest : NSObjectTest {} @end
-@interface DataTypesTest : NSObjectTest {} @end
+@interface NSObjectTest : UnitTestable {
+  NSString *name;
+  int age;
+} 
+@end
+
+@interface NSNumberTest : UnitTestable {} @end
+@interface NSStringTest : UnitTestable {} @end
+@interface NSAttributedStringTest : UnitTestable {} @end
+@interface NSArrayTest : UnitTestable {} @end
+@interface NSMutableArrayTest : UnitTestable {} @end
+@interface NSMutableSetTest : UnitTestable {} @end
+@interface NSMutableDictionaryTest : UnitTestable {} @end
+@interface NSInvocationOperationTest : UnitTestable {} @end
+@interface NSDataTest : UnitTestable {} @end
+@interface NSDateTest : UnitTestable {} @end
+@interface NSExceptionTest : UnitTestable {} @end
+@interface NSErrorTest : UnitTestable {} @end
+@interface DataTypesTest : UnitTestable {} @end

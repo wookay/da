@@ -13,6 +13,7 @@ CLASSES=NSObjectTest.o \
         NSDataTest.o \
         NSDateTest.o \
         NSExceptionTest.o \
+        NSErrorTest.o \
         DataTypesTest.o
 APP=test
 UNITTEST=../unittest/UnitTest

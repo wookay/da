@@ -4,7 +4,6 @@
 CLASSES=NSArrayControllerTest.o \
         NSBoxTest.o
 APP=test
-NSOBJECTTEST=../foundation/NSObjectTest
 UNITTEST=../unittest/UnitTest
 CC=gcc
 CFLAGS=-Wall -O7
@@ -12,11 +11,11 @@ LDFLAGS=-lobjc -framework AppKit
 
 all: $(APP)
 
-$(APP): $(APP).o $(UNITTEST).o $(NSOBJECTTEST).o $(CLASSES)
+$(APP): $(APP).o $(UNITTEST).o $(CLASSES)
 	$(CC) $(LDFLAGS) -o $@ $^ 
 
 %.o: %.m
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	@rm -f *.o $(APP) $(UNITTEST).o $(NSOBJECTTEST).o
+	@rm -f *.o $(APP) $(UNITTEST).o

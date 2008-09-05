@@ -156,3 +156,10 @@
 }
 
 @end
+
+
+
+@implementation UnitTestable
+- (void) unittest:(id)assert_equal {
+}
+@end

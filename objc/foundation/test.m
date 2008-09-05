@@ -7,6 +7,8 @@ int main (int argc, const char * argv[]) {
   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
   UnitTest* assert_equal = [[UnitTest alloc] init];
+  NSLog(@"NSObjectTest");
+  [[NSObjectTest alloc] unittest:assert_equal];
   NSLog(@"NSNumberTest");
   [[NSNumberTest alloc] unittest:assert_equal];
   NSLog(@"NSStringTest");
@@ -29,6 +31,8 @@ int main (int argc, const char * argv[]) {
   [[NSDateTest alloc] unittest:assert_equal];
   NSLog(@"NSExceptionTest");
   [[NSExceptionTest alloc] unittest:assert_equal];
+  NSLog(@"NSErrorTest");
+  [[NSErrorTest alloc] unittest:assert_equal];
   NSLog(@"DataTypesTest");
   [[DataTypesTest alloc] unittest:assert_equal];
 

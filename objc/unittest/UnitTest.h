@@ -31,3 +31,10 @@
 - (void) add_result:(BOOL)cond expected:(id)expected got:(id)got ;
 
 @end
+
+
+
+@interface UnitTestable : NSObject {
+}
+- (void) unittest:(id)assert_equal ;
+@end
