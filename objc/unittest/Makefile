@@ -16,5 +16,11 @@ $(APP): $(APP).o $(UNITTEST).o $(CLASSES)
 %.o: %.m
 	$(CC) -c $(CFLAGS) $< -o $@
 
+t: $(APP)
+	@./$(APP)
+
+p: $(APP)
+	@PASSED=0 ./$(APP)
+
 clean:
 	@rm -f *.o $(APP)

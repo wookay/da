@@ -5,7 +5,7 @@
 #import "../unittest/UnitTest.h"
 
 @interface NSObjectTest : UnitTestable {
-  NSString *name;
+  NSString* name;
   int age;
 } 
 @end

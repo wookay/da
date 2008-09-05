@@ -2,18 +2,25 @@
 #                           wookay.noh at gmail.com
 
 all:
-	cd unittest && make && ./test
-	cd foundation && make && ./test
-	cd appkit && make && ./test
-	cd quartzcore && make && ./test
-	cd scriptingbridge && make && ./test
+	@cd unittest && make
+	@cd foundation && make
+	@cd appkit && make
+	@cd quartzcore && make
+	@cd scriptingbridge && make
 
-passed:
-	cd unittest && make && PASSED=0 ./test
-	cd foundation && make && PASSED=0 ./test
-	cd appkit && make && PASSED=0 ./test
-	cd quartzcore && make && PASSED=0 ./test
-	cd scriptingbridge && make && PASSED=0 ./test
+t:
+	@cd unittest && make t
+	@cd foundation && make t
+	@cd appkit && make t
+	@cd quartzcore && make t
+	@cd scriptingbridge && make t
+
+p:
+	@cd unittest && make p
+	@cd foundation && make p
+	@cd appkit && make p
+	@cd quartzcore && make p
+	@cd scriptingbridge && make p
 
 clean:
 	cd unittest && make clean
