@@ -16,6 +16,8 @@
 
   ary = [NSArray arrayWithObjects: @"a", [NSNumber numberWithInt:5], nil];
   [assert_equal a:@"(a, 5)" b:ary];
+  NSPredicate* predicate = [NSPredicate predicateWithFormat:@"intValue == 5"];
+  [assert_equal a:@"(5)" b:[ary filteredArrayUsingPredicate:predicate]];
 
 }
 

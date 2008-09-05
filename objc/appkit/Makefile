@@ -2,7 +2,9 @@
 #                           wookay.noh at gmail.com
 
 CLASSES=NSArrayControllerTest.o \
-        NSBoxTest.o
+        NSBoxTest.o \
+        NSViewTest.o \
+        NSMutableAttributedStringTest.o
 APP=test
 UNITTEST=../unittest/UnitTest
 CC=gcc

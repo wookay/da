@@ -7,13 +7,13 @@
 
 - (void) unittest:(id)assert_equal {
 
-  NSMutableSet* mutableSet = [[NSMutableSet alloc] init];
-  [mutableSet addObject:@"a"];
-  [mutableSet addObject:@"b"];
-  [mutableSet addObject:@"a"];
-  [assert_equal int:2 int:[mutableSet count]];
-  [assert_equal a:nil b:[mutableSet member:@"c"]];
-  [assert_equal bool:true bool:[mutableSet containsObject:@"a"]];
+  NSMutableSet* set = [NSMutableSet set];
+  [set addObject:@"a"];
+  [set addObject:@"b"];
+  [set addObject:@"a"];
+  [assert_equal int:2 int:[set count]];
+  [assert_equal a:nil b:[set member:@"c"]];
+  [assert_equal bool:true bool:[set containsObject:@"a"]];
 
 }
 

@@ -7,10 +7,7 @@ int main (int argc, const char * argv[]) {
   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
   UnitTest* unittest = [[UnitTest alloc] init];
-  [unittest run:@"NSArrayControllerTest"];
-  [unittest run:@"NSBoxTest"];
-  [unittest run:@"NSViewTest"];
-  [unittest run:@"NSMutableAttributedStringTest"];
+  [unittest run:@"CIFilterTest"];
   [unittest report];
 
   [pool release];

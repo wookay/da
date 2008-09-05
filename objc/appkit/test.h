@@ -6,3 +6,5 @@
 
 @interface NSArrayControllerTest : UnitTestable {} @end
 @interface NSBoxTest : UnitTestable {} @end
+@interface NSViewTest : UnitTestable {} @end
+@interface NSMutableAttributedStringTest : UnitTestable {} @end

@@ -147,12 +147,24 @@
 - (void) add_result:(BOOL)cond expected:(id)expected got:(id)got {
   if (cond) {
     [passed addObject:[NSNumber numberWithBool:true]];
-    NSLog(@"passed: %@", expected);
+    NSProcessInfo* info = [NSProcessInfo processInfo];
+    if (! [[info environment] valueForKey:@"PASSED"]) {
+      NSLog(@"passed: %@", expected);
+    }
   } else {
     [failed addObject:[NSNumber numberWithBool:false]];
     NSLog(@"Assertion failed\nExpected: %@\nGot: %@", expected, got);
   }
   // NSAssert(cond, got);
+}
+
+- (void) run:(id)targetClass {
+  Class class = NSClassFromString(targetClass);
+  NSProcessInfo* info = [NSProcessInfo processInfo];
+  if (! [[info environment] valueForKey:@"PASSED"]) {
+    NSLog(targetClass);
+  }
+  [[class alloc] unittest:self];
 }
 
 @end

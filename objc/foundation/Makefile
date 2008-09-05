@@ -4,7 +4,6 @@
 CLASSES=NSObjectTest.o \
         NSNumberTest.o \
         NSStringTest.o \
-        NSAttributedStringTest.o \
         NSArrayTest.o \
         NSMutableArrayTest.o \
         NSMutableSetTest.o \
@@ -13,7 +12,8 @@ CLASSES=NSObjectTest.o \
         NSDataTest.o \
         NSDateTest.o \
         NSExceptionTest.o \
-        NSErrorTest.o \
+		NSErrorTest.o \
+        NSProcessInfoTest.o \
         DataTypesTest.o
 APP=test
 UNITTEST=../unittest/UnitTest

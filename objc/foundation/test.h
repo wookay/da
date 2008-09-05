@@ -12,7 +12,6 @@
 
 @interface NSNumberTest : UnitTestable {} @end
 @interface NSStringTest : UnitTestable {} @end
-@interface NSAttributedStringTest : UnitTestable {} @end
 @interface NSArrayTest : UnitTestable {} @end
 @interface NSMutableArrayTest : UnitTestable {} @end
 @interface NSMutableSetTest : UnitTestable {} @end
@@ -22,4 +21,5 @@
 @interface NSDateTest : UnitTestable {} @end
 @interface NSExceptionTest : UnitTestable {} @end
 @interface NSErrorTest : UnitTestable {} @end
+@interface NSProcessInfoTest : UnitTestable {} @end
 @interface DataTypesTest : UnitTestable {} @end

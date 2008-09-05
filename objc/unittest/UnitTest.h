@@ -29,6 +29,7 @@
 
 - (void) report ;
 - (void) add_result:(BOOL)cond expected:(id)expected got:(id)got ;
+- (void) run:(id)targetClass ;
 
 @end
 

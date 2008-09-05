@@ -6,37 +6,22 @@
 int main (int argc, const char * argv[]) {
   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-  UnitTest* assert_equal = [[UnitTest alloc] init];
-  NSLog(@"NSObjectTest");
-  [[NSObjectTest alloc] unittest:assert_equal];
-  NSLog(@"NSNumberTest");
-  [[NSNumberTest alloc] unittest:assert_equal];
-  NSLog(@"NSStringTest");
-  [[NSStringTest alloc] unittest:assert_equal];
-  NSLog(@"NSAttributedStringTest");
-  [[NSAttributedStringTest alloc] unittest:assert_equal];
-  NSLog(@"NSArrayTest");
-  [[NSArrayTest alloc] unittest:assert_equal];
-  NSLog(@"NSMutableArrayTest");
-  [[NSMutableArrayTest alloc] unittest:assert_equal];
-  NSLog(@"NSMutableSetTest");
-  [[NSMutableSetTest alloc] unittest:assert_equal];
-  NSLog(@"NSMutableDictionaryTest");
-  [[NSMutableDictionaryTest alloc] unittest:assert_equal];
-  NSLog(@"NSInvocationOperationTest");
-  [[NSInvocationOperationTest alloc] unittest:assert_equal];
-  NSLog(@"NSDataTest");
-  [[NSDataTest alloc] unittest:assert_equal];
-  NSLog(@"NSDateTest");
-  [[NSDateTest alloc] unittest:assert_equal];
-  NSLog(@"NSExceptionTest");
-  [[NSExceptionTest alloc] unittest:assert_equal];
-  NSLog(@"NSErrorTest");
-  [[NSErrorTest alloc] unittest:assert_equal];
-  NSLog(@"DataTypesTest");
-  [[DataTypesTest alloc] unittest:assert_equal];
-
-  assert_equal.report;
+  UnitTest* unittest = [[UnitTest alloc] init];
+  [unittest run:@"NSObjectTest"];
+  [unittest run:@"NSNumberTest"];
+  [unittest run:@"NSStringTest"];
+  [unittest run:@"NSArrayTest"];
+  [unittest run:@"NSMutableArrayTest"];
+  [unittest run:@"NSMutableSetTest"];
+  [unittest run:@"NSMutableDictionaryTest"];
+  [unittest run:@"NSInvocationOperationTest"];
+  [unittest run:@"NSDataTest"];
+  [unittest run:@"NSDateTest"];
+  [unittest run:@"NSExceptionTest"];
+  [unittest run:@"NSErrorTest"];
+  [unittest run:@"NSProcessInfoTest"];
+  [unittest run:@"DataTypesTest"];
+  [unittest report];
 
   [pool release];
   return 0;

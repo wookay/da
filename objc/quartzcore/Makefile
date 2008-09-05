@@ -1,12 +1,12 @@
 # Makefile
 #                           wookay.noh at gmail.com
 
+CLASSES=CIFilterTest.o
 APP=test
-CLASSES=Hello.o
-UNITTEST=UnitTest
+UNITTEST=../unittest/UnitTest
 CC=gcc
 CFLAGS=-Wall -O7
-LDFLAGS=-lobjc -framework Foundation
+LDFLAGS=-lobjc -framework QuartzCore -framework Foundation
 
 all: $(APP)
 
@@ -17,4 +17,4 @@ $(APP): $(APP).o $(UNITTEST).o $(CLASSES)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	@rm -f *.o $(APP)
+	@rm -f *.o $(APP) $(UNITTEST).o

@@ -6,11 +6,9 @@
 int main (int argc, const char * argv[]) {
   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-  UnitTest* assert_equal = [[UnitTest alloc] init];
-  NSLog(@"SBElementArrayTest");
-  [[SBElementArrayTest alloc] unittest:assert_equal];
-
-  assert_equal.report;
+  UnitTest* unittest = [[UnitTest alloc] init];
+  [unittest run:@"SBElementArrayTest"];
+  [unittest report];
 
   [pool release];
   return 0;
