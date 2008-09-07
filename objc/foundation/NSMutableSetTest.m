@@ -15,6 +15,10 @@
   [assert_equal a:nil b:[set member:@"c"]];
   [assert_equal bool:true bool:[set containsObject:@"a"]];
 
+  for(id obj in set) {
+    [assert_equal _true:[set containsObject:obj]];
+  }
+
 }
 
 @end

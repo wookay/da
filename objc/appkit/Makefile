@@ -4,7 +4,9 @@
 CLASSES=NSArrayControllerTest.o \
         NSBoxTest.o \
         NSViewTest.o \
-        NSMutableAttributedStringTest.o
+        NSMutableAttributedStringTest.o \
+        NSApplicationTest.o \
+		InterfaceBuilderTest.o
 APP=test
 UNITTEST=../unittest/UnitTest
 CC=gcc

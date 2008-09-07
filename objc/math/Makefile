@@ -1,8 +1,8 @@
 # Makefile
 #                           wookay.noh at gmail.com
 
-CLASSES=CIFilterTest.o \
-		CIVectorTest.o
+CLASSES=Vector.o \
+        VectorTest.o
 APP=test
 UNITTEST=../unittest/UnitTest
 CC=gcc

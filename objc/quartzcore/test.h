@@ -5,3 +5,4 @@
 #import "../unittest/UnitTest.h"
 
 @interface CIFilterTest : UnitTestable {} @end
+@interface CIVectorTest : UnitTestable {} @end

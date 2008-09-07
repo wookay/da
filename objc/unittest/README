@@ -27,8 +27,8 @@ gcc -c -Wall -O7 Hello.m -o Hello.o
 gcc -lobjc -framework Foundation -o test test.o UnitTest.o Hello.o 
 
 $ ./test 
-2008-09-05 22:58:59.033 test[2453:10b] Hello
-2008-09-05 22:58:59.035 test[2453:10b] passed: (1, 2, 3)
-2008-09-05 22:58:59.036 test[2453:10b] passed: 1,2,3
-2008-09-05 22:58:59.036 test[2453:10b] passed: 6
-2008-09-05 22:58:59.037 test[2453:10b] OK, passed 3 tests.
+Hello
+  passed: (1, 2, 3)
+  passed: 1,2,3
+  passed: 6
+OK, passed 3 tests.

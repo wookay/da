@@ -7,6 +7,7 @@ all:
 	@cd appkit && make
 	@cd quartzcore && make
 	@cd scriptingbridge && make
+	@cd math && make
 
 t:
 	@cd unittest && make t
@@ -14,6 +15,7 @@ t:
 	@cd appkit && make t
 	@cd quartzcore && make t
 	@cd scriptingbridge && make t
+	@cd math && make t
 
 p:
 	@cd unittest && make p
@@ -21,6 +23,7 @@ p:
 	@cd appkit && make p
 	@cd quartzcore && make p
 	@cd scriptingbridge && make p
+	@cd math && make p
 
 clean:
 	cd unittest && make clean
@@ -28,3 +31,4 @@ clean:
 	cd appkit && make clean
 	cd quartzcore && make clean
 	cd scriptingbridge && make clean
+	cd math && make clean

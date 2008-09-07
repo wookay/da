@@ -11,6 +11,8 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSBoxTest"];
   [unittest run:@"NSViewTest"];
   [unittest run:@"NSMutableAttributedStringTest"];
+  [unittest run:@"NSApplicationTest"];
+  [unittest run:@"InterfaceBuilderTest"];
   [unittest report];
 
   [pool release];

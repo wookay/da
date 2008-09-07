@@ -13,6 +13,7 @@
 - (void) a:(id)expected NSSize:(NSSize)got ;
 - (void) a:(id)expected NSRect:(NSRect)got ;
 - (void) a:(id)expected NSRange:(NSRange)got ;
+- (void) a:(id)expected NSAffineTransformStruct:(NSAffineTransformStruct)got ;
 - (void) a:(id)expected CGPoint:(CGPoint)got ;
 - (void) a:(id)expected CGSize:(CGSize)got ;
 - (void) a:(id)expected CGRect:(CGRect)got ;
@@ -29,6 +30,7 @@
 
 - (void) report ;
 - (void) add_result:(BOOL)cond expected:(id)expected got:(id)got ;
+- (void) puts:(id)message ;
 - (void) run:(id)targetClass ;
 
 @end

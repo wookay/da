@@ -6,7 +6,6 @@
 int main (int argc, const char * argv[]) {
   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-
   UnitTest* unittest = [[UnitTest alloc] init];
   [unittest run:@"NSObjectTest"];
   [unittest run:@"NSNumberTest"];
@@ -21,6 +20,9 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSExceptionTest"];
   [unittest run:@"NSErrorTest"];
   [unittest run:@"NSProcessInfoTest"];
+  [unittest run:@"NSAffineTransformTest"];
+  [unittest run:@"NSDistributedNotificationCenterTest"];
+  [unittest run:@"NSNotificationTest"];
   [unittest run:@"DataTypesTest"];
   [unittest report];
 

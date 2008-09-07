@@ -8,3 +8,5 @@
 @interface NSBoxTest : UnitTestable {} @end
 @interface NSViewTest : UnitTestable {} @end
 @interface NSMutableAttributedStringTest : UnitTestable {} @end
+@interface NSApplicationTest : UnitTestable {} @end
+@interface InterfaceBuilderTest : UnitTestable {} @end

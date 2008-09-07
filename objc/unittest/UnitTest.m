@@ -32,9 +32,15 @@
           expected:expectedDescription
           got:gotDescription];
   } else {
-    [self add_result:(expected == got)
-          expected:expectedDescription
-          got:gotDescription];
+    if (expected == got) {
+      [self add_result:true
+            expected:expectedDescription
+            got:gotDescription];
+    } else {
+      [self add_result:[expectedDescription isEqualToString:gotDescription]
+            expected:expectedDescription
+            got:gotDescription];
+    }
   }
 }
 
@@ -68,6 +74,17 @@
 - (void) a:(id)expected NSRange:(NSRange)got {
   [self add_result:NSEqualRanges(NSRangeFromString(expected), got)
      expected:expected got:NSStringFromRange(got)];
+}
+
+- (void) a:(id)expected NSAffineTransformStruct:(NSAffineTransformStruct)got {
+  NSString* gotString = [NSString stringWithFormat:@"{%@, %@, %@, %@, %@, %@}",
+    [NSNumber numberWithFloat:got.m11],
+    [NSNumber numberWithFloat:got.m12],
+    [NSNumber numberWithFloat:got.m21],
+    [NSNumber numberWithFloat:got.m22],
+    [NSNumber numberWithFloat:got.tX],
+    [NSNumber numberWithFloat:got.tY]];
+  [self a:expected b:gotString];
 }
 
 - (void) a:(id)expected Class:(Class)got {
@@ -116,11 +133,9 @@
 
 - (void) float:(float)expected b:(id)got {
   NSNumber* expectedNumber = [NSNumber numberWithFloat:expected];
-  NSString* expectedString = [NSString stringWithFormat:@"%@f", expectedNumber, nil];
-  NSString* gotString = [NSString stringWithFormat:@"%@f", got, nil];
-  [self add_result:[expectedNumber isEqualToNumber:got]
-        expected:expectedString
-        got:gotString];
+  NSString* expectedString = [NSString stringWithFormat:@"%@f", expectedNumber];
+  NSString* gotString = [NSString stringWithFormat:@"%@f", got];
+  [self a:expectedString b:gotString];
 }
 
 - (id)init {
@@ -132,15 +147,19 @@
 - (void) report {
   if ([passed count] == 0) {
   } else if ([passed count] == 1) {
-    NSLog(@"OK, passed 1 test.");
+    [self puts:@"OK, passed 1 test."];
   } else {
-    NSLog(@"OK, passed %d tests.", [passed count]);
+    NSString* message = [NSString stringWithFormat:
+      @"OK, passed %d tests.", [passed count]];
+    [self puts:message];
   }
   if ([failed count] == 0) {
   } else if ([failed count] == 1) {
-    NSLog(@"Oops, failed 1 test.");
+    [self puts:@"Oops, failed 1 test."];
   } else {
-    NSLog(@"Oops, failed %d tests.", [failed count]);
+    NSString* message = [NSString stringWithFormat:
+      @"Oops, failed %d tests.", [failed count]];
+    [self puts:message];
   }
 }
 
@@ -149,20 +168,28 @@
     [passed addObject:[NSNumber numberWithBool:true]];
     NSProcessInfo* info = [NSProcessInfo processInfo];
     if (! [[info environment] valueForKey:@"PASSED"]) {
-      NSLog(@"passed: %@", expected);
+      NSString* message = [NSString stringWithFormat:
+        @"  passed: %@", expected];
+      [self puts:message];
     }
   } else {
     [failed addObject:[NSNumber numberWithBool:false]];
-    NSLog(@"Assertion failed\nExpected: %@\nGot: %@", expected, got);
+    NSString* message = [NSString stringWithFormat:
+      @"Assertion failed\nExpected: %@\nGot: %@", expected, got];
+    [self puts:message];
   }
   // NSAssert(cond, got);
+}
+
+- (void) puts:(id)message {
+  printf("%s\n", [message UTF8String]);
 }
 
 - (void) run:(id)targetClass {
   Class class = NSClassFromString(targetClass);
   NSProcessInfo* info = [NSProcessInfo processInfo];
   if (! [[info environment] valueForKey:@"PASSED"]) {
-    NSLog(targetClass);
+    [self puts:targetClass];
   }
   [[class alloc] unittest:self];
 }
