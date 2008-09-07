@@ -15,7 +15,7 @@ j/
   parts of speech
 
 objc/
-  unittest, foundation, appkit, quartzcore, scriptingbridge
+  unittest, foundation, appkit, quartzcore, scriptingbridge, math
 
 ruby/ 
   numero
