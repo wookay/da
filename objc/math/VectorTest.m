@@ -17,7 +17,7 @@
   [assert_equal a:@"[3 6 9]" b:[vector scale:3.0f]];
 
   [assert_equal float:2.7f float:[vector dot:vec2]];
-  [assert_equal a:@"[0.192857 0.385714 0.578571]" b:[vec2 scale_dot:vector]];
+  [assert_equal a:@"[1.45161 2.32258 0.580645]" b:[vec2 scale_dot:vector]];
 
 }
 

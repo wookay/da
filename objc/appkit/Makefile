@@ -6,6 +6,7 @@ CLASSES=NSArrayControllerTest.o \
         NSViewTest.o \
         NSMutableAttributedStringTest.o \
         NSApplicationTest.o \
+        NSImageTest.o \
 		InterfaceBuilderTest.o
 APP=test
 UNITTEST=../unittest/UnitTest

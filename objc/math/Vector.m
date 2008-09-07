@@ -41,7 +41,7 @@
 
 // 투영
 - (id) scale_dot:(Vector*)vector {
-  return [vector scale:[self dot:vector] / ([vector length] * [vector length])];
+  return [self scale:[vector dot:self] / ([self length] * [self length])];
 }
 
 + (id) vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {

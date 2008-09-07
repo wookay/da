@@ -50,8 +50,11 @@
 }
 
 - (void) a:(id)expected NSSize:(NSSize)got {
-  [self add_result:NSEqualSizes(NSSizeFromString(expected), got)
-     expected:expected got:NSStringFromSize(got)];
+  if (NSEqualSizes(NSSizeFromString(expected), got)) {
+    [self add_result:true expected:expected got:NSStringFromSize(got)];
+  } else {
+    [self a:expected b:NSStringFromSize(got)];
+  }
 }
 
 - (void) a:(id)expected NSRect:(NSRect)got {
