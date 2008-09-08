@@ -10,7 +10,7 @@
   return sqrt([self X]*[self X] + [self Y]*[self Y] + [self Z]*[self Z]);
 }
 
-// 단위벡터
+// 단위 벡터
 - (id) normalize {
   float length = [self length];
   return [[self class] vectorWithX:[self X]/length Y:[self Y]/length Z:[self Z]/length];
@@ -39,8 +39,8 @@
   return ([self X]*[vector X] + [self Y]*[vector Y] + [self Z]*[vector Z]);
 }
 
-// 투영
-- (id) scale_dot:(Vector*)vector {
+// 투영 벡터
+- (id) projection:(Vector*)vector {
   return [self scale:[vector dot:self] / ([self length] * [self length])];
 }
 
