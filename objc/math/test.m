@@ -8,6 +8,7 @@ int main (int argc, const char * argv[]) {
 
   UnitTest* unittest = [[UnitTest alloc] init];
   [unittest run:@"VectorTest"];
+  [unittest run:@"MatrixTest"];
   [unittest report];
 
   [pool release];

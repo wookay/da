@@ -5,12 +5,10 @@
 
 @implementation Vector
 
-// 길이
 - (float) length { 
   return sqrt([self X]*[self X] + [self Y]*[self Y] + [self Z]*[self Z]);
 }
 
-// 단위 벡터
 - (id) normalize {
   float length = [self length];
   return [[self class] vectorWithX:[self X]/length Y:[self Y]/length Z:[self Z]/length];
@@ -34,14 +32,19 @@
                                  Z:[self Z]*k];
 }
 
-// 내적
-- (float) dot:(id)vector {
+- (float) dot_product:(id)vector {
   return ([self X]*[vector X] + [self Y]*[vector Y] + [self Z]*[vector Z]);
 }
 
-// 투영 벡터
+- (id) cross_product:(Vector*)vector {
+  return [[self class] vectorWithX:[self Y]*[vector Z] - [self Z]*[vector Y]
+                                 Y:[self Z]*[vector X] - [self X]*[vector Z]
+                                 Z:[self X]*[vector Y] - [self Y]*[vector X]];
+}
+
 - (id) projection:(Vector*)vector {
-  return [self scale:[vector dot:self] / ([self length] * [self length])];
+  return [self scale:
+           [vector dot_product:self] / ([self length] * [self length])];
 }
 
 + (id) vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {

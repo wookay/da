@@ -2,7 +2,9 @@
 #                           wookay.noh at gmail.com
 
 CLASSES=Vector.o \
-        VectorTest.o
+        VectorTest.o \
+        Matrix.o \
+        MatrixTest.o
 APP=test
 UNITTEST=../unittest/UnitTest
 CC=gcc

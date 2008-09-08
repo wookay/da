@@ -16,7 +16,8 @@
   [assert_equal a:@"[0.5 1.2 2.8]" b:[vector minus:vec2]];
   [assert_equal a:@"[3 6 9]" b:[vector scale:3.0f]];
 
-  [assert_equal float:2.7f float:[vector dot:vec2]];
+  [assert_equal float:2.7f float:[vector dot_product:vec2]];
+  [assert_equal a:@"[-2 1.3 -0.2]" b:[vector cross_product:vec2]];
   [assert_equal a:@"[1.45161 2.32258 0.580645]" b:[vec2 projection:vector]];
 
 }
