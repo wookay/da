@@ -1,7 +1,7 @@
 // Matrix.m
 //                           wookay.noh at gmail.com
 
-#import "test.h"
+#import "Matrix.h"
 
 @implementation Matrix
 
@@ -49,9 +49,91 @@
   }
   return mat;
 }
+  
+- (id) scalar:(float)k {
+  NSMutableArray* new_rows = [NSMutableArray array];
+  for (id row in rows) {
+    NSMutableArray* new_row = [NSMutableArray array];
+    for (id element in row) {
+      [new_row addObject:[NSNumber numberWithFloat:[element floatValue] * k]];
+    }
+    [new_rows addObject:new_row];
+  }
+  return [[self class] matrixWithRows:new_rows];
+}
 
 - (id) transpose {
   return [[self class] matrixWithColumns:rows];
+}
+
+- (id) identity {
+  return [[self class] identity:[self row_size]];
+}
+
+- (id) inverse {
+  return [[[self adjoint] transpose] scalar:1.0f / [self determinant]];
+}
+
+- (id) adjoint {
+  int i, j;
+  NSMutableArray* new_rows = [NSMutableArray array];
+  for (i = 0; i < [self row_size]; i++) {
+    NSMutableArray* row = [NSMutableArray array];
+    for (j = 0; j < [self column_size]; j++) {
+      [row addObject:[NSNumber numberWithFloat:[self cofactor:i j:j]]];
+    }
+    [new_rows addObject:row];
+  }
+  return [[self class] matrixWithRows:new_rows];
+}
+
+- (float) determinant {
+  float result = 0; 
+
+  if ([self row_size] == 1) { 
+    return [[self getElement:0 j:0] floatValue];
+  } 
+
+  if ([self row_size] == 2) { 
+    return [[self getElement:0 j:0] floatValue] *
+           [[self getElement:1 j:1] floatValue] -
+           [[self getElement:0 j:1] floatValue] *
+           [[self getElement:1 j:0] floatValue];
+  } 
+
+  int i, j, k;
+  for (i = 0; i < [self column_size]; i++) { 
+    Matrix* mat = [[self class] zero:[self row_size] - 1 by:[self column_size] - 1];
+    for (j = 1; j < [self row_size]; j++) { 
+      for (k = 0; k < [self column_size]; k++) { 
+        if (k < i) {
+          [mat setElement:j - 1 j:k with:[self getElement:j j:k]];
+        } else if (k > i) { 
+          [mat setElement:j - 1 j:k - 1 with:[self getElement:j j:k]];
+        } 
+      } 
+    } 
+    result += [[self getElement:0 j:i] floatValue] * powf(-1, i) * [mat determinant]; 
+  } 
+  return result;
+}
+
+- (float) cofactor:(int)i j:(int)j {
+  int m, n;
+  NSMutableArray* new_rows = [NSMutableArray array];
+  for (m = 0; m < [self row_size]; m++) {
+    if (i != m) {
+      NSMutableArray* row = [NSMutableArray array];
+      for (n = 0; n < [self column_size]; n++) {
+        if (j != n) {
+          [row addObject:[self getElement:m j:n]];
+        }
+      }
+      [new_rows addObject:row];
+    }
+  }
+  Matrix* mat = [[self class] matrixWithRows:new_rows];
+  return powf(-1, i+j) * [mat determinant];
 }
 
 - (id) getElement:(int)i j:(int)j {

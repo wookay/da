@@ -1,7 +1,7 @@
 // Vector.m
 //                           wookay.noh at gmail.com
 
-#import "test.h"
+#import "Vector.h"
 
 @implementation Vector
 

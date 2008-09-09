@@ -1,7 +1,7 @@
 // Matrix.h
 //                           wookay.noh at gmail.com
 
-#import <QuartzCore/QuartzCore.h>
+#import <Foundation/Foundation.h>
 
 @interface Matrix : NSObject {
   NSMutableArray* rows;
@@ -9,9 +9,15 @@
 
 - (id) plus:(id)matrix ;
 - (id) minus:(id)matrix ;
+- (id) operator:(CFStringRef)op with:(id)matrix ; //
 - (id) multiply:(id)matrix ;
-- (id) operator:(CFStringRef)op with:(id)matrix ;
+- (id) scalar:(float)k ;
 - (id) transpose ;
+- (id) identity ;
+- (id) inverse ;
+- (id) adjoint ;
+- (float) determinant ;
+- (float) cofactor:(int)i j:(int)j ;
 
 - (id) getElement:(int)i j:(int)j ;
 - (void) setElement:(int)i j:(int)j with:(id)obj ;
@@ -30,5 +36,4 @@
 + (id) matrixWithColumns:(NSArray*)columns ;
 + (NSArray*) numbersFromString:(NSString*)string ;
 + (NSArray*) rowsFromString:(NSString*)string ;
-
 @end

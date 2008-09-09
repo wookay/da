@@ -1,7 +1,7 @@
 // Vector.h
 //                           wookay.noh at gmail.com
 
-#import <QuartzCore/QuartzCore.h>
+#import <QuartzCore/CIVector.h>
 
 @interface Vector : CIVector {
 }
