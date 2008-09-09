@@ -23,6 +23,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSAffineTransformTest"];
   [unittest run:@"NSDistributedNotificationCenterTest"];
   [unittest run:@"NSNotificationTest"];
+  [unittest run:@"NSBundleTest"];
   [unittest run:@"DataTypesTest"];
   [unittest report];
 

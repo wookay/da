@@ -88,7 +88,7 @@
 }
 
 - (float) determinant {
-  float result = 0; 
+  float det = 0; 
 
   if ([self row_size] == 1) { 
     return [[self getElement:0 j:0] floatValue];
@@ -113,9 +113,9 @@
         } 
       } 
     } 
-    result += [[self getElement:0 j:i] floatValue] * powf(-1, i) * [mat determinant]; 
+    det += [[self getElement:0 j:i] floatValue] * powf(-1, i) * [mat determinant]; 
   } 
-  return result;
+  return det;
 }
 
 - (float) cofactor:(int)i j:(int)j {

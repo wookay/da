@@ -25,4 +25,5 @@
 @interface NSAffineTransformTest : UnitTestable {} @end
 @interface NSDistributedNotificationCenterTest : UnitTestable {} @end
 @interface NSNotificationTest : UnitTestable {} @end
+@interface NSBundleTest : UnitTestable {} @end
 @interface DataTypesTest : UnitTestable {} @end

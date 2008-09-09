@@ -17,6 +17,7 @@ CLASSES=NSObjectTest.o \
 		NSAffineTransformTest.o \
 		NSDistributedNotificationCenterTest.o \
 		NSNotificationTest.o \
+		NSBundleTest.o \
         DataTypesTest.o
 APP=test
 UNITTEST=../unittest/UnitTest
