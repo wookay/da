@@ -8,7 +8,7 @@
 - (void) unittest:(id)assert_equal {
 
   NSDate* today = [NSDate date];
-  [assert_equal int:[@"YYYY-MM-DD HH:MM:SS ±HHMM" length]
+  [assert_equal int:[@"YYYY-MM-DD HH:MM:SS +HHMM" length]
                 int:[[today description] length]];
   NSDate* sept = [NSDate dateWithString:@"2008-09-10 11:12:13 +0900"];
   [assert_equal a:@"2008-09-10 11:12:13 +0900" b:sept];

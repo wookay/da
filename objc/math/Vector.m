@@ -47,8 +47,31 @@
            [vector dot_product:self] / ([self length] * [self length])];
 }
 
-+ (id) vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z {
-  return [super vectorWithX:x Y:y Z:z];
+- (float) X {
+  return [X floatValue];
+}
+
+- (float) Y {
+  return [Y floatValue];
+}
+
+- (float) Z {
+  return [Z floatValue];
+}
+
+#define F(v) [NSNumber numberWithFloat:(v)]
+
++ (id) vectorWithX:(float)x Y:(float)y Z:(float)z {
+  Vector* vector = [[self alloc] init];
+  [vector setValue:F(x) forKey:@"X"];
+  [vector setValue:F(y) forKey:@"Y"];
+  [vector setValue:F(z) forKey:@"Z"];
+  return vector; 
+}
+
+
+- (NSString*) description {
+  return [NSString stringWithFormat:@"[%@ %@ %@]", X, Y, Z];
 }
 
 @end

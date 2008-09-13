@@ -1,10 +1,16 @@
 // Vector.h
 //                           wookay.noh at gmail.com
 
-#import <QuartzCore/CIVector.h>
+#import <Foundation/Foundation.h>
 
-@interface Vector : CIVector {
+@interface Vector : NSObject {
+  NSNumber *X, *Y, *Z;
 }
+
+- (float) X ;
+- (float) Y ;
+- (float) Z ;
+
 - (float) length ;
 - (id) normalize ;
 - (id) plus:(id)vector ;
@@ -14,5 +20,5 @@
 - (id) cross_product:(Vector*)vector ;
 - (id) projection:(Vector*)vector ;
 
-+ (id) vectorWithX:(CGFloat)x Y:(CGFloat)y Z:(CGFloat)z ; 
++ (id) vectorWithX:(float)x Y:(float)y Z:(float)z ; 
 @end

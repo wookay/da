@@ -2,7 +2,7 @@ UnitTest for Objective-C
 
 == Example ==
 
-@implementation Hello
+@implementation HelloTest
 - (void) unittest:(id)assert_equal {
   NSString* str = @"1 2 3";
   NSArray* ary = [str componentsSeparatedByString:@" "];
@@ -15,19 +15,19 @@ UnitTest for Objective-C
 
 
   UnitTest* unittest = [[UnitTest alloc] init];
-  [unittest run:@"Hello"];
+  [unittest run:@"HelloTest"];
   [unittest report];
 
 
 
-$ make
-gcc -c -Wall -O7 test.m -o test.o
-gcc -c -Wall -O7 UnitTest.m -o UnitTest.o
-gcc -c -Wall -O7 Hello.m -o Hello.o
-gcc -lobjc -framework Foundation -o test test.o UnitTest.o Hello.o 
+$ rake mac
+gcc -c -Wall -O7 test.m -o test.mac.o
+gcc -c -Wall -O7 UnitTest.m -o UnitTest.mac.o
+gcc -c -Wall -O7 HelloTest.m -o HelloTest.mac.o
+gcc -framework Foundation -o unittest_mac_test test.mac.o UnitTest.mac.o HelloTest.mac.o 
 
-$ ./test 
-Hello
+$ ./unitest_mac_test 
+HelloTest
   passed: (1, 2, 3)
   passed: 1,2,3
   passed: 6

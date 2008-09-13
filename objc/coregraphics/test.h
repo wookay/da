@@ -1,7 +1,7 @@
 // test.h
 //                           wookay.noh at gmail.com
 
-#import <ScriptingBridge/ScriptingBridge.h>
+#import <CoreGraphics/CoreGraphics.h>
 #import "../unittest/UnitTest.h"
 
-@interface SBElementArrayTest : UnitTestable {} @end
+@interface CGContextTest : UnitTestable {} @end

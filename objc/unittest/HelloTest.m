@@ -1,10 +1,10 @@
-// Hello.m
+// HelloTest.m
 //                           wookay.noh at gmail.com
 
 #import "UnitTest.h"
-#import "Hello.h"
+#import "HelloTest.h"
 
-@implementation Hello
+@implementation HelloTest
 
 - (void) unittest:(id)assert_equal {
 

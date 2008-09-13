@@ -16,14 +16,11 @@
 @interface NSMutableArrayTest : UnitTestable {} @end
 @interface NSMutableSetTest : UnitTestable {} @end
 @interface NSMutableDictionaryTest : UnitTestable {} @end
-@interface NSInvocationOperationTest : UnitTestable {} @end
 @interface NSDataTest : UnitTestable {} @end
 @interface NSDateTest : UnitTestable {} @end
 @interface NSExceptionTest : UnitTestable {} @end
 @interface NSErrorTest : UnitTestable {} @end
 @interface NSProcessInfoTest : UnitTestable {} @end
-@interface NSAffineTransformTest : UnitTestable {} @end
-@interface NSDistributedNotificationCenterTest : UnitTestable {} @end
 @interface NSNotificationTest : UnitTestable {} @end
 @interface NSBundleTest : UnitTestable {} @end
 @interface DataTypesTest : UnitTestable {} @end

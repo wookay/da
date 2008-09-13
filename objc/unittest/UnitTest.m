@@ -44,34 +44,12 @@
   }
 }
 
-- (void) a:(id)expected NSPoint:(NSPoint)got {
-  [self add_result:NSEqualPoints(NSPointFromString(expected), got)
-     expected:expected got:NSStringFromPoint(got)];
+- (void) a:(id)expected SEL:(SEL)got {
+  [self a:expected b:NSStringFromSelector(got)];
 }
 
-- (void) a:(id)expected NSSize:(NSSize)got {
-  if (NSEqualSizes(NSSizeFromString(expected), got)) {
-    [self add_result:true expected:expected got:NSStringFromSize(got)];
-  } else {
-    [self a:expected b:NSStringFromSize(got)];
-  }
-}
-
-- (void) a:(id)expected NSRect:(NSRect)got {
-  [self add_result:NSEqualRects(NSRectFromString(expected), got)
-     expected:expected got:NSStringFromRect(got)];
-}
-
-- (void) a:(id)expected CGPoint:(CGPoint)got {
-  [self a:expected NSPoint:NSPointFromCGPoint(got)];
-}
-
-- (void) a:(id)expected CGSize:(CGSize)got {
-  [self a:expected NSSize:NSSizeFromCGSize(got)];
-}
-
-- (void) a:(id)expected CGRect:(CGRect)got {
-  [self a:expected NSRect:NSRectFromCGRect(got)];
+- (void) a:(id)expected Class:(Class)got {
+  [self a:expected b:NSStringFromClass(got)];
 }
 
 - (void) a:(id)expected NSRange:(NSRange)got {
@@ -79,23 +57,40 @@
      expected:expected got:NSStringFromRange(got)];
 }
 
-- (void) a:(id)expected NSAffineTransformStruct:(NSAffineTransformStruct)got {
-  NSString* gotString = [NSString stringWithFormat:@"{%@, %@, %@, %@, %@, %@}",
-    [NSNumber numberWithFloat:got.m11],
-    [NSNumber numberWithFloat:got.m12],
-    [NSNumber numberWithFloat:got.m21],
-    [NSNumber numberWithFloat:got.m22],
-    [NSNumber numberWithFloat:got.tX],
-    [NSNumber numberWithFloat:got.tY]];
+#define F(v) [NSNumber numberWithFloat:(v)]
+
+- (void) a:(id)expected CGPoint:(CGPoint)got {
+  NSString* gotString = [NSString stringWithFormat:@"{%@, %@}",
+    F(got.x), F(got.y)];
   [self a:expected b:gotString];
 }
 
-- (void) a:(id)expected Class:(Class)got {
-  [self a:expected b:NSStringFromClass(got)];
+- (void) a:(id)expected CGSize:(CGSize)got {
+  NSString* gotString = [NSString stringWithFormat:@"{%@, %@}",
+    F(got.width), F(got.height)];
+  [self a:expected b:gotString];
 }
 
-- (void) a:(id)expected SEL:(SEL)got {
-  [self a:expected b:NSStringFromSelector(got)];
+- (void) a:(id)expected CGRect:(CGRect)got {
+  NSString* gotString = [NSString stringWithFormat:@"{{%@, %@}, {%@, %@}}",
+    F(got.origin.x), F(got.origin.y), F(got.size.width), F(got.size.height)];
+  [self a:expected b:gotString];
+}
+
+- (void) a:(id)expected CGAffineTransform:(CGAffineTransform)got {
+  NSString* gotString = [NSString stringWithFormat:@"{%@, %@, %@, %@, %@, %@}",
+    F(got.a), F(got.b), F(got.c), F(got.d), F(got.tx), F(got.ty)];
+  [self a:expected b:gotString];
+}
+
+- (void) a:(id)expected CATransform3D:(CATransform3D)got {
+  NSString* gotString = [NSString stringWithFormat:
+    @"{%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@}",
+    F(got.m11), F(got.m12), F(got.m13), F(got.m14),
+    F(got.m21), F(got.m22), F(got.m23), F(got.m24),
+    F(got.m31), F(got.m32), F(got.m33), F(got.m34),
+    F(got.m41), F(got.m42), F(got.m43), F(got.m44)];
+  [self a:expected b:gotString];
 }
 
 - (void) bool:(BOOL)expected bool:(BOOL)got {
@@ -119,8 +114,8 @@
 }
 
 - (void) int:(int)expected int:(int)got {
-  NSString* expectedString = [NSString stringWithFormat:@"%d", expected, nil];
-  NSString* gotString = [NSString stringWithFormat:@"%d", got, nil];
+  NSString* expectedString = [NSString stringWithFormat:@"%d", expected];
+  NSString* gotString = [NSString stringWithFormat:@"%d", got];
   [self add_result:(expected == got)
         expected:expectedString
         got:gotString];

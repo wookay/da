@@ -1,0 +1,4 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+load 'unittest/build.rake'

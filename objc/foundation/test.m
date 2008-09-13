@@ -14,14 +14,10 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSMutableArrayTest"];
   [unittest run:@"NSMutableSetTest"];
   [unittest run:@"NSMutableDictionaryTest"];
-  [unittest run:@"NSInvocationOperationTest"];
   [unittest run:@"NSDataTest"];
   [unittest run:@"NSDateTest"];
-  [unittest run:@"NSExceptionTest"];
   [unittest run:@"NSErrorTest"];
   [unittest run:@"NSProcessInfoTest"];
-  [unittest run:@"NSAffineTransformTest"];
-  [unittest run:@"NSDistributedNotificationCenterTest"];
   [unittest run:@"NSNotificationTest"];
   [unittest run:@"NSBundleTest"];
   [unittest run:@"DataTypesTest"];

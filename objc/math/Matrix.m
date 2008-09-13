@@ -3,6 +3,13 @@
 
 #import "Matrix.h"
 
+@interface Matrix (Private)
+- (id) operator:(CFStringRef)op with:(id)matrix ;
+- (id) getElement:(int)i j:(int)j ;
+- (void) setElement:(int)i j:(int)j with:(id)obj ;
+- (float) cofactor:(int)i j:(int)j ;
+@end
+
 @implementation Matrix
 
 - (id) plus:(id)matrix {

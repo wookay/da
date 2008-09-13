@@ -9,18 +9,14 @@
 
 - (id) plus:(id)matrix ;
 - (id) minus:(id)matrix ;
-- (id) operator:(CFStringRef)op with:(id)matrix ; //
 - (id) multiply:(id)matrix ;
 - (id) scalar:(float)k ;
-- (id) transpose ;
 - (id) identity ;
 - (id) inverse ;
 - (id) adjoint ;
+- (id) transpose ;
 - (float) determinant ;
-- (float) cofactor:(int)i j:(int)j ;
 
-- (id) getElement:(int)i j:(int)j ;
-- (void) setElement:(int)i j:(int)j with:(id)obj ;
 - (int) row_size ;
 - (int) column_size ;
 - (NSString*) description ;
