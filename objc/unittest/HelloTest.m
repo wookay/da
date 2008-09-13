@@ -1,12 +1,11 @@
 // HelloTest.m
 //                           wookay.noh at gmail.com
 
-#import "UnitTest.h"
 #import "HelloTest.h"
 
 @implementation HelloTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSString* str = @"1 2 3";
   NSArray* ary = [str componentsSeparatedByString:@" "];

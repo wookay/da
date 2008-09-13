@@ -5,7 +5,7 @@
 
 @implementation NSDateTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSDate* today = [NSDate date];
   [assert_equal int:[@"YYYY-MM-DD HH:MM:SS +HHMM" length]

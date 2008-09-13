@@ -59,7 +59,7 @@ if defined? DIR
     sh "rm -f #{APP}_arm_test #{APP}_mac_test* #{UNITTEST.o} *.o"
   end
 else
-  dirs = Dir["*"].select{|dir| dir != 'Rakefile'}
+  dirs = Dir["*"].select{|dir| not %w{README Rakefile}.include? dir }
   task :default do
     puts `rake -T --silent`
   end
@@ -143,7 +143,7 @@ ARM_CFLAGS="-Wall -O2 -isysroot #{ARM_SYSROOT} -I#{ARM_SYSROOT}/usr/lib/gcc/arm-
 ARM_LDFLAGS="-isysroot #{ARM_SYSROOT} #{FRAMEWORK}"
 
 def dyld_fallback?
-  return fasle if not ENV['DYLD_FALLBACK_FRAMEWORK_PATH']
+  return false if not ENV['DYLD_FALLBACK_FRAMEWORK_PATH']
   FRAMEWORKS != %w{Foundation}
 end
 

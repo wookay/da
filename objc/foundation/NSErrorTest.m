@@ -5,7 +5,7 @@
 
 @implementation NSErrorTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSError* error = [NSError errorWithDomain:@"domain"
                             code:0

@@ -1,9 +1,8 @@
 // HelloTest.h
 //                           wookay.noh at gmail.com
 
-#import <Foundation/Foundation.h>
+#import "UnitTest.h"
 
-@interface HelloTest : NSObject {
+@interface HelloTest : UnitTestable {
 }
-- (void) unittest:(id)assert_equal ;
 @end

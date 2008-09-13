@@ -5,7 +5,7 @@
 
 @implementation NSStringTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSString* s = [NSString string];
   [assert_equal a:@"" b:s];

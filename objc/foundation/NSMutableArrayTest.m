@@ -5,7 +5,7 @@
 
 @implementation NSMutableArrayTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSMutableArray* ary = [NSMutableArray array];
   [assert_equal a:@"()" b:ary];

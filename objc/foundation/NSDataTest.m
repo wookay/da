@@ -5,7 +5,7 @@
 
 @implementation NSDataTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSData* data = [NSData data];
   [assert_equal a:@"<>" b:data];

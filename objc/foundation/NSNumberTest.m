@@ -5,7 +5,7 @@
 
 @implementation NSNumberTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSNumber* number = [NSNumber numberWithInt:100];
   [assert_equal int:100 int:[number intValue]];

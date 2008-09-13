@@ -5,7 +5,7 @@
 
 @implementation NSBundleTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSBundle* bundle = [NSBundle bundleWithPath:@"/etc/hosts"];
   NSString* path = [bundle bundlePath];

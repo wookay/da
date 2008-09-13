@@ -5,7 +5,7 @@
 
 @implementation DataTypesTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSRange range = NSMakeRange(2, 5);
   [assert_equal a:@"{2, 5}" NSRange:range];

@@ -5,7 +5,7 @@
 
 @implementation MatrixTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   [assert_equal a:@"0 0\n0 0" b:[Matrix zero:2]];
   [assert_equal a:@"5 0\n0 5" b:[Matrix scalar:2 int:5]];

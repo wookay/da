@@ -5,7 +5,7 @@
 
 @implementation CGContextTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   [assert_equal a:@"{1, 0, 0, 1, 0, 0}"
                 CGAffineTransform:CGAffineTransformIdentity];

@@ -5,7 +5,7 @@
 
 @implementation NSMutableSetTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSMutableSet* set = [NSMutableSet set];
   [set addObject:@"a"];

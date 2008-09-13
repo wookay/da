@@ -30,13 +30,16 @@
 - (void) report ;
 - (void) add_result:(BOOL)cond expected:(id)expected got:(id)got ;
 - (void) puts:(id)message ;
-- (void) run:(id)targetClass ;
+- (void) run:(id)targetClassString ;
++ (id) create ;
 
 @end
 
 
 
 @interface UnitTestable : NSObject {
+  id assert_equal;
 }
-- (void) unittest:(id)assert_equal ;
+- (void) unittest ;
++ (id) create:(id)obj ;
 @end

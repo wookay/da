@@ -5,7 +5,7 @@
 
 @implementation VectorTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   Vector* vector = [Vector vectorWithX:1.0f Y:2.0f Z:3.0f];
   [assert_equal a:@"[0.2672612 0.5345225 0.8017837]" b:[vector normalize]];

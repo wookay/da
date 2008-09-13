@@ -5,7 +5,7 @@
 
 @implementation NSMutableDictionaryTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSMutableDictionary* hash = [NSMutableDictionary dictionary];
   [assert_equal a:@"{}" b:hash];

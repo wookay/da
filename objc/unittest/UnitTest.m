@@ -183,13 +183,17 @@
   printf("%s\n", [message UTF8String]);
 }
 
-- (void) run:(id)targetClass {
-  Class class = NSClassFromString(targetClass);
+- (void) run:(id)targetClassString {
+  Class targetClass = NSClassFromString(targetClassString);
   NSProcessInfo* info = [NSProcessInfo processInfo];
   if (! [[info environment] valueForKey:@"PASSED"]) {
-    [self puts:targetClass];
+    [self puts:targetClassString];
   }
-  [[class alloc] unittest:self];
+  [[targetClass create:self] unittest];
+}
+
++ (id) create {
+  return [[self alloc] init];
 }
 
 @end
@@ -197,6 +201,12 @@
 
 
 @implementation UnitTestable
-- (void) unittest:(id)assert_equal {
++ (id) create:(id)obj {
+  id unit = [self alloc];
+  [unit setValue:obj forKey:@"assert_equal"];
+  return unit;
+}
+
+- (void) unittest {
 }
 @end

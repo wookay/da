@@ -5,7 +5,7 @@
 
 @implementation NSNotificationTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSNotification* noti = [NSNotification notificationWithName:@"name" object:@"object"];
   [assert_equal a:@"name" b:[noti name]];

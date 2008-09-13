@@ -5,7 +5,7 @@
 
 @implementation NSObjectTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   [assert_equal a:nil b:[self valueForKeyPath:@"name"]];
   [self setValue:@"iphone" forKey:@"name"];

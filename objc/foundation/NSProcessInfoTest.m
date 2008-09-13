@@ -5,7 +5,7 @@
 
 @implementation NSProcessInfoTest
 
-- (void) unittest:(id)assert_equal {
+- (void) unittest {
 
   NSProcessInfo* info = [NSProcessInfo processInfo];
   [assert_equal _true:[[[info arguments] objectAtIndex:0] hasSuffix:@"test"]];
