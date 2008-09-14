@@ -26,9 +26,12 @@
     @"VectorTest MatrixTest",
     @"math",
     
+    @"ArrayTest EnumerableTest NumericTest StringTest",
+    @"fun",
+
     @"CGContextTest",
     @"coregraphics",
-    
+                    
     nil];
   
   [self setValue:@"touch" forKey:@"title"];

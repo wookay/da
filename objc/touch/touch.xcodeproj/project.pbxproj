@@ -38,6 +38,14 @@
 		A0945A6C0E7CC0A600C3CC96 /* VectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945A680E7CC0A600C3CC96 /* VectorTest.m */; };
 		A0945D960E7CF31200C3CC96 /* HelloTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945D950E7CF31200C3CC96 /* HelloTest.m */; };
 		A0945D990E7CF32600C3CC96 /* CGContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945D980E7CF32600C3CC96 /* CGContextTest.m */; };
+		A0E66F400E7D9B7C000F6789 /* Array.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F340E7D9B7C000F6789 /* Array.m */; };
+		A0E66F410E7D9B7C000F6789 /* ArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F350E7D9B7C000F6789 /* ArrayTest.m */; };
+		A0E66F420E7D9B7C000F6789 /* Enumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F370E7D9B7C000F6789 /* Enumerable.m */; };
+		A0E66F430E7D9B7C000F6789 /* EnumerableTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F380E7D9B7C000F6789 /* EnumerableTest.m */; };
+		A0E66F440E7D9B7C000F6789 /* Numeric.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3A0E7D9B7C000F6789 /* Numeric.m */; };
+		A0E66F450E7D9B7C000F6789 /* NumericTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3B0E7D9B7C000F6789 /* NumericTest.m */; };
+		A0E66F460E7D9B7C000F6789 /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3D0E7D9B7C000F6789 /* String.m */; };
+		A0E66F470E7D9B7C000F6789 /* StringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3E0E7D9B7C000F6789 /* StringTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +93,19 @@
 		A0945D950E7CF31200C3CC96 /* HelloTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelloTest.m; path = ../unittest/HelloTest.m; sourceTree = SOURCE_ROOT; };
 		A0945D970E7CF32600C3CC96 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../coregraphics/test.h; sourceTree = SOURCE_ROOT; };
 		A0945D980E7CF32600C3CC96 /* CGContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGContextTest.m; path = ../coregraphics/CGContextTest.m; sourceTree = SOURCE_ROOT; };
+		A0E66F330E7D9B7C000F6789 /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Array.h; path = ../fun/Array.h; sourceTree = SOURCE_ROOT; };
+		A0E66F340E7D9B7C000F6789 /* Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Array.m; path = ../fun/Array.m; sourceTree = SOURCE_ROOT; };
+		A0E66F350E7D9B7C000F6789 /* ArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArrayTest.m; path = ../fun/ArrayTest.m; sourceTree = SOURCE_ROOT; };
+		A0E66F360E7D9B7C000F6789 /* Enumerable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Enumerable.h; path = ../fun/Enumerable.h; sourceTree = SOURCE_ROOT; };
+		A0E66F370E7D9B7C000F6789 /* Enumerable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Enumerable.m; path = ../fun/Enumerable.m; sourceTree = SOURCE_ROOT; };
+		A0E66F380E7D9B7C000F6789 /* EnumerableTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EnumerableTest.m; path = ../fun/EnumerableTest.m; sourceTree = SOURCE_ROOT; };
+		A0E66F390E7D9B7C000F6789 /* Numeric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Numeric.h; path = ../fun/Numeric.h; sourceTree = SOURCE_ROOT; };
+		A0E66F3A0E7D9B7C000F6789 /* Numeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Numeric.m; path = ../fun/Numeric.m; sourceTree = SOURCE_ROOT; };
+		A0E66F3B0E7D9B7C000F6789 /* NumericTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NumericTest.m; path = ../fun/NumericTest.m; sourceTree = SOURCE_ROOT; };
+		A0E66F3C0E7D9B7C000F6789 /* String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = String.h; path = ../fun/String.h; sourceTree = SOURCE_ROOT; };
+		A0E66F3D0E7D9B7C000F6789 /* String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = String.m; path = ../fun/String.m; sourceTree = SOURCE_ROOT; };
+		A0E66F3E0E7D9B7C000F6789 /* StringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringTest.m; path = ../fun/StringTest.m; sourceTree = SOURCE_ROOT; };
+		A0E66F3F0E7D9B7C000F6789 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../fun/test.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +146,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A0E66F320E7D9B2A000F6789 /* fun */,
 				A025467A0E7D648B0096455D /* images */,
 				A0945D930E7CF2EA00C3CC96 /* coregraphics */,
 				A0945A610E7CC08E00C3CC96 /* math */,
@@ -232,6 +254,26 @@
 			name = coregraphics;
 			sourceTree = "<group>";
 		};
+		A0E66F320E7D9B2A000F6789 /* fun */ = {
+			isa = PBXGroup;
+			children = (
+				A0E66F330E7D9B7C000F6789 /* Array.h */,
+				A0E66F340E7D9B7C000F6789 /* Array.m */,
+				A0E66F350E7D9B7C000F6789 /* ArrayTest.m */,
+				A0E66F360E7D9B7C000F6789 /* Enumerable.h */,
+				A0E66F370E7D9B7C000F6789 /* Enumerable.m */,
+				A0E66F380E7D9B7C000F6789 /* EnumerableTest.m */,
+				A0E66F390E7D9B7C000F6789 /* Numeric.h */,
+				A0E66F3A0E7D9B7C000F6789 /* Numeric.m */,
+				A0E66F3B0E7D9B7C000F6789 /* NumericTest.m */,
+				A0E66F3C0E7D9B7C000F6789 /* String.h */,
+				A0E66F3D0E7D9B7C000F6789 /* String.m */,
+				A0E66F3E0E7D9B7C000F6789 /* StringTest.m */,
+				A0E66F3F0E7D9B7C000F6789 /* test.h */,
+			);
+			name = fun;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -312,6 +354,14 @@
 				A0945A6C0E7CC0A600C3CC96 /* VectorTest.m in Sources */,
 				A0945D960E7CF31200C3CC96 /* HelloTest.m in Sources */,
 				A0945D990E7CF32600C3CC96 /* CGContextTest.m in Sources */,
+				A0E66F400E7D9B7C000F6789 /* Array.m in Sources */,
+				A0E66F410E7D9B7C000F6789 /* ArrayTest.m in Sources */,
+				A0E66F420E7D9B7C000F6789 /* Enumerable.m in Sources */,
+				A0E66F430E7D9B7C000F6789 /* EnumerableTest.m in Sources */,
+				A0E66F440E7D9B7C000F6789 /* Numeric.m in Sources */,
+				A0E66F450E7D9B7C000F6789 /* NumericTest.m in Sources */,
+				A0E66F460E7D9B7C000F6789 /* String.m in Sources */,
+				A0E66F470E7D9B7C000F6789 /* StringTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
