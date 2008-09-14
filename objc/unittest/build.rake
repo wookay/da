@@ -3,6 +3,8 @@
 
 DEPLOY="/deploy/var/mobile/"
 
+IGNORE_FILES = %w{README Rakefile touch}
+
 if defined? DIR
   APP=DIR.split('/').last
   CLASSES=[] if not defined? CLASSES
@@ -59,7 +61,7 @@ if defined? DIR
     sh "rm -f #{APP}_arm_test #{APP}_mac_test* #{UNITTEST.o} *.o"
   end
 else
-  dirs = Dir["*"].select{|dir| not %w{README Rakefile}.include? dir }
+  dirs = Dir["*"].select{|dir| not IGNORE_FILES.include? dir }
   task :default do
     puts `rake -T --silent`
   end
@@ -67,13 +69,6 @@ else
   task :all do
     dirs.each do |dir|
       sh "cd #{dir} && rake all"
-    end
-  end
-
-  desc "run tests"
-  task :t do
-    dirs.each do |dir|
-      puts `cd #{dir} && rake test --silent`
     end
   end
 
@@ -91,10 +86,17 @@ else
     end
   end
 
+  desc "run tests"
+  task :t do
+    dirs.each do |dir|
+      puts `cd #{dir} && rake --silent t`
+    end
+  end
+
   desc "run tests and display only results"
   task :p do
     dirs.each do |dir|
-      print `cd #{dir} && rake --silent p`
+      puts `cd #{dir} && rake --silent p`
     end
   end
 
@@ -143,8 +145,7 @@ ARM_CFLAGS="-Wall -O2 -isysroot #{ARM_SYSROOT} -I#{ARM_SYSROOT}/usr/lib/gcc/arm-
 ARM_LDFLAGS="-isysroot #{ARM_SYSROOT} #{FRAMEWORK}"
 
 def dyld_fallback?
-  return false if not ENV['DYLD_FALLBACK_FRAMEWORK_PATH']
-  FRAMEWORKS != %w{Foundation}
+  not FRAMEWORKS == %w{Foundation}
 end
 
 class Builder

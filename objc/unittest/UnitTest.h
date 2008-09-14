@@ -5,8 +5,11 @@
 #import <QuartzCore/CATransform3D.h>
 
 @interface UnitTest : NSObject {
-  NSMutableArray* passed;
-  NSMutableArray* failed;
+  int passedCount;
+  int failedCount;
+
+  id currentTargetClass;
+  NSMutableDictionary* builder;
 }
 
 - (void) a:(id)expected b:(id)got ;
@@ -27,11 +30,19 @@
 - (void) float:(float)expected float:(float)got ; 
 - (void) float:(float)expected b:(id)got ; 
 
+- (int) passedCount ;
+- (int) failedCount ;
 - (void) report ;
 - (void) add_result:(BOOL)cond expected:(id)expected got:(id)got ;
+- (void) passed:(id)expected got:(id)got ;
+- (void) failed:(id)expected got:(id)got ;
 - (void) puts:(id)message ;
 - (void) run:(id)targetClassString ;
+- (void) buildup:(bool)success expected:(id)expected got:(id)got ;
+
 + (id) create ;
++ (id) createBuilder ;
+- (NSDictionary*) builder ;
 
 @end
 

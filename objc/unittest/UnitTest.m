@@ -137,46 +137,83 @@
 }
 
 - (id)init {
-  passed = [NSMutableArray array];
-  failed = [NSMutableArray array];
+  passedCount = 0;
+  failedCount = 0;
+  builder = nil;
+  currentTargetClass = @"nil";
   return self;
 }
 
+- (int) passedCount {
+  return passedCount;
+}
+
+- (int) failedCount {
+  return failedCount;
+}
+
 - (void) report {
-  if ([passed count] == 0) {
-  } else if ([passed count] == 1) {
+  if (passedCount == 0) {
+  } else if (passedCount == 1) {
     [self puts:@"OK, passed 1 test."];
   } else {
     NSString* message = [NSString stringWithFormat:
-      @"OK, passed %d tests.", [passed count]];
+      @"OK, passed %d tests.", passedCount];
     [self puts:message];
   }
-  if ([failed count] == 0) {
-  } else if ([failed count] == 1) {
+  if (failedCount == 0) {
+  } else if (failedCount == 1) {
     [self puts:@"Oops, failed 1 test."];
   } else {
     NSString* message = [NSString stringWithFormat:
-      @"Oops, failed %d tests.", [failed count]];
+      @"Oops, failed %d tests.", failedCount];
     [self puts:message];
   }
 }
 
 - (void) add_result:(BOOL)cond expected:(id)expected got:(id)got {
   if (cond) {
-    [passed addObject:[NSNumber numberWithBool:true]];
+    passedCount += 1;
     NSProcessInfo* info = [NSProcessInfo processInfo];
     if (! [[info environment] valueForKey:@"PASSED"]) {
-      NSString* message = [NSString stringWithFormat:
-        @"  passed: %@", expected];
-      [self puts:message];
+      [self passed:expected got:got];
     }
   } else {
-    [failed addObject:[NSNumber numberWithBool:false]];
+    failedCount += 1;
+    [self failed:expected got:got];
+  }
+  // NSAssert(cond, got);
+}
+
+- (void) passed:(id)expected got:(id)got {
+  if ([self builder]) {
+    [self buildup:true expected:expected got:got];
+  } else {
+    NSString* message = [NSString stringWithFormat:
+      @"  passed: %@", expected];
+    [self puts:message];
+  }
+}
+
+- (void) failed:(id)expected got:(id)got {
+  if (builder) {
+    [self buildup:false expected:expected got:got];
+  } else {
     NSString* message = [NSString stringWithFormat:
       @"Assertion failed\nExpected: %@\nGot: %@", expected, got];
     [self puts:message];
   }
-  // NSAssert(cond, got);
+}
+
+- (void) buildup:(bool)success expected:(id)expected got:(id)got {
+  id ary = [builder valueForKey:currentTargetClass];
+  if (ary == nil) {
+    ary = [NSMutableArray array];
+  }
+  id obj = [NSArray arrayWithObjects:[NSNumber numberWithBool:success],
+                                     expected, got, nil];
+  [ary addObject:obj];
+  [builder setObject:ary forKey:currentTargetClass];
 }
 
 - (void) puts:(id)message {
@@ -184,16 +221,28 @@
 }
 
 - (void) run:(id)targetClassString {
-  Class targetClass = NSClassFromString(targetClassString);
+  [self setValue:targetClassString forKey:@"currentTargetClass"];
+  Class target = NSClassFromString(targetClassString);
   NSProcessInfo* info = [NSProcessInfo processInfo];
   if (! [[info environment] valueForKey:@"PASSED"]) {
-    [self puts:targetClassString];
+    printf("%s\n", [targetClassString UTF8String]);
   }
-  [[targetClass create:self] unittest];
+  [[target create:self] unittest];
 }
 
 + (id) create {
   return [[self alloc] init];
+}
+
++ (id) createBuilder {
+  id unit = [[self alloc] init];
+  NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
+  [unit setValue:dic forKey:@"builder"];
+  return unit;
+}
+
+- (NSDictionary*) builder {
+  return builder;
 }
 
 @end
