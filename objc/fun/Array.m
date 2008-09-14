@@ -25,10 +25,6 @@
   return [self lastObject];
 }
 
-- (id) push:(id) obj {
-  return [self arrayByAddingObject:obj];
-}
-
 - (id) reverse {
   NSMutableArray* ary = [NSMutableArray array];
   for (id obj in [self reverseObjectEnumerator]) {
@@ -41,8 +37,26 @@
   return [self count];
 }
 
-- (int) length {
-  return [self size];
+@end
+
+
+
+@implementation NSMutableArray ( Array )
+
+- (id) push:(id)obj {
+  [self addObject:obj];
+  return self;
+}
+
+- (id) pop {
+  if ([self count] == 0) {
+    return nil;
+  }
+  
+  int last_idx = [self count] - 1;
+  id obj = [[self objectAtIndex:last_idx] retain];
+  [self removeObjectAtIndex:last_idx];
+  return obj;
 }
 
 @end

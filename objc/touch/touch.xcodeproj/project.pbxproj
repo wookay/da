@@ -15,6 +15,9 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		A025467C0E7D648B0096455D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A025467B0E7D648B0096455D /* Icon.png */; };
 		A02B41A60E7CF9A60079642B /* README in Resources */ = {isa = PBXBuildFile; fileRef = A02B41A50E7CF9A60079642B /* README */; };
+		A03350640E7DB569002DB27C /* NSPointerArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350630E7DB569002DB27C /* NSPointerArrayTest.m */; };
+		A03350DA0E7DC39B002DB27C /* Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350D80E7DC39B002DB27C /* Hash.m */; };
+		A03350DB0E7DC39B002DB27C /* HashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350D90E7DC39B002DB27C /* HashTest.m */; };
 		A094581C0E7C52E500C3CC96 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A094581B0E7C52E500C3CC96 /* MainViewController.m */; };
 		A09458730E7C566500C3CC96 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09458720E7C566500C3CC96 /* TestViewController.m */; };
 		A0945A430E7CBFCD00C3CC96 /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945A410E7CBFCD00C3CC96 /* UnitTest.m */; };
@@ -61,6 +64,10 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A025467B0E7D648B0096455D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		A02B41A50E7CF9A60079642B /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		A03350630E7DB569002DB27C /* NSPointerArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSPointerArrayTest.m; path = ../foundation/NSPointerArrayTest.m; sourceTree = SOURCE_ROOT; };
+		A03350D70E7DC39B002DB27C /* Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hash.h; path = ../fun/Hash.h; sourceTree = SOURCE_ROOT; };
+		A03350D80E7DC39B002DB27C /* Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hash.m; path = ../fun/Hash.m; sourceTree = SOURCE_ROOT; };
+		A03350D90E7DC39B002DB27C /* HashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HashTest.m; path = ../fun/HashTest.m; sourceTree = SOURCE_ROOT; };
 		A094581A0E7C52E500C3CC96 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A094581B0E7C52E500C3CC96 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A09458710E7C566500C3CC96 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -212,6 +219,7 @@
 		A0945A400E7CBFB500C3CC96 /* foundation */ = {
 			isa = PBXGroup;
 			children = (
+				A03350630E7DB569002DB27C /* NSPointerArrayTest.m */,
 				A0945A440E7CC00600C3CC96 /* test.h */,
 				A0945A450E7CC00600C3CC96 /* DataTypesTest.m */,
 				A0945A460E7CC00600C3CC96 /* NSArrayTest.m */,
@@ -257,6 +265,9 @@
 		A0E66F320E7D9B2A000F6789 /* fun */ = {
 			isa = PBXGroup;
 			children = (
+				A03350D70E7DC39B002DB27C /* Hash.h */,
+				A03350D80E7DC39B002DB27C /* Hash.m */,
+				A03350D90E7DC39B002DB27C /* HashTest.m */,
 				A0E66F330E7D9B7C000F6789 /* Array.h */,
 				A0E66F340E7D9B7C000F6789 /* Array.m */,
 				A0E66F350E7D9B7C000F6789 /* ArrayTest.m */,
@@ -362,6 +373,9 @@
 				A0E66F450E7D9B7C000F6789 /* NumericTest.m in Sources */,
 				A0E66F460E7D9B7C000F6789 /* String.m in Sources */,
 				A0E66F470E7D9B7C000F6789 /* StringTest.m in Sources */,
+				A03350640E7DB569002DB27C /* NSPointerArrayTest.m in Sources */,
+				A03350DA0E7DC39B002DB27C /* Hash.m in Sources */,
+				A03350DB0E7DC39B002DB27C /* HashTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

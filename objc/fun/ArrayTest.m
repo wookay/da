@@ -15,11 +15,16 @@
   [assert_equal a:@"c" b:[ary last]];
   [assert_equal a:@"(c, b, a)" b:[ary reverse]];
   [assert_equal int:3 int:[ary size]];
-  [assert_equal int:3 int:[ary length]];
 
   NSArray* empty = [NSArray array];
   [assert_equal a:@"()" b:empty];
   [assert_equal a:@"" b:[empty to_s]];
+
+  NSMutableArray* stack = [NSMutableArray array];
+  [assert_equal a:@"(a)" b:[stack push:@"a"]];
+  [assert_equal a:@"(a)" b:stack];
+  [assert_equal a:@"a" b:[stack pop]];
+  [assert_equal a:@"()" b:stack];
 
 }
 

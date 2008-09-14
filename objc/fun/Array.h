@@ -12,6 +12,14 @@
 - (id) last ;
 - (id) reverse ;
 - (int) size ;
-- (int) length ;
+
+@end
+
+
+
+@interface NSMutableArray ( Array )
+
+- (id) push:(id)obj ;
+- (id) pop ;
 
 @end

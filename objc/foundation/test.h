@@ -13,6 +13,7 @@
 @interface NSNumberTest : UnitTestable {} @end
 @interface NSStringTest : UnitTestable {} @end
 @interface NSArrayTest : UnitTestable {} @end
+@interface NSPointerArrayTest : UnitTestable {} @end
 @interface NSMutableArrayTest : UnitTestable {} @end
 @interface NSMutableSetTest : UnitTestable {} @end
 @interface NSMutableDictionaryTest : UnitTestable {} @end

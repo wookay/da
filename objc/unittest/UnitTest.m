@@ -16,9 +16,8 @@
     } else if ([got respondsToSelector:@selector(isEqualToDictionary:)]) {
       NSMutableArray* ary = [NSMutableArray array];
       for (id key in got) {
-        [ary insertObject:
+        [ary addObject:
           [NSString stringWithFormat:@"%@ = %@; ", key, [got objectForKey:key]]
-          atIndex: 0
         ];
       }
       gotDescription = [NSString stringWithFormat:@"{%@}",

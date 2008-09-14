@@ -9,8 +9,9 @@ int main (int argc, const char * argv[]) {
   UnitTest* unittest = [UnitTest create];
   [unittest run:@"EnumerableTest"];
   [unittest run:@"NumericTest"];
-  [unittest run:@"ArrayTest"];
   [unittest run:@"StringTest"];
+  [unittest run:@"ArrayTest"];
+  [unittest run:@"HashTest"];
   [unittest report];
 
   [pool release];

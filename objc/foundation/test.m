@@ -11,6 +11,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSNumberTest"];
   [unittest run:@"NSStringTest"];
   [unittest run:@"NSArrayTest"];
+  [unittest run:@"NSPointerArrayTest"];
   [unittest run:@"NSMutableArrayTest"];
   [unittest run:@"NSMutableSetTest"];
   [unittest run:@"NSMutableDictionaryTest"];

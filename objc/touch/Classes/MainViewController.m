@@ -20,13 +20,13 @@
     @"HelloTest",
     @"unittest",
                     
-    @"DataTypesTest NSArrayTest NSBundleTest NSDataTest NSDateTest NSErrorTest NSMutableArrayTest NSMutableDictionaryTest NSMutableSetTest NSNotificationTest NSNumberTest NSObjectTest NSProcessInfoTest NSStringTest",
+    @"NSPointerArrayTest DataTypesTest NSArrayTest NSBundleTest NSDataTest NSDateTest NSErrorTest NSMutableArrayTest NSMutableDictionaryTest NSMutableSetTest NSNotificationTest NSNumberTest NSObjectTest NSProcessInfoTest NSStringTest",
     @"foundation",              
     
     @"VectorTest MatrixTest",
     @"math",
     
-    @"ArrayTest EnumerableTest NumericTest StringTest",
+    @"HashTest ArrayTest EnumerableTest NumericTest StringTest",
     @"fun",
 
     @"CGContextTest",
