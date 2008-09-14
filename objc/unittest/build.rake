@@ -32,7 +32,7 @@ if defined? DIR
     $PASSED=true
     builder = Builder.new :arch => :mac
     builder.link "#{APP}_mac_test", OBJECTS
-    ENV['PASSED']="1"
+    ENV['PASSED']="0"
     if dyld_fallback?
       puts `#{DIR}/#{APP}_mac_test.sh`
     else
@@ -118,7 +118,7 @@ t:
 #{arm_tests.map{|t| "\t@" + t}.join("\n")}
 
 p:
-#{arm_tests.map{|t| "\t@PASSED=1 " + t}.join("\n")}
+#{arm_tests.map{|t| "\t@PASSED=0 " + t}.join("\n")}
 EOF
     end
   end
@@ -195,7 +195,7 @@ class Builder
         if dyld_fallback?
           ENV['DYLD_FALLBACK_FRAMEWORK_PATH']="#{MAC_SYSROOT}/System/Library/Frameworks"
           open "#{app}.sh", 'w' do |f|
-            passed = "PASSED=1 " if $PASSED
+            passed = "PASSED=0 " if $PASSED
             f.write <<EOF
 #!/bin/sh
 #{passed}DYLD_FALLBACK_FRAMEWORK_PATH="#{MAC_SYSROOT}/System/Library/Frameworks" #{DIR}/#{app}

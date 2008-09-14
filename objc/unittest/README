@@ -22,13 +22,13 @@ UnitTest for Objective-C
 
 
 
-$ rake mac
-gcc -c -Wall -O7 test.m -o test.mac.o
-gcc -c -Wall -O7 UnitTest.m -o UnitTest.mac.o
-gcc -c -Wall -O7 HelloTest.m -o HelloTest.mac.o
-gcc -framework Foundation -o unittest_mac_test test.mac.o UnitTest.mac.o HelloTest.mac.o 
+$ make
+gcc -c -Wall -O7 test.m -o test.o
+gcc -c -Wall -O7 UnitTest.m -o UnitTest.o
+gcc -c -Wall -O7 HelloTest.m -o HelloTest.o
+gcc -lobjc -framework Foundation -o test test.o UnitTest.o HelloTest.o 
 
-$ ./unitest_mac_test 
+$ ./test
 HelloTest
   passed: (1, 2, 3)
   passed: 1,2,3
