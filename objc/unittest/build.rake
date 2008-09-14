@@ -3,7 +3,7 @@
 
 DEPLOY="/deploy/var/mobile/"
 
-IGNORE_FILES = %w{README Rakefile touch}
+IGNORE_FILES = %w{README Rakefile touch macruby}
 
 if defined? DIR
   APP=DIR.split('/').last
