@@ -15,7 +15,9 @@ j/
   parts of speech
 
 objc/
-  unittest, foundation, appkit, quartzcore, scriptingbridge, math
+  unittest, coregraphics, foundation, math, math
+  touch
+  macruby
 
 ruby/ 
   numero

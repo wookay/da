@@ -1,0 +1,14 @@
+erlang stuff
+
+
+
+$ make
+erlc numero.erl
+erl -eval "numero:numero()." -noshell -s init stop
+passed: 6
+passed: 6
+passed: true
+passed: true
+passed: 3
+passed: 6
+passed: 6

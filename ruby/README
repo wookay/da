@@ -1,0 +1,12 @@
+ruby stuff
+
+
+
+$ ruby numero.rb 
+passed: six
+passed: six
+passed: true
+passed: true
+passed: 3
+passed: six
+passed: six

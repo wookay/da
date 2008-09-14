@@ -9,6 +9,7 @@ all: $(APP)
 $(APP):
 	$(ERL)c $(APP).$(ERL)
 	$(ERL) -eval "$(APP):$(APP)()." -noshell -s init stop
+	@rm -f *beam *dump
 
 clean:
 	rm -f *beam *dump

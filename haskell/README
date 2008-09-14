@@ -1,0 +1,12 @@
+haskell stuff
+
+
+
+$ runhaskell numero.hs 
+passed: Six
+passed: Six
+passed: True
+passed: True
+passed: Three
+passed: Six
+passed: Six

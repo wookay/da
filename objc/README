@@ -1,1 +1,9 @@
-stuff for iPhone
+iPhone stuff
+
+
+
+$ rake -p
+OK, passed 1 test.
+OK, passed 52 tests.
+OK, passed 27 tests.
+OK, passed 3 tests.
