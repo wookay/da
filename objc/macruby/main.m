@@ -3,7 +3,7 @@
 //  macruby
 //
 //  Created by luis on 14/09/08.
-//  Copyright __MyCompanyName__ 2008. All rights reserved.
+//  Copyright masshacking 2008. All rights reserved.
 //
 
 #import <MacRuby/MacRuby.h>

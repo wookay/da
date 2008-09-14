@@ -8,7 +8,8 @@
 
 # Loading the Cocoa framework. If you need to load more frameworks, you can
 # do that here too.
-framework 'Cocoa'
+framework 'UIKit'
+
 
 # Loading all the Ruby project files.
 dir_path = NSBundle.mainBundle.resourcePath.fileSystemRepresentation
