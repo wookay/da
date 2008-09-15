@@ -10,5 +10,6 @@
 - (id) to_range ;
 - (id) split ;
 - (id) split:(id)sep ;
+- (bool) empty:(char)question ;
 
 @end

@@ -13,6 +13,7 @@
   [assert_equal a:@"abc" b:[[str split] join]];
   [assert_equal a:@"a,b,c" b:[[str split] join:@","]];
   [assert_equal a:@"(a, b, c)" b:[[[str split] join:@","] split:@","]];
+  [assert_equal _true:[@"" empty:'?']];
 
 }
 

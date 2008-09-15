@@ -8,5 +8,6 @@
 - (id) to_s ;
 - (id) store:(id)key v:(id)obj ;
 - (id) fetch:(id)key ;
+- (bool) empty:(char)question ;
 
 @end

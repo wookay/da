@@ -12,6 +12,7 @@
 - (id) last ;
 - (id) reverse ;
 - (int) size ;
+- (bool) empty:(char)question ;
 
 @end
 

@@ -23,8 +23,10 @@
   NSMutableArray* stack = [NSMutableArray array];
   [assert_equal a:@"(a)" b:[stack push:@"a"]];
   [assert_equal a:@"(a)" b:stack];
+  [assert_equal _false:[stack empty:'?']];
   [assert_equal a:@"a" b:[stack pop]];
   [assert_equal a:@"()" b:stack];
+  [assert_equal _true:[stack empty:'?']];
 
 }
 

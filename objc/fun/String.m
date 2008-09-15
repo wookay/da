@@ -33,4 +33,8 @@
   return [self componentsSeparatedByString:sep];
 }
 
+- (bool) empty:(char)question {
+  return [self length] == 0;
+}
+
 @end

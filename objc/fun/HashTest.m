@@ -16,6 +16,8 @@
   [assert_equal a:@"{a = A; b = B; }" b:hash];
   [assert_equal a:@"aAbB" b:[hash to_s]];
 
+  [assert_equal _false:[hash empty:'?']];
+
 }
 
 @end

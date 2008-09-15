@@ -37,6 +37,10 @@
   return [self count];
 }
 
+- (bool) empty:(char)question {
+  return [self count] == 0;
+}
+
 @end
 
 
