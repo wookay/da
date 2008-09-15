@@ -1,7 +1,9 @@
 # Makefile
 #                           wookay.noh at gmail.com
 
-CLASSES=NSImageTest.o
+CLASSES=NSImageTest.o \
+		NSPointerArrayTest.o \
+		NSExceptionTest.o
 APP=test
 UNITTEST=../unittest/UnitTest
 CC=gcc

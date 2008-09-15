@@ -2,6 +2,7 @@
 //                           wookay.noh at gmail.com
 
 #import "Enumerable.h"
+#import "Numeric.h"
 
 @implementation NSArray ( Enumerable )
 
@@ -20,23 +21,22 @@
     return first;
   }
 
-  int ret = [first intValue];
+  id ret = [first to_decimal];
   id rest = [self subarrayWithRange:NSMakeRange(1, [self count] - 1)];
+  NSDictionary* opTable = [NSDictionary dictionaryWithObjectsAndKeys:
+    @"Adding", @"+",
+    @"Subtracting", @"-", 
+    @"MultiplyingBy", @"*", 
+    @"DividingBy", @"/", 
+    @"ModuloBy", @"%",
+    nil];
   for (id obj in rest) {
-    if ([op isEqualToString:@"+"]) {
-      ret += [obj intValue];
-    } else if ([op isEqualToString:@"*"]) {
-      ret *= [obj intValue];
-    } else if ([op isEqualToString:@"-"]) {
-      ret -= [obj intValue];
-    } else if ([op isEqualToString:@"/"]) {
-      ret /= [obj intValue];
-    } else if ([op isEqualToString:@"%"]) {
-      ret %= [obj intValue];
-    }
+    id operation = [NSString stringWithFormat:@"decimalNumberBy%@:",
+                                              [opTable valueForKey:op]];
+    ret = [ret performSelector:NSSelectorFromString(operation)
+               withObject:[obj to_decimal]];
   }
-
-  return [NSNumber numberWithInt:ret];
+  return ret;
 }
 
 @end

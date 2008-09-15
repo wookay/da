@@ -28,6 +28,11 @@
   id range = [@"1..10" to_range];
   [assert_equal int:55 int:[[range sum] to_i]];
 
+  range = [@"-3..3" to_range];
+  [assert_equal a:@"(-3, -2, -1, 0, 1, 2, 3)" b:range];
+  [assert_equal int:0 int:[[range sum] to_i]];
+  [assert_equal int:-6 int:[[range reduce:@"-"] to_i]];
+
 }
 
 @end

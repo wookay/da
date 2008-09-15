@@ -8,6 +8,11 @@ int main (int argc, const char * argv[]) {
 
   UnitTest* unittest = [[UnitTest alloc] init];
   [unittest run:@"NSImageTest"];
+
+  // Foundation
+  [unittest run:@"NSPointerArrayTest"];
+  [unittest run:@"NSExceptionTest"];
+
   [unittest report];
 
   [pool release];

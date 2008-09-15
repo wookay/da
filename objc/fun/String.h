@@ -11,5 +11,6 @@
 - (id) split ;
 - (id) split:(id)sep ;
 - (bool) empty:(char)question ;
+- (id) concat:(id)obj ;
 
 @end

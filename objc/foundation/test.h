@@ -5,21 +5,19 @@
 #import "../unittest/UnitTest.h"
 
 @interface NSObjectTest : UnitTestable {
-  NSString* name;
-  int age;
+  NSString* person_name;
+  int person_age;
 } 
 @end
 
 @interface NSNumberTest : UnitTestable {} @end
 @interface NSStringTest : UnitTestable {} @end
 @interface NSArrayTest : UnitTestable {} @end
-@interface NSPointerArrayTest : UnitTestable {} @end
 @interface NSMutableArrayTest : UnitTestable {} @end
 @interface NSMutableSetTest : UnitTestable {} @end
 @interface NSMutableDictionaryTest : UnitTestable {} @end
 @interface NSDataTest : UnitTestable {} @end
 @interface NSDateTest : UnitTestable {} @end
-@interface NSExceptionTest : UnitTestable {} @end
 @interface NSErrorTest : UnitTestable {} @end
 @interface NSProcessInfoTest : UnitTestable {} @end
 @interface NSNotificationTest : UnitTestable {} @end

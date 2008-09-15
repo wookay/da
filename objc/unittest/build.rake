@@ -128,6 +128,9 @@ EOF
     dirs.each do |dir|
       sh "cd #{dir} && rake clean"
     end
+    %w{appkit}.each do |dir|
+      sh "cd #{dir} && make clean"
+    end
   end
 end
 

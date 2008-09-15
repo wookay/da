@@ -37,4 +37,8 @@
   return [self length] == 0;
 }
 
+- (id) concat:(id)obj {
+  return [self stringByAppendingFormat:@"%@", obj];  
+}
+
 @end
