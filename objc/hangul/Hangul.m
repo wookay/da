@@ -4,24 +4,26 @@
 #import "Hangul.h"
 #import "../fun/String.h"
 
+#define U(s) [NSString stringWithUTF8String:s]
+
 @implementation NSString ( Hangul )
 
 - (NSArray*) chosungs {
-  return [@"ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ" split:@""];
+  return [U("ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ") split:@""];
 } 
 
 - (NSArray*) jungsungs {
-  return [@"ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ" split:@""];
+  return [U("ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ") split:@""];
 } 
 
 - (NSArray*) jongsungs {
   return [[NSArray arrayWithObject:@""] arrayByAddingObjectsFromArray:
-    [@"ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ" split:@""]];
+    [U("ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ") split:@""]];
 } 
 
 - (NSDictionary*) josas {
   return [NSDictionary dictionaryWithObjectsAndKeys:
-    @"가", @"이", @"는", @"은", @"를", @"을", @"와", @"과", nil];
+    U("가"), U("이"), U("는"), U("은"), U("를"), U("을"), U("와"), U("과"), nil];
 }
 
 - (id) get_josa:(id)josa {
