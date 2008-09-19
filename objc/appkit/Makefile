@@ -3,7 +3,8 @@
 
 CLASSES=NSImageTest.o \
 		NSPointerArrayTest.o \
-		NSExceptionTest.o
+		NSExceptionTest.o \
+		NSExpressionTest.o
 APP=test
 UNITTEST=../unittest/UnitTest
 CC=gcc

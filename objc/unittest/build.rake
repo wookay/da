@@ -139,12 +139,13 @@ FRAMEWORK=FRAMEWORKS.map{|f| "-framework #{f}" }.join' '
 
 MAC_CC="gcc"
 MAC_SYSROOT="/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator2.1.sdk"
-MAC_CFLAGS="-Wall -O2 -isysroot #{MAC_SYSROOT}"
+MAC_CFLAGS="-Wall -O2 -DTARGET_CPU_X86 -isysroot #{MAC_SYSROOT}"
 MAC_LDFLAGS="-isysroot #{MAC_SYSROOT} #{FRAMEWORK}"
 
 ARM_CC="/usr/local/arm-apple-darwin/bin/gcc"
 ARM_SYSROOT="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.1.sdk"
-ARM_CFLAGS="-Wall -O2 -isysroot #{ARM_SYSROOT} -I#{ARM_SYSROOT}/usr/lib/gcc/arm-apple-darwin9/4.0.1/include"
+ARM_HEAVENLY="-I#{ARM_SYSROOT}/heavenly_private_var_include"
+ARM_CFLAGS="-Wall -O2 -DTARGET_CPU_ARM -isysroot #{ARM_SYSROOT} -I#{ARM_SYSROOT}/usr/lib/gcc/arm-apple-darwin9/4.0.1/include #{ARM_HEAVENLY}"
 ARM_LDFLAGS="-isysroot #{ARM_SYSROOT} #{FRAMEWORK}"
 
 def dyld_fallback?

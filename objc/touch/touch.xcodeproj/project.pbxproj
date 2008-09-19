@@ -50,6 +50,7 @@
 		A0E66F450E7D9B7C000F6789 /* NumericTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3B0E7D9B7C000F6789 /* NumericTest.m */; };
 		A0E66F460E7D9B7C000F6789 /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3D0E7D9B7C000F6789 /* String.m */; };
 		A0E66F470E7D9B7C000F6789 /* StringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3E0E7D9B7C000F6789 /* StringTest.m */; };
+		A0FD250F0E83F303004465F6 /* NSExpressionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD250E0E83F303004465F6 /* NSExpressionTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		A0E66F3D0E7D9B7C000F6789 /* String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = String.m; path = ../fun/String.m; sourceTree = SOURCE_ROOT; };
 		A0E66F3E0E7D9B7C000F6789 /* StringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringTest.m; path = ../fun/StringTest.m; sourceTree = SOURCE_ROOT; };
 		A0E66F3F0E7D9B7C000F6789 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../fun/test.h; sourceTree = SOURCE_ROOT; };
+		A0FD250E0E83F303004465F6 /* NSExpressionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSExpressionTest.m; path = ../foundation/NSExpressionTest.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		A0945A400E7CBFB500C3CC96 /* foundation */ = {
 			isa = PBXGroup;
 			children = (
+				A0FD250E0E83F303004465F6 /* NSExpressionTest.m */,
 				A0945A440E7CC00600C3CC96 /* test.h */,
 				A0945A450E7CC00600C3CC96 /* DataTypesTest.m */,
 				A0945A460E7CC00600C3CC96 /* NSArrayTest.m */,
@@ -392,6 +395,7 @@
 				A03350DB0E7DC39B002DB27C /* HashTest.m in Sources */,
 				A02BABC70E833F8E00449247 /* Hangul.m in Sources */,
 				A02BABC80E833F8E00449247 /* HangulTest.m in Sources */,
+				A0FD250F0E83F303004465F6 /* NSExpressionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
