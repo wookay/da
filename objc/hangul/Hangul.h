@@ -5,12 +5,15 @@
 
 @interface NSString ( Hangul )
 
-@property(readonly) NSArray* chosungs ;
-@property(readonly) NSArray* jungsungs ;
-@property(readonly) NSArray* jongsungs ;
-@property(readonly) NSDictionary* josas ;
-
-- (id) separate ;
 - (id) get_josa:(id)josa ;
+- (id) chosungs ;
+- (id) jungsungs ;
+- (id) separate ;
+- (id) separateWithCho:(bool)cho Jung:(bool)jung Jong:(bool)jong Others:(bool)others ;
+
+@property(readonly) NSArray* chosung_list ;
+@property(readonly) NSArray* jungsung_list ;
+@property(readonly) NSArray* jongsung_list ;
+@property(readonly) NSDictionary* josas ;
 
 @end

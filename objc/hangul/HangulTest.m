@@ -9,11 +9,13 @@
 
 - (void) unittest {
 
-  [assert_equal a:[U("ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ") componentsSeparatedByString:@" "]
-                b:[@"" chosungs]];
-
   [assert_equal a:[NSArray arrayWithObjects:U("ㄱ"), U("ㅏ"), @"", nil]
                 b:[U("가") separate]];
+
+  [assert_equal a:[NSArray arrayWithObjects:U("ㅇ"), U("ㄹ"), nil]
+                b:[U("우리") chosungs]];
+  [assert_equal a:[NSArray arrayWithObjects:U("ㅜ"), U("ㅣ"), nil]
+                b:[U("우리") jungsungs]];
 
   [assert_equal a:U("가") b:[U("우리") get_josa:U("이")]];
   [assert_equal a:U("는") b:[U("우리") get_josa:U("은")]];

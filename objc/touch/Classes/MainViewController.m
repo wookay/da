@@ -20,8 +20,8 @@
     @"HelloTest",
     @"unittest",
                     
-    @"DataTypesTest NSArrayTest NSBundleTest NSDataTest NSDateTest NSErrorTest NSMutableArrayTest NSMutableDictionaryTest NSMutableSetTest NSNotificationTest NSNumberTest NSObjectTest NSProcessInfoTest NSStringTest",
-    @"foundation",              
+    @"DataTypesTest NSExpressionTest NSArrayTest NSBundleTest NSDataTest NSDateTest NSErrorTest NSMutableArrayTest NSMutableDictionaryTest NSMutableSetTest NSNotificationTest NSNumberTest NSObjectTest NSProcessInfoTest NSStringTest",
+    @"foundation",
     
     @"VectorTest MatrixTest",
     @"math",

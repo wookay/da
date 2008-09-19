@@ -20,6 +20,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSProcessInfoTest"];
   [unittest run:@"NSNotificationTest"];
   [unittest run:@"NSBundleTest"];
+  [unittest run:@"NSExpressionTest"];
   [unittest run:@"DataTypesTest"];
   [unittest report];
 

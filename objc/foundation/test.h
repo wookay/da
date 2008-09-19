@@ -22,4 +22,5 @@
 @interface NSProcessInfoTest : UnitTestable {} @end
 @interface NSNotificationTest : UnitTestable {} @end
 @interface NSBundleTest : UnitTestable {} @end
+@interface NSExpressionTest : UnitTestable {} @end
 @interface DataTypesTest : UnitTestable {} @end

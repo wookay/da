@@ -8,24 +8,6 @@
 
 @implementation NSString ( Hangul )
 
-- (NSArray*) chosungs {
-  return [U("ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ") split:@""];
-} 
-
-- (NSArray*) jungsungs {
-  return [U("ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ") split:@""];
-} 
-
-- (NSArray*) jongsungs {
-  return [[NSArray arrayWithObject:@""] arrayByAddingObjectsFromArray:
-    [U("ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ") split:@""]];
-} 
-
-- (NSDictionary*) josas {
-  return [NSDictionary dictionaryWithObjectsAndKeys:
-    U("가"), U("이"), U("는"), U("은"), U("를"), U("을"), U("와"), U("과"), nil];
-}
-
 - (id) get_josa:(id)josa {
   if ([@"" isEqualToString:[[self separate] lastObject]]) {
     return [[self josas] objectForKey:josa];
@@ -34,7 +16,19 @@
   }
 }
 
+- (id) chosungs {
+  return [self separateWithCho:true Jung:false Jong:false Others:false];
+}
+
+- (id) jungsungs {
+  return [self separateWithCho:false Jung:true Jong:false Others:false];
+}
+
 - (id) separate {
+  return [self separateWithCho:true Jung:true Jong:true Others:true];
+}
+
+- (id) separateWithCho:(bool)cho Jung:(bool)jung Jong:(bool)jong Others:(bool)others {
   NSMutableArray* separated = [NSMutableArray array];
   int idx;
   for (idx = 0;idx < [self length]; idx++) {
@@ -46,14 +40,40 @@
       n %= 21*28;
       int n2 = n / 28;
       int n3 = n % 28;
-      [separated addObject:[[self chosungs] objectAtIndex:n1]];
-      [separated addObject:[[self jungsungs] objectAtIndex:n2]];
-      [separated addObject:[[self jongsungs] objectAtIndex:n3]];
+      if (cho) {
+        [separated addObject:[[self chosung_list] objectAtIndex:n1]];
+      }
+      if (jung) {
+        [separated addObject:[[self jungsung_list] objectAtIndex:n2]];
+      }
+      if (jong) {
+        [separated addObject:[[self jongsung_list] objectAtIndex:n3]];
+      }
     } else {
-      [separated addObject:[NSString stringWithFormat:@"%C", c]];
+      if (others) {
+        [separated addObject:[NSString stringWithFormat:@"%C", c]];
+      }
     }
   }
   return separated;
+}
+
+- (NSArray*) chosung_list {
+  return [U("ㄱㄲㄴㄷㄸㄹㅁㅂㅃㅅㅆㅇㅈㅉㅊㅋㅌㅍㅎ") split:@""];
+} 
+
+- (NSArray*) jungsung_list {
+  return [U("ㅏㅐㅑㅒㅓㅔㅕㅖㅗㅘㅙㅚㅛㅜㅝㅞㅟㅠㅡㅢㅣ") split:@""];
+} 
+
+- (NSArray*) jongsung_list {
+  return [[NSArray arrayWithObject:@""] arrayByAddingObjectsFromArray:
+    [U("ㄱㄲㄳㄴㄵㄶㄷㄹㄺㄻㄼㄽㄾㄿㅀㅁㅂㅄㅅㅆㅇㅈㅊㅋㅌㅍㅎ") split:@""]];
+} 
+
+- (NSDictionary*) josas {
+  return [NSDictionary dictionaryWithObjectsAndKeys:
+    U("가"), U("이"), U("는"), U("은"), U("를"), U("을"), U("와"), U("과"), nil];
 }
 
 @end
