@@ -28,7 +28,10 @@
     
     @"HashTest ArrayTest EnumerableTest NumericTest StringTest",
     @"fun",
-
+                    
+    @"HangulTest",
+    @"hangul",
+    
     @"CGContextTest",
     @"coregraphics",
                     
