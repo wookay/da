@@ -43,6 +43,8 @@
 		A0945A6C0E7CC0A600C3CC96 /* VectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945A680E7CC0A600C3CC96 /* VectorTest.m */; };
 		A0945D960E7CF31200C3CC96 /* HelloTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945D950E7CF31200C3CC96 /* HelloTest.m */; };
 		A0945D990E7CF32600C3CC96 /* CGContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945D980E7CF32600C3CC96 /* CGContextTest.m */; };
+		A0AF96670E85223F0024A8DF /* Ord.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AF96650E85223F0024A8DF /* Ord.m */; };
+		A0AF96680E85223F0024A8DF /* OrdTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AF96660E85223F0024A8DF /* OrdTest.m */; };
 		A0E66F400E7D9B7C000F6789 /* Array.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F340E7D9B7C000F6789 /* Array.m */; };
 		A0E66F410E7D9B7C000F6789 /* ArrayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F350E7D9B7C000F6789 /* ArrayTest.m */; };
 		A0E66F420E7D9B7C000F6789 /* Enumerable.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F370E7D9B7C000F6789 /* Enumerable.m */; };
@@ -108,6 +110,9 @@
 		A0945D950E7CF31200C3CC96 /* HelloTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelloTest.m; path = ../unittest/HelloTest.m; sourceTree = SOURCE_ROOT; };
 		A0945D970E7CF32600C3CC96 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../coregraphics/test.h; sourceTree = SOURCE_ROOT; };
 		A0945D980E7CF32600C3CC96 /* CGContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGContextTest.m; path = ../coregraphics/CGContextTest.m; sourceTree = SOURCE_ROOT; };
+		A0AF96640E85223F0024A8DF /* Ord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ord.h; path = ../fun/Ord.h; sourceTree = SOURCE_ROOT; };
+		A0AF96650E85223F0024A8DF /* Ord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ord.m; path = ../fun/Ord.m; sourceTree = SOURCE_ROOT; };
+		A0AF96660E85223F0024A8DF /* OrdTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrdTest.m; path = ../fun/OrdTest.m; sourceTree = SOURCE_ROOT; };
 		A0E66F330E7D9B7C000F6789 /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Array.h; path = ../fun/Array.h; sourceTree = SOURCE_ROOT; };
 		A0E66F340E7D9B7C000F6789 /* Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Array.m; path = ../fun/Array.m; sourceTree = SOURCE_ROOT; };
 		A0E66F350E7D9B7C000F6789 /* ArrayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArrayTest.m; path = ../fun/ArrayTest.m; sourceTree = SOURCE_ROOT; };
@@ -296,6 +301,9 @@
 		A0E66F320E7D9B2A000F6789 /* fun */ = {
 			isa = PBXGroup;
 			children = (
+				A0AF96640E85223F0024A8DF /* Ord.h */,
+				A0AF96650E85223F0024A8DF /* Ord.m */,
+				A0AF96660E85223F0024A8DF /* OrdTest.m */,
 				A03350D70E7DC39B002DB27C /* Hash.h */,
 				A03350D80E7DC39B002DB27C /* Hash.m */,
 				A03350D90E7DC39B002DB27C /* HashTest.m */,
@@ -410,6 +418,8 @@
 				A02BABC80E833F8E00449247 /* HangulTest.m in Sources */,
 				A0FD250F0E83F303004465F6 /* NSExpressionTest.m in Sources */,
 				A06EBF640E84A0BC009D6D87 /* UIWebViewTest.m in Sources */,
+				A0AF96670E85223F0024A8DF /* Ord.m in Sources */,
+				A0AF96680E85223F0024A8DF /* OrdTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

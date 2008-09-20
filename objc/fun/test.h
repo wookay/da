@@ -7,9 +7,11 @@
 #import "String.h"
 #import "Array.h"
 #import "Hash.h"
+#import "Ord.h"
 
 @interface EnumerableTest : UnitTestable {} @end
 @interface NumericTest : UnitTestable {} @end
 @interface StringTest : UnitTestable {} @end
 @interface ArrayTest : UnitTestable {} @end
 @interface HashTest : UnitTestable {} @end
+@interface OrdTest : UnitTestable {} @end

@@ -9,13 +9,14 @@
 #import "MainViewController.h"
 #import "TestViewController.h"
 #import "../../unittest/UnitTest.h"
+#import "../../fun/Ord.h"
 
 @implementation MainViewController
 
   @synthesize myTableView;
 
 - (void) awakeFromNib {	
-  id testTargets = [NSDictionary dictionaryWithObjectsAndKeys:
+  id testTargets = [OrderedDictionary dictionaryWithObjectsAndKeys:
                     
     @"HelloTest",
     @"unittest",
@@ -26,7 +27,7 @@
     @"VectorTest MatrixTest",
     @"math",
     
-    @"HashTest ArrayTest EnumerableTest NumericTest StringTest",
+    @"OrdTest HashTest ArrayTest EnumerableTest NumericTest StringTest",
     @"fun",
                     
     @"HangulTest",
@@ -49,9 +50,7 @@
     for (id test in [[testTargets valueForKey:target] componentsSeparatedByString:@" "]) {
       [unittest run:test];
     }
-    TestViewController *testViewController = [[TestViewController alloc] init];
-    [testViewController setTitle:target builder:[unittest builder]];
-    
+    TestViewController *testViewController = [TestViewController create:target withBuilder:[unittest builder]];    
     NSString* title = [NSString stringWithFormat:@"%@ (%d", target, [unittest passedCount]];
     if ([unittest failedCount] > 0) {
       title = [title stringByAppendingFormat:@", %d", [unittest failedCount]];

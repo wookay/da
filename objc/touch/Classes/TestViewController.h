@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface TestViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-  NSDictionary* testBuilder;
+  id testBuilder;
 }
 
-- (void) setTitle:(id)title builder:(NSDictionary*)builder ;
++ (id) create:(id)title withBuilder:(NSArray*)builder ;
 
 @end
 

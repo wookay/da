@@ -9,7 +9,7 @@
   int failedCount;
 
   id currentTargetClass;
-  NSMutableDictionary* builder;
+  NSMutableArray* builder;
 }
 
 - (void) a:(id)expected b:(id)got ;
@@ -42,7 +42,7 @@
 
 + (id) create ;
 + (id) createBuilder ;
-- (NSDictionary*) builder ;
+- (NSArray*) builder ;
 
 @end
 

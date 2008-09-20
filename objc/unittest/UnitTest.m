@@ -205,14 +205,9 @@
 }
 
 - (void) buildup:(bool)success expected:(id)expected got:(id)got {
-  id ary = [builder valueForKey:currentTargetClass];
-  if (ary == nil) {
-    ary = [NSMutableArray array];
-  }
   id obj = [NSArray arrayWithObjects:[NSNumber numberWithBool:success],
                                      expected, got, nil];
-  [ary addObject:obj];
-  [builder setObject:ary forKey:currentTargetClass];
+  [builder addObject:[NSArray arrayWithObjects:obj, currentTargetClass, nil]];
 }
 
 - (void) puts:(id)message {
@@ -234,13 +229,12 @@
 }
 
 + (id) createBuilder {
-  id unit = [[self alloc] init];
-  NSMutableDictionary* dic = [[NSMutableDictionary alloc] init];
-  [unit setValue:dic forKey:@"builder"];
+  id unit = [self alloc];
+  [unit setValue:[NSMutableArray array] forKey:@"builder"];
   return unit;
 }
 
-- (NSDictionary*) builder {
+- (NSArray*) builder {
   return builder;
 }
 

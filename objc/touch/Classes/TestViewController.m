@@ -7,18 +7,15 @@
 //
 
 #import "TestViewController.h"
+#import "../../fun/Ord.h"
 
 @implementation TestViewController
 
-- (id) init {
-  [super init];
-  testBuilder = [[NSDictionary alloc] init];
-	return self;
-}
-
-- (void) setTitle:(id)title builder:(NSDictionary*)builder {
-  self.title = title;
-  testBuilder = builder;
++ (id) create:(id)title withBuilder:(NSArray*)builder {
+  id view = [[self alloc] init];
+  [view setTitle:title];
+  [view setValue:[OrderedDictionary dictionaryWithObjectsAndKeysFromArray:builder] forKey:@"testBuilder"];
+  return view;
 }
 
 - (void)dealloc {
