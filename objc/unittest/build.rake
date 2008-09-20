@@ -3,8 +3,6 @@
 
 DEPLOY="/deploy/var/mobile/"
 
-IGNORE_FILES = %w{README Rakefile touch macruby appkit}
-
 if defined? DIR
   APP=DIR.split('/').last
   CLASSES=[] if not defined? CLASSES
@@ -19,8 +17,12 @@ if defined? DIR
   task :all => [:arm, :mac] do
   end
 
-  desc "build with iPhoneOS2.1.sdk"
-  task :arm => :arm_link do
+  if defined? BUILD_ARM
+    task :arm do end
+  else
+    desc "build with iPhoneOS2.1.sdk"
+    task :arm => :arm_link do
+    end
   end
 
   desc "build with iPhoneSimulator2.1.sdk"
@@ -51,9 +53,13 @@ if defined? DIR
     end
   end
 
-  desc "deploy arm to #{DEPLOY}"
-  task :deploy => :arm do
-    sh "cp #{DIR}/#{APP}_arm_test #{DEPLOY}"
+  if defined? BUILD_ARM
+    task :deploy do end
+  else
+    desc "deploy arm to #{DEPLOY}"
+    task :deploy => :arm do
+      sh "cp #{DIR}/#{APP}_arm_test #{DEPLOY}"
+    end
   end
 
   desc "clean up"
@@ -128,19 +134,22 @@ EOF
     dirs.each do |dir|
       sh "cd #{dir} && rake clean"
     end
-    %w{appkit}.each do |dir|
-      sh "cd #{dir} && make clean"
-    end
   end
 end
 
 FRAMEWORKS=%w{Foundation} if not defined? FRAMEWORKS
 FRAMEWORK=FRAMEWORKS.map{|f| "-framework #{f}" }.join' '
 
+
 MAC_CC="gcc"
 MAC_SYSROOT="/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator2.1.sdk"
-MAC_CFLAGS="-Wall -O2 -DTARGET_CPU_X86 -isysroot #{MAC_SYSROOT}"
-MAC_LDFLAGS="-isysroot #{MAC_SYSROOT} #{FRAMEWORK}"
+if defined? BUILD_ARM
+  MAC_CFLAGS="-Wall -O2 -DTARGET_CPU_X86"
+  MAC_LDFLAGS="#{FRAMEWORK}"
+else
+  MAC_CFLAGS="-Wall -O2 -DTARGET_CPU_X86 -isysroot #{MAC_SYSROOT}"
+  MAC_LDFLAGS="-isysroot #{MAC_SYSROOT} #{FRAMEWORK}"
+end
 
 ARM_CC="/usr/local/arm-apple-darwin/bin/gcc"
 ARM_SYSROOT="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.1.sdk"
