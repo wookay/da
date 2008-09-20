@@ -35,6 +35,9 @@
     @"CGContextTest",
     @"coregraphics",
                     
+    @"UIWebViewTest",
+    @"uikit",
+                    
     nil];
   
   [self setValue:@"touch" forKey:@"title"];

@@ -19,6 +19,7 @@
 		A02BABC80E833F8E00449247 /* HangulTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BABC50E833F8E00449247 /* HangulTest.m */; };
 		A03350DA0E7DC39B002DB27C /* Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350D80E7DC39B002DB27C /* Hash.m */; };
 		A03350DB0E7DC39B002DB27C /* HashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350D90E7DC39B002DB27C /* HashTest.m */; };
+		A06EBF640E84A0BC009D6D87 /* UIWebViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */; };
 		A094581C0E7C52E500C3CC96 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A094581B0E7C52E500C3CC96 /* MainViewController.m */; };
 		A09458730E7C566500C3CC96 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09458720E7C566500C3CC96 /* TestViewController.m */; };
 		A0945A430E7CBFCD00C3CC96 /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945A410E7CBFCD00C3CC96 /* UnitTest.m */; };
@@ -73,6 +74,8 @@
 		A03350D70E7DC39B002DB27C /* Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hash.h; path = ../fun/Hash.h; sourceTree = SOURCE_ROOT; };
 		A03350D80E7DC39B002DB27C /* Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hash.m; path = ../fun/Hash.m; sourceTree = SOURCE_ROOT; };
 		A03350D90E7DC39B002DB27C /* HashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HashTest.m; path = ../fun/HashTest.m; sourceTree = SOURCE_ROOT; };
+		A06EBF620E84A0BC009D6D87 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../uikit/test.h; sourceTree = SOURCE_ROOT; };
+		A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIWebViewTest.m; path = ../uikit/UIWebViewTest.m; sourceTree = SOURCE_ROOT; };
 		A094581A0E7C52E500C3CC96 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		A094581B0E7C52E500C3CC96 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		A09458710E7C566500C3CC96 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A02B41A50E7CF9A60079642B /* README */,
+				A06EBF610E84A0A6009D6D87 /* uikit */,
 				A02BABC10E833F7800449247 /* hangul */,
 				A0E66F320E7D9B2A000F6789 /* fun */,
 				A025467A0E7D648B0096455D /* images */,
@@ -171,7 +176,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				A02B41A50E7CF9A60079642B /* README */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -221,6 +225,15 @@
 				A02BABC60E833F8E00449247 /* test.h */,
 			);
 			name = hangul;
+			sourceTree = "<group>";
+		};
+		A06EBF610E84A0A6009D6D87 /* uikit */ = {
+			isa = PBXGroup;
+			children = (
+				A06EBF620E84A0BC009D6D87 /* test.h */,
+				A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */,
+			);
+			name = uikit;
 			sourceTree = "<group>";
 		};
 		A0945A3F0E7CBFAE00C3CC96 /* unittest */ = {
@@ -396,6 +409,7 @@
 				A02BABC70E833F8E00449247 /* Hangul.m in Sources */,
 				A02BABC80E833F8E00449247 /* HangulTest.m in Sources */,
 				A0FD250F0E83F303004465F6 /* NSExpressionTest.m in Sources */,
+				A06EBF640E84A0BC009D6D87 /* UIWebViewTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
