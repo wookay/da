@@ -11,8 +11,17 @@
     got == nil ? @"nil" : [got description];
   if ([expected respondsToSelector:@selector(isEqualToString:)]) {
     if ([got respondsToSelector:@selector(isEqualToArray:)]) {
+      NSMutableArray* ary = [NSMutableArray array];
+      for (id obj in got) {
+        if ([obj respondsToSelector:@selector(isEqualToArray:)]) {
+          [ary addObject:[NSString stringWithFormat:@"(%@)",
+                                     [obj componentsJoinedByString:@", "]]];
+        } else {
+          [ary addObject:obj];
+        }
+      }
       gotDescription = [NSString stringWithFormat:@"(%@)",
-        [got componentsJoinedByString:@", "]];
+                                   [ary componentsJoinedByString:@", "]];
     } else if ([got respondsToSelector:@selector(isEqualToDictionary:)]) {
       NSMutableArray* ary = [NSMutableArray array];
       for (id key in got) {

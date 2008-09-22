@@ -6,16 +6,11 @@
 #define ORD_KEYS @"ordKeys"
 #define ORD_DICTIONARY @"ordDictionary"
 
-@interface OrderedDictionary : NSObject {
+@interface OrderedDictionary : NSDictionary {
   NSArray* ordKeys;
   NSDictionary* ordDictionary;
 }
 
-+ (id) dictionaryWithObjectsAndKeys:(id)value, ... ;
 + (id) dictionaryWithObjectsAndKeysFromArray:(id)array ;
-- (id) allKeys ;
-- (id) allValues ;
-- (id) objectForKey:(id)key ;
-- (id) valueForKey:(id)key ;
 
 @end

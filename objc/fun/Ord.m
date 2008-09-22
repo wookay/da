@@ -5,30 +5,41 @@
 
 @implementation OrderedDictionary
 
-+ (id) dictionaryWithObjectsAndKeys:(id)value, ... {
-  NSMutableArray* ord = [NSMutableArray array];
-  NSMutableDictionary* dic = [NSMutableDictionary dictionary];
-  if (value) {
-    va_list argList;
-    va_start(argList, value);
-    id obj;
-    int idx = 0;
-    while ((obj = va_arg(argList, id))) {
-      if (idx % 2 == 0) {
-        [ord addObject:obj];
-        [dic setObject:value forKey:obj];
-      } else {
-        value = obj;
-      }
-      idx++;
-    }
-    va_end(argList);
+- (id)initWithObjects:(id *)objects forKeys:(id *)keys count:(NSUInteger)count {
+  NSMutableArray* ary = [NSMutableArray array];
+  int idx;
+  for (idx = 0; idx < count; idx ++) {
+    [ary addObject:*(keys+idx)];
   }
-  self = [self alloc]; 
-  [self setValue:ord forKey:ORD_KEYS];
+  [self setValue:ary forKey:ORD_KEYS];
+
+  NSDictionary* dic = [NSDictionary dictionaryWithObjects:objects
+                                    forKeys:keys count:count];
   [self setValue:dic forKey:ORD_DICTIONARY];
   return self;
 }
+
+- (int) count {
+  return [ordKeys count];
+}
+
+- (id) allKeys {
+  return ordKeys;
+}
+
+- (NSEnumerator*) keyEnumerator {
+  return [[self allKeys] objectEnumerator];
+}
+
+- (id) objectForKey:(id)key {
+  return [ordDictionary objectForKey:key];
+}
+
+- (id) valueForKey:(id)key {
+  return [self objectForKey:key];
+}
+
+
 
 + (id) dictionaryWithObjectsAndKeysFromArray:(id)array {
   NSMutableArray* ord = [NSMutableArray array]; 
@@ -48,26 +59,6 @@
   [self setValue:ord forKey:ORD_KEYS];
   [self setValue:dic forKey:ORD_DICTIONARY];
   return self;
-}
-
-- (id) objectForKey:(id)key {
-  return [self valueForKey:key];
-}
-
-- (id) valueForKey:(id)key {
-  return [ordDictionary valueForKey:key];
-}
-
-- (id) allKeys {
-  return ordKeys;
-}
-
-- (id) allValues {
-  NSMutableArray* ary = [NSMutableArray array];
-  for (id key in [self allKeys]) {
-    [ary addObject:[self valueForKey:key]];
-  }
-  return ary;
 }
 
 @end

@@ -15,8 +15,7 @@ j/
   parts of speech
 
 objc/
-  unittest, coregraphics, foundation, math, fun, hangul
-  touch, appkit
+  coregraphics hangul uikit foundation math unittest appkit fun touch
 
 ruby/ 
   numero
