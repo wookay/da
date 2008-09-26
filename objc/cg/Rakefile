@@ -1,0 +1,8 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+CLASSES    = %w{CG CG_Base CG_Path GL}
+FRAMEWORKS=%w{Foundation CoreGraphics OpenGLES}
+
+DIR = File.dirname __FILE__
+load '../unittest/build.rake'

@@ -4,3 +4,4 @@
 #import "../unittest/UnitTest.h"
 
 @interface UIWebViewTest : UnitTestable {} @end
+@interface UIGraphicsTest : UnitTestable {} @end

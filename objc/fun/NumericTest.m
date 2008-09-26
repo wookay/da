@@ -18,6 +18,12 @@
 
   [assert_equal a:@"1.6" b:[six to_s]];
   [assert_equal float:1.6f float:[[six to_s] to_f]];
+  
+  int idx;
+  for (idx = 0; idx < 1; idx++) {
+    int rand = arc4random() % 100;
+    [assert_equal _true:0 <= rand && 100 > rand];
+  }
 
 }
 

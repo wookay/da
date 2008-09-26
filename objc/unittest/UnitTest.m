@@ -36,9 +36,13 @@
           expected:expected
           got:got];
   } else if ([expected respondsToSelector:@selector(isEqualToArray:)]) {
-    [self add_result:[expected isEqualToArray:got]
-          expected:expectedDescription
-          got:gotDescription];
+    if ([expected isEqualToArray:got]) {
+      [self add_result:true expected:expectedDescription got:gotDescription];
+    } else {
+      [self add_result:[expectedDescription isEqualToString:gotDescription]
+            expected:expectedDescription
+            got:gotDescription];
+    }
   } else {
     if (expected == got) {
       [self add_result:true
@@ -89,6 +93,10 @@
   NSString* gotString = [NSString stringWithFormat:@"{%@, %@, %@, %@, %@, %@}",
     F(got.a), F(got.b), F(got.c), F(got.d), F(got.tx), F(got.ty)];
   [self a:expected b:gotString];
+}
+
+- (void) a:(id)expected CGContextRef:(CGContextRef)got {
+  [self a:expected b:(id)got];
 }
 
 - (void) a:(id)expected CATransform3D:(CATransform3D)got {

@@ -19,6 +19,7 @@
 		A02BABC80E833F8E00449247 /* HangulTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A02BABC50E833F8E00449247 /* HangulTest.m */; };
 		A03350DA0E7DC39B002DB27C /* Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350D80E7DC39B002DB27C /* Hash.m */; };
 		A03350DB0E7DC39B002DB27C /* HashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350D90E7DC39B002DB27C /* HashTest.m */; };
+		A05118790E87EC11008FAD0A /* UIGraphicsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A05118780E87EC11008FAD0A /* UIGraphicsTest.m */; };
 		A06EBF640E84A0BC009D6D87 /* UIWebViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */; };
 		A094581C0E7C52E500C3CC96 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A094581B0E7C52E500C3CC96 /* MainViewController.m */; };
 		A09458730E7C566500C3CC96 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09458720E7C566500C3CC96 /* TestViewController.m */; };
@@ -53,6 +54,13 @@
 		A0E66F450E7D9B7C000F6789 /* NumericTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3B0E7D9B7C000F6789 /* NumericTest.m */; };
 		A0E66F460E7D9B7C000F6789 /* String.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3D0E7D9B7C000F6789 /* String.m */; };
 		A0E66F470E7D9B7C000F6789 /* StringTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F3E0E7D9B7C000F6789 /* StringTest.m */; };
+		A0EAD0270E8C7E7B006C8159 /* CG.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAD01E0E8C7E7B006C8159 /* CG.m */; };
+		A0EAD0280E8C7E7B006C8159 /* CG_Base.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAD0200E8C7E7B006C8159 /* CG_Base.m */; };
+		A0EAD0290E8C7E7B006C8159 /* CG_Path.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAD0220E8C7E7B006C8159 /* CG_Path.m */; };
+		A0EAD02A0E8C7E7B006C8159 /* CGTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAD0230E8C7E7B006C8159 /* CGTest.m */; };
+		A0EAD02B0E8C7E7B006C8159 /* GL.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAD0250E8C7E7B006C8159 /* GL.m */; };
+		A0EAD02C0E8C7E7B006C8159 /* GLTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EAD0260E8C7E7B006C8159 /* GLTest.m */; };
+		A0EAD0380E8C7EF0006C8159 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0EAD0370E8C7EF0006C8159 /* OpenGLES.framework */; };
 		A0FD250F0E83F303004465F6 /* NSExpressionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FD250E0E83F303004465F6 /* NSExpressionTest.m */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +84,7 @@
 		A03350D70E7DC39B002DB27C /* Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Hash.h; path = ../fun/Hash.h; sourceTree = SOURCE_ROOT; };
 		A03350D80E7DC39B002DB27C /* Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hash.m; path = ../fun/Hash.m; sourceTree = SOURCE_ROOT; };
 		A03350D90E7DC39B002DB27C /* HashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HashTest.m; path = ../fun/HashTest.m; sourceTree = SOURCE_ROOT; };
+		A05118780E87EC11008FAD0A /* UIGraphicsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIGraphicsTest.m; path = ../uikit/UIGraphicsTest.m; sourceTree = SOURCE_ROOT; };
 		A06EBF620E84A0BC009D6D87 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../uikit/test.h; sourceTree = SOURCE_ROOT; };
 		A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIWebViewTest.m; path = ../uikit/UIWebViewTest.m; sourceTree = SOURCE_ROOT; };
 		A094581A0E7C52E500C3CC96 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -126,6 +135,17 @@
 		A0E66F3D0E7D9B7C000F6789 /* String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = String.m; path = ../fun/String.m; sourceTree = SOURCE_ROOT; };
 		A0E66F3E0E7D9B7C000F6789 /* StringTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StringTest.m; path = ../fun/StringTest.m; sourceTree = SOURCE_ROOT; };
 		A0E66F3F0E7D9B7C000F6789 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../fun/test.h; sourceTree = SOURCE_ROOT; };
+		A0EAD01D0E8C7E7B006C8159 /* CG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CG.h; path = ../cg/CG.h; sourceTree = SOURCE_ROOT; };
+		A0EAD01E0E8C7E7B006C8159 /* CG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CG.m; path = ../cg/CG.m; sourceTree = SOURCE_ROOT; };
+		A0EAD01F0E8C7E7B006C8159 /* CG_Base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CG_Base.h; path = ../cg/CG_Base.h; sourceTree = SOURCE_ROOT; };
+		A0EAD0200E8C7E7B006C8159 /* CG_Base.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CG_Base.m; path = ../cg/CG_Base.m; sourceTree = SOURCE_ROOT; };
+		A0EAD0210E8C7E7B006C8159 /* CG_Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CG_Path.h; path = ../cg/CG_Path.h; sourceTree = SOURCE_ROOT; };
+		A0EAD0220E8C7E7B006C8159 /* CG_Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CG_Path.m; path = ../cg/CG_Path.m; sourceTree = SOURCE_ROOT; };
+		A0EAD0230E8C7E7B006C8159 /* CGTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGTest.m; path = ../cg/CGTest.m; sourceTree = SOURCE_ROOT; };
+		A0EAD0240E8C7E7B006C8159 /* GL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GL.h; path = ../cg/GL.h; sourceTree = SOURCE_ROOT; };
+		A0EAD0250E8C7E7B006C8159 /* GL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GL.m; path = ../cg/GL.m; sourceTree = SOURCE_ROOT; };
+		A0EAD0260E8C7E7B006C8159 /* GLTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLTest.m; path = ../cg/GLTest.m; sourceTree = SOURCE_ROOT; };
+		A0EAD0370E8C7EF0006C8159 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		A0FD250E0E83F303004465F6 /* NSExpressionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSExpressionTest.m; path = ../foundation/NSExpressionTest.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -137,6 +157,7 @@
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				A0EAD0380E8C7EF0006C8159 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				A02B41A50E7CF9A60079642B /* README */,
+				A0EAD01B0E8C7E51006C8159 /* cg */,
 				A06EBF610E84A0A6009D6D87 /* uikit */,
 				A02BABC10E833F7800449247 /* hangul */,
 				A0E66F320E7D9B2A000F6789 /* fun */,
@@ -206,6 +228,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0EAD0370E8C7EF0006C8159 /* OpenGLES.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -235,8 +258,9 @@
 		A06EBF610E84A0A6009D6D87 /* uikit */ = {
 			isa = PBXGroup;
 			children = (
-				A06EBF620E84A0BC009D6D87 /* test.h */,
+				A05118780E87EC11008FAD0A /* UIGraphicsTest.m */,
 				A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */,
+				A06EBF620E84A0BC009D6D87 /* test.h */,
 			);
 			name = uikit;
 			sourceTree = "<group>";
@@ -322,6 +346,23 @@
 				A0E66F3F0E7D9B7C000F6789 /* test.h */,
 			);
 			name = fun;
+			sourceTree = "<group>";
+		};
+		A0EAD01B0E8C7E51006C8159 /* cg */ = {
+			isa = PBXGroup;
+			children = (
+				A0EAD01D0E8C7E7B006C8159 /* CG.h */,
+				A0EAD01E0E8C7E7B006C8159 /* CG.m */,
+				A0EAD01F0E8C7E7B006C8159 /* CG_Base.h */,
+				A0EAD0200E8C7E7B006C8159 /* CG_Base.m */,
+				A0EAD0210E8C7E7B006C8159 /* CG_Path.h */,
+				A0EAD0220E8C7E7B006C8159 /* CG_Path.m */,
+				A0EAD0230E8C7E7B006C8159 /* CGTest.m */,
+				A0EAD0240E8C7E7B006C8159 /* GL.h */,
+				A0EAD0250E8C7E7B006C8159 /* GL.m */,
+				A0EAD0260E8C7E7B006C8159 /* GLTest.m */,
+			);
+			name = cg;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +461,13 @@
 				A06EBF640E84A0BC009D6D87 /* UIWebViewTest.m in Sources */,
 				A0AF96670E85223F0024A8DF /* Ord.m in Sources */,
 				A0AF96680E85223F0024A8DF /* OrdTest.m in Sources */,
+				A05118790E87EC11008FAD0A /* UIGraphicsTest.m in Sources */,
+				A0EAD0270E8C7E7B006C8159 /* CG.m in Sources */,
+				A0EAD0280E8C7E7B006C8159 /* CG_Base.m in Sources */,
+				A0EAD0290E8C7E7B006C8159 /* CG_Path.m in Sources */,
+				A0EAD02A0E8C7E7B006C8159 /* CGTest.m in Sources */,
+				A0EAD02B0E8C7E7B006C8159 /* GL.m in Sources */,
+				A0EAD02C0E8C7E7B006C8159 /* GLTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,6 +5,7 @@
 #import "../unittest/UnitTest.h"
 
 @interface NSImageTest : UnitTestable {} @end
+@interface NSGraphicsContextTest : UnitTestable {} @end
 
 @interface NSPointerArrayTest : UnitTestable {} @end
 @interface NSExceptionTest : UnitTestable {} @end

@@ -3,6 +3,8 @@
 
 #import "test.h"
 
+#define _ ;
+
 @implementation MatrixTest
 
 - (void) unittest {

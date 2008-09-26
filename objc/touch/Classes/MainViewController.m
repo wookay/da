@@ -36,8 +36,11 @@
     @"CGContextTest",
     @"coregraphics",
                     
-    @"UIWebViewTest",
+    @"UIGraphicsTest UIWebViewTest",
     @"uikit",
+    
+    @"CGTest GLTest",
+    @"cg",                    
                     
     nil];
   
