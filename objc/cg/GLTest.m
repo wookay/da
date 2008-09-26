@@ -8,7 +8,7 @@
 
 - (void) unittest {
 
-  id gl = [GL create];
+  id gl = [GL create:nil];
   [gl loadIdentity];
   [assert_equal a:[NSArray arrayWithObject:@"glLoadIdentity"] b:gl];
 
