@@ -23,4 +23,5 @@
 @interface NSNotificationTest : UnitTestable {} @end
 @interface NSBundleTest : UnitTestable {} @end
 @interface NSExpressionTest : UnitTestable {} @end
+@interface NSLocaleTest : UnitTestable {} @end
 @interface DataTypesTest : UnitTestable {} @end

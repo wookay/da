@@ -21,6 +21,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSNotificationTest"];
   [unittest run:@"NSBundleTest"];
   [unittest run:@"NSExpressionTest"];
+  [unittest run:@"NSLocaleTest"];
   [unittest run:@"DataTypesTest"];
   [unittest report];
 

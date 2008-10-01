@@ -32,6 +32,9 @@
                     
     @"HangulTest",
     @"hangul",
+ 
+    @"ArabicTest",
+    @"arabic",
     
     @"CGContextTest",
     @"coregraphics",
