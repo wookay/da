@@ -23,6 +23,9 @@
   [assert_equal a:@"10.1" b:[NSString stringWithFormat:@"%g", d]];
   [assert_equal a:@"10.1" b:[NSString stringWithFormat:@"%G", d]];
 
+  NSMutableAttributedString* mas = [[NSMutableAttributedString alloc] initWithString:@"test"];
+  [assert_equal a:@"test{\n}" b:mas];
+
 }
 
 @end

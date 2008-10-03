@@ -24,4 +24,6 @@
 @interface NSBundleTest : UnitTestable {} @end
 @interface NSExpressionTest : UnitTestable {} @end
 @interface NSLocaleTest : UnitTestable {} @end
+@interface NSInvocationOperationTest : UnitTestable {} @end
+@interface NSNullTest : UnitTestable {} @end
 @interface DataTypesTest : UnitTestable {} @end

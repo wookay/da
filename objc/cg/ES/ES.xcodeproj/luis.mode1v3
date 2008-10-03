@@ -264,12 +264,14 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
+								<string>080E96DDFE201D6D7F000001</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>1</integer>
+									<integer>6</integer>
+									<integer>3</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -311,7 +313,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>README</string>
+								<string>ESAppDelegate.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -319,18 +321,18 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>README</string>
+										<string>ESAppDelegate.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A0A64DED0E8CDF5600111511</string>
+										<string>A08864B90E96425100B7166A</string>
 										<key>history</key>
 										<array>
-											<string>A0A64DB30E8CDE5100111511</string>
 											<string>A0A64DB40E8CDE5100111511</string>
 											<string>A0A64DB50E8CDE5100111511</string>
 											<string>A0A64DEA0E8CDF5600111511</string>
-											<string>A0A64DEB0E8CDF5600111511</string>
+											<string>A08864B20E94C5DC00B7166A</string>
+											<string>A08864B30E94C5DC00B7166A</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -338,7 +340,7 @@
 											<string>A0A64D5C0E8CDBD800111511</string>
 											<string>A0A64D5D0E8CDBD800111511</string>
 											<string>A0A64D5F0E8CDBD800111511</string>
-											<string>A0A64DEC0E8CDF5600111511</string>
+											<string>A08864B40E94C5DC00B7166A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -396,9 +398,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>A0A64DEE0E8CDF5600111511</string>
+				<string>A08864B60E94C5DC00B7166A</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>A0A64DEF0E8CDF5600111511</string>
+				<string>A08864B70E94C5DC00B7166A</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -532,7 +534,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/luis/da/objc/cg/ES/ES.xcodeproj</string>
 	</array>
 	<key>WindowString</key>

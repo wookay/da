@@ -129,6 +129,10 @@
   [self a:nil b:got];
 }
 
+- (void) _NULL:(id)got {
+  [self a:NULL b:got];
+}
+
 - (void) int:(int)expected int:(int)got {
   NSString* expectedString = [NSString stringWithFormat:@"%d", expected];
   NSString* gotString = [NSString stringWithFormat:@"%d", got];
@@ -150,6 +154,19 @@
   NSString* expectedString = [NSString stringWithFormat:@"%@f", expectedNumber];
   NSString* gotString = [NSString stringWithFormat:@"%@f", got];
   [self a:expectedString b:gotString];
+}
+
+- (void) double:(double)expected double:(double)got {
+  [self double:expected b:[NSNumber numberWithDouble:got]];
+}
+
+- (void) double:(double)expected b:(id)got {
+  NSNumber* expectedNumber = [NSNumber numberWithDouble:expected];
+  NSString* expectedString = [NSString stringWithFormat:@"%@", expectedNumber];
+  NSString* gotString = [NSString stringWithFormat:@"%@", got];
+  [self add_result:[expectedNumber isEqualToNumber:got]
+        expected:expectedString
+        got:gotString];
 }
 
 - (id)init {

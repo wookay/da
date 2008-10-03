@@ -6,6 +6,9 @@
 
 @interface NSImageTest : UnitTestable {} @end
 @interface NSGraphicsContextTest : UnitTestable {} @end
+@interface NSApplicationTest : UnitTestable {} @end
+@interface NSBoxTest : UnitTestable {} @end
+@interface InterfaceBuilderTest : UnitTestable {} @end
 
 @interface NSPointerArrayTest : UnitTestable {} @end
 @interface NSExceptionTest : UnitTestable {} @end

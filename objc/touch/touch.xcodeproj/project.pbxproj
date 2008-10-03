@@ -20,6 +20,15 @@
 		A03350DA0E7DC39B002DB27C /* Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350D80E7DC39B002DB27C /* Hash.m */; };
 		A03350DB0E7DC39B002DB27C /* HashTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A03350D90E7DC39B002DB27C /* HashTest.m */; };
 		A05118790E87EC11008FAD0A /* UIGraphicsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A05118780E87EC11008FAD0A /* UIGraphicsTest.m */; };
+		A052F9B00E969A8400BF55F7 /* NSInvocationOperationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F9AF0E969A8400BF55F7 /* NSInvocationOperationTest.m */; };
+		A052F9C40E969BC700BF55F7 /* CABasicAnimationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F9BF0E969BC700BF55F7 /* CABasicAnimationTest.m */; };
+		A052F9C50E969BC700BF55F7 /* CAKeyframeAnimationTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F9C00E969BC700BF55F7 /* CAKeyframeAnimationTest.m */; };
+		A052F9C60E969BC700BF55F7 /* CALayerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F9C10E969BC700BF55F7 /* CALayerTest.m */; };
+		A052F9C70E969BC700BF55F7 /* CATransform3DTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F9C20E969BC700BF55F7 /* CATransform3DTest.m */; };
+		A052F9D30E969C3600BF55F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A052F9D20E969C3600BF55F7 /* QuartzCore.framework */; };
+		A052F9E90E96ADF700BF55F7 /* NSNullTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F9E80E96ADF700BF55F7 /* NSNullTest.m */; };
+		A052F9F50E96AFE200BF55F7 /* CATiledLayerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052F9F40E96AFE200BF55F7 /* CATiledLayerTest.m */; };
+		A052FA010E96B47000BF55F7 /* NSLocaleTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A052FA000E96B47000BF55F7 /* NSLocaleTest.m */; };
 		A06EBF640E84A0BC009D6D87 /* UIWebViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */; };
 		A07277240E932B4B002FF6D1 /* Arabic.m in Sources */ = {isa = PBXBuildFile; fileRef = A07277220E932B4B002FF6D1 /* Arabic.m */; };
 		A07277250E932B4B002FF6D1 /* ArabicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A07277230E932B4B002FF6D1 /* ArabicTest.m */; };
@@ -87,6 +96,16 @@
 		A03350D80E7DC39B002DB27C /* Hash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Hash.m; path = ../fun/Hash.m; sourceTree = SOURCE_ROOT; };
 		A03350D90E7DC39B002DB27C /* HashTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HashTest.m; path = ../fun/HashTest.m; sourceTree = SOURCE_ROOT; };
 		A05118780E87EC11008FAD0A /* UIGraphicsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIGraphicsTest.m; path = ../uikit/UIGraphicsTest.m; sourceTree = SOURCE_ROOT; };
+		A052F9AF0E969A8400BF55F7 /* NSInvocationOperationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSInvocationOperationTest.m; path = ../foundation/NSInvocationOperationTest.m; sourceTree = SOURCE_ROOT; };
+		A052F9BF0E969BC700BF55F7 /* CABasicAnimationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CABasicAnimationTest.m; path = ../quartzcore/CABasicAnimationTest.m; sourceTree = SOURCE_ROOT; };
+		A052F9C00E969BC700BF55F7 /* CAKeyframeAnimationTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CAKeyframeAnimationTest.m; path = ../quartzcore/CAKeyframeAnimationTest.m; sourceTree = SOURCE_ROOT; };
+		A052F9C10E969BC700BF55F7 /* CALayerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CALayerTest.m; path = ../quartzcore/CALayerTest.m; sourceTree = SOURCE_ROOT; };
+		A052F9C20E969BC700BF55F7 /* CATransform3DTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATransform3DTest.m; path = ../quartzcore/CATransform3DTest.m; sourceTree = SOURCE_ROOT; };
+		A052F9C30E969BC700BF55F7 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../quartzcore/test.h; sourceTree = SOURCE_ROOT; };
+		A052F9D20E969C3600BF55F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A052F9E80E96ADF700BF55F7 /* NSNullTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSNullTest.m; path = ../foundation/NSNullTest.m; sourceTree = SOURCE_ROOT; };
+		A052F9F40E96AFE200BF55F7 /* CATiledLayerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CATiledLayerTest.m; path = ../quartzcore/CATiledLayerTest.m; sourceTree = SOURCE_ROOT; };
+		A052FA000E96B47000BF55F7 /* NSLocaleTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSLocaleTest.m; path = ../foundation/NSLocaleTest.m; sourceTree = SOURCE_ROOT; };
 		A06EBF620E84A0BC009D6D87 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../uikit/test.h; sourceTree = SOURCE_ROOT; };
 		A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIWebViewTest.m; path = ../uikit/UIWebViewTest.m; sourceTree = SOURCE_ROOT; };
 		A07277210E932B4B002FF6D1 /* Arabic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Arabic.h; path = ../arabic/Arabic.h; sourceTree = SOURCE_ROOT; };
@@ -163,6 +182,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				A0EAD0380E8C7EF0006C8159 /* OpenGLES.framework in Frameworks */,
+				A052F9D30E969C3600BF55F7 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +220,7 @@
 				A072771B0E932B0F002FF6D1 /* arabic */,
 				A0E66F320E7D9B2A000F6789 /* fun */,
 				A0945D930E7CF2EA00C3CC96 /* coregraphics */,
+				A052F9BE0E969BA400BF55F7 /* quartzcore */,
 				A0945A610E7CC08E00C3CC96 /* math */,
 				A0945A400E7CBFB500C3CC96 /* foundation */,
 				A0945A3F0E7CBFAE00C3CC96 /* unittest */,
@@ -234,6 +255,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A052F9D20E969C3600BF55F7 /* QuartzCore.framework */,
 				A0EAD0370E8C7EF0006C8159 /* OpenGLES.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -251,6 +273,19 @@
 				A02BABC60E833F8E00449247 /* test.h */,
 			);
 			name = hangul;
+			sourceTree = "<group>";
+		};
+		A052F9BE0E969BA400BF55F7 /* quartzcore */ = {
+			isa = PBXGroup;
+			children = (
+				A052F9BF0E969BC700BF55F7 /* CABasicAnimationTest.m */,
+				A052F9C00E969BC700BF55F7 /* CAKeyframeAnimationTest.m */,
+				A052F9C10E969BC700BF55F7 /* CALayerTest.m */,
+				A052F9F40E96AFE200BF55F7 /* CATiledLayerTest.m */,
+				A052F9C20E969BC700BF55F7 /* CATransform3DTest.m */,
+				A052F9C30E969BC700BF55F7 /* test.h */,
+			);
+			name = quartzcore;
 			sourceTree = "<group>";
 		};
 		A06EBF610E84A0A6009D6D87 /* uikit */ = {
@@ -287,6 +322,9 @@
 		A0945A400E7CBFB500C3CC96 /* foundation */ = {
 			isa = PBXGroup;
 			children = (
+				A052FA000E96B47000BF55F7 /* NSLocaleTest.m */,
+				A052F9E80E96ADF700BF55F7 /* NSNullTest.m */,
+				A052F9AF0E969A8400BF55F7 /* NSInvocationOperationTest.m */,
 				A0FD250E0E83F303004465F6 /* NSExpressionTest.m */,
 				A0945A440E7CC00600C3CC96 /* test.h */,
 				A0945A450E7CC00600C3CC96 /* DataTypesTest.m */,
@@ -478,6 +516,14 @@
 				A0EAD02C0E8C7E7B006C8159 /* GLTest.m in Sources */,
 				A07277240E932B4B002FF6D1 /* Arabic.m in Sources */,
 				A07277250E932B4B002FF6D1 /* ArabicTest.m in Sources */,
+				A052F9B00E969A8400BF55F7 /* NSInvocationOperationTest.m in Sources */,
+				A052F9C40E969BC700BF55F7 /* CABasicAnimationTest.m in Sources */,
+				A052F9C50E969BC700BF55F7 /* CAKeyframeAnimationTest.m in Sources */,
+				A052F9C60E969BC700BF55F7 /* CALayerTest.m in Sources */,
+				A052F9C70E969BC700BF55F7 /* CATransform3DTest.m in Sources */,
+				A052F9E90E96ADF700BF55F7 /* NSNullTest.m in Sources */,
+				A052F9F50E96AFE200BF55F7 /* CATiledLayerTest.m in Sources */,
+				A052FA010E96B47000BF55F7 /* NSLocaleTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

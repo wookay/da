@@ -21,7 +21,7 @@
     @"HelloTest",
     @"unittest",
                     
-    @"DataTypesTest NSExpressionTest NSArrayTest NSBundleTest NSDataTest NSDateTest NSErrorTest NSMutableArrayTest NSMutableDictionaryTest NSMutableSetTest NSNotificationTest NSNumberTest NSObjectTest NSProcessInfoTest NSStringTest",
+    @"DataTypesTest NSNullTest NSLocaleTest NSInvocationOperationTest NSExpressionTest NSArrayTest NSBundleTest NSDataTest NSDateTest NSErrorTest NSMutableArrayTest NSMutableDictionaryTest NSMutableSetTest NSNotificationTest NSNumberTest NSObjectTest NSProcessInfoTest NSStringTest",
     @"foundation",
     
     @"VectorTest MatrixTest",
@@ -38,13 +38,16 @@
     
     @"CGContextTest",
     @"coregraphics",
-                    
-    @"UIGraphicsTest UIWebViewTest",
-    @"uikit",
+    
+    @"CABasicAnimationTest CAKeyframeAnimationTest CALayerTest CATiledLayerTest CATransform3DTest",
+    @"quartzcore",
     
     @"CGTest GLTest",
     @"cg",                    
-                    
+
+    @"UIGraphicsTest UIWebViewTest",
+    @"uikit",
+    
     nil];
   
   [self setValue:@"touch" forKey:@"title"];

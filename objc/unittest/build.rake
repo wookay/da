@@ -47,6 +47,8 @@ if defined? DIR
     builder = Builder.new :arch => :mac
     builder.link "#{APP}_mac_test", OBJECTS
     if dyld_fallback?
+      wr = open("#{DIR}/#{APP}_mac_test.sh").read.gsub('PASSED=0','')
+      open("#{DIR}/#{APP}_mac_test.sh", 'w') do |f| f.write wr end
       puts `#{DIR}/#{APP}_mac_test.sh`
     else
       puts `#{DIR}/#{APP}_mac_test`
@@ -102,6 +104,13 @@ else
   desc "run tests and display only results"
   task :p do
     dirs.each do |dir|
+      puts `cd #{dir} && rake --silent p`
+    end
+  end
+
+  task :P do
+    dirs.each do |dir|
+      print "#{dir.ljust 15}"
       puts `cd #{dir} && rake --silent p`
     end
   end
