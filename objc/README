@@ -2,8 +2,14 @@ iPhone stuff
 
 
 
-$ rake -p
-OK, passed 1 test.
-OK, passed 52 tests.
-OK, passed 27 tests.
-OK, passed 3 tests.
+$ rake p
+appkit         OK, passed 14 tests.
+arabic         OK, passed 5 tests.
+cg             OK, passed 4 tests.
+coregraphics   OK, passed 1 test.
+foundation     OK, passed 73 tests.
+fun            OK, passed 57 tests.
+hangul         OK, passed 7 tests.
+math           OK, passed 27 tests.
+quartzcore     OK, passed 19 tests.
+unittest       OK, passed 3 tests.
