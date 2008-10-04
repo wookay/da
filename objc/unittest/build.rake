@@ -104,12 +104,6 @@ else
   desc "run tests and display only results"
   task :p do
     dirs.each do |dir|
-      puts `cd #{dir} && rake --silent p`
-    end
-  end
-
-  task :P do
-    dirs.each do |dir|
       print "#{dir.ljust 15}"
       puts `cd #{dir} && rake --silent p`
     end

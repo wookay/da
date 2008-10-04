@@ -26,7 +26,6 @@
 - (void) _true:(BOOL)got ;
 - (void) _false:(BOOL)got ;
 - (void) _nil:(id)got ;
-- (void) _NULL:(id)got ;
 - (void) int:(int)expected int:(int)got ;
 - (void) int:(int)expected b:(id)got ;
 - (void) float:(float)expected float:(float)got ; 

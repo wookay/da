@@ -129,10 +129,6 @@
   [self a:nil b:got];
 }
 
-- (void) _NULL:(id)got {
-  [self a:NULL b:got];
-}
-
 - (void) int:(int)expected int:(int)got {
   NSString* expectedString = [NSString stringWithFormat:@"%d", expected];
   NSString* gotString = [NSString stringWithFormat:@"%d", got];
