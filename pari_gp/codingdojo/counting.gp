@@ -33,6 +33,7 @@ sumof(n) = {
   s
 }
 
+
 assert_equal(6, sumof(132))
 assert_equal(9, sumof(112314))
 assert_equal([2, 11, 14, 41, 44], ways(2))
