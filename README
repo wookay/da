@@ -15,7 +15,11 @@ j/
   parts of speech
 
 objc/
-  coregraphics hangul uikit foundation math unittest appkit fun touch
+   arabic foundation math uikit cg fun quartzcore unittest
+   appkit coregraphics hangul touch
+
+pari_gp/
+  string
 
 ruby/ 
   numero

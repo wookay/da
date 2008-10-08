@@ -1,0 +1,10 @@
+PARI/GP stuff
+
+
+
+$ gp -q string.gp
+passed: ex
+passed: ex2
+passed: 3
+passed: [1, 1]
+passed: ["1", "1"]

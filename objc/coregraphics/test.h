@@ -5,3 +5,4 @@
 #import "../unittest/UnitTest.h"
 
 @interface CGContextTest : UnitTestable {} @end
+@interface CGPathTest : UnitTestable {} @end

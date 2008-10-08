@@ -9,6 +9,7 @@
 #import "PathView.h"
 #import "../../../cg/CG.h"
 
+#import <CGContext.h>
 #define _ nil
 
 
