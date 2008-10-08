@@ -1,0 +1,10 @@
+
+
+
+$ gp -q counting.gp 
+passed: 6
+passed: 9
+passed: [2, 11, 14, 41, 44]
+passed: [3, 12, 21, 24, 42, 111, 114, 141, 144, 411, 414, 441, 444]
+passed: 5
+passed: 13

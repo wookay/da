@@ -24,7 +24,7 @@ def run_tests show_ret=false
         puts "  #{line}"
       end
     else
-      print "#{gp.ljust 15}"
+      print "#{gp.ljust 22}"
     end
     passed = ret.scan(/^passed: /).size
     failed_message = ret.split("\n").reject{|line|line =~ /^passed/}
