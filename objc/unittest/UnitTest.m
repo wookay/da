@@ -65,8 +65,12 @@
 }
 
 - (void) a:(id)expected NSRange:(NSRange)got {
-  [self add_result:NSEqualRanges(NSRangeFromString(expected), got)
-     expected:expected got:NSStringFromRange(got)];
+  if (got.location == NSNotFound) {
+    [self a:expected b:@"{NSNotFound, 0}"];
+  } else {
+    [self add_result:NSEqualRanges(NSRangeFromString(expected), got)
+          expected:expected got:NSStringFromRange(got)];
+  }
 }
 
 #define F(v) [NSNumber numberWithFloat:(v)]

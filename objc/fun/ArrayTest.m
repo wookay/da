@@ -19,6 +19,7 @@
   NSArray* empty = [NSArray array];
   [assert_equal a:@"()" b:empty];
   [assert_equal a:@"" b:[empty to_s]];
+  [assert_equal _true:[empty empty:'?']];
 
   NSMutableArray* stack = [NSMutableArray array];
   [assert_equal a:@"(a)" b:[stack push:@"a"]];

@@ -26,6 +26,9 @@
   NSMutableAttributedString* mas = [[NSMutableAttributedString alloc] initWithString:@"test"];
   [assert_equal a:@"test{\n}" b:mas];
 
+  [assert_equal a:@"{6, 3}" NSRange:[@"hello apple" rangeOfString:@"app"]];
+  [assert_equal a:@"{NSNotFound, 0}" NSRange:[@"hello apple" rangeOfString:@"mac"]];
+  
 }
 
 @end
