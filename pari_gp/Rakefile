@@ -29,7 +29,7 @@ def run_tests show_ret=false
     passed = ret.scan(/^passed: /).size
     failed_message = ret.split("\n").reject{|line|line =~ /^passed/}
     failed = failed_message.select{|line|line =~ /^Assertion failed/}.size
-    puts "\n#{failed_message.join"\n"}" if failed > 0
+    puts "\n#{failed_message.join"\n"}" if not failed_message.empty?
     puts "OK, passed #{passed} test#{'s' if passed > 1}."
     puts "Oops, failed #{failed} test#{'s' if failed > 1}." if failed > 0
   end

@@ -9,7 +9,8 @@ def funcs_from_header header
       
       next if func.size == 0
       q = ret == 'bool' ? '?' : ''
-      puts "#{func}#{q} #{args.map{|arg|arg.split(' ').last}.join(' ')}"
+      puts "#{ret} #{func}(#{argstr});"
+      #puts "#{func}#{q} #{args.map{|arg|arg.split(' ').last}.join(' ')}"
     end
   end
 end

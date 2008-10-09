@@ -40,5 +40,9 @@ assert_equal([2, 11, 14, 41, 44], ways(2))
 assert_equal([3, 12, 21, 24, 42, 111, 114, 141, 144, 411, 414, 441, 444], ways(3))
 assert_equal(5, #ways(2))
 assert_equal(13, #ways(3))
+\\ assert_equal(33, #ways(4))
+\\ assert_equal(84, #ways(5))
+\\ assert_equal(214, #ways(6))
+\\ assert_equal(545, #ways(7))
 
 quit
