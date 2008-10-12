@@ -21,6 +21,7 @@
 - (void) a:(id)expected CGRect:(CGRect)got ;
 - (void) a:(id)expected CGAffineTransform:(CGAffineTransform)got ;
 - (void) a:(id)expected CGContextRef:(CGContextRef)got ;
+- (void) a:(id)expected CGGlyph:(CGGlyph)got ;
 - (void) a:(id)expected CATransform3D:(CATransform3D)got ;
 - (void) bool:(BOOL)expected bool:(BOOL)got ;
 - (void) _true:(BOOL)got ;

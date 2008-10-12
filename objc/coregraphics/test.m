@@ -9,6 +9,7 @@ int main (int argc, const char * argv[]) {
   UnitTest* unittest = [UnitTest create];
   [unittest run:@"CGContextTest"];
   [unittest run:@"CGPathTest"];
+  [unittest run:@"CGGlyphTest"];
   [unittest report];
 
   [pool release];

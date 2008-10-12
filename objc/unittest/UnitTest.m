@@ -103,6 +103,11 @@
   [self a:expected b:(id)got];
 }
 
+- (void) a:(id)expected CGGlyph:(CGGlyph)got {
+  NSNumber* gotNumber = [NSNumber numberWithUnsignedShort:got];
+  [self a:expected b:gotNumber];
+}
+
 - (void) a:(id)expected CATransform3D:(CATransform3D)got {
   NSString* gotString = [NSString stringWithFormat:
     @"{%@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@, %@}",
