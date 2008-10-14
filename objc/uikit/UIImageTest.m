@@ -11,7 +11,9 @@
   NSURL *url = [NSURL URLWithString:path];
   NSData *data = [NSData dataWithContentsOfURL:url];
   UIImage *img = [[UIImage alloc] initWithData:data];
-  // [view setImage:img];
+  UIView* view = [UIView alloc];
+  [view setImage:img];
+  [assert_equal a:"" b:[view image]];
 
 }
 

@@ -55,6 +55,8 @@
 		A0945A6C0E7CC0A600C3CC96 /* VectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945A680E7CC0A600C3CC96 /* VectorTest.m */; };
 		A0945D960E7CF31200C3CC96 /* HelloTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945D950E7CF31200C3CC96 /* HelloTest.m */; };
 		A0945D990E7CF32600C3CC96 /* CGContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945D980E7CF32600C3CC96 /* CGContextTest.m */; };
+		A09FB7950EA48AD90079056A /* UIColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A09FB7930EA48AD90079056A /* UIColorTest.m */; };
+		A09FB7960EA48AD90079056A /* UIImageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A09FB7940EA48AD90079056A /* UIImageTest.m */; };
 		A0AF96670E85223F0024A8DF /* Ord.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AF96650E85223F0024A8DF /* Ord.m */; };
 		A0AF96680E85223F0024A8DF /* OrdTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AF96660E85223F0024A8DF /* OrdTest.m */; };
 		A0E66F400E7D9B7C000F6789 /* Array.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F340E7D9B7C000F6789 /* Array.m */; };
@@ -143,6 +145,8 @@
 		A0945D950E7CF31200C3CC96 /* HelloTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HelloTest.m; path = ../unittest/HelloTest.m; sourceTree = SOURCE_ROOT; };
 		A0945D970E7CF32600C3CC96 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = test.h; path = ../coregraphics/test.h; sourceTree = SOURCE_ROOT; };
 		A0945D980E7CF32600C3CC96 /* CGContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGContextTest.m; path = ../coregraphics/CGContextTest.m; sourceTree = SOURCE_ROOT; };
+		A09FB7930EA48AD90079056A /* UIColorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorTest.m; sourceTree = "<group>"; };
+		A09FB7940EA48AD90079056A /* UIImageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageTest.m; sourceTree = "<group>"; };
 		A0AF96640E85223F0024A8DF /* Ord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ord.h; path = ../fun/Ord.h; sourceTree = SOURCE_ROOT; };
 		A0AF96650E85223F0024A8DF /* Ord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ord.m; path = ../fun/Ord.m; sourceTree = SOURCE_ROOT; };
 		A0AF96660E85223F0024A8DF /* OrdTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrdTest.m; path = ../fun/OrdTest.m; sourceTree = SOURCE_ROOT; };
@@ -291,6 +295,8 @@
 		A06EBF610E84A0A6009D6D87 /* uikit */ = {
 			isa = PBXGroup;
 			children = (
+				A09FB7930EA48AD90079056A /* UIColorTest.m */,
+				A09FB7940EA48AD90079056A /* UIImageTest.m */,
 				A05118780E87EC11008FAD0A /* UIGraphicsTest.m */,
 				A06EBF630E84A0BC009D6D87 /* UIWebViewTest.m */,
 				A06EBF620E84A0BC009D6D87 /* test.h */,
@@ -524,6 +530,8 @@
 				A052F9E90E96ADF700BF55F7 /* NSNullTest.m in Sources */,
 				A052F9F50E96AFE200BF55F7 /* CATiledLayerTest.m in Sources */,
 				A052FA010E96B47000BF55F7 /* NSLocaleTest.m in Sources */,
+				A09FB7950EA48AD90079056A /* UIColorTest.m in Sources */,
+				A09FB7960EA48AD90079056A /* UIImageTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
