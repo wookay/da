@@ -15,4 +15,4 @@ assert_equal( [1, 2, 3, 4, 5]  , r=[]; for(x=1, 5, r=concat(r,x)); r         )
 assert_equal( [5, 4, 3, 2, 1]  , r=[]; forstep(x=5, 1, -1, r=concat(r,x)); r )
 assert_equal( [2, 3, 5, 7, 11] , r=[]; forprime(p=2, 12, r=concat(r,p)); r   )
 
-qu it
+quit

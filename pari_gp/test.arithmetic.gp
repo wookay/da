@@ -4,6 +4,10 @@
 
 read(unittest)
 
+assert_equal( 0.E-28           , 0                        )
+assert_equal( 0                , 0.0                      )
+assert_equal( 0                , 0.E-28                   )
+
 assert_equal( [1, 0, 0, 0]     , binary(8)                )
 assert_equal(  1               , bittest(8, 3)            )
 assert_equal(     0            , bittest(8, 2)            )
