@@ -1,13 +1,8 @@
-\\ vector.gp
+\\ test.vector.gp
 \\                           wookay.noh at gmail.com
 \\                           http://wookay.egloos.com
 
-assert_equal(expected, got) = {
-  if (expected==got,
-    print("passed: ", expected),
-    print("Assertion failed\nExpected: ", expected, "\nGot: ", got)
-  )
-}
+read(unittest)
 
 assert_equal( []               , []                                 )
 assert_equal( []               , vector(0)                          )
@@ -36,16 +31,7 @@ assert_equal( ["1"]                , setintersect(Set([1, 2, 3]), Set([1, 5])) )
 assert_equal( ["2", "3"]           , setminus(Set([1, 2, 3]), Set([1, 5]))     )
 assert_equal( ["1", "2", "3", "5"] , setunion([1, 2, 3], [1, 5])               )
 
-\\ Vector Extension
-vecjoin(v, sp="") = {
-  ret = "";
-  for(x=1, #v,
-    ret = concat(ret, v[x]);
-    if(x==#v, 0, ret = concat(ret, sp))
-  );
-  ret
-}
-
+read("fun.vector") \\ vecjoin
 assert_equal( "123"                , vecjoin(["1", "2", "3"])                  )
 assert_equal( "123"                , vecjoin([1, 2, 3])                        )
 assert_equal( "1,2,3"              , vecjoin([1, 2, 3], ",")                   )

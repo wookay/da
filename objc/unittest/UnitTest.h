@@ -33,6 +33,8 @@
 - (void) float:(float)expected b:(id)got ; 
 - (void) double:(double)expected double:(double)got ; 
 - (void) double:(double)expected b:(id)got ; 
+- (void) hasPrefix:(id)expected b:(id)got ;
+- (void) hasSuffix:(id)expected b:(id)got ;
 
 - (int) passedCount ;
 - (int) failedCount ;

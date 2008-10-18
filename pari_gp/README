@@ -2,9 +2,31 @@ PARI/GP stuff
 
 
 
-$ gp -q string.gp
+$ gp -q test.string.gp 
 passed: ex
 passed: ex2
+passed: example
+passed: exhola
+passed: ex[1, 2]
 passed: 3
+passed: 2
 passed: [1, 1]
 passed: ["1", "1"]
+passed: Vecsmall([97, 112, 112, 108, 101])
+passed: apple
+passed: ["a1", "b2", "c3"]
+passed: ["a1", "b2", "c3"]
+passed: ["a", "b", "c"]
+
+
+
+$ rake p
+test.arithmetic.gp                   OK, passed 52 tests.
+test.control_statements.gp           OK, passed 2 tests.
+test.functions.programming.gp        OK, passed 7 tests.
+test.functions.symbolic_operators.gp OK, passed 10 tests.
+test.json.gp                         OK, passed 23 tests.
+test.matrix.gp                       OK, passed 25 tests.
+test.string.gp                       OK, passed 14 tests.
+test.types.gp                        OK, passed 18 tests.
+test.vector.gp                       OK, passed 27 tests.

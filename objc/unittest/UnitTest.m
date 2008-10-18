@@ -174,6 +174,20 @@
         got:gotString];
 }
 
+- (void) hasPrefix:(id)expected b:(id)got {
+  NSString* gotDescription = [NSString stringWithFormat:@"%@", got];
+  [self add_result:[gotDescription hasPrefix:expected]
+        expected:expected 
+        got:got];
+}
+
+- (void) hasSuffix:(id)expected b:(id)got {
+  NSString* gotDescription = [NSString stringWithFormat:@"%@", got];
+  [self add_result:[gotDescription hasSuffix:expected]
+        expected:expected
+        got:got];
+}
+
 - (id)init {
   passedCount = 0;
   failedCount = 0;

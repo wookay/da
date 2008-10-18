@@ -26,4 +26,5 @@
 @interface NSLocaleTest : UnitTestable {} @end
 @interface NSInvocationOperationTest : UnitTestable {} @end
 @interface NSNullTest : UnitTestable {} @end
+@interface NSCountedSetTest : UnitTestable {} @end
 @interface DataTypesTest : UnitTestable {} @end

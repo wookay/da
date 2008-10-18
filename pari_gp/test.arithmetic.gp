@@ -2,12 +2,7 @@
 \\                           wookay.noh at gmail.com
 \\                           http://wookay.egloos.com
 
-assert_equal(expected, got) = {
-  if (expected==got,
-    print("passed: ", expected),
-    print("Assertion failed\nExpected: ", expected, "\nGot: ", got)
-  )
-}
+read(unittest)
 
 assert_equal( [1, 0, 0, 0]     , binary(8)                )
 assert_equal(  1               , bittest(8, 3)            )
@@ -28,6 +23,7 @@ assert_equal( 11               , prime(5)                 ) \\ the nth prime
 assert_equal( [2, 3, 5, 7, 11] , primes(5)                )
 assert_equal( 11               , nextprime(8)             )
 assert_equal( [2, 1; 3, 2]     , factor(18)               )
+assert_equal(  2^1 * 3^2       , 18                       )
 assert_equal( 18               , factorback([2, 1; 3, 2]) )
 
 \\ Divisors 

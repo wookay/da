@@ -29,6 +29,9 @@
   [assert_equal a:@"{6, 3}" NSRange:[@"hello apple" rangeOfString:@"app"]];
   [assert_equal a:@"{NSNotFound, 0}" NSRange:[@"hello apple" rangeOfString:@"mac"]];
   
+  [assert_equal _true:[@"abc" isEqualToString:@"abc"]];
+  [assert_equal _true:[@"abc" hasPrefix:@"ab"]];
+  [assert_equal _true:[@"abc" hasSuffix:@"bc"]];
 }
 
 @end

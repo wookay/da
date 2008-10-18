@@ -1,18 +1,14 @@
-\\ types.gp
+\\ test.types.gp
 \\                           wookay.noh at gmail.com
 \\                           http://wookay.egloos.com
 
-assert_equal(expected, got) = {
-  if (expected==got,
-    print("passed: ", expected),
-    print("Assertion failed\nExpected: ", expected, "\nGot: ", got)
-  )
-}
+read(unittest)
 
 assert_equal( "t_INT"     , type(1)            ) \\ Integers
 assert_equal( "t_REAL"    , type(1.1)          ) \\ Reals
 assert_equal( "t_INTMOD"  , type(Mod(1, 2))    ) \\ Integers modulo m
 assert_equal( "t_FRAC"    , type(1/2)          ) \\ Rational Numbers
+assert_equal( "t_REAL"    , type(1/2 + 0.0)    )
            \\ "t_FFELT"   , type(ffgen(T))       \\ Elt in a Finite Field
 assert_equal( "t_COMPLEX" , type(1+2*I)        ) \\ Complex Numbers 
 assert_equal( "t_PADIC"   , type(1+O(2^3))     ) \\ p-adic Numbers

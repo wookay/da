@@ -24,6 +24,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSLocaleTest"];
   [unittest run:@"NSInvocationOperationTest"];
   [unittest run:@"NSNullTest"];
+  [unittest run:@"NSCountedSetTest"];
   [unittest run:@"DataTypesTest"];
   [unittest report];
 

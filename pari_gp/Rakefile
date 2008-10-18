@@ -16,7 +16,8 @@ task :p do
 end
 
 def run_tests show_ret=false
-  Dir['*.gp'].each do |gp|
+  dirs = Dir['*.gp'].select{|gp|gp=~/^test/}
+  dirs.each do |gp|
     ret = `gp -q #{gp}` 
     if show_ret
       puts gp
@@ -24,7 +25,7 @@ def run_tests show_ret=false
         puts "  #{line}"
       end
     else
-      print "#{gp.ljust 22}"
+      print "#{gp.ljust dirs.map{|x|x.size}.max} "
     end
     passed = ret.scan(/^passed: /).size
     failed_message = ret.split("\n").reject{|line|line =~ /^passed/}
