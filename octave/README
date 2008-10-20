@@ -1,0 +1,16 @@
+octave stuff
+
+
+
+$ octave -q test.matrix.m
+passed: 0
+passed: 1
+passed: 1   2
+passed: 1   3   2   4
+passed: 1
+passed: 1
+
+
+
+$ rake p
+test.matrix.m OK, passed 6 tests.

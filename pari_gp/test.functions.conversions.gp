@@ -35,4 +35,20 @@ assert_equal( d               , f(1,1)                          )
 assert_equal( [1, 1]          , qfbsolve(Qfb(a, b, c), d)       )
 assert_equal( [1, 1]          , qfbsolve(Qfb(1, 2, -1), 2)      )
 
+assert_equal( Mod(2, 3) + O(x^16) , Ser(Mod(2, 3))              ) 
+assert_equal( Mod(0, 3) + O(x)    , Ser(Mod(2, 3) + 1)          ) 
+assert_equal( Mod(1, 3) + O(x^16) , Ser(Mod(2, 3) + 2)          ) 
+
+assert_equal( ["1"]               , Set([1, 1, 1])              ) 
+assert_equal( ["1"]               , Set(1)                      ) 
+assert_equal( ["1"]               , Set("1")                    ) 
+
+assert_equal( "nil"                  , Str(nil)                    ) 
+assert_equal( Vecsmall([97, 98, 99]) , Vecsmall("abc")             ) 
+assert_equal( "a"                    , Strchr(97)                  )
+assert_equal( "abcdefghijklmno"      , Strchr(vector(15, i, i+96)) )
+
+read("fun.string") \\ split
+assert_equal( ["pari_gp", "da"]      , vecextract(split(Strexpand("$PWD"),"/"), "-1..-2"))
+
 quit
