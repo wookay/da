@@ -8,8 +8,8 @@ read("../unittest")
 read("../fun.vector")
 vector_equal(expected, got) = {
   if(type(expected)=="t_VEC",
-    assert_equal(Str(map(x->precision(x, 8), expected)),
-                 Str(map(x->precision(x, 8), got))),
+    assert_equal(Str(apply(x->precision(x, 8), expected)),
+                 Str(apply(x->precision(x, 8), got))),
     if(type(expected)=="t_REAL",
       assert_equal(Str(precision(expected, 8)), Str(precision(got, 8))),
       assert_equal(expected, got)
@@ -20,6 +20,7 @@ vector_equal(expected, got) = {
 V = [1,2,3]
 W = [0.5, 0.8, 0.2]
 U = [ux, uy, yz]
+
 vector_equal( 3.741657387          , Length(V)                               )
 vector_equal( [0.2672612419, 0.534522483, 0.801783725] , Normalize(V)        )
 vector_equal( [1.5, 2.8, 3.2]      , V + W                                   )
