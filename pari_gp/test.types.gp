@@ -24,5 +24,6 @@ assert_equal( "t_COL"     , type([1, 2]~)      ) \\ Column Vectors
 assert_equal( "t_MAT"     , type([1, 2; 3, 4]) ) \\ Matrices
 assert_equal( "t_LIST"    , type(List([1, 2])) ) \\ Lists
 assert_equal( "t_STR"     , type("hola")       ) \\ Strings
+assert_equal( "t_CLOSURE" , type(x->x)         ) \\ Closures
 
 quit

@@ -2,19 +2,17 @@
 \\                           wookay.noh at gmail.com
 \\                           http://wookay.egloos.com
 
-read("fun.vector") \\ vecjoin
-
 real_to_json(obj) = {
   local(v, k);
   v = Vec(Str(obj));
   k = #v;
   forstep(x=#v, 1, -1, if(v[x]!="0", k=x;break, 0));
   if(v[k]==".", k++, 0);
-  vecjoin(vecextract(v, concat("1..", k)))
+  concat(vecextract(v, concat("1..", k)))
 }
 
 str_to_json(obj) = {
-  vecjoin(["\"", obj, "\""])
+  concat(["\"", obj, "\""])
 }
 
 vec_to_json(obj) = {

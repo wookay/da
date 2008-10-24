@@ -11,13 +11,19 @@ assert_equal(expected, got) = {
   )
 }
 
+cal(a, b, c, d) = {
+  \\ (a + b + c + d)!/a!/b!/c!/d!
+  binomial(a+b+c+d, a) * binomial(b+c+d, b) * binomial(c+d, c)
+}
+
 ways(n) = {
   cnt = 0;
   for(a=0, n, for(b=0, (n-a)/2, for(c=0, (n-a-2*b)/3, for(d=0, n-a-2*b-3*c, \
-    if(n==a+2*b+3*c+d, cnt+=(a+b+c+d)!/a!/b!/c!/d!, 0)))));
+    if(n==a+2*b+3*c+d, cnt+=cal(a, b, c, d), 0)))));
   cnt
 }
 
+assert_equal(2, ways(1))
 assert_equal(5, ways(2))
 assert_equal(13, ways(3))
 assert_equal(33, ways(4))
