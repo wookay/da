@@ -17,4 +17,7 @@ assert_equal( [0, 0, 0]       , hsv_to_rgb([100, 0, 0])     )
 assert_equal( [0, 0, 0]       , hsv_to_rgb([0, 100, 0])     )
 assert_equal( [255, 255, 255] , hsv_to_rgb([0, 0, 100])     )
 
+\\assert_equal( [1.0, 0.0, 0.0] , rgb_to_yiq([255, 255, 255]) )
+\\assert_equal( [88.6, 32.1, 0] , rgb_to_yiq([255, 255, 0]) )
+
 quit
