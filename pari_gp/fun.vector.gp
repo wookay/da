@@ -11,3 +11,10 @@ vecjoin(v, sp="") = {
   );
   ret
 }
+
+CountedSet(v) = {
+  local(keys);
+  keys = [];
+  for(i=1, #v, if(select(keys, x-> x==v[i])==[], keys=concat(keys, [v[i]]), 0));
+  apply(k-> [k, #select(v, x-> x==k)], keys)
+}

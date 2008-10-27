@@ -64,3 +64,6 @@ assert_equal( "Number"              , "a13" asNumber type         )
 
 assert_equal( "abcdef"              , "abc" .. "def"              )
 assert_equal( "12"                  , 1 .. 2                      )
+
+assert_equal( false                 , 1 < 2 < 3                   )
+assert_equal( true                  , 1 < 2 and 2 < 3             )
