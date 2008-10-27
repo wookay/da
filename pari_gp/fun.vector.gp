@@ -12,6 +12,10 @@ vecjoin(v, sp="") = {
   ret
 }
 
+vecsum(v) = {
+  sum(x=1, #v, v[x])
+}
+
 CountedSet(v) = {
   local(keys);
   keys = [];

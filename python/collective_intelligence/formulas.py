@@ -60,6 +60,22 @@ def giniimpurity(l):
       imp+=f1*f2
   return imp
 
+# PCI_Code/chapter7/treepredict.py
+# Entropy is the sum of p(x)log(p(x)) across all the different possible results
+def entropy(rows):
+   from math import log
+   log2=lambda x:log(x)/log(2)
+   results={}
+   for item in rows:
+    results.setdefault(item,0)
+    results[item]+=1
+   # Now calculate the entropy
+   ent=0.0
+   for r in results.keys():
+      p=float(results[r])/len(rows)
+      ent=ent-p*log2(p)
+   return ent
+
 
 
 # if __name__ == '__main__':
@@ -70,3 +86,4 @@ assert_equal( 1              , weightedmean([1,1], [2,2]) )
 assert_equal( 0              , tanimoto([1,1], [2,2])     )
 assert_equal( 2              , giniimpurity([1,1,2,2])    )
 assert_equal( 1.125          , giniimpurity([1,1,1,5])    )
+assert_equal( 2              , entropy([1,1,2,2,3,3,4,4]) )

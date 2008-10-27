@@ -66,7 +66,8 @@ if defined? DIR
 
   desc "clean up"
   task :clean do
-    sh "rm -f #{APP}_arm_test #{APP}_mac_test* #{UNITTEST.o} *.o"
+    CLEANUP=nil if not defined? CLEANUP
+    sh "rm -f #{APP}_arm_test #{APP}_mac_test* #{UNITTEST.o} #{CLEANUP} *.o"
   end
 else
   dirs = Dir["*"].select{|dir| not IGNORE_FILES.include? dir }
@@ -147,17 +148,17 @@ FRAMEWORK=FRAMEWORKS.map{|f| "-framework #{f}" }.join' '
 MAC_CC="gcc"
 MAC_SYSROOT="/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator2.1.sdk"
 if defined? BUILD_ARM
-  MAC_CFLAGS="-Wall -O2 -DTARGET_CPU_X86"
+  MAC_CFLAGS="-Wall -O2 -std=gnu99 -DTARGET_CPU_X86"
   MAC_LDFLAGS="#{FRAMEWORK}"
 else
-  MAC_CFLAGS="-Wall -O2 -DTARGET_CPU_X86 -isysroot #{MAC_SYSROOT}"
+  MAC_CFLAGS="-Wall -O2 -std=gnu99 -DTARGET_CPU_X86 -isysroot #{MAC_SYSROOT}"
   MAC_LDFLAGS="-isysroot #{MAC_SYSROOT} #{FRAMEWORK}"
 end
 
 ARM_CC="/usr/local/arm-apple-darwin/bin/gcc"
 ARM_SYSROOT="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.1.sdk"
 ARM_HEAVENLY="-I#{ARM_SYSROOT}/heavenly_private_var_include"
-ARM_CFLAGS="-Wall -O2 -DTARGET_CPU_ARM -isysroot #{ARM_SYSROOT} -I#{ARM_SYSROOT}/usr/lib/gcc/arm-apple-darwin9/4.0.1/include #{ARM_HEAVENLY}"
+ARM_CFLAGS="-Wall -O2 -std=gnu99 -DTARGET_CPU_ARM -isysroot #{ARM_SYSROOT} -I#{ARM_SYSROOT}/usr/lib/gcc/arm-apple-darwin9/4.0.1/include #{ARM_HEAVENLY}"
 ARM_LDFLAGS="-isysroot #{ARM_SYSROOT} #{FRAMEWORK}"
 
 def dyld_fallback?
@@ -237,13 +238,25 @@ end
 
 class String
   def mac
-    self + '.mac'
+    if self=~/\.c$/
+      self.gsub('.c', '.mac')
+    else
+      self + '.mac'
+    end
   end
   def arm
-    self + '.arm'
+    if self=~/\.c$/
+      self.gsub('.c', '.arm')
+    else
+      self + '.arm'
+    end
   end
   def m
-    self + '.m'
+    if self=~/\.c$/
+      self
+    else
+      self + '.m'
+    end
   end
   def o
     self + '.o'

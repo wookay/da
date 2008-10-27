@@ -1,0 +1,10 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+CHIPMUNK   = Dir['src/*.c']
+CLASSES    = %w{Body} + CHIPMUNK
+FRAMEWORKS = %w{Foundation}
+CLEANUP    = 'src/*.o'
+
+DIR = File.dirname __FILE__
+load '../unittest/build.rake'

@@ -4,6 +4,7 @@
 \\
 
 read("../unittest")
+read("../fun.vector") \\ vecsum CountedSet
 
 \\ Euclidean Distance
 euclidean(v1, v2) = {
@@ -52,7 +53,14 @@ giniimpurity(l) = {
   imp
 }
 
-vecsum(v) = sum(x=1, #v, v[x])
+\\ Entropy
+entropy(rows) = {
+   local(results, ent, p);
+   results = CountedSet(rows);
+   ent = .;
+   for(r=1, #results, p = results[r][2]/#rows; ent -= p*log(p)/log(2));
+   ent
+}
 
 assert_equal( 1              , euclidean([1], [2])        )
 assert_equal( sqrt(2)        , euclidean([1,1], [2,2])    )
@@ -61,5 +69,6 @@ assert_equal( 1              , weightedmean([1,1], [2,2]) )
 assert_equal( 0              , tanimoto([1,1], [2,2])     )
 assert_equal( 2              , giniimpurity([1,1,2,2])    )
 assert_equal( 1.125          , giniimpurity([1,1,1,5])    )
+assert_equal( 2              , entropy([1,1,2,2,3,3,4,4]) )
 
 quit
