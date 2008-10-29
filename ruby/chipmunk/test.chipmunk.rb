@@ -7,9 +7,15 @@ def assert_equal expected, got
 end
 
 
-body = CP::Body.new 1, 2
-assert_equal 1, body.m
-assert_equal 2, body.i
+INFINITY = 0.1/0
+
+body = CP::Body.new INFINITY, INFINITY 
+assert_equal INFINITY, body.m
+assert_equal INFINITY, body.i
+assert_equal [0, 0], body.p.to_a
+assert_equal 0, body.p.x
+assert_equal 0, body.p.y
+puts(body)
 
 space = CP::Space.new
 space.add_body body
@@ -17,14 +23,26 @@ assert_equal 1, space.damping # 1.0 is no damping and 0.0 is full damping
 assert_equal [0, 0], space.gravity.to_a
 assert_equal 10, space.iterations
 
-v = vec2 3, 5
-assert_equal [3, 5], v.to_a
+space.gravity = vec2 30, 0
+assert_equal [30, 0], space.gravity.to_a
+
+v = vec2 2, 5
+assert_equal [2, 5], v.to_a
 
 # Create a segment collision shape attached
 #   to the given body with endpoints a and b.
-shape = CP::Shape::Segment.new(body, v, v, 30)
+shape = CP::Shape::Segment.new(body, v, v, 10.0)
 assert_equal nil, shape.collision_type
 assert_equal 0, shape.e # elasticity
 assert_equal 0, shape.u # frictional coefficient
 
 space.add_static_shape(shape)
+
+steps = 1
+dt = 1.0/60/steps
+0.upto(steps) do
+  space.step(dt)
+end
+assert_equal [1.0/60/2, 0], shape.body.p.to_a
+
+

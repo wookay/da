@@ -2,5 +2,6 @@ io stuff
 
 
 
-$ io guide.io
+$ io test.guide.io
 passed: 1
+...

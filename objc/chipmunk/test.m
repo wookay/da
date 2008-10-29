@@ -8,6 +8,9 @@ int main (int argc, const char * argv[]) {
 
   UnitTest* unittest = [UnitTest create];
   [unittest run:@"BodyTest"];
+  [unittest run:@"SpaceTest"];
+  [unittest run:@"ShapeTest"];
+  [unittest run:@"JointTest"];
   [unittest report];
 
   [pool release];

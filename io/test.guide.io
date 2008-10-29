@@ -60,7 +60,7 @@ assert_equal( "Ki"                  , "Kirikuro" slice(0, 2)      )
 assert_equal( "ro"                  , "Kirikuro" slice(-2)        )
 assert_equal( list("a", "b", "c")   , "a b c" split               )
 assert_equal( 13                    , "13" asNumber               )
-assert_equal( "Number"              , "a13" asNumber type         )
+assert_equal( true                  , "a13" asNumber isNan        )
 
 assert_equal( "abcdef"              , "abc" .. "def"              )
 assert_equal( "12"                  , 1 .. 2                      )

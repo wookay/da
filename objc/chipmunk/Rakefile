@@ -1,8 +1,7 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-CHIPMUNK   = Dir['src/*.c']
-CLASSES    = %w{Body} + CHIPMUNK
+CLASSES    = %w{UnitTestCategory} + Dir['src/*.c']
 FRAMEWORKS = %w{Foundation}
 CLEANUP    = 'src/*.o'
 
