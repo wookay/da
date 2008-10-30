@@ -1,8 +1,8 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-PROGRAM_RUN = 'octave -q' 
-PROGRAM_EXTENSION = 'm'
+PROGRAM_RUN = 'lua'
+PROGRAM_EXTENSION = 'lua'
 
 task :default do
   sh "rake -T"

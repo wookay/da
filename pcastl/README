@@ -1,0 +1,23 @@
+PCASTL stuff
+
+
+
+$ ./pcastli 
+by Parent and Childset Accessible Syntax Tree Language Interpreter v1.6
+Copyright (C) 2008  Philippe Choquette
+
+Type exit() or press Ctrl-c to exit.
+
+> assert_equal = function(expected, got) {}
+        0x1002a0
+> source = `
++   if (expected==got) {
++     print("true")
++   } else {
++     print("false")
++   }
++ '
+        0x100600
+> mknode(assert_equal.childset[1], source, 0)
+> assert_equal(1, 1)
+        "true"

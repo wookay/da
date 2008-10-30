@@ -1,0 +1,19 @@
+lua stuff
+
+
+
+$ lua test.lua
+passed: number
+passed: string
+passed: boolean
+passed: nil
+passed: table
+passed: function
+passed: table
+passed: table
+passed: 3
+passed: value
+passed: value
+
+$ rake p
+test.lua  OK, passed 11 tests.

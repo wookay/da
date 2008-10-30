@@ -1,0 +1,17 @@
+# test.pcastl.txt
+#                            wookay.noh at gmail.com
+#                            http://wookay.egloos.com
+
+assert_equal = function(expected, got) {}
+
+source = `
+  if (expected==got) {
+    print("true")
+  } else {
+    print("false")
+  }
+'
+
+mknode(assert_equal.childset[1], source, 0)
+
+assert_equal(1, 1)

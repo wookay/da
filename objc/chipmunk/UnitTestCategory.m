@@ -1,4 +1,7 @@
-#import "test.h"
+// UnitTestCategory.m
+//                           wookay.noh at gmail.com
+
+#import "UnitTestCategory.h"
 
 @implementation UnitTest (Chipmunk)
 

@@ -3,7 +3,7 @@
 
 CLASSES    = %w{UnitTestCategory} + Dir['src/*.c']
 FRAMEWORKS = %w{Foundation}
-CLEANUP    = 'src/*.o'
+CLEANUP    = 'src/*.o ../unittest/*.o'
 
 DIR = File.dirname __FILE__
 load '../unittest/build.rake'
