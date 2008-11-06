@@ -11,6 +11,9 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"SpaceTest"];
   [unittest run:@"ShapeTest"];
   [unittest run:@"JointTest"];
+  [unittest run:@"ChipmunkTest"];
+  [unittest run:@"VectTest"];
+  [unittest run:@"BBTest"];
   [unittest report];
 
   [pool release];

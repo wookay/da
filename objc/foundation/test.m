@@ -25,6 +25,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSInvocationOperationTest"];
   [unittest run:@"NSNullTest"];
   [unittest run:@"NSCountedSetTest"];
+  [unittest run:@"NSFileManagerTest"];
   [unittest run:@"DataTypesTest"];
   [unittest report];
 

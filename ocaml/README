@@ -1,0 +1,7 @@
+Objective Caml stuff
+
+
+
+$ ocaml test.ml 
+passed: 1
+passed: 3 

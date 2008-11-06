@@ -9,14 +9,14 @@
 
   cpBody* body = cpBodyNew(INFINITY, INFINITY);
   [assert_equal float:INFINITY float:body->m]; // mass
-  [assert_equal float:INFINITY float:body->i]; // moment
-  [assert_equal cpVect:cpvzero cpVect:body->p]; // pos
-  [assert_equal cpVect:cpvzero cpVect:body->v]; // vel
+  [assert_equal float:INFINITY float:body->i]; // moment of inertia
+  [assert_equal cpVect:cpvzero cpVect:body->p]; // position
+  [assert_equal cpVect:cpvzero cpVect:body->v]; // velocity
   [assert_equal cpVect:cpvzero cpVect:body->f]; // force
   [assert_equal float:0 float:body->a]; // angle
-  [assert_equal float:0 float:body->w]; // avel
+  [assert_equal float:0 float:body->w]; // angular velocity
   [assert_equal float:0 float:body->t]; // torque
-  [assert_equal cpVect:cpv(1, 0) cpVect:body->rot]; // rot
+  [assert_equal cpVect:cpv(1, 0) cpVect:body->rot]; // rotation
 
   cpBodySetMass(body, 1);
   [assert_equal float:1 float:body->m];
@@ -63,6 +63,20 @@
   [assert_equal cpVect:cpv(5, 5) cpVect:body->f];
   cpBodyResetForces(body);
   [assert_equal cpVect:cpv(0, 0) cpVect:body->f];
+
+  [assert_equal cpVect:cpv(-1, 0) cpVect:body->rot];
+  [assert_equal cpVect:cpv(24, 36) cpVect:body->p];
+  [assert_equal cpVect:cpv(23, 34) cpVect:cpBodyLocal2World(body, cpv(1, 2))];
+  [assert_equal cpVect:cpv(22, 35) cpVect:cpBodyWorld2Local(body, cpv(2, 1))];
+  body->rot = cpv(-1, -1);
+  [assert_equal cpVect:cpv(25, 33) cpVect:cpBodyLocal2World(body, cpv(1, 2))];
+  [assert_equal cpVect:cpv(57, 13) cpVect:cpBodyWorld2Local(body, cpv(2, 1))];
+
+  [assert_equal cpVect:cpv(2, 3) cpVect:body->v];
+  [assert_equal float:0 float:body->w];
+  cpBodyApplyImpulse(body, cpv(1, 2), r);
+  [assert_equal cpVect:cpv(3, 5) cpVect:body->v];
+  [assert_equal float:5 float:body->w];
 
   cpBodyFree(body);
 

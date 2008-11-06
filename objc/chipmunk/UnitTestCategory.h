@@ -8,6 +8,7 @@
 
 - (void) cpVect:(cpVect)expected cpVect:(cpVect)got ;
 - (void) a:(id)expected cpVect:(cpVect)got ;
+- (void) a:(id)expected cpBB:(cpBB)got ;
 - (void) a:(id)expected joints:(cpArray*)got ;
 - (void) a:(id)expected bodies:(cpArray*)got ;
 - (void) a:(id)expected arbiters:(cpArray*)got ;

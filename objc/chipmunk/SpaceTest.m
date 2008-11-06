@@ -7,6 +7,18 @@ int collisionPairFunc(cpShape *a, cpShape *b, cpContact *contacts, int numContac
   return 0;
 }
 
+void bodyVelocityFunc(cpBody *body, cpVect gravity, cpFloat damping, cpFloat dt) {
+  body->v = cpvadd(cpvmult(body->v, damping), cpvmult(cpvadd(gravity, cpvmult(body->f, body->m_inv)), dt));
+  body->w = body->w*damping + body->t*body->i_inv*dt;
+}
+
+void bodyPositionFunc(cpBody *body, cpFloat dt) {
+  body->p = cpvadd(body->p, cpvmult(cpvadd(body->v, body->v_bias), dt));
+  cpBodySetAngle(body, body->a + (body->w + body->w_bias)*dt);
+  body->v_bias = cpvzero;
+  body->w_bias = 0.0f;
+}
+
 @implementation SpaceTest
 
 - (void) unittest {
@@ -34,6 +46,15 @@ int collisionPairFunc(cpShape *a, cpShape *b, cpContact *contacts, int numContac
 
   cpSpaceAddCollisionPairFunc(space, 0, 0, &collisionPairFunc, NULL);
   [assert_equal a:@"(0)" collFuncSet:space->collFuncSet];
+
+  [assert_equal cpVect:cpvzero cpVect:body->v];
+  [assert_equal cpVect:cpvzero cpVect:body->p];
+  body->velocity_func = bodyVelocityFunc;
+  body->position_func = bodyPositionFunc;
+  float dt = 1;
+  cpSpaceStep(space, dt);
+  [assert_equal a:@"(nan, nan)" cpVect:body->v];
+  [assert_equal cpVect:cpv(0, 0) cpVect:body->p];
 
   cpJointFree(joint);
   cpBodyFree(body);

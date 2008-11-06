@@ -1,0 +1,8 @@
+FORTRAN stuff
+
+
+
+$ gfortran test.f -o test
+$ ./test 
+ passed:    1.000000    
+ passed:    3.000000 

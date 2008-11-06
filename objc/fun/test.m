@@ -13,6 +13,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"ArrayTest"];
   [unittest run:@"HashTest"];
   [unittest run:@"OrdTest"];
+  [unittest run:@"FunctionTest"];
   [unittest report];
 
   [pool release];

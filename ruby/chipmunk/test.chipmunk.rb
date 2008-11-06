@@ -15,7 +15,6 @@ assert_equal INFINITY, body.i
 assert_equal [0, 0], body.p.to_a
 assert_equal 0, body.p.x
 assert_equal 0, body.p.y
-puts(body)
 
 space = CP::Space.new
 space.add_body body

@@ -32,6 +32,8 @@
   [assert_equal _true:[@"abc" isEqualToString:@"abc"]];
   [assert_equal _true:[@"abc" hasPrefix:@"ab"]];
   [assert_equal _true:[@"abc" hasSuffix:@"bc"]];
+
+  [assert_equal a:@"0f" b:[NSString stringWithFormat:@"%02x", 15]];
 }
 
 @end

@@ -16,6 +16,12 @@
                                encoding:NSUTF8StringEncoding]];
 }
 
+- (void) a:(id)expected cpBB:(cpBB)got {
+  [self a:expected b:[NSString stringWithFormat:@"%g, %g, %g, %g",
+                     got.l, got.b, got.r, got.t]
+  ];
+}
+
 - (void) a:(id)expected joints:(cpArray*)got {
   NSMutableArray* ary = [NSMutableArray array];
   for (int i=0; i<got->num; i++) {
