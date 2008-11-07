@@ -4,7 +4,6 @@ PASCAL stuff
 $ fpc test.pas -v0
 Free Pascal Compiler version 2.2.2 [2008/08/03] for i386
 Copyright (c) 1993-2008 by Florian Klaempfl
-
 $ ./test 
 passed: 1
 passed: 3

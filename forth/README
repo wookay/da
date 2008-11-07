@@ -1,0 +1,6 @@
+Forth stuff
+
+
+$ gforth test.fs
+passed: 1
+passed: 3

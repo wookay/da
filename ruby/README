@@ -1,12 +1,7 @@
 Ruby stuff
 
 
-
-$ ruby test_numero.rb 
-passed: six
-passed: six
-passed: true
-passed: true
+$ ruby test.rb
+passed: 1
 passed: 3
-passed: six
-passed: six
+passed: a

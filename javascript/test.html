@@ -29,7 +29,6 @@ assert_equal( "boolean"  , typeof true                    );
 assert_equal( "boolean"  , typeof false                   );
 assert_equal( "number"   , typeof 1                       );
 assert_equal( "string"   , typeof ""                      );
-assert_equal( "object"   , typeof / /                     );
 assert_equal( "object"   , typeof []                      );
 assert_equal( "object"   , typeof {}                      );
 assert_equal( "object"   , typeof null                    );
@@ -46,6 +45,12 @@ assert_equal( "function" , typeof assert_equal            );
 assert_equal( "function" , typeof function(){}            );
 
 assert_equal( false      , [1]==[1]                       );
+
+if (safari()) {
+  assert_equal( "function" , typeof / /                   );
+} else {
+  assert_equal( "object"   , typeof / /                   );
+}
 
 print_result();
   </script>

@@ -1,7 +1,6 @@
 erlang stuff
 
 
-
 $ erlc test_numero.erl
 $ erl -eval "test_numero:main()." -noshell -s init stop
 passed: 6

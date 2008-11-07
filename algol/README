@@ -1,7 +1,6 @@
 ALGOL stuff
 
 
-
 $ marst test.alg > test.c
 $ gcc -lalgol test.c -o test
 $ ./test

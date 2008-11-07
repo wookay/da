@@ -1,7 +1,6 @@
 Ada stuff
 
 
-
 $ gnat make test_ada.adb 2> stderr
 $ ./test_ada
 passed:           1

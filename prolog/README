@@ -1,7 +1,6 @@
 Prolog stuff
 
 
-
 $ gprolog --query-goal "consult('test.pl'), main, halt"
 GNU Prolog 1.3.0
 By Daniel Diaz

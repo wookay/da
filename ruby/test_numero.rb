@@ -65,10 +65,10 @@ def assert_equal expected, got
   end
 end
 
-assert_equal :six, :one + :two + :three
-assert_equal :six, :one * :two * :three
-assert_equal true, :one + :two == :three
-assert_equal true, :one < :two
-assert_equal 3, :one + :two
-assert_equal :six, 1 + 2 + 3
-assert_equal :six, 1 + 2 + :three
+assert_equal :six , :one + :two + :three
+assert_equal :six , :one * :two * :three
+assert_equal true , :one + :two == :three
+assert_equal true , :one < :two
+assert_equal 3    , :one + :two
+assert_equal :six , 1 + 2 + 3
+assert_equal :six , 1 + 2 + :three

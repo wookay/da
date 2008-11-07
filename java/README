@@ -1,7 +1,6 @@
 Java stuff
 
 
-
 $ javac Test.java
 $ CLASSPATH=. java Test
 passed: 1

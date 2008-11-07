@@ -1,7 +1,6 @@
 Scala stuff
 
 
-
 $ scala test.scala
 passed: 1
 passed: 3

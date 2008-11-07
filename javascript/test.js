@@ -35,3 +35,7 @@ function print_result() {
   }
   print("</div>");
 }
+
+function safari() {
+  return "function" == typeof / /
+}

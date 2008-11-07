@@ -1,7 +1,6 @@
 Smalltalk stuff
 
 
-
 $ gst test.st
 passed: 1
 passed: 3

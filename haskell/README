@@ -1,7 +1,6 @@
 haskell stuff
 
 
-
 $ runhaskell test_numero.hs 
 passed: Six
 passed: Six
