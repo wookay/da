@@ -2,9 +2,8 @@ da
 ==
 
 
-
-            erlang/     j/          ocaml/      perl/       scheme/
-ada/        factor/     java/       octave/     prolog/     slang/
-algol/      fortran/    javascript/ pari_gp/    python/     smalltalk/
-basic/      haskell/    lua/        pascal/     ruby/
-c/          io/         objc/       pcastl/     scala/
+            erlang/     io/         objc/       pcastl/     scala/
+ada/        factor/     j/          ocaml/      perl/       scheme/
+algol/      forth/      java/       octave/     prolog/     slang/
+basic/      fortran/    javascript/ pari_gp/    python/     smalltalk/
+c/          haskell/    lua/        pascal/     ruby/
