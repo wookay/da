@@ -1,1 +1,7 @@
 C stuff
+
+
+$ gcc test_int.c -o test_int
+$ ./test_int 
+passed: 1
+passed: 3
