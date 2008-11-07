@@ -1,3 +1,7 @@
+c     test.f
+c                           wookay.noh at gmail.com
+c                           http://wookay.egloos.com
+
       SUBROUTINE assert_equal(expected, got)
         if (expected .EQ. got) then
           print *, "passed: ", expected

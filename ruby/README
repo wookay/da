@@ -1,8 +1,8 @@
-ruby stuff
+Ruby stuff
 
 
 
-$ ruby numero.rb 
+$ ruby test_numero.rb 
 passed: six
 passed: six
 passed: true

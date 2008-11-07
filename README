@@ -2,24 +2,9 @@ da
 ==
 
 
-erlang/
-  numero
 
-factor/
-  core
-
-haskell/
-  numero, fixnum
-
-j/
-  parts of speech
-
-objc/
-   arabic foundation math uikit cg fun quartzcore unittest
-   appkit coregraphics hangul touch
-
-pari_gp/
-  string
-
-ruby/ 
-  numero
+            erlang/     j/          ocaml/      perl/       scheme/
+ada/        factor/     java/       octave/     prolog/     slang/
+algol/      fortran/    javascript/ pari_gp/    python/     smalltalk/
+basic/      haskell/    lua/        pascal/     ruby/
+c/          io/         objc/       pcastl/     scala/

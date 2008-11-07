@@ -1,12 +1,12 @@
--module(numero).
+-module(test_numero).
 -author('wookay.noh@gmail.com').
--export([numero/0]).
+-export([main/0]).
 
 assert_equal(Expected, Got) ->
   Expected = Got,
   io:format("passed: ~w~n", [Expected]).
 
-numero() ->
+main() ->
   [Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten] =
     lists:seq(0,10),
    Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten,

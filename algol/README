@@ -1,0 +1,9 @@
+ALGOL stuff
+
+
+
+$ marst test.alg > test.c
+$ gcc -lalgol test.c -o test
+$ ./test
+passed: 1
+passed: 3

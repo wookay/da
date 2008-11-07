@@ -1,0 +1,7 @@
+Scheme stuff
+
+
+
+$ gosh test.scm 
+passed: 1
+passed: 3

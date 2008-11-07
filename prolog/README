@@ -1,18 +1,13 @@
 Prolog stuff
 
 
-$ gprolog 
+
+$ gprolog --query-goal "consult('test.pl'), main, halt"
 GNU Prolog 1.3.0
 By Daniel Diaz
 Copyright (C) 1999-2007 Daniel Diaz
-| ?- consult('test.pl').
+| ?- consult('test.pl'), main, halt.
 compiling test.pl for byte code...
-test.pl compiled, 13 lines read - 844 bytes written, 13 ms
-
-(1 ms) yes
-| ?- go.
+test.pl compiled, 13 lines read - 849 bytes written, 12 ms
 passed: 1
 passed: a
-
-yes
-| ?- halt.

@@ -2,9 +2,8 @@ erlang stuff
 
 
 
-$ make
-erlc numero.erl
-erl -eval "numero:numero()." -noshell -s init stop
+$ erlc test_numero.erl
+$ erl -eval "test_numero:main()." -noshell -s init stop
 passed: 6
 passed: 6
 passed: true

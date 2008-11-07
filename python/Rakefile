@@ -1,0 +1,40 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+PROGRAM_RUN = 'python'
+PROGRAM_EXTENSION = 'py'
+
+task :default do
+  sh "rake -T"
+end
+
+desc "run tests"
+task :t do
+  run_tests true
+end
+
+desc "run tests and display only results"
+task :p do
+  run_tests
+end
+
+def run_tests show_ret=false
+  dirs = Dir["*.#{PROGRAM_EXTENSION}"].select{|file|file=~/^test/}
+  dirs.each do |file|
+    ret = `#{PROGRAM_RUN} #{file}` 
+    if show_ret
+      puts file
+      ret.split("\n").each do |line|
+        puts "  #{line}"
+      end
+    else
+      print "#{file.ljust dirs.map{|x|x.size}.max}  "
+    end
+    passed = ret.scan(/^passed: /).size
+    failed_message = ret.split("\n").reject{|line|line =~ /^passed/}
+    failed = failed_message.select{|line|line =~ /^Assertion failed/}.size
+    puts "\n#{failed_message.join"\n"}" if not failed_message.empty?
+    puts "OK, passed #{passed} test#{'s' if passed > 1}."
+    puts "Oops, failed #{failed} test#{'s' if failed > 1}." if failed > 0
+  end
+end

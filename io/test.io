@@ -1,4 +1,4 @@
-// guide
+// test.io
 //                               wookay.noh at gmail.com
 
 assert_equal := method(expected, got,

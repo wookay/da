@@ -1,4 +1,4 @@
-# Numero
+# test_numero.rb
 #                           wookay.noh at gmail.com
 
 NUMERO = %w{zero one two three four five six seven eight nine ten}

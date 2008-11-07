@@ -1,3 +1,6 @@
+# test_chipmunk.rb
+#                           wookay.noh at gmail.com
+
 require 'chipmunk'
 
 def assert_equal expected, got
@@ -43,5 +46,3 @@ dt = 1.0/60/steps
   space.step(dt)
 end
 assert_equal [1.0/60/2, 0], shape.body.p.to_a
-
-

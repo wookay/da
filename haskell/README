@@ -2,7 +2,7 @@ haskell stuff
 
 
 
-$ runhaskell numero.hs 
+$ runhaskell test_numero.hs 
 passed: Six
 passed: Six
 passed: True

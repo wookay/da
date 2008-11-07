@@ -7,7 +7,7 @@ assert_equal(Expected, Got):-
   Expected=Got,
   write('passed: '), write(Expected), write('\n').
 
-go:- 
-  assert_equal(1, 1),
-  assert_equal('a', 'a'),
+main:- 
+  assert_equal( 1   , 1   ),
+  assert_equal( 'a' , 'a' ),
   true.

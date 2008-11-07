@@ -20,6 +20,7 @@ assert_equal( "function" , type(assert_equal) )
 assert_equal( "table"    , type(string)       )
 assert_equal( "table"    , type(math)         )
 assert_equal( 3          , 1 + "2"            )
+assert_equal( 3          , "1" + 1 + "1"      )
 
 table = { key = "value" }
 assert_equal( "value"    , table.key          )

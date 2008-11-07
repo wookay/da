@@ -1,0 +1,55 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>javascript test</title>
+  <script type="text/javascript" src="test.js"></script>
+  <script type="text/javascript" charset="utf-8">
+
+assert_equal( 1          , 1                              );
+assert_equal( 1          , "1"                            );
+assert_equal( 3          , 1+2                            );
+assert_equal( "1+2"      , "1+2"                          );
+assert_equal( "a"        , "a"                            );
+assert_equal( "a2"       , "a"+2                          );
+assert_equal( 3          , "123".length                   );
+assert_equal( "1"        , [1]                            );
+assert_equal( "1,2"      , [1,2]                          );
+assert_equal( 1          , [1,2][0]                       );
+assert_equal( 2          , [1,2].length                   );
+assert_equal( 0          , (null || []).length            );
+assert_equal( 0          , ([] || []).length              );
+assert_equal( 1          , ([1] || []).length             );
+assert_equal( "value"    , {key: "value"}.key             );
+assert_equal( "value"    , {key: "value"}['key']          );
+assert_equal( "ja"       , "javascript".match("ja")       );
+assert_equal( "java"     , "javascript".match(/j.?.?a/)   );
+assert_equal( "java"     , "javascript".match(/j.*a/)     );
+
+assert_equal( "boolean"  , typeof true                    );
+assert_equal( "boolean"  , typeof false                   );
+assert_equal( "number"   , typeof 1                       );
+assert_equal( "string"   , typeof ""                      );
+assert_equal( "object"   , typeof / /                     );
+assert_equal( "object"   , typeof []                      );
+assert_equal( "object"   , typeof {}                      );
+assert_equal( "object"   , typeof null                    );
+assert_equal( "object"   , typeof self                    );
+assert_equal( "object"   , typeof this                    );
+assert_equal( "object"   , typeof parent                  );
+assert_equal( "object"   , typeof window                  );
+assert_equal( "object"   , typeof document                );
+assert_equal( "object"   , typeof document.body           );
+assert_equal( "string"   , typeof document.body.innerHTML );
+assert_equal( "function" , typeof Function                );
+assert_equal( "function" , typeof Array                   );
+assert_equal( "function" , typeof assert_equal            );
+assert_equal( "function" , typeof function(){}            );
+
+assert_equal( false      , [1]==[1]                       );
+
+print_result();
+  </script>
+</head>
+<body>
+</body>
+</html>

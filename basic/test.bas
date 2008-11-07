@@ -9,7 +9,7 @@ REM                           http://wookay.egloos.com
  50 R = T
  60 GOTO T
 
-REM F
+REM Function
 100 IF A=B THEN GOTO Y
 110 GOTO N
 
