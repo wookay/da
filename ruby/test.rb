@@ -2,12 +2,9 @@
 #                           wookay.noh at gmail.com
 
 def assert_equal expected, got
-  case expected == got
-  when true
-    puts "passed: #{expected}"
-  else
-    puts "Assertion failed\nExpected: #{expected}\nGot: #{got}"
-  end
+  puts expected == got ?
+    "passed: #{expected}" :
+    "Assertion failed\nExpected: #{expected}\nGot: #{got}"
 end
 
 assert_equal 1   , 1

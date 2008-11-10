@@ -1,0 +1,16 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+`
+  ruby extconf.rb
+  make
+`
+load '../Rakefile'
+
+desc 'clean up'
+task :clean do
+  `
+    make clean
+    rm -f Makefile
+  `
+end

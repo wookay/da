@@ -1,4 +1,4 @@
--- Fixnum
+-- test_fixnum
 --                         wookay.noh at gmail.com
 
 module Main where

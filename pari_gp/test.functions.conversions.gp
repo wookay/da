@@ -46,6 +46,7 @@ assert_equal( ["1"]               , Set("1")                    )
 assert_equal( "nil"                  , Str(nil)                    ) 
 assert_equal( Vecsmall([97, 98, 99]) , Vecsmall("abc")             ) 
 assert_equal( "a"                    , Strchr(97)                  )
+assert_equal( "p1"                   , Str(p, 01)                  ) 
 assert_equal( "abcdefghijklmno"      , Strchr(vector(15, i, i+96)) )
 
 read("fun.string") \\ split

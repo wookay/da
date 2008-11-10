@@ -1,11 +1,7 @@
 haskell stuff
 
 
-$ runhaskell test_numero.hs 
-passed: Six
-passed: Six
-passed: True
-passed: True
-passed: Three
-passed: Six
-passed: Six
+$ runhaskell test.hs 
+passed: 1
+passed: 3
+passed: "a"

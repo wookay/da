@@ -1,8 +1,8 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-PROGRAM_RUN = 'runhaskell'
-PROGRAM_EXTENSION = 'hs'
+PROGRAM_COMPILE = 'gcc' 
+PROGRAM_EXTENSION = 'c'
 
 task :default do
   sh "rake -T"
@@ -21,7 +21,8 @@ end
 def run_tests show_ret=false
   dirs = Dir["*.#{PROGRAM_EXTENSION}"].select{|file|file=~/^test/}
   dirs.each do |file|
-    ret = `#{PROGRAM_RUN} #{file}` 
+    output = file.gsub(".#{PROGRAM_EXTENSION}", '')
+    ret = `#{PROGRAM_COMPILE} #{file} -lpari -o #{output}; ./#{output}; rm #{output}`
     if show_ret
       puts file
       ret.split("\n").each do |line|
@@ -34,7 +35,7 @@ def run_tests show_ret=false
     failed_message = ret.split("\n").reject{|line|line =~ /^passed/}
     failed = failed_message.select{|line|line =~ /^Assertion failed/}.size
     puts "\n#{failed_message.join"\n"}" if not failed_message.empty?
-    puts "OK, passed #{passed} test#{'s' if passed > 1}." if passed > 0
+    puts "OK, passed #{passed} test#{'s' if passed > 1}."
     puts "Oops, failed #{failed} test#{'s' if failed > 1}." if failed > 0
   end
 end

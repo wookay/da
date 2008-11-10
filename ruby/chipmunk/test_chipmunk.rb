@@ -42,7 +42,24 @@ space.add_static_shape(shape)
 
 steps = 1
 dt = 1.0/60/steps
-0.upto(steps) do
-  space.step(dt)
-end
+
+space.step(dt)
+assert_equal [0, 0], shape.body.p.to_a
+
+space.step(dt)
 assert_equal [1.0/60/2, 0], shape.body.p.to_a
+
+space.step(dt)
+assert_equal [0.025, 0], shape.body.p.to_a
+
+space.step(dt)
+assert_equal [0.025*2, 0], shape.body.p.to_a
+
+space.step(dt)
+assert_equal [1.0/60/0.2, 0.0].inspect , shape.body.p.to_a.inspect
+
+space.step(dt)
+assert_equal [0.125, 0], shape.body.p.to_a
+
+space.step(dt)
+assert_equal [0.175, 0], shape.body.p.to_a

@@ -12,7 +12,8 @@ class Test {
   }
 
   public static void main(String[] args) {
-    assert_equal( 1 , 1   );
-    assert_equal( 3 , 1+2 );
+    assert_equal( 1   , 1   );
+    assert_equal( 3   , 1+2 );
+    assert_equal( 'a' , 'a' );
   }
 }

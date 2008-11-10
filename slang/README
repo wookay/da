@@ -3,4 +3,5 @@ S-Lang stuff
 
 $ slsh test.sl
 passed: 1
-passed: string
+passed: 3
+passed: a

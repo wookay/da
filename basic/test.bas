@@ -6,8 +6,7 @@ REM                           http://wookay.egloos.com
  20 Y = 200
  30 N = 300
  40 T = 400
- 50 R = T
- 60 GOTO T
+ 50 GOTO T
 
 REM Function
 100 IF A=B THEN GOTO Y
@@ -15,13 +14,13 @@ REM Function
 
 REM Yes
 200 PRINT "passed: " ; A
-210 R=R+30: GOTO R
+210 T=T+30: GOTO T
 
 REM No
 300 PRINT "Assertion failed"
 310 PRINT "Expected: " ; A
 320 PRINT "Got: " ; B
-330 R=R+30: GOTO R
+330 T=T+30: GOTO T
 
 REM Tests
 400 A = 1

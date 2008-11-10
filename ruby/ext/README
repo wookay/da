@@ -1,0 +1,11 @@
+Ruby C extension
+
+
+$ ruby extconf.rb 
+creating Makefile
+$ make
+/usr/bin/gcc-4.0 -I. -I/opt/local/lib/ruby/1.8/i686-darwin8 -I/opt/local/lib/ruby/1.8/i686-darwin8 -I. -I/opt/local/include -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -fno-common -O2  -fno-common -pipe -fno-common   -c ruby_ext.c
+cc -dynamic -bundle -undefined suppress -flat_namespace -o ruby_ext.bundle ruby_ext.o -L. -L/opt/local/lib -L. -L/opt/local/lib    -lruby  -lpthread -ldl -lobjc  
+$ ruby test_ruby_ext.rb 
+passed: 1
+passed: 3

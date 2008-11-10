@@ -4,20 +4,22 @@ begin
                              http://wookay.egloos.com ;
 
   procedure assertEqual(expected, got);
-    integer expected; integer got;
-    begin
-      if expected = got then begin
-        outstring(1, "passed: ");
-        outinteger(1, expected);
-        outstring(1, "\n")
-      end else begin
-        outstring(1, "Assertion failed\nExpected: ");
-        outinteger(1, expected);
-        outstring(1, "\nGot: ");
-        outinteger(1, got);
-        outstring(1, "\n")
-      end
-    end;
+  integer expected, got;
+  begin
+    integer stdout;
+    stdout := 1;
+    if expected=got then begin
+      outstring(stdout, "passed: ");
+      outinteger(stdout, expected);
+      outstring(stdout, "\n")
+    end else begin
+      outstring(stdout, "Assertion failed\nExpected: ");
+      outinteger(stdout, expected);
+      outstring(stdout, "\nGot: ");
+      outinteger(stdout, got);
+      outstring(stdout, "\n")
+    end
+  end;
 
   assertEqual( 1 , 1   );
   assertEqual( 3 , 1+2 )

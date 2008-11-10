@@ -1,10 +1,7 @@
 Octave stuff
 
 
-$ octave -q test_matrix.m
-passed: 0
+$ octave -q test.m
 passed: 1
-passed: 1   2
-passed: 1   3   2   4
-passed: 1
-passed: 1
+passed: 3
+passed: a

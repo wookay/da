@@ -1,0 +1,7 @@
+PARI/GP C extension
+
+
+$ gcc -lpari test_ext.c -o test_ext
+$ ./test_ext 
+passed: 1
+passed: 3

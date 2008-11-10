@@ -10,10 +10,11 @@ define assert_equal(expected, got) {
 }
 
 assert_equal( 1            , 1                  );
-assert_equal( "abc"        , "abc"              );
+assert_equal( 3            , 1+2                );
+assert_equal( "a"          , "a"                );
 assert_equal( Integer_Type , typeof(1)          );
 assert_equal( String_Type  , typeof("")         );
 assert_equal( Double_Type  , typeof(1.1)        );
 assert_equal( List_Type    , typeof({})         );
 assert_equal( Struct_Type  , typeof(struct {a}) );
-assert_equal( 3            , eval("1+2")        );
+assert_equal( 7            , eval("1+2*3")      );

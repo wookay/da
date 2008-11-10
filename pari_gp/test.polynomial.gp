@@ -14,6 +14,7 @@ D4(n) = polinterpolate([1,4,9],,n)
 D5(n) = polinterpolate([1,5,12],,n)
 D6(n) = polinterpolate([1,6,15],,n)
 Radians(degree) = polinterpolate([30, 60], [Pi/6, Pi/3], degree)
+Screen(width) = polinterpolate([640, 800], [480, 600], width)
 
 
 assert_equal( 55              , Sum(10)         )
@@ -36,5 +37,7 @@ assert_equal( Pi/6            , Radians(30)     )
 assert_equal( Pi/3            , Radians(60)     )
 assert_equal( Pi/2            , Radians(90)     )
 assert_equal( degree*Pi/180   , Radians(degree) )
+
+assert_equal( 768             , Screen(1024)    )
 
 quit

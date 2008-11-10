@@ -1,12 +1,8 @@
 erlang stuff
 
 
-$ erlc test_numero.erl
-$ erl -eval "test_numero:main()." -noshell -s init stop
-passed: 6
-passed: 6
-passed: true
-passed: true
+$ erlc test.erl
+$ erl -eval "test:main()." -noshell -s init stop
+passed: 1
 passed: 3
-passed: 6
-passed: 6
+passed: [97]

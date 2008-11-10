@@ -3,9 +3,9 @@
 
 def assert_equal(expected, got):
   if expected==got:
-    print("passed: %s" % expected)
+    print "passed: %s" % expected
   else:
-    print("Assertion failed\nExpected: %s\nGot: %s" % (expected, got))
+    print "Assertion failed\nExpected: %s\nGot: %s" % (expected, got)
 
 assert_equal( 1   , 1   )
 assert_equal( 3   , 1+2 )

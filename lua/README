@@ -1,15 +1,7 @@
 lua stuff
 
 
-$ lua test.lua
-passed: number
-passed: string
-passed: boolean
-passed: nil
-passed: table
-passed: function
-passed: table
-passed: table
+$ lua test.lua 
+passed: 1
 passed: 3
-passed: value
-passed: value
+passed: a

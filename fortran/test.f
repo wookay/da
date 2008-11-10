@@ -12,7 +12,7 @@ c                           http://wookay.egloos.com
         end if
       END
 
-      PROGRAM test
+      PROGRAM main
         call assert_equal( 1.0 , 1.0       )
         call assert_equal( 3.0 , 1.0 + 2.0 )
       END
