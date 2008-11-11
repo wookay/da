@@ -1,7 +1,4 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-` ruby extconf.rb ; make `
-at_exit { `make clean ; rm -f Makefile ` }
-
 load '../Rakefile'

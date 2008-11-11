@@ -1,0 +1,9 @@
+Photoshop script stuff
+
+
+$ sudo gem install rb-appscript
+Successfully installed rb-appscript-0.5.1
+1 gem installed
+
+$ ls "/Applications/Adobe Photoshop CS3"
+/Applications/Adobe Photoshop CS3
