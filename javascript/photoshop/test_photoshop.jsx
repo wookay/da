@@ -3,7 +3,7 @@
 //                           http://wookay.egloos.com 
 
 {
-  #target photoshop	
+  #target photoshop    
   if (app.documents.length != 0) {  
     app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);
   }
@@ -23,8 +23,8 @@ function assert_equal(expected, got) {
     passed++;
   } else {
     print("Assertion failed");
-	print("Expected: " + expected);
-	print("Got: " + got);
+    print("Expected: " + expected);
+    print("Got: " + got);
     failed++;
   }
 }
