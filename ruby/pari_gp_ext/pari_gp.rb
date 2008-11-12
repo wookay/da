@@ -32,13 +32,20 @@ end
 
 class Polpattern
   def initialize xa, ya
-    @xa = xa
-    @ya = ya
-    @polxy = {}
-    @polyx = {}
-    @hx = {}
-    @hy = {}
-    @data = ''
+    x_max = xa.map{|x|x.size}.max
+    y_max = ya.map{|y|y.size}.max
+    @xa = abcissas xa, x_max
+    @ya = abcissas ya, y_max
+    feed xa.zip(ya).map{|x,y|"#{x.ljust x_max}|#{y.ljust y_max}|"}.to_s
+  end
+  def abcissas ary, m
+    ary.map do |a|
+      if ary.select{|x| x.match a}.size==1
+        a
+      else
+        a.ljust m
+      end
+    end.uniq
   end
   def feed data
     hx = {}

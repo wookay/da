@@ -24,3 +24,6 @@ assert_equal '10'    , numero.value(:key => 'diez')
 assert_equal 'nueve' , numero.key(:value => '9')
 assert_equal 'cinco' , numero.key(:value => '5')
 assert_equal 'x - 5' , numero['x']
+
+morse = polpattern 'hello world'.scan(/./), '....   .   .-..   .-..   ---       .--   ---   .-.   .-..   -..'.split('   ')
+assert_equal 'h'     , morse.key(:value => '....')
