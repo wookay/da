@@ -1,4 +1,4 @@
-# test_pari_gp
+# test_polinterpolate
 #                           wookay.noh at gmail.com
 
 def assert_equal expected, got
