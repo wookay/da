@@ -22,6 +22,10 @@
   [assert_equal a:@"{100.1, 200.1}" CGSize:cgSize];
   CGRect cgRect = CGRectMake(1.1f, 2.1f, 100.1f, 200.1f);
   [assert_equal a:@"{{1.1, 2.1}, {100.1, 200.1}}" CGRect:cgRect];
+  [assert_equal float:1.1 float:cgRect.origin.x];
+  [assert_equal float:2.1 float:cgRect.origin.y];
+  [assert_equal float:100.1 float:cgRect.size.width];
+  [assert_equal float:200.1 float:cgRect.size.height];
 
 }
 

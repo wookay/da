@@ -94,3 +94,20 @@ end
 def polpattern xa, ya
   Polpattern.new xa, ya
 end
+
+def plot x1, x2=nil, func=nil, y1=nil, y2=nil
+  filename = '.plot.gp'
+  open(filename, 'w') do |f|
+    plot_fun = if x2==nil and func==nil
+        "plot(#{x1})"
+      else
+        xs = (x1..x2).to_a[0,5]
+        ys = xs.map{ |x| func.call x }
+        ya = ",#{y1}" if y1
+        yb = ",#{y2}" if y2
+        "plot(x=#{x1}, #{x2}, polinterpolate(#{xs.inspect}, #{ys.inspect}, x)#{ya}#{yb})"
+      end
+    f.write "#{plot_fun}\nquit"
+  end 
+  `gp -q #{filename} ; rm -f #{filename}`
+end
