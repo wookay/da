@@ -9,6 +9,10 @@ assert_equal := method(expected, got,
 )
 
 assert_equal( 1                     , 1                    )
+assert_equal( 3                     , 1+2                  )
+assert_equal( "a"                   , "a"                  )
+assert_equal( true                  , 1==1                 )
+
 assert_equal( 3                     , doString("1+2")      )
 assert_equal( 11                    , 1 + 2 * 3 + 4        )
 assert_equal( 0.0000123456          , 123.456e-7           )

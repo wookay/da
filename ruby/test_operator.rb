@@ -1,4 +1,4 @@
-# test.rb
+# test_operator.rb
 #                           wookay.noh at gmail.com
 
 def assert_equal expected, got
@@ -7,7 +7,11 @@ def assert_equal expected, got
     "Assertion failed\nExpected: #{expected}\nGot: #{got}"
 end
 
-assert_equal 1    , 1
-assert_equal 3    , 1+2
-assert_equal "a"  , 'a'
 assert_equal true , 1==1
+
+class Fixnum
+  def == b
+    false
+  end
+end
+assert_equal false, 1==1

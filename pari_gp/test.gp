@@ -13,4 +13,7 @@ assert_equal( 1   , 1   )
 assert_equal( 3   , 1+2 )
 assert_equal( "a" , "a" )
 
+true = 1
+assert_equal( true , 1==1 )
+
 quit

@@ -20,6 +20,7 @@ Object extend [
   ]
 ]
 
-Smalltalk assert:1   equals:1   .
-Smalltalk assert:3   equals:1+2 .
-Smalltalk assert:'a' equals:'a' .
+Smalltalk assert:1    equals:1    .
+Smalltalk assert:3    equals:1+2  .
+Smalltalk assert:'a'  equals:'a'  .
+Smalltalk assert:true equals:1==1 .

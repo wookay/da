@@ -11,10 +11,13 @@ void assert_equal(int expected, int got) {
   }
 }
 
+#define true 1
+
 int main(int argc, char* argv[]) {
 
-  assert_equal( 1 , 1   );
-  assert_equal( 3 , 1+2 );
+  assert_equal( 1    , 1    );
+  assert_equal( 3    , 1+2  );
+  assert_equal( true , 1==1 );
   return 0;
 
 }

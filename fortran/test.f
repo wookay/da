@@ -13,6 +13,8 @@ c                           http://wookay.egloos.com
       END
 
       PROGRAM main
-        call assert_equal( 1.0 , 1.0       )
-        call assert_equal( 3.0 , 1.0 + 2.0 )
+        call assert_equal( 1.0           , 1.0       )
+        call assert_equal( 3.0           , 1.0 + 2.0 )
+        call assert_equal( 1.4012985E-45 , 1 .EQ. 1  )
+        call assert_equal( 0             , 1 .EQ. 0  )
       END

@@ -1,4 +1,4 @@
--module(test).
+-module(test_message).
 -author('wookay.noh@gmail.com').
 -export([main/0]).
 
@@ -10,11 +10,15 @@ assert_equal(Expected, Got) ->
     io:format("Assertion failed\nExpected: ~w\nGot: ~w~n", [Expected, Got])
   end.
 
+echo(Message) ->
+  self() ! Message,
+  receive
+    Recv -> Recv
+  end.
+
 main() ->
-  assert_equal( 1    , 1    ),
-  assert_equal( 3    , 1+2  ),
-  assert_equal( "a"  , "a"  ),
-  assert_equal( "a"  , [$a] ),
-  assert_equal( 1    , 1=1  ),
-  assert_equal( true , 1==1 ),
+  assert_equal( 1  , echo(1) ),
+  assert_equal( {} , echo({}) ),
+  assert_equal( [] , echo([]) ),
+  assert_equal( "" , echo("") ),
   true.
