@@ -1,6 +1,6 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-IGNORE_FILES = %w{README Rakefile touch macruby uikit test.m}
+IGNORE_FILES = %w{appkit README Rakefile touch macruby uikit test.m}
 
 load 'unittest/build.rake'

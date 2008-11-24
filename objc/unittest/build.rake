@@ -20,12 +20,12 @@ if defined? DIR
   if defined? BUILD_ARM
     task :arm do end
   else
-    desc "build with iPhoneOS2.1.sdk"
+    desc "build with iPhoneOS2.2.sdk"
     task :arm => :arm_link do
     end
   end
 
-  desc "build with iPhoneSimulator2.1.sdk"
+  desc "build with iPhoneSimulator2.2.sdk"
   task :mac => :mac_link do
   end
 
@@ -81,14 +81,14 @@ else
     end
   end
 
-  desc "build with iPhoneSimulator2.1.sdk"
+  desc "build with iPhoneSimulator2.2.sdk"
   task :mac do
     dirs.each do |dir|
       sh "cd #{dir} && rake mac"
     end
   end
 
-  desc "build with iPhoneOS2.1.sdk"
+  desc "build with iPhoneOS2.2.sdk"
   task :arm do
     dirs.each do |dir|
       sh "cd #{dir} && rake arm"
@@ -142,24 +142,16 @@ EOF
 end
 
 FRAMEWORKS=%w{Foundation} if not defined? FRAMEWORKS
-FRAMEWORK=FRAMEWORKS.map{|f| "-framework #{f}" }.join' '
+FRAMEWORK=FRAMEWORKS.map{|f|" -framework #{f} "}.join ' '
 
-
-MAC_CC="gcc"
-MAC_SYSROOT="/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator2.1.sdk"
-if defined? BUILD_ARM
-  MAC_CFLAGS="-Wall -O2 -std=gnu99 -DTARGET_CPU_X86"
-  MAC_LDFLAGS="#{FRAMEWORK}"
-else
-  MAC_CFLAGS="-Wall -O2 -std=gnu99 -DTARGET_CPU_X86 -isysroot #{MAC_SYSROOT}"
-  MAC_LDFLAGS="-isysroot #{MAC_SYSROOT} #{FRAMEWORK}"
-end
-
-ARM_CC="/usr/local/arm-apple-darwin/bin/gcc"
-ARM_SYSROOT="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.1.sdk"
-ARM_HEAVENLY="-I#{ARM_SYSROOT}/heavenly_private_var_include"
-ARM_CFLAGS="-Wall -O2 -std=gnu99 -DTARGET_CPU_ARM -isysroot #{ARM_SYSROOT} -I#{ARM_SYSROOT}/usr/lib/gcc/arm-apple-darwin9/4.0.1/include #{ARM_HEAVENLY}"
-ARM_LDFLAGS="-isysroot #{ARM_SYSROOT} #{FRAMEWORK}"
+ARM_CC="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.0"
+ARM_SYSROOT="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk"
+ARM_CFLAGS="-x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot #{ARM_SYSROOT} -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=2.2"
+ARM_LDFLAGS="-arch armv6 -isysroot #{ARM_SYSROOT} -mmacosx-version-min=10.5 -Wl,-dead_strip -miphoneos-version-min=2.2 #{FRAMEWORK}"
+MAC_CC="/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.0"
+MAC_SYSROOT="/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator2.2.sdk"
+MAC_CFLAGS="-x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=20000 -isysroot #{MAC_SYSROOT} -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2"
+MAC_LDFLAGS="-arch i386 -isysroot #{MAC_SYSROOT} -mmacosx-version-min=10.5 #{FRAMEWORK}"
 
 def dyld_fallback?
   not FRAMEWORKS == %w{Foundation}
@@ -187,6 +179,7 @@ class Builder
         when :mac
           sh "#{MAC_CC} -c #{MAC_CFLAGS} #{obj.m} -o #{obj.mac.o}" 
         when :arm
+          puts "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
           sh "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
         end
       end
@@ -221,6 +214,7 @@ EOF
           sh "chmod +x #{app}.sh"
         end
       when :arm
+        puts "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
         sh "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
       end
     end
