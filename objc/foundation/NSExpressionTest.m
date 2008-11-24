@@ -9,6 +9,7 @@
 
 - (void) unittest {
 
+#if TARGET_CPU_X86
   NSArray* values = [NSArray arrayWithObjects:I(1), I(2), nil];
   NSExpression* expValues = [NSExpression expressionForConstantValue:values];
   NSArray* args = [NSArray arrayWithObject:expValues];
@@ -16,7 +17,8 @@
                                      arguments:args];
   id result = [func expressionValueWithObject:nil context:nil];
   [assert_equal a:I(3) b:result];
-
+#endif
+  
 }
 
 @end

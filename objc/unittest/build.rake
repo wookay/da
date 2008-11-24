@@ -177,9 +177,10 @@ class Builder
       if should_compile? obj
         case arch
         when :mac
+          #puts "#{MAC_CC} -c #{MAC_CFLAGS} #{obj.m} -o #{obj.mac.o}" 
           sh "#{MAC_CC} -c #{MAC_CFLAGS} #{obj.m} -o #{obj.mac.o}" 
         when :arm
-          puts "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
+          #puts "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
           sh "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
         end
       end
@@ -201,6 +202,7 @@ class Builder
     if should_link? app, objs
       case arch
       when :mac
+        #puts "#{MAC_CC} #{MAC_LDFLAGS} -o #{app} #{objs_arch_o}"
         sh "#{MAC_CC} #{MAC_LDFLAGS} -o #{app} #{objs_arch_o}"
         if dyld_fallback?
           ENV['DYLD_FALLBACK_FRAMEWORK_PATH']="#{MAC_SYSROOT}/System/Library/Frameworks"
@@ -214,7 +216,7 @@ EOF
           sh "chmod +x #{app}.sh"
         end
       when :arm
-        puts "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
+        #puts "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
         sh "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
       end
     end

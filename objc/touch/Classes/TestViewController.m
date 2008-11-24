@@ -66,7 +66,7 @@
     }
     cell.text = [text stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
 	}
-  
+  cell.font = [UIFont systemFontOfSize:12];  
 	return cell;
 }
 
