@@ -1,0 +1,8 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+at_exit do
+  `rm -f casket.hdb`
+end
+
+load '../Rakefile'

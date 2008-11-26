@@ -1,16 +1,13 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-IGNORE_FILES = %w{appkit README Rakefile touch macruby uikit test.m}
-
+IGNORE_FILES = %w{appkit README Rakefile touch macruby uikit pari_gp_ext test.m}
 load 'unittest/build.rake'
 
-def run test
-  sh "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.0 -c -x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=20000 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator2.2.sdk -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2 #{test} -o #{test}.o"
-  sh "/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.0 -arch i386 -isysroot /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator2.2.sdk -mmacosx-version-min=10.5 -framework Foundation -o #{test}.out #{test}.o"
-  sh "./#{test}.out ; rm -f #{test}.out #{test}.o"
-end
-
-task 'test.m' do
-  run 'test.m'
+require 'unittest/build.rb'
+make 'test.m' do |m|
+  m.compile 'test.m'
+  m.link
+  m.run
+  m.clean
 end
