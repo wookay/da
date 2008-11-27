@@ -177,10 +177,8 @@ class Builder
       if should_compile? obj
         case arch
         when :mac
-          #puts "#{MAC_CC} -c #{MAC_CFLAGS} #{obj.m} -o #{obj.mac.o}" 
           sh "#{MAC_CC} -c #{MAC_CFLAGS} #{obj.m} -o #{obj.mac.o}" 
         when :arm
-          #puts "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
           sh "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
         end
       end
@@ -202,7 +200,6 @@ class Builder
     if should_link? app, objs
       case arch
       when :mac
-        #puts "#{MAC_CC} #{MAC_LDFLAGS} -o #{app} #{objs_arch_o}"
         sh "#{MAC_CC} #{MAC_LDFLAGS} -o #{app} #{objs_arch_o}"
         if dyld_fallback?
           ENV['DYLD_FALLBACK_FRAMEWORK_PATH']="#{MAC_SYSROOT}/System/Library/Frameworks"
@@ -216,7 +213,6 @@ EOF
           sh "chmod +x #{app}.sh"
         end
       when :arm
-        #puts "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
         sh "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
       end
     end
@@ -236,6 +232,8 @@ class String
   def mac
     if self=~/\.c$/
       self.gsub('.c', '.mac')
+    elsif self=~/\.m$/
+      self.gsub('.m', '.mac')
     else
       self + '.mac'
     end
@@ -243,12 +241,16 @@ class String
   def arm
     if self=~/\.c$/
       self.gsub('.c', '.arm')
+    elsif self=~/\.m$/
+      self.gsub('.m', '.arm')
     else
       self + '.arm'
     end
   end
   def m
     if self=~/\.c$/
+      self
+    elsif self=~/\.m$/
       self
     else
       self + '.m'

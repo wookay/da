@@ -7,7 +7,7 @@ task :default do
   sh "rake -T --silent"
 end
 
-make 'test_gp' do |m|
+make 'p' do |m|
   m.compile 'pari_gp_ext.c', '-I/usr/local/include'
   m.compile 'GP.m'
   m.compile 'GPTest.m'
