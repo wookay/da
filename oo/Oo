@@ -2,11 +2,13 @@
 # Oo
 #                           wookay.noh at gmail.com
 
+OO_VERSION=0.1
+
 PASSED='passed'
 ASSERTION_FAILED='Assertion failed'
 EXPECTED='Expected'
 GOT='Got'
-OO_VERSION=0.1
+
 RULES_POL='rules/.pol'
 RULES_PRI='rules/.pri'
 
