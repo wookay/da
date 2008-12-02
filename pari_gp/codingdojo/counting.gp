@@ -1,6 +1,5 @@
 \\ Counting
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 \\
 \\ http://club.filltong.net/codingdojo/7214
 

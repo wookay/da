@@ -1,6 +1,5 @@
 NB.       J verbs
 NB.                       wookay.noh at gmail.com
-NB.                       http://wookay.egloos.com
 
    self_classify =. equal =.   =
    self_classify 'apple'

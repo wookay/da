@@ -1,6 +1,5 @@
 \\ math.vector.gp
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 Vector(V) = {
   m->apply(v->eval(Str(vector_, m))(v[1],v[2],v[3]), [V])[1]

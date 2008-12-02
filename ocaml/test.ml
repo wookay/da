@@ -1,6 +1,5 @@
 (* test.ml
                              wookay.noh at gmail.com
-                             http://wookay.egloos.com
 *)
 
 open Printf ;;

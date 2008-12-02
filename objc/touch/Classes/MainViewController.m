@@ -45,7 +45,7 @@
     @"CGTest GLTest",
     @"cg",                    
 
-    @"UIColorTest UIImageTest UIGraphicsTest UIWebViewTest",
+    @"UIColorTest UIImageTest UIGraphicsTest UIWebViewTest UIViewTest",
     @"uikit",
     
     nil];

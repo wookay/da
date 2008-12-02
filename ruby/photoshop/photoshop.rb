@@ -69,13 +69,24 @@ def hide_layers layers
   end
 end
 
+def show_layer_set layer_set
+  layer_set.visible.set true
+  layer_set.layers.get.each do |layer|
+    layer.visible.set true
+  end
+end
+
 def save_layers layers, prefix='test'
   layers.each do |layer|
-    puts layer.name.get
-    layer.visible.set true
-    save_current_doc "#{prefix}_#{layer.name.get.gsub(':','')}.png"
-    layer.visible.set false
+    save_layer layer, prefix
   end
+end
+
+def save_layer layer, prefix='test'
+  puts layer.name.get
+  layer.visible.set true
+  save_current_doc "#{prefix}_#{layer.name.get.gsub(':','')}.png"
+  layer.visible.set false
 end
 
 def trim_side doc, side

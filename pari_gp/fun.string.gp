@@ -1,6 +1,5 @@
 \\ fun.string
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 split(str, sp=" ") = {
   local(ret, v, s);

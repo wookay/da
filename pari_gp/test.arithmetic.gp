@@ -1,6 +1,5 @@
 \\ Elementary Arithmetic Functions
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 read(unittest)
 

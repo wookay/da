@@ -1,7 +1,6 @@
 begin
   comment test.alg
-                             wookay.noh at gmail.com
-                             http://wookay.egloos.com ;
+                             wookay.noh at gmail.com ;
 
   procedure assertEqual(expected, got);
   integer expected, got;

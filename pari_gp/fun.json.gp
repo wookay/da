@@ -1,6 +1,5 @@
 \\ json.gp
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 real_to_json(obj) = {
   local(v, k);

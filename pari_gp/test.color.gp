@@ -1,6 +1,5 @@
 \\ test.color.gp
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 read(unittest)
 read("fun.color") \\ rgb_to_hsv hsv_to_rgb

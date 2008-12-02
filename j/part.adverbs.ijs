@@ -1,6 +1,5 @@
 NB.       J adverbs
 NB.                       wookay.noh at gmail.com
-NB.                       http://wookay.egloos.com
 
    reflexive =. passive =.   ~
    1 + 1 

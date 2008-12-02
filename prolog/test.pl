@@ -1,6 +1,5 @@
 /* test.pl
                           wookay.noh at gmail.com
-                          http://wookay.egloos.com
 */
 
 assert_equal(Expected, Got):-

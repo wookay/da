@@ -1,6 +1,5 @@
 NB.       J conjunctions
 NB.                       wookay.noh at gmail.com
-NB.                       http://wookay.egloos.com
 
    power =.   ^:
    ---1

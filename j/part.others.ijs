@@ -1,6 +1,5 @@
 NB.       J others
 NB.                       wookay.noh at gmail.com
-NB.                       http://wookay.egloos.com 
 
    local =.   'local copula'
    global =:   'global copula'

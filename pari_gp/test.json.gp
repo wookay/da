@@ -1,6 +1,5 @@
 \\ test.json
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 read("fun.json") \\ to_json parse_json
 read(unittest)

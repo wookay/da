@@ -1,6 +1,5 @@
 \\ fun.vector
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 vecjoin(v, sp="") = {
   local(ret);

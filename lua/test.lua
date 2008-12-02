@@ -1,6 +1,5 @@
 -- test.lua
 --                           wookay.noh at gmail.com
---                           http://wookay.egloos.com
 
 function assert_equal(expected, got)
   if (expected == got) then

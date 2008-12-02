@@ -1,6 +1,5 @@
 \\ polynomial.gp
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 \\
 \\ http://en.wikipedia.org/wiki/Polynomial
 

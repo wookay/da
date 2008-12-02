@@ -1,6 +1,5 @@
 -- test_ada.adb
 --                           wookay.noh at gmail.com
---                           http://wookay.egloos.com
 
 with Ada.Text_IO, Ada.Integer_Text_IO;
 use  Ada.Text_IO, Ada.Integer_Text_IO;

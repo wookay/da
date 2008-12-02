@@ -14,6 +14,7 @@
 @interface ArrayTest : UnitTestable {} @end
 @interface HashTest : UnitTestable {} @end
 @interface OrdTest : UnitTestable {} @end
+@interface AssertTest : UnitTestable {} @end
 
 typedef int( *funcPtr )( int );
 @interface FunctionTest : UnitTestable {} 

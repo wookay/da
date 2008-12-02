@@ -1,6 +1,5 @@
 \\ logarithm.gp
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 plot(x=0.001, 10, log(x))
 

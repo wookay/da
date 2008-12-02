@@ -1,6 +1,5 @@
 \ test.fs
 \                           wookay.noh at gmail.com
-\                           http://wookay.egloos.com
 
 : assert_equal ( expected got -- )
   2dup = if

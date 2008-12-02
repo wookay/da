@@ -1,6 +1,5 @@
 \\ test.functions.symbolic_operators
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 read(unittest)
 

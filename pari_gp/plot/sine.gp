@@ -1,6 +1,5 @@
 \\ sine.gp
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 plot(x=0, Pi, sin(x), \
      y=0, 1)

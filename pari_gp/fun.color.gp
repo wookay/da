@@ -1,6 +1,5 @@
 \\ fun.color
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 rgb_to_hsv(RGB) = {
   local(r, g, b, h, s, delta, maxrgb);

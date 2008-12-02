@@ -1,6 +1,5 @@
 \\ test.functions.conversions
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 read(unittest)
 

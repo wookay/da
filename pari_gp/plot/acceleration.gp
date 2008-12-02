@@ -1,6 +1,5 @@
 \\ acceleration.gp
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 \\
 \\ http://cocoawithlove.com/2008/09/parametric-acceleration-curves-in-core.html
 

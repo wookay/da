@@ -1,6 +1,5 @@
 { test.pas
                            wookay.noh at gmail.com
-                           http://wookay.egloos.com 
 }
 
 procedure assert_equal(expected, got :integer);

@@ -1,7 +1,5 @@
 \\ sum of the first n natural numbers
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
-\\
 
 read("../unittest")
 

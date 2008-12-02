@@ -1,6 +1,5 @@
 // test_photoshop.jsx
 //                           wookay.noh at gmail.com
-//                           http://wookay.egloos.com 
 
 {
   #target photoshop    

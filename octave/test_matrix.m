@@ -1,6 +1,5 @@
 # test.matrix.m
 #                           wookay.noh at gmail.com
-#                           http://wookay.egloos.com
 
 function void = assert_equal(expected, got)
   if (expected==got) 

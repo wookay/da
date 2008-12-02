@@ -1,7 +1,6 @@
 #!/bin/sh
 ## test.scala
 ##                          wookay.noh at gmail.com
-##                          http://wookay.egloos.com
 
 !#
 def assert_equal(expected:Int, got:Int) {

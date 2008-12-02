@@ -1,6 +1,5 @@
 REM test.bas
 REM                           wookay.noh at gmail.com
-REM                           http://wookay.egloos.com
 
  10 F = 100
  20 S = 200

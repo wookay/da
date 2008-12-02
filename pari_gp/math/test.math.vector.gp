@@ -1,6 +1,5 @@
 \\ test.math.vector.gp
 \\                           wookay.noh at gmail.com
-\\                           http://wookay.egloos.com
 
 read("math.vector")
 

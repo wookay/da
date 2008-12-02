@@ -1,0 +1,16 @@
+# test_string.oo
+#                           wookay.noh at gmail.com
+
+재밌는 문자열
+규칙은 rules/string.rb
+
+apple은 APPLE
+banana는 BANANA?
+함수는 upcase?
+
+APPLE은 apple
+BANANA는 banana?
+함수는 downcase?
+
+hello는 5
+함수는 size?

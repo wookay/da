@@ -57,6 +57,7 @@
 		A0945D990E7CF32600C3CC96 /* CGContextTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0945D980E7CF32600C3CC96 /* CGContextTest.m */; };
 		A09FB7950EA48AD90079056A /* UIColorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A09FB7930EA48AD90079056A /* UIColorTest.m */; };
 		A09FB7960EA48AD90079056A /* UIImageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A09FB7940EA48AD90079056A /* UIImageTest.m */; };
+		A0AB5CB20EE37A0B00CF0E83 /* UIViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AB5CB10EE37A0B00CF0E83 /* UIViewTest.m */; };
 		A0AF96670E85223F0024A8DF /* Ord.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AF96650E85223F0024A8DF /* Ord.m */; };
 		A0AF96680E85223F0024A8DF /* OrdTest.m in Sources */ = {isa = PBXBuildFile; fileRef = A0AF96660E85223F0024A8DF /* OrdTest.m */; };
 		A0E66F400E7D9B7C000F6789 /* Array.m in Sources */ = {isa = PBXBuildFile; fileRef = A0E66F340E7D9B7C000F6789 /* Array.m */; };
@@ -147,6 +148,7 @@
 		A0945D980E7CF32600C3CC96 /* CGContextTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGContextTest.m; path = ../coregraphics/CGContextTest.m; sourceTree = SOURCE_ROOT; };
 		A09FB7930EA48AD90079056A /* UIColorTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorTest.m; sourceTree = "<group>"; };
 		A09FB7940EA48AD90079056A /* UIImageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageTest.m; sourceTree = "<group>"; };
+		A0AB5CB10EE37A0B00CF0E83 /* UIViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewTest.m; path = ../uikit/UIViewTest.m; sourceTree = SOURCE_ROOT; };
 		A0AF96640E85223F0024A8DF /* Ord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ord.h; path = ../fun/Ord.h; sourceTree = SOURCE_ROOT; };
 		A0AF96650E85223F0024A8DF /* Ord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ord.m; path = ../fun/Ord.m; sourceTree = SOURCE_ROOT; };
 		A0AF96660E85223F0024A8DF /* OrdTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrdTest.m; path = ../fun/OrdTest.m; sourceTree = SOURCE_ROOT; };
@@ -295,6 +297,7 @@
 		A06EBF610E84A0A6009D6D87 /* uikit */ = {
 			isa = PBXGroup;
 			children = (
+				A0AB5CB10EE37A0B00CF0E83 /* UIViewTest.m */,
 				A09FB7930EA48AD90079056A /* UIColorTest.m */,
 				A09FB7940EA48AD90079056A /* UIImageTest.m */,
 				A05118780E87EC11008FAD0A /* UIGraphicsTest.m */,
@@ -532,6 +535,7 @@
 				A052FA010E96B47000BF55F7 /* NSLocaleTest.m in Sources */,
 				A09FB7950EA48AD90079056A /* UIColorTest.m in Sources */,
 				A09FB7960EA48AD90079056A /* UIImageTest.m in Sources */,
+				A0AB5CB20EE37A0B00CF0E83 /* UIViewTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

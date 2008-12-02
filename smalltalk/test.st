@@ -1,6 +1,5 @@
 " test.st
                              wookay.noh at gmail.com
-                             http://wookay.egloos.com
 "
 
 Object extend [
