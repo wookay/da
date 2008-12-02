@@ -29,7 +29,7 @@ class Pol
       if funs.size > 0
         print funs
       else
-        print "모르겠다"
+        print "모르오"
       end
     else
       print argv.to_s.send(fun)
