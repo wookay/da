@@ -1,11 +1,14 @@
 #!/usr/bin/ruby
-# oo
+# Oo
 #                           wookay.noh at gmail.com
 
 PASSED='passed'
 ASSERTION_FAILED='Assertion failed'
 EXPECTED='Expected'
 GOT='Got'
+OO_VERSION=0.1
+RULES_POL='rules/.pol'
+RULES_PRI='rules/.pri'
 
 class Rule
   attr_accessor :ter, :pol
@@ -19,7 +22,7 @@ class Rule
     for a,b in @pol
       text.push %Q(["#{a}", "#{b}"])
     end
-    open('rules/.pol','w') do |f|
+    open(RULES_POL, 'w') do |f|
       f.write %Q([#{text.join","}])
     end
   end
@@ -35,7 +38,7 @@ class Rule
   end
   def call pri
     if @ter and File.exists? @ter
-      open('rules/.pri','w') do |f|
+      open(RULES_PRI, 'w') do |f|
         f.write %Q("#{pri}")
       end
       result = `#{lang_ext} #{@ter} #{pri} 2> /dev/null`
@@ -114,5 +117,18 @@ def assert_equal expected, got, passed
     "#{ASSERTION_FAILED}\n#{EXPECTED}: #{expected}\n#{GOT}: #{got}"
 end
 
-oo = Oo.new
-oo.fun ARGV.to_s
+case ARGV
+when [], %w{--help}
+  puts <<EOF
+Usage: Oo [programfile]
+  --copyright     print the copyright
+  --version       print the version
+EOF
+when %w{--copyright}
+  puts "Oo - Copyright (C) 2008 Woo-Kyoung Noh"
+when %w{--version}
+  puts "Oo #{OO_VERSION}"
+else
+  oo = Oo.new
+  oo.fun ARGV.to_s
+end

@@ -1,6 +1,8 @@
 Oo stuff
 
 
-$ ./oo test.oo
+$ ./Oo test.oo
 passed: 1
 passed: 3
+passed: 5
+passed: 6

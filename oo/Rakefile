@@ -1,7 +1,7 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-PROGRAM_RUN = './oo'
+PROGRAM_RUN = './Oo'
 PROGRAM_EXTENSION = 'oo'
 
 task :default do
