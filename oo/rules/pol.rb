@@ -22,8 +22,15 @@ class Pol
     fun = funs.first if funs.size > 0
     return if not fun
     case argv.to_s
-    when /함수/
+    when /^함수/
       print fun
+    when /^역함수/
+      funs = ary.map{|a,b|[b,a]}.find_funs @syms
+      if funs.size > 0
+        print funs
+      else
+        print "모르겠다"
+      end
     else
       print argv.to_s.send(fun)
     end

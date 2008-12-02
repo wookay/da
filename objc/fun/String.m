@@ -50,4 +50,9 @@
   return [self stringByAppendingFormat:@"%@", obj];  
 }
 
+- (id) gsub:(id)pattern to:(id)replacement {
+  return [self stringByReplacingOccurrencesOfString:pattern
+               withString:replacement];
+}
+
 @end

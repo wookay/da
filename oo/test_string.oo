@@ -7,10 +7,13 @@
 apple은 APPLE
 banana는 BANANA?
 함수는 upcase?
+역함수는 downcase?
 
 APPLE은 apple
 BANANA는 banana?
 함수는 downcase?
+역함수는 upcase?
 
 hello는 5
 함수는 size?
+역함수는 모르겠다?

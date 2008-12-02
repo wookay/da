@@ -14,6 +14,7 @@
   [assert_equal a:@"a,b,c" b:[[str split] join:@","]];
   [assert_equal a:@"(a, b, c)" b:[[[str split] join:@","] split:@","]];
   [assert_equal _true:[@"" empty:'?']];
+  [assert_equal a:@"a,b,c" b:[@"a b c" gsub:@" " to:@","]];
   
 }
 
