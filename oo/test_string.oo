@@ -4,15 +4,18 @@
 재밌는 문자열
 규칙은 rules/string.rb
 
-apple은 APPLE
-banana는 BANANA?
+Apple은 APPLE
+Banana는 BANANA?
 함수는 upcase?
-역함수는 downcase?
+역함수는 capitalize?
 
-APPLE은 apple
-BANANA는 banana?
-함수는 downcase?
+APPLE은 Apple
+BANANA는 Banana?
+함수는 capitalize?
 역함수는 upcase?
+
+  a b c는 a b c
+함수는 strip?
 
 hello는 5
 함수는 size?

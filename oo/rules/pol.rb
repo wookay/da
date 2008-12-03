@@ -19,20 +19,19 @@ class Pol
     file = "#{File.dirname __FILE__}/.pol"
     ary = eval(open(file).read) if File.exists? file
     funs = ary.find_funs @syms
-    fun = funs.first if funs.size > 0
-    return if not fun
+    return if not funs.size > 0
     case argv.to_s
     when /^함수/
-      print fun
+      print funs.join', '
     when /^역함수/
       funs = ary.map{|a,b|[b,a]}.find_funs @syms
-      if funs.size > 0
-        print funs
+      if funs.size > 0 
+        print funs.join', '
       else
-        print "모르오"
+        print '모르오'
       end
     else
-      print argv.to_s.send(fun)
+      print argv.to_s.send(funs.first)
     end
   end
 end

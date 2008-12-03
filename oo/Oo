@@ -110,7 +110,7 @@ class Oo
               else
                 print ooval(pri)
               end
-              puts if q[2]==KEYWORD_WHAT.split('|').first
+              puts if q[1]==KEYWORD_WHAT.split('|').first
             else
               assert_equal ter_q, ooval(pri), ter_q
             end
