@@ -16,6 +16,7 @@ KEYWORD_ARGUMENTS='인자값'
 KEYWORD_RULES='규칙'
 KEYWORD_WHAT='뭐|뭐임'
 KEYWORD_PALABRA='은|는|일때'
+KEYWORD_ORDER='키순서'
 
 class Rule
   attr_accessor :ter, :pol
@@ -54,7 +55,11 @@ class Rule
       result = `#{command}`
     end
     if result and not result.empty?
-      result
+      if result =~ /^\{(.*)\}$/
+        Hash.send :eval, result
+      else
+        result
+      end
     else
       pri
     end
@@ -108,11 +113,43 @@ class Oo
                 print value==KEYWORD_ARGUMENTS ?
                   @hash[KEYWORD_ARGUMENTS] : value
               else
-                print ooval(pri)
+                value = ooval pri
+                if value.class.to_s=='Hash'
+                  value = value[KEYWORD_ORDER].map{|k|"#{value[k]}#{k}"}.join' '
+                end
+                print value
               end
               puts if q[1]==KEYWORD_WHAT.split('|').first
             else
-              assert_equal ter_q, ooval(pri), ter_q
+              value = ooval pri
+              if value.class.to_s=='Hash'
+                if value.select{|k,v|"#{v}#{k}"==ter_q.to_s}.empty?
+                  matched = []
+                  if ter_q.split(' ').any? {|x| value[KEYWORD_ORDER].include? x}
+                    value[KEYWORD_ORDER].each do |k|
+                      matched.push k if ter_q.split(' ').include? k
+                    end
+                  else
+                    value[KEYWORD_ORDER].each do |k|
+                      ter_q.split(' ').each do |t|
+                        matched.push k if t =~ /(.*)#{k}$/
+                      end
+                    end 
+                  end
+                  if matched.empty?
+                    value = value[KEYWORD_ORDER].map{|k|"#{value[k]}#{k}"}.join' '
+                    assert_equal ter_q, value, ter_q
+                  else
+                    value = matched.map{|k|"#{value[k]}#{k}"}.join' '
+                    puts value
+                  end
+                else
+                  value = ter_q
+                  assert_equal ter_q, value, ter_q
+                end
+              else
+                assert_equal ter_q, value, ter_q
+              end
             end
           else
             @rule.pol_push pri, ter

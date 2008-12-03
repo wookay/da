@@ -3,6 +3,10 @@
 
 #import "test.h"
 
+NSInteger randomSort(id a, id b, void *context) {
+  return (arc4random() % 2);
+}
+
 @implementation ArrayTest
 
 - (void) unittest {
@@ -28,6 +32,8 @@
   [assert_equal a:@"a" b:[stack pop]];
   [assert_equal a:@"()" b:stack];
   [assert_equal _true:[stack empty:'?']];
+
+  //[assert_equal a:@"abc" b:[[ary sortedArrayUsingFunction:randomSort context:NULL] to_s]];
 
 }
 
