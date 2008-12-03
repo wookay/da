@@ -1,0 +1,18 @@
+# oo
+
+PASSED="passed"
+ASSERTION_FAILED="Assertion failed"
+EXPECTED="Expected"
+GOT="Got"
+
+RULES_POL="rules/.pol"
+RULES_PRI="rules/.pri"
+
+KEYWORD_ARGUMENTS="인자값"
+KEYWORD_RULES="규칙"
+KEYWORD_WHAT="뭐|뭐임"
+KEYWORD_PALABRA="은|는|일때"
+KEYWORD_ORDER="키순서"
+KEYWORD_NO="모르오"
+KEYWORD_FUNCTION="함수"
+KEYWORD_FUNCTION2="역함수"

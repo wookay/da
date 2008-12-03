@@ -1,3 +1,5 @@
+require "#{File.dirname __FILE__}/oo.rb"
+
 class Array
   def find_funs syms
     ary = []
@@ -21,14 +23,14 @@ class Pol
     funs = ary.find_funs @syms
     return if not funs.size > 0
     case argv.to_s
-    when /^함수/
+    when /^#{KEYWORD_FUNCTION}/
       print funs.join', '
-    when /^역함수/
+    when /^#{KEYWORD_FUNCTION2}/
       funs = ary.map{|a,b|[b,a]}.find_funs @syms
       if funs.size > 0 
         print funs.join', '
       else
-        print '모르오'
+        print KEYWORD_NO
       end
     else
       print argv.to_s.send(funs.first)
