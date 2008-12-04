@@ -94,7 +94,7 @@ class Oo
         end
         print value
       end
-      puts if ter_q==KEYWORD_WHAT.split('|').first
+      puts if ter_q!=KEYWORD_WHAT.split('|').last
     else
       value = ooval pri
       if value.class.to_s=='Hash'

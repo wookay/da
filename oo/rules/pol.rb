@@ -16,17 +16,26 @@ class Pol
   def initialize syms
     @syms = syms
   end
+  def self.mappings_hash
+    hash = Hash[mappings]
+    hash[KEYWORD_ORDER] = mappings.transpose.first
+    hash
+  end
+  def self.mappings
+    file = "#{File.dirname __FILE__}/.pol"
+    ary = []
+    ary = Array.send :eval, open(file).read if File.exists? file
+    ary
+  end
   def call argv
     return if argv.size==0
-    file = "#{File.dirname __FILE__}/.pol"
-    ary = eval(open(file).read) if File.exists? file
-    funs = ary.find_funs @syms
+    funs = Pol.mappings.find_funs @syms
     return if not funs.size > 0
     case argv.to_s
     when /^#{KEYWORD_FUNCTION}/
       print funs.join', '
     when /^#{KEYWORD_INVERSE_FUNCTION}/
-      funs = ary.map{|a,b|[b,a]}.find_funs @syms
+      funs = Pol.mappings.map{|a,b|[b,a]}.find_funs @syms
       if funs.size > 0 
         print funs.join', '
       else
