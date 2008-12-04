@@ -25,7 +25,7 @@ class Pol
     case argv.to_s
     when /^#{KEYWORD_FUNCTION}/
       print funs.join', '
-    when /^#{KEYWORD_FUNCTION2}/
+    when /^#{KEYWORD_INVERSE_FUNCTION}/
       funs = ary.map{|a,b|[b,a]}.find_funs @syms
       if funs.size > 0 
         print funs.join', '
