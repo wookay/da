@@ -8,9 +8,9 @@ ls = Dir["#{path}/*"]
 hash = {}
 case ARGV.join' '
 when '파일'
-  hash[KEYWORD_ORDER] = %w{개}
+  hash[KEYWORD_ORDER] = %w{개 이름 크기}
   hash['개'] = ls.size
+  hash['이름'] = ls.map{|f|File.basename f}.join', '
+  hash['크기'] = ls.map{|f|File.new(f).stat.size}.join', '
   print hash.inspect
-when /파일이름/
-  print ls.map{|f|File.basename f}.join', '
 end

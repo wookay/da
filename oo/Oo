@@ -54,6 +54,16 @@ class Rule
   end
 end
 
+class Hash
+  def tablize cols
+    ary = cols.map{|col| fetch(col).split(', ')}
+    col_sizes = ary.map{|l|l.map{|e|e.size}.max}
+    ary.transpose.map do |l|
+      l.zip(col_sizes).map{|e, just| e.to_s.ljust just}.join(' | ')
+    end.join"\n"
+  end
+end
+
 class Oo
   def initialize
     @hash = {}
@@ -78,7 +88,6 @@ class Oo
       end
     end
   end
-
   def run_q pri, ter_q
     case ter_q
     when /#{KEYWORD_WHAT}/
@@ -88,13 +97,32 @@ class Oo
         print value==KEYWORD_ARGUMENTS ?
           @hash[KEYWORD_ARGUMENTS] : value
       else
-        value = ooval pri
-        if value.class.to_s=='Hash'
-          value = value[KEYWORD_ORDER].map{|k|"#{value[k]}#{k}"}.join' '
+        de = pri.match /(.*)#{KEYWORD_DE} (.*)/
+        if de
+          uno = de[1]
+          value = ooval uno
+          dos = de[2]
+          if value.class.to_s=='Hash'
+            matched = []
+            value[KEYWORD_ORDER].each do |k|
+              matched.push k if dos.split(/(#{KEYWORD_Y}) /).include? k
+            end
+            if matched.size > 1
+              value = value.tablize matched
+            else
+              value = value[dos]
+            end
+          end
+          print value
+        else
+          value = ooval pri
+          if value.class.to_s=='Hash'
+            value = value[KEYWORD_ORDER].map{|k|"#{value[k]}#{k}"}.join' '
+          end
+          print value
         end
-        print value
+        puts if ter_q!=KEYWORD_WHAT.split('|').last
       end
-      puts if ter_q!=KEYWORD_WHAT.split('|').last
     else
       value = ooval pri
       if value.class.to_s=='Hash'
