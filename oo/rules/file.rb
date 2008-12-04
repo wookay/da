@@ -1,4 +1,4 @@
-# cal.rb
+# file.rb
 
 require "#{File.dirname __FILE__}/pol.rb"
 mhash = Pol.mappings_hash
