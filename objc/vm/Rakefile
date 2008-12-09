@@ -1,0 +1,8 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+CLASSES    = %w{VM}
+FRAMEWORKS=%w{Foundation}
+
+DIR = File.dirname __FILE__
+load '../unittest/build.rake'

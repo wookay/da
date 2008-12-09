@@ -10,8 +10,8 @@ dir = Dir.pwd
 for filename in Dir["*.png"].select{|x|x=~/^trim/}
   photoshop.load "#{dir}/#{filename}"
   doc = photoshop.current_document
-  rate_x = 4.134375
-  rate_y = 4.05625
+  rate_x = 1.5
+  rate_y = 1.5
   doc.resize_image :width => doc.width.get/rate_x,
                    :height => doc.height.get/rate_y
   path = filename.gsub('trim_','resize_')

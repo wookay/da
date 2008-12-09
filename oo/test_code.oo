@@ -1,0 +1,8 @@
+# test_code.oo
+#                           wookay.noh at gmail.com
+
+재밌는 문자열
+규칙은 rules/string.rb
+
+Apple은 APPLE
+코드는 "Apple".upcase?

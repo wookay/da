@@ -31,6 +31,18 @@
   [assert_equal _true:[@"abc" hasSuffix:@"bc"]];
 
   [assert_equal a:@"0f" b:[NSString stringWithFormat:@"%02x", 15]];
+
+  NSString* file = @"test.png";
+  NSRange range = [file rangeOfString:@"." options:NSBackwardsSearch];
+  if (range.location != NSNotFound) {
+    [assert_equal a:@"test" b:[file substringToIndex:range.location]];
+    range.location += 1;
+    range.length = file.length - range.location;
+    [assert_equal a:@"png" b:[file substringWithRange:range]];
+  }
+
+  [assert_equal int:1 int:[@"1/" intValue]];
+
 }
 
 @end

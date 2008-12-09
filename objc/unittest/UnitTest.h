@@ -35,6 +35,7 @@
 - (void) double:(double)expected b:(id)got ; 
 - (void) hasPrefix:(id)expected b:(id)got ;
 - (void) hasSuffix:(id)expected b:(id)got ;
+- (void) SEL:(SEL)expected SEL:(SEL)got ;
 
 - (int) passedCount ;
 - (int) failedCount ;

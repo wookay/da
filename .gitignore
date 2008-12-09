@@ -1,2 +1,5 @@
 .DS_Store
 *.o
+*_mac_test
+*_mac_test.sh
+*.swp

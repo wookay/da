@@ -15,6 +15,13 @@
   [self setValue:[NSNumber numberWithInt:20] forKey:@"person_age"];
   [assert_equal int:20 b:[self valueForKeyPath:@"person_age"]];
 
+  [assert_equal _true:[@"" isKindOfClass:[NSString class]]];
+  [assert_equal _true:[@"" isKindOfClass:[NSObject class]]];
+  [assert_equal SEL:@selector(hi) SEL:@selector(hi)];
+
+  IMP upcase =  [@"" methodForSelector:@selector(uppercaseString)];
+  [assert_equal a:@"A" b:upcase(@"a", NULL)];
+
 }
 
 @end

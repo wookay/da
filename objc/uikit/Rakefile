@@ -1,1 +1,3 @@
-# for ../touch
+task :default do
+  puts "please test with UIApplication"
+end

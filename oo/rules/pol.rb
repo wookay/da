@@ -32,6 +32,9 @@ class Pol
     funs = Pol.mappings.find_funs @syms
     return if not funs.size > 0
     case argv.to_s
+    when /^#{KEYWORD_CODE}/
+      a, b = Pol.mappings.first
+      print funs.map{|fun| "\"#{a}\".#{fun}"}.join("\n")
     when /^#{KEYWORD_FUNCTION}/
       print funs.join', '
     when /^#{KEYWORD_INVERSE_FUNCTION}/

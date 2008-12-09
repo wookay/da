@@ -1,0 +1,27 @@
+DIRECTORY = File.dirname __FILE__
+require "#{DIRECTORY}/build.rb"
+
+def constants_to_header
+  r = ''
+  open("#{DIRECTORY[0..DIRECTORY.rindex('/')]}oo.rb").readlines.each do |l|
+    if l.include? '='
+      a,b = l.split('=')
+      r.concat "#define #{a} @#{b}"
+    end
+  end
+  open("#{DIRECTORY}/.oo.h", 'w') do |f|
+    f.write r
+  end
+end
+
+Dir["#{DIRECTORY}/*.m"].each do |path|
+  path = path[path.index('rules/objc')..-1]
+  task path do |t|
+    constants_to_header
+    f = t.to_s
+    m = Make.new path
+    m.compile 'rules/objc/pol.m'
+    m.compile path
+    m.link
+  end
+end

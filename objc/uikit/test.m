@@ -6,11 +6,12 @@
 int main (int argc, const char * argv[]) {
   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-  UnitTest* unittest = [UnitTest create];
-  [unittest run:@"CGContextTest"];
-  [unittest run:@"CGPathTest"];
-  [unittest run:@"CGGlyphTest"];
-  [unittest run:@"CGAffineTransformTest"];
+  UnitTest* unittest = [[UnitTest alloc] init];
+  [unittest run:@"UIWebViewTest"];
+  [unittest run:@"UIGraphicsTest"];
+  [unittest run:@"UIImageTest"];
+  [unittest run:@"UIColorTest"];
+  [unittest run:@"UIViewTest"];
   [unittest report];
 
   [pool release];

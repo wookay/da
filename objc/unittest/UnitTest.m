@@ -94,6 +94,7 @@
 }
 
 - (void) a:(id)expected CGAffineTransform:(CGAffineTransform)got {
+  // UIKit has NSStringFromCGAffineTransform
   NSString* gotString = [NSString stringWithFormat:@"{%@, %@, %@, %@, %@, %@}",
     F(got.a), F(got.b), F(got.c), F(got.d), F(got.tx), F(got.ty)];
   [self a:expected b:gotString];
@@ -186,6 +187,10 @@
   [self add_result:[gotDescription hasSuffix:expected]
         expected:expected
         got:got];
+}
+
+- (void) SEL:(SEL)expected SEL:(SEL)got {
+  [self a:NSStringFromSelector(expected) b:NSStringFromSelector(got)];
 }
 
 - (id)init {

@@ -1,0 +1,19 @@
+# objc_string.oo
+#                           wookay.noh at gmail.com
+
+Objective-C를 테스트 하자
+규칙은 rules/objc/string.m
+
+Apple는 apple
+B는 b
+C는 c?
+함수는 lowercaseString?
+역함수는 capitalizedString?
+
+apple은 Apple
+banana는 Banana?
+함수는 capitalizedString?
+역함수는 lowercaseString?
+
+A는 a
+코드는 [@"A" lowercaseString]?

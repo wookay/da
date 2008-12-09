@@ -25,13 +25,15 @@ class Rule
   def lang_ext
     case @ter 
     when /rb$/
-      'ruby'
+      "ruby #{@ter}"
     when /gp$/
-      'gp -q'
+      "gp -q #{@ter}"
     when /py$/
-      'python'
+      "python #{@ter}"
     when /oo$/
-      './Oo'
+      "./Oo #{@ter}"
+    when /m$/
+      "rake -f #{File.dirname @ter}/Rakefile --silent #{@ter} ; #{@ter}.out"
     end 
   end
   def call pri
@@ -39,7 +41,7 @@ class Rule
       open(RULES_PRI, 'w') do |f|
         f.write %Q("#{pri}")
       end
-      command = "#{lang_ext} #{@ter} #{pri} 2> /dev/null"
+      command = "#{lang_ext} #{pri} 2> /dev/null"
       result = `#{command}`
     end
     if result and not result.empty?
@@ -157,6 +159,7 @@ class Oo
   end
 
   def run text
+    ret = nil
     text.split("\n").each do |line|
       next if line.strip[0,1]=='#'
       m = line.match /(.*)(#{KEYWORD_PALABRA}) (.*)/
@@ -166,6 +169,7 @@ class Oo
         case pri
         when /#{KEYWORD_RULES}/
           @rule.ter = ter
+          ret = ter
         else
           q = ter.match /(.*)(\?)$/
           if q
@@ -173,12 +177,15 @@ class Oo
           else
             @rule.pol_push pri, ter
             @hash[pri] = ter
+            ret = ter
           end
         end
       else
         @rule.pol = []
+        ret = ooval line
       end
     end
+    ret
   end
   def fun file
     run open(file).read if File.exists? file.to_s
@@ -186,6 +193,17 @@ class Oo
   def main file, *argv
     @hash[KEYWORD_ARGUMENTS] = argv.join' '
     fun file
+  end
+  def ioo
+    print "Oo> "
+    while s = gets
+      if File.exists? s.strip
+        s = "#{KEYWORD_RULES}#{KEYWORD_PALABRA} #{s}"
+      end
+      result = run s
+      puts result if result
+      print "Oo> "
+    end
   end
 end
 
@@ -202,6 +220,7 @@ Usage: Oo [--] [programfile] [arguments]
   --copyright     print the copyright
   --version       print the version
 EOF
+  Oo.new.ioo
 when %w{--copyright}
   puts "Oo - Copyright (C) 2008 Woo-Kyoung Noh"
 when %w{--version}

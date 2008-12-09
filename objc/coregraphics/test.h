@@ -7,3 +7,4 @@
 @interface CGContextTest : UnitTestable {} @end
 @interface CGPathTest : UnitTestable {} @end
 @interface CGGlyphTest : UnitTestable {} @end
+@interface CGAffineTransformTest : UnitTestable {} @end
