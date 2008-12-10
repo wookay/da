@@ -12,7 +12,7 @@ int main (int argc, const char * argv[]) {
   for (idx = 1; idx < argc; idx++) {
     [args addObject:[NSString stringWithUTF8String:argv[idx]]];
   }
-  [[[Pol alloc] new:@"capitalizedString lowercaseString uppercaseString" path:RULES_POL] call:args];
+  [[[Pol alloc] new:@"capitalizedString lowercaseString uppercaseString" path:RULES_PREFERENCES] call:args];
 
   [pool release];
   return 0;

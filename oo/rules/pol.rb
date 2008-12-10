@@ -33,7 +33,7 @@ class Pol
   attr_accessor :monad
   attr_accessor :dyad
   attr_accessor :cook
-  def initialize path=RULES_POL
+  def initialize path=RULES_PREFERENCES
     @path = path
   end
   def self.patterns_hash

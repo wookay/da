@@ -2,24 +2,22 @@
 # Oo
 #                           wookay.noh at gmail.com
 
-OO_VERSION=0.1
-
 require 'rules/oo.rb'
 @@palabras = POSTPOSITIONS.join('|')
 
 class Rule
-  attr_accessor :ter, :pol
+  attr_accessor :ter, :preferences
   def initialize ter
     @ter = ter
-    @pol = []
+    @preferences = []
   end
-  def pol_push pri, ter
-    @pol.push [pri, ter]
+  def preferences_push pri, ter
+    @preferences.push [pri, ter]
     text = []
-    for a,b in @pol
+    for a,b in @preferences
       text.push %Q(["#{a}", "#{b}"])
     end
-    open(RULES_POL, 'w') do |f|
+    open(RULES_PREFERENCES, 'w') do |f|
       f.write %Q([#{text.join","}])
     end
   end
@@ -48,7 +46,7 @@ class Rule
         Hash.send :eval, result
       else
         pris = pri.strip
-        pol_push pris, result if not pris.empty? and not KEYWORDS.include? pris
+        preferences_push pris, result if not pris.empty? and not KEYWORDS.include? pris
         result
       end
     else
@@ -183,7 +181,7 @@ class Oo
             if line =~ /#{POSTPOSITION_ADJECTIVE}/ and not line =~ /#{POSTPOSITION_SUPPORTING}/
               run_q line, KEYWORD_WHAT.split('|').first
             else
-              @rule.pol_push pri, ter
+              @rule.preferences_push pri, ter
               @hash[pri] = ter
               ret = ter
             end
@@ -193,15 +191,15 @@ class Oo
         if ioo
           case line
           when " "
-            open(RULES_POL, 'w') do |f|
+            open(RULES_PREFERENCES, 'w') do |f|
               f.write ''
             end
-            @rule.pol = []
+            @rule.preferences = []
           when /#{KEYWORD_PATTERNS}/
-            if @rule.pol.size.zero?
+            if @rule.preferences.size.zero?
               ret = KEYWORD_NO
             else
-              ret = @rule.pol.map{|a,b|"#{a}는 #{b}"}
+              ret = @rule.preferences.map{|a,b|"#{a}는 #{b}"}
             end
           else
             ret = ooval line
@@ -212,7 +210,7 @@ class Oo
             end
           end
         else
-          @rule.pol = []
+          @rule.preferences = []
         end
       end
     end
@@ -226,15 +224,18 @@ class Oo
     fun file
   end
   def ioo
-    @rule.pol = []
-    print "Oo> "
-    while input = gets
+    @hash['help'] = 'Oo help'
+    @hash['copyright'] = OO_COPYRIGHT
+    @rule.preferences = []
+    prompt = "Oo> "
+    while input = readline(prompt, false)
+      break if 'quit'==input
       if File.exists? input.strip
-        input = "#{KEYWORD_RULES}#{@@palabras} #{input}"
+        input = "#{KEYWORD_RULES}#{@@palabras} #{input.strip}"
       end
       result = run input, true
       puts result if result
-      print "Oo> "
+      HISTORY.push input
     end
   end
 end
@@ -248,6 +249,8 @@ end
 case ARGV
 when []
   puts "Oo #{OO_VERSION}"
+  require "readline"
+  include Readline
   Oo.new.ioo
 when %w{--help}
   puts <<EOF
@@ -256,7 +259,7 @@ Usage: Oo [--] [programfile] [arguments]
   --version       print the version
 EOF
 when %w{--copyright}
-  puts "Oo - Copyright (C) 2008 Woo-Kyoung Noh"
+  puts OO_COPYRIGHT
 when %w{--version}
   puts "Oo #{OO_VERSION}"
 else

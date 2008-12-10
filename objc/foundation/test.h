@@ -28,4 +28,5 @@
 @interface NSNullTest : UnitTestable {} @end
 @interface NSCountedSetTest : UnitTestable {} @end
 @interface NSFileManagerTest : UnitTestable {} @end
+@interface NSUserDefaultsTest : UnitTestable {} @end
 @interface DataTypesTest : UnitTestable {} @end

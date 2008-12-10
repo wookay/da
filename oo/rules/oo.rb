@@ -1,11 +1,14 @@
 # oo
 
+OO_VERSION=0.1
+OO_COPYRIGHT="Oo - Copyright (C) 2008 Woo-Kyoung Noh"
+
 PASSED="passed"
 ASSERTION_FAILED="Assertion failed"
 EXPECTED="Expected"
 GOT="Got"
 
-RULES_POL="rules/.pol"
+RULES_PREFERENCES="rules/.preferences"
 RULES_PRI="rules/.pri"
 
 POSTPOSITION_NOMINATIVE="이|가"

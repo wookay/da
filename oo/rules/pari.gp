@@ -1,6 +1,6 @@
 read("rules/oo.rb")
-ary = eval(read("rules/.pol"))
-pri = read("rules/.pri")
+ary = eval(read(RULES_PREFERENCES))
+pri = read(RULES_PRI)
 xa = apply(a->a[1], ary)
 ya = apply(a->a[2], ary)
 pol = x->polinterpolate(xa,ya,x)
