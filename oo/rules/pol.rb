@@ -53,7 +53,11 @@ class Pol
     obj = argv.join ' '
     funs = patterns.find_funs monad, dyad, cook
     if funs.size.zero?
-      print KEYWORD_NO
+      if cook
+        print obj.send cook
+      else
+        print KEYWORD_NO
+      end
       return
     end
     case obj
