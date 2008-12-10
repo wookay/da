@@ -177,9 +177,13 @@ class Oo
           if q
             run_q pri, q[1]
           else
-            @rule.pol_push pri, ter
-            @hash[pri] = ter
-            ret = ter
+            if line =~ /#{POSTPOSITION_ADJECTIVE}/ and not line =~ /#{POSTPOSITION_SUPPORTING}/
+              run_q line, KEYWORD_WHAT.split('|').first
+            else
+              @rule.pol_push pri, ter
+              @hash[pri] = ter
+              ret = ter
+            end
           end
         end
       else
