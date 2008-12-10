@@ -18,6 +18,7 @@ class Array
           a.send(sym, arg).to_s==b if a.respond_to? sym
         else
           next if dyad.include? sym
+          next if not args
           a = args
           a = a.send cook if cook
           a.send(sym).to_s==b if a.respond_to? sym
