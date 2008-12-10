@@ -52,6 +52,14 @@ class Pol
   def call argv
     return if argv.size==0
     obj = argv.join ' '
+    if not patterns
+      if cook
+        print obj.send cook
+      else
+        print KEYWORD_NO
+      end
+      return
+    end
     funs = patterns.find_funs monad, dyad, cook
     if funs.size.zero?
       if cook

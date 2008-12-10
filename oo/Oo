@@ -193,6 +193,9 @@ class Oo
         if ioo
           case line
           when " "
+            open(RULES_POL, 'w') do |f|
+              f.write ''
+            end
             @rule.pol = []
           when /#{KEYWORD_PATTERNS}/
             if @rule.pol.size.zero?
