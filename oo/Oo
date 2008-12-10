@@ -235,13 +235,15 @@ def assert_equal expected, got
 end
 
 case ARGV
-when [], %w{--help}
+when []
+  puts "Oo #{OO_VERSION}"
+  Oo.new.ioo
+when %w{--help}
   puts <<EOF
 Usage: Oo [--] [programfile] [arguments]
   --copyright     print the copyright
   --version       print the version
 EOF
-  Oo.new.ioo
 when %w{--copyright}
   puts "Oo - Copyright (C) 2008 Woo-Kyoung Noh"
 when %w{--version}
