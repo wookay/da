@@ -223,6 +223,7 @@ class Oo
     fun file
   end
   def ioo
+    @rule.pol = []
     print "Oo> "
     while input = gets
       if File.exists? input.strip
