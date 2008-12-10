@@ -14,9 +14,28 @@ BANANA는 Banana?
 함수는 capitalize?
 역함수는 upcase?
 
-  a b c는 a b c
+ a b c 는 a b c
 함수는 strip?
 
 hello는 5
 함수는 size?
 역함수는 모르오?
+
+abc는 cba
+함수는 reverse?
+코드는 "abc".reverse?
+
+aBc는 AbC
+함수는 swapcase?
+
+10.1은 10
+함수는 to_i?
+
+1은 1.0
+함수는 to_f?
+
+a는 String
+함수는 class?
+
+a는 \"a\"
+함수는 inspect?

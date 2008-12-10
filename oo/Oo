@@ -5,6 +5,7 @@
 OO_VERSION=0.1
 
 require 'rules/oo.rb'
+@@palabras = POSTPOSITIONS.join('|')
 
 class Rule
   attr_accessor :ter, :pol
@@ -24,14 +25,12 @@ class Rule
   end
   def lang_ext
     case @ter 
+    when /oo$/
+      "./Oo #{@ter}"
     when /rb$/
       "ruby #{@ter}"
     when /gp$/
       "gp -q #{@ter}"
-    when /py$/
-      "python #{@ter}"
-    when /oo$/
-      "./Oo #{@ter}"
     when /m$/
       "rake -f #{File.dirname @ter}/Rakefile --silent #{@ter} ; #{@ter}.out"
     end 
@@ -48,6 +47,8 @@ class Rule
       if result =~ /^\{(.*)\}$/
         Hash.send :eval, result
       else
+        pris = pri.strip
+        pol_push pris, result if not pris.empty? and not KEYWORDS.include? pris
         result
       end
     else
@@ -99,7 +100,7 @@ class Oo
         print value==KEYWORD_ARGUMENTS ?
           @hash[KEYWORD_ARGUMENTS] : value
       else
-        de = pri.match /(.*)#{KEYWORD_DE} (.*)/
+        de = pri.match /(.*)#{POSTPOSITION_POSSESSIVE} (.*)/
         if de
           uno = de[1]
           value = ooval uno
@@ -107,7 +108,7 @@ class Oo
           if value.class.to_s=='Hash'
             matched = []
             value[KEYWORD_ORDER].each do |k|
-              matched.push k if dos.split(/(#{KEYWORD_Y}) /).include? k
+              matched.push k if dos.split(/(#{POSTPOSITION_CONJUCTIVE}) /).include? k
             end
             if matched.size > 1
               value = value.tablize matched
@@ -158,17 +159,18 @@ class Oo
     end
   end
 
-  def run text
+  def run text, ioo=false
     ret = nil
     text.split("\n").each do |line|
       next if line.strip[0,1]=='#'
-      m = line.match /(.*)(#{KEYWORD_PALABRA}) (.*)/
+      m = line.match /(.*)(#{@@palabras}) (.*)/
       if m
         pri = m[1]
         ter = m[3]
         case pri
         when /#{KEYWORD_RULES}/
           @rule.ter = ter
+          @hash[KEYWORD_RULES] = ter
           ret = ter
         else
           q = ter.match /(.*)(\?)$/
@@ -181,8 +183,27 @@ class Oo
           end
         end
       else
-        @rule.pol = []
-        ret = ooval line
+        if ioo
+          case line
+          when " "
+            @rule.pol = []
+          when /#{KEYWORD_PATTERNS}/
+            if @rule.pol.size.zero?
+              ret = KEYWORD_NO
+            else
+              ret = @rule.pol.map{|a,b|"#{a}는 #{b}"}
+            end
+          else
+            ret = ooval line
+            if KEYWORDS.include? line
+              if ret == line
+                ret = KEYWORD_NO
+              end
+            end
+          end
+        else
+          @rule.pol = []
+        end
       end
     end
     ret
@@ -196,11 +217,11 @@ class Oo
   end
   def ioo
     print "Oo> "
-    while s = gets
-      if File.exists? s.strip
-        s = "#{KEYWORD_RULES}#{KEYWORD_PALABRA} #{s}"
+    while input = gets
+      if File.exists? input.strip
+        input = "#{KEYWORD_RULES}#{@@palabras} #{input}"
       end
-      result = run s
+      result = run input, true
       puts result if result
       print "Oo> "
     end

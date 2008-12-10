@@ -1,7 +1,7 @@
 # file.rb
 
 require "#{File.dirname __FILE__}/pol.rb"
-mhash = Pol.mappings_hash
+mhash = Pol.patterns_hash
 path = mhash['디렉토리'] ? mhash['디렉토리'] : '.'
 ls = Dir["#{path}/*"]
 

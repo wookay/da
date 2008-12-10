@@ -1,11 +1,27 @@
 require "#{File.dirname __FILE__}/oo.rb"
 
 class Array
-  def find_funs syms
+  def find_funs monad, dyad, cook
+    monad ||= []
+    dyad ||= []
     ary = []
-    syms.each do |sym|
-      ary.push sym if all? do |a,b|
-        a.send(sym).to_s==b
+    (monad|dyad).each do |sym|
+      ary.push sym if all? do |args,b|
+        m = args.match /(.*)(#{POSTPOSITION_ADJECTIVE}) (.*)/
+        if m
+          next if monad.include? sym
+          a, arg = m[1], m[3]
+          if cook 
+            a = a.send cook
+            arg = arg.send cook
+          end
+          a.send(sym, arg).to_s==b if a.respond_to? sym
+        else
+          next if dyad.include? sym
+          a = args
+          a = a.send cook if cook
+          a.send(sym).to_s==b if a.respond_to? sym
+        end
       end
     end
     ary
@@ -13,39 +29,79 @@ class Array
 end
 
 class Pol
-  def initialize syms
-    @syms = syms
+  attr_accessor :monad
+  attr_accessor :dyad
+  attr_accessor :cook
+  def initialize path=RULES_POL
+    @path = path
   end
-  def self.mappings_hash
-    hash = Hash[mappings]
-    hash[KEYWORD_ORDER] = mappings.transpose.first
+  def self.patterns_hash
+    new.patterns_hash
+  end
+  def patterns_hash
+    hash = Hash[patterns]
+    hash[KEYWORD_ORDER] = patterns.transpose.first
     hash
   end
-  def self.mappings
-    file = "#{File.dirname __FILE__}/.pol"
+  def patterns
     ary = []
-    ary = Array.send :eval, open(file).read if File.exists? file
+    ary = Array.send :eval, open(@path).read if File.exists? @path
     ary
   end
   def call argv
     return if argv.size==0
-    funs = Pol.mappings.find_funs @syms
-    return if not funs.size > 0
-    case argv.to_s
+    obj = argv.join ' '
+    funs = patterns.find_funs monad, dyad, cook
+    if funs.size.zero?
+      print KEYWORD_NO
+      return
+    end
+    case obj
     when /^#{KEYWORD_CODE}/
-      a, b = Pol.mappings.first
-      print funs.map{|fun| "\"#{a}\".#{fun}"}.join("\n")
+      a, b = patterns.last
+      m = a.match /(.*)(#{POSTPOSITION_ADJECTIVE}) (.*)/
+      if m
+        a, arg = m[1], m[3]
+        a = a.send cook if cook
+        if a.class.to_s=="String"
+          sa = "\"#{a}\""
+        else
+          sa = a
+        end
+        print funs.map{|fun| "#{sa}.#{fun}(#{arg})"}.join("\n")
+      else
+        a = a.send cook if cook
+        if a.class.to_s=="String"
+          sa = "\"#{a}\""
+        else
+          sa = a
+        end
+        print funs.map{|fun| "#{sa}.#{fun}"}.join("\n")
+      end
     when /^#{KEYWORD_FUNCTION}/
       print funs.join', '
     when /^#{KEYWORD_INVERSE_FUNCTION}/
-      funs = Pol.mappings.map{|a,b|[b,a]}.find_funs @syms
+      funs = patterns.map{|a,b|[b,a]}.find_funs monad, dyad, cook
       if funs.size > 0 
         print funs.join', '
       else
         print KEYWORD_NO
       end
     else
-      print argv.to_s.send(funs.first)
+      sym = funs.first
+      m = obj.match /(.*)(#{POSTPOSITION_ADJECTIVE}) (.*)/
+      if m
+        a, arg = m[1], m[3]
+        if cook 
+          a = a.send cook
+          arg = arg.send cook
+        end
+        print a.send(sym, arg) if dyad.include? sym
+      else
+        a = obj
+        a = a.send cook if cook
+        print a.send sym
+      end
     end
   end
 end

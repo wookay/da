@@ -29,6 +29,7 @@
   }
   id funs = [[self mappings] find_funs:syms];
   if (0==[funs count]) {
+    printf("%s", [KEYWORD_NO UTF8String]);
     return;
   }
   id str = [argv componentsJoinedByString:@" "];

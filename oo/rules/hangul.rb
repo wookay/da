@@ -36,4 +36,6 @@ class String
 end
 
 require "#{File.dirname __FILE__}/pol"
-Pol.new(%w{chosungs jungsungs jongsungs}).call ARGV
+pol = Pol.new
+pol.monad = %w{chosungs jungsungs jongsungs}
+pol.call ARGV
