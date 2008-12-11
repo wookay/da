@@ -10,7 +10,6 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"UIWebViewTest"];
   [unittest run:@"UIGraphicsTest"];
   [unittest run:@"UIImageTest"];
-  [unittest run:@"UIColorTest"];
   [unittest run:@"UIViewTest"];
   [unittest report];
 

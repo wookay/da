@@ -1,3 +1,8 @@
-task :default do
-  puts "please test with UIApplication"
-end
+# Rakefile
+#                           wookay.noh at gmail.com
+
+CLASSES    = %w{}
+FRAMEWORKS=%w{Foundation CoreGraphics UIKit}
+
+DIR = File.dirname __FILE__
+load '../unittest/build.rake'
