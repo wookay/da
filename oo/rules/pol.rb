@@ -1,4 +1,4 @@
-require "#{File.dirname __FILE__}/oo.rb"
+require "#{File.dirname __FILE__}/oo_header.rb"
 
 class Array
   def find_funs monad, dyad, cook

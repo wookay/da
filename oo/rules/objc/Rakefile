@@ -3,13 +3,13 @@ require "#{DIRECTORY}/build.rb"
 
 def constants_to_header
   r = ''
-  open("#{DIRECTORY[0..DIRECTORY.rindex('/')]}oo.rb").readlines.each do |l|
+  open("#{DIRECTORY[0..DIRECTORY.rindex('/')]}oo_header.rb").readlines.each do |l|
     if l.include? '='
       a,b = l.split('=')
       r.concat "#define #{a} @#{b}"
     end
   end
-  open("#{DIRECTORY}/.oo.h", 'w') do |f|
+  open("#{DIRECTORY}/.oo_header.h", 'w') do |f|
     f.write r
   end
 end

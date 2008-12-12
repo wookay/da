@@ -1,6 +1,6 @@
 # cal.rb
 
-require "#{File.dirname __FILE__}/oo.rb"
+require "#{File.dirname __FILE__}/oo_header.rb"
 
 hash = {}
 case ARGV.join' '

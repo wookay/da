@@ -1,6 +1,9 @@
-read("rules/oo.rb")
+read("rules/oo_header.rb")
 ary = eval(read(RULES_PREFERENCES))
 pri = read(RULES_PRI)
+if(0==ary, \
+  print1(pri) ; quit, \
+0);
 xa = apply(a->a[1], ary)
 ya = apply(a->a[2], ary)
 pol = x->polinterpolate(xa,ya,x)

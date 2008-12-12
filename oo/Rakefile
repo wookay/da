@@ -18,9 +18,18 @@ task :p do
   run_tests
 end
 
+using_network = %w{youtube.oo}
+task :n do
+  files= Dir["*.#{PROGRAM_EXTENSION}"].reject{|file|file=~/^test/}.reject{|file| using_network.include? file}
+  files.each do |file|
+    ret = `#{PROGRAM_RUN} #{file}` 
+    puts ret
+  end
+end
+
 def run_tests show_ret=false
-  dirs = Dir["*.#{PROGRAM_EXTENSION}"].select{|file|file=~/^test/}
-  dirs.each do |file|
+  files = Dir["*.#{PROGRAM_EXTENSION}"].select{|file|file=~/^test/}
+  files.each do |file|
     ret = `#{PROGRAM_RUN} #{file}` 
     if show_ret
       puts file
@@ -28,7 +37,7 @@ def run_tests show_ret=false
         puts "  #{line}"
       end
     else
-      print "#{file.ljust dirs.map{|x|x.size}.max}  "
+      print "#{file.ljust files.map{|x|x.size}.max}  "
     end
     passed = ret.scan(/^passed: /).size
     failed_message = ret.split("\n").reject{|line|line =~ /^passed/}
