@@ -19,6 +19,9 @@ NSInteger randomSort(id a, id b, void *context) {
   [assert_equal a:@"c" b:[ary last]];
   [assert_equal a:@"(c, b, a)" b:[ary reverse]];
   [assert_equal int:3 int:[ary size]];
+  [assert_equal a:@"(A, B, C)" b:[ary map:@selector(uppercaseString)]];
+  [assert_equal a:@"(A, B, C)" b:[[ary map] uppercaseString]];
+  [assert_equal a:@"()" b:[[[NSArray array] map] uppercaseString]];
 
   NSArray* empty = [NSArray array];
   [assert_equal a:@"()" b:empty];
@@ -34,6 +37,8 @@ NSInteger randomSort(id a, id b, void *context) {
   [assert_equal _true:[stack empty:'?']];
 
   //[assert_equal a:@"abc" b:[[ary sortedArrayUsingFunction:randomSort context:NULL] to_s]];
+
+  //[stack map:^(NSString* string) { return [string uppercaseString] }]; 
 
 }
 

@@ -43,6 +43,7 @@
       printf("%s", [KEYWORD_NO UTF8String]);
     }
   } else if ([str hasPrefix:KEYWORD_CODE]) {
+    assert([[self mappings] count] > 0);
     id ex = [[[self mappings] objectAtIndex:0] objectAtIndex:0];
     NSMutableArray* ary = [NSMutableArray array];
     for(id fun in funs) {
@@ -50,6 +51,7 @@
     }
     printf("%s", [[ary componentsJoinedByString:@"\n"] UTF8String]);
   } else {
+    assert([funs count] > 0);
     id value = [str performSelector:NSSelectorFromString([funs objectAtIndex:0])];
     printf("%s", [value UTF8String]);
   }
@@ -59,9 +61,13 @@
 @implementation NSArray (Ext)
 - (BOOL) all:(id)sym {
   for(id obj in self) {
-    id a = [obj objectAtIndex:0];
-    id b = [obj objectAtIndex:1];
-    if (! [[a performSelector:NSSelectorFromString(sym)] isEqualTo:b]) {
+    if ([obj count] > 1) {
+      id a = [obj objectAtIndex:0];
+      id b = [obj objectAtIndex:1];
+      if (! [[a performSelector:NSSelectorFromString(sym)] isEqualTo:b]) {
+        return false;
+      }
+    } else {
       return false;
     }
   }

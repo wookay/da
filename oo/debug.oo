@@ -1,0 +1,4 @@
+규칙은 rules/debug.rb
+대상은 rules/objc/string.m.out
+
+# gdb

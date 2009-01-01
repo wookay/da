@@ -3,6 +3,33 @@
 
 #import "Array.h"
 
+@implementation ArrayProxy
+
+- (id) initWithArray:(NSArray*)ary {
+  array = ary;
+  return self;
+}
+
+- (void) forwardInvocation:(NSInvocation*)invocation {
+  NSMutableArray* ary = [NSMutableArray array];
+  for(id obj in array) {
+    [ary addObject:[obj performSelector:[invocation selector]]];
+  }
+  [invocation setReturnValue:&ary];
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
+  if ([array count] > 0) {
+    return [[array objectAtIndex:0] methodSignatureForSelector:selector];
+  } else {
+    return [NSArray instanceMethodSignatureForSelector:@selector(count)];
+  }
+}
+
+@end
+
+
+
 @implementation NSArray ( Array )
 
 - (id) join {
@@ -39,6 +66,18 @@
 
 - (bool) empty:(char)question {
   return [self count] == 0;
+}
+
+- (id) map {
+  return [[ArrayProxy alloc] initWithArray:self];
+}
+
+- (NSArray*) map:(SEL)selector {
+  NSMutableArray* ary = [NSMutableArray array];
+  for(id obj in self) {
+    [ary addObject:[obj performSelector:selector]];
+  }
+  return ary;
 }
 
 @end

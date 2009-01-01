@@ -29,4 +29,7 @@
 @interface NSCountedSetTest : UnitTestable {} @end
 @interface NSFileManagerTest : UnitTestable {} @end
 @interface NSUserDefaultsTest : UnitTestable {} @end
-@interface DataTypesTest : UnitTestable {} @end
+@interface NSMutableURLRequestTest : UnitTestable {} @end
+@interface NSRangeTest : UnitTestable {} @end
+@interface NSXMLDocumentTest : UnitTestable {} @end
+@interface NSXMLParserTest : UnitTestable {} @end

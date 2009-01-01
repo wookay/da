@@ -8,6 +8,8 @@
 #import "Array.h"
 #import "Hash.h"
 #import "Ord.h"
+#import "Object.h"
+
 @interface EnumerableTest : UnitTestable {} @end
 @interface NumericTest : UnitTestable {} @end
 @interface StringTest : UnitTestable {} @end
@@ -15,6 +17,7 @@
 @interface HashTest : UnitTestable {} @end
 @interface OrdTest : UnitTestable {} @end
 @interface AssertTest : UnitTestable {} @end
+@interface ObjectTest : UnitTestable {} @end
 
 typedef int( *funcPtr )( int );
 @interface FunctionTest : UnitTestable {} 

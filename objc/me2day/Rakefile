@@ -1,0 +1,8 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+CLASSES    = %w{me2day me2array me2dictionary me2util JSON/NSObject+SBJSON JSON/NSString+SBJSON JSON/SBJSON}
+FRAMEWORKS = %w{Foundation}
+
+DIR = File.dirname __FILE__
+load '../unittest/build.rake'

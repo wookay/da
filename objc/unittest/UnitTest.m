@@ -87,6 +87,13 @@
   [self a:expected b:gotString];
 }
 
+- (void) CGRect:(CGRect)expected CGRect:(CGRect)got {
+  NSString* expectedString = [NSString stringWithFormat:@"{{%@, %@}, {%@, %@}}",
+    F(expected.origin.x), F(expected.origin.y),
+    F(expected.size.width), F(expected.size.height)];
+  [self a:expectedString CGRect:got];
+}
+
 - (void) a:(id)expected CGRect:(CGRect)got {
   NSString* gotString = [NSString stringWithFormat:@"{{%@, %@}, {%@, %@}}",
     F(got.origin.x), F(got.origin.y), F(got.size.width), F(got.size.height)];
@@ -185,6 +192,13 @@
 - (void) hasSuffix:(id)expected b:(id)got {
   NSString* gotDescription = [NSString stringWithFormat:@"%@", got];
   [self add_result:[gotDescription hasSuffix:expected]
+        expected:expected
+        got:got];
+}
+
+- (void) oneOf:(id)expected b:(id)got {
+  NSArray* ary = [expected componentsSeparatedByString:@" "];
+  [self add_result:[ary containsObject:got]
         expected:expected
         got:got];
 }

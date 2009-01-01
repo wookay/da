@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<comments topic="Objective-C" current-page="1" total-pages="1"
+cardinality="5">
+    <comment name="?36943" type="plus"
+    created-at="2008-10-09T16:14:32+09:00">
+        <topic name="Objective-C" />
+        <author name="~luis" nick="ㄴㅇㄱ" locale="es_KR" />
+        <body />
+    </comment>
+    <comment name="?30911" type="minus"
+    created-at="2008-09-18T05:14:31+09:00">
+        <topic name="Objective-C" />
+        <author name="~kroisse" nick="Kroisse" locale="ko_KR" />
+        <body>
+            <p xmlns="http://www.w3.org/1999/xhtml">나름대로 흥미로운 언어.
+            하지만 난 아직도 Objective-C에 코드 블록이 존재하는지를 모른다. -_-;</p>
+        </body>
+    </comment>
+    <comment name="?12418" type="minus"
+    created-at="2008-03-20T15:21:30+09:00">
+        <topic name="Objective-C" />
+        <author name="~ageldama" nick="ageldama" locale="ko_KR" />
+        <body>
+            <p xmlns="http://www.w3.org/1999/xhtml">C +
+            Object-Oriented (not better C)…</p>
+        </body>
+    </comment>
+    <comment name="?3538" type="plus"
+    created-at="2008-02-18T23:09:45+09:00">
+        <topic name="Objective-C" />
+        <author name="~ditto" nick="디토" locale="ko_KR" />
+        <body>
+            <p xmlns="http://www.w3.org/1999/xhtml">코드가 마치 위키 페이지처럼
+            보이는 게 신기하다. 언어 설계가 C++보다는 낫다고 생각한다. 
+            <strong>써보지는 않았다.</strong></p>
+        </body>
+    </comment>
+    <comment name="?891" type="minus"
+    created-at="2008-02-16T23:51:18+09:00">
+        <topic name="Objective-C" />
+        <author name="~dahlia" nick="Hong, MinHee"
+        locale="ko_KR" />
+        <body>
+            <p xmlns="http://www.w3.org/1999/xhtml">객체지향 프로그래밍을 하는
+            것이나, 기민한 부분에 있어서는 
+            <a class="topic" href="http://vlaah.com/Smalltalk">
+            Smalltalk</a>를 따르지 못하고, 퍼포먼스에서는 
+            <a class="topic" href="http://vlaah.com/C%2B%2B">
+            C++</a>을 따르지 못한다. 
+            <a class="topic" href="http://vlaah.com/Cocoa">
+            Cocoa</a>는 제발 Objective-C를 버렸으면 좋겠다.</p>
+        </body>
+    </comment>
+</comments>

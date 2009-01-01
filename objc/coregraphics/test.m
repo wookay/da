@@ -11,6 +11,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"CGPathTest"];
   [unittest run:@"CGGlyphTest"];
   [unittest run:@"CGAffineTransformTest"];
+  [unittest run:@"CGRectTest"];
   [unittest report];
 
   [pool release];

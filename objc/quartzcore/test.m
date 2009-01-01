@@ -12,6 +12,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"CATransform3DTest"];
   [unittest run:@"CAKeyframeAnimationTest"];
   [unittest run:@"CABasicAnimationTest"];
+  [unittest run:@"RotationTest"];
   [unittest report];
 
   [pool release];

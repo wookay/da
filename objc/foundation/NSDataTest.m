@@ -10,6 +10,9 @@
   NSData* data = [NSData data];
   [assert_equal a:@"<>" b:data];
 
+  data = [@"a" dataUsingEncoding:NSUTF8StringEncoding]; 
+  [assert_equal a:@"<61>" b:data];
+
 }
 
 @end

@@ -1,0 +1,18 @@
+me2day Objective-C client
+=========================
+                        Copyright (c) 2009, Woo-Kyoung Noh. All rights reserved.
+
+$ git clone git://github.com/wookay/da.git
+$ cd da/objc/me2day
+
+$ vi config.h     # fill the APPKEY
+$ rake p
+
+
+
+* me2day
+ - http://codian.springnote.com/pages/86001
+
+* references
+ - Stig Brautaset's JSON library
+ - Takeshi Yamane's Base64EncDec 

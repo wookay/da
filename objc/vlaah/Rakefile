@@ -1,8 +1,8 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-CLASSES    = %w{VM}
-FRAMEWORKS=%w{Foundation}
+CLASSES    = %w{base topic person comment comment_list commenter_list unit}
+FRAMEWORKS = %w{Foundation}
 
 DIR = File.dirname __FILE__
 load '../unittest/build.rake'

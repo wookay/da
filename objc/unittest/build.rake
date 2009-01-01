@@ -6,7 +6,7 @@ DEPLOY="/deploy/var/mobile/"
 if defined? DIR
   APP=DIR.split('/').last
   CLASSES=[] if not defined? CLASSES
-  TEST_CLASSES=open('test.m').read.scan(/@"(.*Test)"/).map{|t|t.to_s}
+  TEST_CLASSES=open('test.m').read.scan(/@"(.*Test.*)"/).map{|t|t.to_s}
   UNITTEST= DIR=='unittest' ? 'UnitTest' : '../unittest/UnitTest'
   OBJECTS= CLASSES + TEST_CLASSES + [UNITTEST, 'test']
   $PASSED=nil

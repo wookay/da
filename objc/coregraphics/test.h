@@ -8,3 +8,4 @@
 @interface CGPathTest : UnitTestable {} @end
 @interface CGGlyphTest : UnitTestable {} @end
 @interface CGAffineTransformTest : UnitTestable {} @end
+@interface CGRectTest : UnitTestable {} @end

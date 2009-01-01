@@ -9,3 +9,4 @@
 @interface CATransform3DTest : UnitTestable {} @end
 @interface CAKeyframeAnimationTest : UnitTestable {} @end
 @interface CABasicAnimationTest : UnitTestable {} @end
+@interface RotationTest : UnitTestable {} @end

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commenters topic="Objective-C">
+    <plus>
+        <person name="~ditto" nick="디토" locale="ko_KR" />
+        <person name="~luis" nick="ㄴㅇㄱ" locale="es_KR" />
+    </plus>
+    <minus>
+        <person name="~dahlia" nick="Hong, MinHee"
+        locale="ko_KR" />
+        <person name="~ageldama" nick="ageldama" locale="ko_KR" />
+        <person name="~kroisse" nick="Kroisse" locale="ko_KR" />
+    </minus>
+</commenters>

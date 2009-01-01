@@ -328,21 +328,18 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>A0AD79C20EF177B3007A62C8</string>
+										<string>A0E8EA000EF24D55006C1950</string>
 										<key>history</key>
 										<array>
 											<string>A0AD79B70EF177B3007A62C8</string>
 											<string>A0AD79B80EF177B3007A62C8</string>
 											<string>A0AD79B90EF177B3007A62C8</string>
-											<string>A0AD79BA0EF177B3007A62C8</string>
+											<string>A0AD79C20EF177B3007A62C8</string>
 										</array>
 										<key>prevStack</key>
 										<array>
 											<string>A0AD79BB0EF177B3007A62C8</string>
 											<string>A0AD79BC0EF177B3007A62C8</string>
-											<string>A0AD79BD0EF177B3007A62C8</string>
-											<string>A0AD79BE0EF177B3007A62C8</string>
-											<string>A0AD79BF0EF177B3007A62C8</string>
 											<string>A0AD79C00EF177B3007A62C8</string>
 											<string>A0AD79C10EF177B3007A62C8</string>
 										</array>
@@ -402,9 +399,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>A0AD79670EF16E21007A62C8</string>
+				<string>A0E8EA010EF24D55006C1950</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>A0AD79680EF16E21007A62C8</string>
+				<string>A0E8EA020EF24D55006C1950</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -538,9 +535,6 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>A0AD796A0EF16E21007A62C8</string>
 		<string>/Users/luis/da/oo/cocoa/cocoa.xcodeproj</string>
 	</array>
 	<key>WindowString</key>

@@ -18,6 +18,7 @@
 - (void) a:(id)expected NSRange:(NSRange)got ;
 - (void) a:(id)expected CGPoint:(CGPoint)got ;
 - (void) a:(id)expected CGSize:(CGSize)got ;
+- (void) CGRect:(CGRect)expected CGRect:(CGRect)got ;
 - (void) a:(id)expected CGRect:(CGRect)got ;
 - (void) a:(id)expected CGAffineTransform:(CGAffineTransform)got ;
 - (void) a:(id)expected CGContextRef:(CGContextRef)got ;
@@ -35,6 +36,7 @@
 - (void) double:(double)expected b:(id)got ; 
 - (void) hasPrefix:(id)expected b:(id)got ;
 - (void) hasSuffix:(id)expected b:(id)got ;
+- (void) oneOf:(id)expected b:(id)got ;
 - (void) SEL:(SEL)expected SEL:(SEL)got ;
 
 - (int) passedCount ;

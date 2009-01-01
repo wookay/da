@@ -27,7 +27,10 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSCountedSetTest"];
   [unittest run:@"NSFileManagerTest"];
   [unittest run:@"NSUserDefaultsTest"];
-  [unittest run:@"DataTypesTest"];
+  [unittest run:@"NSMutableURLRequestTest"];
+  [unittest run:@"NSRangeTest"];
+  [unittest run:@"NSXMLDocumentTest"];
+  [unittest run:@"NSXMLParserTest"];
   [unittest report];
 
   [pool release];

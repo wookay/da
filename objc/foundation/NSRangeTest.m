@@ -1,9 +1,9 @@
-// DataTypesTest.m
+// NSRangeTest.m
 //                           wookay.noh at gmail.com
 
 #import "test.h"
 
-@implementation DataTypesTest
+@implementation NSRangeTest
 
 - (void) unittest {
 
