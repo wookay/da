@@ -1,7 +1,7 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-IGNORE_FILES = %w{appkit README Rakefile touch macruby uikit pari_gp_ext test.m me2day}
+IGNORE_FILES = %w{appkit README Rakefile touch macruby uikit pari_gp_ext test.m twitter}
 load 'unittest/build.rake'
 
 require 'unittest/build.rb'
