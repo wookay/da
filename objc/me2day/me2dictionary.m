@@ -4,11 +4,26 @@
 #import "me2dictionary.h"
 
 @implementation NSDictionary ( me2day )
+-(id) BZ {
+  return [self valueForKey:@"BZ"];
+}
+-(id) Heungsub {
+  return [self valueForKey:@"Heungsub"];
+}
+-(id) Jan {
+  return [self valueForKey:@"Jan"];
+}
+-(id) ac {
+  return [self valueForKey:@"ac"];
+}
 -(id) author {
   return [self valueForKey:@"author"];
 }
 -(id) body {
   return [self valueForKey:@"body"];
+}
+-(id) c {
+  return [self valueForKey:@"c"];
 }
 -(id) callbackUrl {
   return [self valueForKey:@"callbackUrl"];
@@ -40,6 +55,9 @@
 -(id) contentType {
   return [self valueForKey:@"contentType"];
 }
+-(id) dc {
+  return [self valueForKey:@"dc"];
+}
 -(id) default {
   return [self valueForKey:@"default"];
 }
@@ -52,8 +70,17 @@
 -(id) face {
   return [self valueForKey:@"face"];
 }
+-(id) flickr {
+  return [self valueForKey:@"flickr"];
+}
+-(id) friends {
+  return [self valueForKey:@"friends"];
+}
 -(id) friendsCount {
   return [self valueForKey:@"friendsCount"];
+}
+-(id) friendsOf {
+  return [self valueForKey:@"friendsOf"];
 }
 -(id) groups {
   return [self valueForKey:@"groups"];
@@ -124,6 +151,9 @@
 -(id) nickname {
   return [self valueForKey:@"nickname"];
 }
+-(id) nsid {
+  return [self valueForKey:@"nsid"];
+}
 -(id) openid {
   return [self valueForKey:@"openid"];
 }
@@ -145,11 +175,17 @@
 -(id) rssDaily {
   return [self valueForKey:@"rssDaily"];
 }
+-(id) scope {
+  return [self valueForKey:@"scope"];
+}
 -(id) settingsOf {
   return [self valueForKey:@"settingsOf"];
 }
 -(id) tags {
   return [self valueForKey:@"tags"];
+}
+-(id) ubbfc {
+  return [self valueForKey:@"ubbfc"];
 }
 -(id) updated {
   return [self valueForKey:@"updated"];

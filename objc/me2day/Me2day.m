@@ -99,6 +99,26 @@
   return [self request:@"get_metoos" body:param];
 }
 
+- (id) get_friends:(id)_username {
+  return [self get_friends:_username scope:@"all"];
+}
+
+- (id) get_friends:(id)_username scope:(id)scope {
+  id target = [NSString stringWithFormat:@"get_friends/%@", _username];
+  id param = [NSString stringWithFormat:@"scope=%@", scope];
+  if ([[NSArray arrayWithObjects:@"all", @"close", @"family", nil] containsObject:scope]) {
+    return [self request:target body:param];
+  } else {
+    return [self requestAuth:target body:param];
+  }
+}
+
+- (id) get_friends:(id)_username user_of:(id)user_of {
+  id target = [NSString stringWithFormat:@"get_friends/%@", _username];
+  id param = [NSString stringWithFormat:@"user_of=%@", user_of];
+  return [self requestAuth:target body:param];
+}
+
 
 // get_posts
 - (id) get_posts:(id)_username {

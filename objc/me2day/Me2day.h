@@ -23,6 +23,9 @@
 - (id) track_comments:(id)username ;
 - (id) get_person:(id)_username ;
 - (id) get_metoos:(id)post_id ;
+- (id) get_friends:(id)_username ;
+- (id) get_friends:(id)_username scope:(id)scope ;
+- (id) get_friends:(id)_username user_of:(id)user_of ;
 
 - (id) get_posts:(id)_username ;
 - (id) get_posts:(id)_username count:(int)count ;

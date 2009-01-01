@@ -4,8 +4,13 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDictionary ( me2day )
+-(id) BZ ;
+-(id) Heungsub ;
+-(id) Jan ;
+-(id) ac ;
 -(id) author ;
 -(id) body ;
+-(id) c ;
 -(id) callbackUrl ;
 -(id) code ;
 -(id) comment ;
@@ -16,11 +21,15 @@
 -(id) comments ;
 -(id) commentsCount ;
 -(id) contentType ;
+-(id) dc ;
 -(id) default ;
 -(id) description ;
 -(id) email ;
 -(id) face ;
+-(id) flickr ;
+-(id) friends ;
 -(id) friendsCount ;
+-(id) friendsOf ;
 -(id) groups ;
 -(id) homepage ;
 -(id) http ;
@@ -44,6 +53,7 @@
 -(id) mytagsInTab ;
 -(id) name ;
 -(id) nickname ;
+-(id) nsid ;
 -(id) openid ;
 -(id) permalink ;
 -(id) post ;
@@ -51,8 +61,10 @@
 -(id) post_id ;
 -(id) pubDate ;
 -(id) rssDaily ;
+-(id) scope ;
 -(id) settingsOf ;
 -(id) tags ;
+-(id) ubbfc ;
 -(id) updated ;
 -(id) url ;
 @end

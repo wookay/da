@@ -16,6 +16,7 @@ id fixture(id file) ;
 @interface TestPosts : UnitTestable {} @end
 @interface TestPerson : UnitTestable {} @end
 @interface TestMetoos : UnitTestable {} @end
+@interface TestFriends : UnitTestable {} @end
 
 @interface TestNoop : UnitTestable {} @end
 @interface TestComment : UnitTestable {} @end
