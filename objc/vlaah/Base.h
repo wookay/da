@@ -1,4 +1,4 @@
-// Base.h
+// base.h
 //                           wookay.noh at gmail.com
 
 #import "config.h"

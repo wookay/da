@@ -1,7 +1,7 @@
-// Base.m
+// base.m
 //                           wookay.noh at gmail.com
 
-#import "Base.h"
+#import "base.h"
 
 #define VLAAH_CLIENT   @"VLAAH-Objective-C/0.1"
 #define VLAAH_PROTOCOL @"VLAAH/0.9"
