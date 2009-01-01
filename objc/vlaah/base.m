@@ -12,6 +12,9 @@
 @synthesize resource;
 
 - (id) raw_data:(id)_resource {
+  if (LOCAL_TEST) {
+    return nil;
+  }
   if ([@"" isEqualToString:APPKEY]) {
     [NSException raise:@"ApplicationKeyError" format:@"Missing APPKEY"];
     return nil;
@@ -31,21 +34,17 @@
   [request addValue:x_accept_protocol forHTTPHeaderField:@"X-Accept-Protocol"];
 
   id ret;
-  if (LOCAL_TEST) {
+  NSError *error;
+  NSHTTPURLResponse *response;
+  NSData *data = [NSURLConnection sendSynchronousRequest:request
+                   returningResponse:&response error:&error];
+  ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+  if ([ret isEqualToString:@"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><error type=\"invalid-application-key\" />"]) {
+    [NSException raise:@"ApplicationKeyError" format:@"invalid-application-key"];
     ret = @"";
-  } else {
-    NSError *error;
-    NSHTTPURLResponse *response;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request
-                     returningResponse:&response error:&error];
-    ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if ([ret isEqualToString:@"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><error type=\"invalid-application-key\" />"]) {
-      [NSException raise:@"ApplicationKeyError" format:@"invalid-application-key"];
-      ret = @"";
-    }
   }
   self.raw_data = ret;
-  NSLog(@"%@", ret);
+  //NSLog(@"%@", ret);
   return ret;
 }
 
