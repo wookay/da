@@ -21,6 +21,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"TestPerson"];
   [unittest run:@"TestMetoos"];
   [unittest run:@"TestFriends"];
+  [unittest run:@"TestTags"];
   [unittest run:@"TestNoop"];
   [unittest run:@"TestSetting"];
   [unittest run:@"TestComment"];

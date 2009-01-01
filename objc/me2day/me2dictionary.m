@@ -55,6 +55,9 @@
 -(id) contentType {
   return [self valueForKey:@"contentType"];
 }
+-(NSUInteger) count {
+  return [[self valueForKey:@"count"] intValue];
+}
 -(id) dc {
   return [self valueForKey:@"dc"];
 }
@@ -183,6 +186,9 @@
 }
 -(id) tags {
   return [self valueForKey:@"tags"];
+}
+-(id) tagsOf {
+  return [self valueForKey:@"tagsOf"];
 }
 -(id) ubbfc {
   return [self valueForKey:@"ubbfc"];

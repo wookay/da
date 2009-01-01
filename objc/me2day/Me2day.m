@@ -43,6 +43,10 @@
   return [self requesting:api body:body auth:false]; 
 }
 
+- (id) requesting:(id)api body:(NSString*)body auth:(BOOL)auth multipart:(id)attachment {
+  return @"not implemented";
+}
+
 - (id) requesting:(id)api body:(NSString*)body auth:(BOOL)auth {
   id urlString = [NSString stringWithFormat:@"http://me2day.net/api/%@.%@",
     api, @"json"];
@@ -119,6 +123,12 @@
   return [self requestAuth:target body:param];
 }
 
+- (id) get_tags:(id)_username {
+  id param = [NSString stringWithFormat:@"count=100&user_id=%@", _username];
+  return [self request:@"get_tags" body:param];
+}
+
+
 
 // get_posts
 - (id) get_posts:(id)_username {
@@ -164,6 +174,39 @@
 }
 
 // Auth
+- (id) create_post:(id)body {
+  return [self create_post:body tags:@""];
+}
+- (id) create_post:(id)body tags:(id)tags {
+  return [self create_post:body tags:tags icon:1];
+}
+- (id) create_post:(id)body tags:(id)tags icon:(int)icon {
+  return [self create_post:body tags:tags icon:icon close_comment:@""];
+}
+- (id) create_post:(id)body tags:(id)tags icon:(int)icon close_comment:(id)close_comment {
+  return [self create_post:body tags:tags icon:icon close_comment:close_comment receive_sms:@""];
+}
+- (id) create_post:(id)body tags:(id)tags icon:(int)icon close_comment:(id)close_comment receive_sms:(id)receive_sms {
+  id target = [NSString stringWithFormat:@"create_post/%@", self.username];
+  id param = [NSString stringWithFormat:@"post[body]=%@&post[tags]=%@&post[icon]=%d&close_comment=%@&receive_sms=%@", body, tags, icon, close_comment, receive_sms];
+  return [self requestAuth:target body:param];
+}
+- (id) create_post:(id)body tags:(id)tags attachment:(id)attachment {
+  id target = [NSString stringWithFormat:@"create_post/%@", self.username];
+  id param = [NSString stringWithFormat:@"post[body]=%@&post[tags]=%@", body, tags];
+  return [self requesting:target body:param auth:true multipart:attachment];
+}
+- (id) create_post:(id)body tags:(id)tags callback_url:(id)callback_url content_type:(id)content_type {
+  id target = [NSString stringWithFormat:@"create_post/%@", self.username];
+  id param = [NSString stringWithFormat:@"post[body]=%@&post[tags]=%@&callback_url=%@&content_type=%@", body, tags, callback_url, content_type];
+  return [self requestAuth:target body:param];
+}
+- (id) create_post:(id)body tags:(id)tags icon:(int)icon longitude:(float)longitude latitude:(float)latitude {
+  id target = [NSString stringWithFormat:@"create_post/%@", self.username];
+  id param = [NSString stringWithFormat:@"post[body]=%@&post[tags]=%@&post[icon]=%d&longitude=%g&latitude=%g", body, tags, icon, longitude, latitude];
+  return [self requestAuth:target body:param];
+}
+
 - (id) create_comment:(id)post_id body:(id)body {
   id param = [NSString stringWithFormat:@"post_id=%@&body=%@", post_id, body];
   return [self requestAuth:@"create_comment" body:param];
@@ -176,6 +219,10 @@
 
 - (id) get_settings {
   return [self requestAuth:@"get_settings"];
+}
+
+- (id) noop {
+  return [self requestAuth:@"noop"];
 }
 
 @end

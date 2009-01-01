@@ -64,6 +64,7 @@
 -(id) scope ;
 -(id) settingsOf ;
 -(id) tags ;
+-(id) tagsOf ;
 -(id) ubbfc ;
 -(id) updated ;
 -(id) url ;
