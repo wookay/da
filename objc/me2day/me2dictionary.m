@@ -16,11 +16,20 @@
 -(id) code {
   return [self valueForKey:@"code"];
 }
+-(id) comment {
+  return [self valueForKey:@"comment"];
+}
 -(id) commentClosed {
   return [self valueForKey:@"commentClosed"];
 }
 -(id) commentId {
   return [self valueForKey:@"commentId"];
+}
+-(id) comment_by_mes {
+  return [self valueForKey:@"comment_by_mes"];
+}
+-(id) comment_to_mes {
+  return [self valueForKey:@"comment_to_mes"];
 }
 -(id) comments {
   return [self valueForKey:@"comments"];
@@ -79,11 +88,17 @@
 -(id) latitude {
   return [self valueForKey:@"latitude"];
 }
+-(id) localhost {
+  return [self valueForKey:@"localhost"];
+}
 -(id) location {
   return [self valueForKey:@"location"];
 }
 -(id) longitude {
   return [self valueForKey:@"longitude"];
+}
+-(id) me {
+  return [self valueForKey:@"me"];
 }
 -(id) media {
   return [self valueForKey:@"media"];
@@ -114,6 +129,9 @@
 }
 -(id) permalink {
   return [self valueForKey:@"permalink"];
+}
+-(id) post {
+  return [self valueForKey:@"post"];
 }
 -(id) postIcons {
   return [self valueForKey:@"postIcons"];

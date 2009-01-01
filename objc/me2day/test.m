@@ -8,6 +8,7 @@ id fixture(id file) {
   id path = [NSString stringWithFormat:@"fixtures/%@", file];
   id data = [NSString stringWithContentsOfFile:path
     encoding:NSUTF8StringEncoding error:&err];
+  //NSLog(@"data %@", data);
   return [data JSONValue];
 }
 

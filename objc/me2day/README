@@ -14,5 +14,5 @@ $ rake p
  - http://codian.springnote.com/pages/86001
 
 * references
- - Stig Brautaset's JSON library
+ - Stig Brautaset's JSON framework
  - Takeshi Yamane's Base64EncDec 

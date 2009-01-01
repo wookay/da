@@ -1,0 +1,43 @@
+{
+  "me": "kkung",
+  "comment_to_mes": [
+    {
+      "comment": {
+        "body": "\uc544\ubb34\uc774\uc720\uc5c6\uc774",
+        "author": {
+          "me2dayHome": "http:\/\/localhost:3000\/kkung_api",
+          "nickname": "\uafcd\ud15f\ud750",
+          "id": "kkung_api"
+        },
+        "pubDate": "2007-08-08T04:09:15Z"
+      },
+      "post": {
+        "post_id":"p9h0i",
+        "me2dayPage": "http:\/\/localhost:3000\/kkung_api",
+        "permalink": "http:\/\/localhost:3000\/kkung\/2007\/08\/02#21:51:06",
+        "body": "\uc2e4\ubc84\ub77c\uc787 \uc138\ubbf8\ub098\ub97c \ube59\uc790\ud55c \ubbf8\ud22c \ubd80\ud765\ud68c\uc911",
+        "pubDate": "2007-08-02T12:51:06Z"
+      }
+    }
+  ],
+  "comment_by_mes": [
+    {
+      "comment": {
+        "body": "\ub313\uae00",
+        "pubDate": "2007-08-07T08:21:20Z"
+      },
+      "post": {
+        "post_id":"p9h0r"
+        "me2dayPage": "http:\/\/localhost:3000\/kkung_api",
+        "permalink": "http:\/\/localhost:3000\/kkung_api\/2007\/08\/02#21:32:39",
+        "body": "<a href=\"http:\/\/localhost:51868\/WebService\/Default.aspx?user=kkung_api&oakakki=20070802093244\">kkung_api\ub2d8\uc758 \uc608\uc220 \uc791\ud488<\/a>",
+        "author": {
+          "me2dayHome": "http:\/\/localhost:3000\/kkung_api",
+          "nickname": "\uafcd\ud15f\ud750",
+          "id": "kkung_api"
+        },
+        "pubDate": "2007-08-07T08:21:20Z"
+      }
+    }
+  ]
+}

@@ -17,7 +17,11 @@
           [ary addObject:[NSString stringWithFormat:@"(%@)",
                                      [obj componentsJoinedByString:@", "]]];
         } else {
-          [ary addObject:obj];
+          if ([obj description]) {
+            [ary addObject:obj];
+          } else {
+            [ary addObject:@"null"];
+          }
         }
       }
       gotDescription = [NSString stringWithFormat:@"(%@)",

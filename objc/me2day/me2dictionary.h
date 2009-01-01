@@ -8,8 +8,11 @@
 -(id) body ;
 -(id) callbackUrl ;
 -(id) code ;
+-(id) comment ;
 -(id) commentClosed ;
 -(id) commentId ;
+-(id) comment_by_mes ;
+-(id) comment_to_mes ;
 -(id) comments ;
 -(id) commentsCount ;
 -(id) contentType ;
@@ -29,8 +32,10 @@
 -(id) invitedBy ;
 -(id) kind ;
 -(id) latitude ;
+-(id) localhost ;
 -(id) location ;
 -(id) longitude ;
+-(id) me ;
 -(id) media ;
 -(id) message ;
 -(id) metooCount ;
@@ -41,6 +46,7 @@
 -(id) nickname ;
 -(id) openid ;
 -(id) permalink ;
+-(id) post ;
 -(id) postIcons ;
 -(id) post_id ;
 -(id) pubDate ;
