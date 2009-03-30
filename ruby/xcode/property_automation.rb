@@ -12,7 +12,6 @@ headerpath = "%%%{PBXFilePath}%%%"
 headertext = alltext
 implpath = headerpath.gsub(/\.h$/,'.m')
 impltext = open(implpath) { |f| f.read }
-puts implpath
 
 def file_replace_text path, to
   replaceFileContentsScript = <<REPLACEFILESCRIPT
@@ -22,25 +21,12 @@ def file_replace_text path, to
       tell application "Xcode"
         set doc to open fileAlias
         set text of doc to newDocText
+        save doc in file fileAlias
       end tell
     end run
 REPLACEFILESCRIPT
   system 'osascript', '-e', replaceFileContentsScript, path, to
-end
-
-def open_file path
-  openFileScript = <<EOF
-    on run argv
-      set fileAlias to POSIX file (item 1 of argv)
-      tell application "Finder"
-    	  try
-	      	open file fileAlias
-       	end try
-      end tell
-    end run
-EOF
-  system 'osascript', '-e', openFileScript, path
-end
+end 
 
 class String
   def next_line_index text
@@ -57,7 +43,6 @@ def prop_of decl
   a,_ = decl.split(' ')
   if a == 'id' or a.include? '*'
     ', retain'
-  else
   end
 end
 
@@ -75,7 +60,7 @@ def get_declations sel
   ary
 end
 
-def push_properties headerpath, headertext, selection, impl_changed=false
+def push_properties headerpath, headertext, selection
   indexCloseBracket = headertext.index('}')
   indexEnd = headertext.index('@end')
   methodText = headertext[indexCloseBracket..indexEnd]
@@ -95,17 +80,14 @@ def push_properties headerpath, headertext, selection, impl_changed=false
       else
         outlet = "                "                                          
       end
-      propertiesToPut.push %Q[@property (nonatomic#{prop}) #{outlet} #{decl}\n]
+      propertiesToPut.push %Q[\n@property (nonatomic#{prop}) #{outlet} #{decl}]
     end
   end
   if propertiesToPut.size > 0
     preText = headertext[0..indexForProperty]
     backText = headertext[indexForProperty+1..-1]
     text = %Q[#{preText}#{propertiesToPut.join""}#{backText}]
-    open_file headerpath
     file_replace_text headerpath, text
-  else
-    open_file headerpath if impl_changed
   end
 end
 
@@ -137,7 +119,7 @@ def push_synthesize_release implpath, impltext, selection
     if releaseText.include? "[#{name} release];"
     else
       if prop
-        releasesToPut.push "  [#{name} release];\n"
+        releasesToPut.push "    [#{name} release];\n"
       end
     end
   end
@@ -146,11 +128,9 @@ def push_synthesize_release implpath, impltext, selection
     backText = impltext[indexForSynthesize+1..indexForRelease]
     tailText = impltext[indexForRelease+1..-1]
     text = %Q[#{preText}#{synthesizesToPut.join""}#{backText}#{releasesToPut.join""}#{tailText}]
-    open_file implpath
     file_replace_text implpath, text
-    return true
   end
 end
 
-impl_changed = push_synthesize_release(implpath, impltext, selection)
-push_properties(headerpath, headertext, selection, impl_changed)
+push_synthesize_release(implpath, impltext, selection)
+push_properties(headerpath, headertext, selection)
