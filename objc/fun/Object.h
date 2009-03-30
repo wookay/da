@@ -6,6 +6,8 @@
 
 @interface NSObject ( Object )
 
+- (void) instance_variable_set:(id)name value:(id)value ;
+- (id) instance_variable_get:(id)name ;
 - (NSArray*) instance_variables ;
 - (NSArray*) methods ;
 - (id) send:(NSString*)method ;

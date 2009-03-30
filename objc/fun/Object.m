@@ -6,6 +6,15 @@
 
 @implementation NSObject ( Object )
 
+- (void) instance_variable_set:(id)name value:(id)value {
+  object_setInstanceVariable(self, [name UTF8String], value);
+}
+
+- (id) instance_variable_get:(id)name {
+  Ivar ivar = class_getInstanceVariable([self class], [name UTF8String]);
+  return object_getIvar(self, ivar);
+}
+
 - (NSArray*) instance_variables {
   NSMutableArray* ary = [NSMutableArray array];
   unsigned int count = 0;

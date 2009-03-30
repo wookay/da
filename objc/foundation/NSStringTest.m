@@ -43,6 +43,14 @@
 
   [assert_equal int:1 int:[@"1/" intValue]];
 
+  NSString* strip = [@" ab cd " stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+  [assert_equal a:@"ab cd" b:strip];
+
+  [assert_equal a:@"1" b:[@"ab1" substringFromIndex:2]];
+
+  [assert_equal bool:false bool:[@"0 a,b,c" boolValue]];
+  [assert_equal bool:true bool:[@"1 a,b,c" boolValue]];
+
 }
 
 @end

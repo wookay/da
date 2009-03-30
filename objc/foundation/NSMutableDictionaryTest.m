@@ -10,6 +10,8 @@
   NSMutableDictionary* hash = [NSMutableDictionary dictionary];
   [assert_equal a:@"{}" b:hash];
 
+  [assert_equal a:nil b:[hash valueForKey:@"key"]];
+
   [hash setObject:@"value" forKey:@"key"];
   [assert_equal a:@"{key = value; }" b:hash];
 

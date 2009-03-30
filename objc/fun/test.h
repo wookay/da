@@ -9,6 +9,7 @@
 #import "Hash.h"
 #import "Ord.h"
 #import "Object.h"
+#import "Singleton.h"
 
 @interface EnumerableTest : UnitTestable {} @end
 @interface NumericTest : UnitTestable {} @end
@@ -18,6 +19,8 @@
 @interface OrdTest : UnitTestable {} @end
 @interface AssertTest : UnitTestable {} @end
 @interface ObjectTest : UnitTestable {} @end
+@interface SingletonTest : UnitTestable {} @end
+@interface KVCTest : UnitTestable {} @end
 
 typedef int( *funcPtr )( int );
 @interface FunctionTest : UnitTestable {} 

@@ -30,16 +30,11 @@
 }
 
 - (id) split:(id)sep {
-  if ([@"" isEqualToString:sep]) {
-    NSMutableArray* ary = [NSMutableArray array];
-    int idx;
-    for (idx = 0; idx < [self length]; idx++) {
-      [ary addObject:[self substringWithRange:NSMakeRange(idx, 1)]];
-    }
-    return ary;
-  } else{
-    return [self componentsSeparatedByString:sep];
-  }
+  if ([@"" isEqualToString:self]) {
+   return [NSArray array];
+  }  
+  NSArray* ret = [NSArray arrayWithArray:[self componentsSeparatedByString:sep]];
+  return ret;
 }
 
 - (bool) empty:(char)question {

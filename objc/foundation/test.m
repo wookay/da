@@ -31,6 +31,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSRangeTest"];
   [unittest run:@"NSXMLDocumentTest"];
   [unittest run:@"NSXMLParserTest"];
+  [unittest run:@"NSHostTest"];
   [unittest report];
 
   [pool release];

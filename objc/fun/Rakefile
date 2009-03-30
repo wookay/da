@@ -1,7 +1,7 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-CLASSES    = %w{Enumerable Numeric String Array Hash Ord Object}
+CLASSES    = %w{Enumerable Numeric String Array Hash Ord Object Singleton}
 FRAMEWORKS=%w{Foundation}
 
 DIR = File.dirname __FILE__

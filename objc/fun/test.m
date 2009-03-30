@@ -16,6 +16,8 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"FunctionTest"];
   [unittest run:@"AssertTest"];
   [unittest run:@"ObjectTest"];
+  [unittest run:@"SingletonTest"];
+  [unittest run:@"KVCTest"];
   [unittest report];
 
   [pool release];

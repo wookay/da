@@ -33,3 +33,4 @@
 @interface NSRangeTest : UnitTestable {} @end
 @interface NSXMLDocumentTest : UnitTestable {} @end
 @interface NSXMLParserTest : UnitTestable {} @end
+@interface NSHostTest : UnitTestable {} @end

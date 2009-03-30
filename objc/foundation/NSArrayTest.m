@@ -22,6 +22,9 @@
     [assert_equal _true:[ary containsObject:a]];
   }
 
+  [assert_equal a:@"(a)" b:[ary subarrayWithRange:NSMakeRange(0, 1)]];
+  [assert_equal a:@"(a, 5)" b:[ary subarrayWithRange:NSMakeRange(0, 2)]];
+
 }
 
 @end
