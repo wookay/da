@@ -61,7 +61,7 @@ def push_properties headerpath, headertext, selection
   if methodText.include? '@property'
     indexForProperty = headertext.next_line_rindex('@property')
   else
-    indexForProperty = indexCloseBracket
+    indexForProperty = indexCloseBracket + 1
   end
   propertiesToPut = []
   get_declations(selection).each do |decl|
