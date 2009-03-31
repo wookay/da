@@ -1,0 +1,25 @@
+Xcode User Scripts
+==================
+
+This is for code patterns that could be automated.
+
+property_automation.rb
+  run with select instance variables in @interface
+  will generate @property ... in @interface,
+  @synthesize blah, [blah release] in @implementation
+
+insert_method_definition.rb  
+  run with select top of the line of a method in @implementation
+  it will generate the method declaration in @interface
+  
+nslog.rb                     
+  run with select variable name
+  then the clipboard has codes like NSLog(@"%@", blah);
+
+stringWithFormat.rb
+  run with select variable name
+  then the clipboard has codes like [NSString stringWithFormat:@"%@", blah]
+
+
+Some screenshots are available at http://knol.google.co.kr/k/-/-/2rx8hfvqu7v0/21
+for Korean.
