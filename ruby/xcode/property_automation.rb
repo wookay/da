@@ -4,7 +4,8 @@
 # http://wookay.egloos.com
  
 PBXFilePath = "%%%{PBXFilePath}%%%"
-PBXSelectedText = '%%%{PBXSelectedText}%%%'
+PBXSelectedText = %q`%%%{PBXSelectedText}%%%`
+PBXAllText = %q`%%%{PBXAllText}%%%`
 
 def file_replace_text path, to
   replaceFileContentsScript = <<REPLACEFILESCRIPT
@@ -126,25 +127,16 @@ def push_synthesize_release implpath, impltext, selection
     file_replace_text implpath, text
   end
 end
- 
-def tell_xcode
-  script = <<EOF
-    tell application "Xcode"
-    end tell
-EOF
-  system 'osascript', '-e', script
-end
+
 def get_impl_path(path)
   dot = path.rindex('.')
   "#{path[0..dot]}m"
 end
-
-
+ 
+ 
 if PBXFilePath =~ /\.h/
-  headertext = open(PBXFilePath) { |f| f.read }
   implpath = get_impl_path(PBXFilePath)
   impltext = open(implpath) { |f| f.read }
   push_synthesize_release(implpath, impltext, PBXSelectedText)
-  push_properties(PBXFilePath, headertext, PBXSelectedText)
-  tell_xcode
+  push_properties(PBXFilePath, PBXAllText, PBXSelectedText)
 end
