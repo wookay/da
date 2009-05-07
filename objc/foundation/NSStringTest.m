@@ -51,6 +51,7 @@
   [assert_equal bool:false bool:[@"0 a,b,c" boolValue]];
   [assert_equal bool:true bool:[@"1 a,b,c" boolValue]];
 
+  [assert_equal a:@"1" b:[NSString stringWithFormat:@"%s", "1"]];
 }
 
 @end
