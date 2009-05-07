@@ -2,9 +2,9 @@ da
 ==
 
 
-             factor/      java/        ocaml/       perl/        scheme/
-ada/         forth/       javascript/  octave/      php/         slang/
-algol/       fortran/     lua/         oo/          prolog/      smalltalk/
-basic/       haskell/     macruby/     pari_gp/     python/
-c/           io/          mathematica/ pascal/      ruby/
-erlang/      j/           objc/        pcastl/      scala/
+             factor/      java/        octave/      php/         slang/
+ada/         forth/       javascript/  oo/          prolog/      smalltalk/
+algol/       fortran/     lua/         pari_gp/     python/
+basic/       haskell/     mathematica/ pascal/      ruby/
+c/           io/          objc/        pcastl/      scala/
+erlang/      j/           ocaml/       perl/        scheme/
