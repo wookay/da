@@ -12,5 +12,6 @@ def assert_equal(expected:Int, got:Int) {
   }
 }
 
+
 assert_equal( 1 , 1   )
 assert_equal( 3 , 1+2 )

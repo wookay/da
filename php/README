@@ -1,8 +1,10 @@
-PHP stuff
+PHP
+http://www.php.net/
 
 
 $ php test.php
 passed: 1
 passed: 3
 passed: a
+passed: 1
 passed: ok

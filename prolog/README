@@ -1,4 +1,5 @@
-Prolog stuff
+Prolog
+http://www.gprolog.org/
 
 
 $ gprolog --query-goal "consult('test.pl'), main, halt"

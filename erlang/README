@@ -1,4 +1,5 @@
-erlang stuff
+Erlang
+http://erlang.org/
 
 
 $ erlc test.erl

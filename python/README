@@ -1,7 +1,9 @@
-Python stuff
+Python
+http://www.python.org/
 
 
 $ python test.py
 passed: 1
 passed: 3
 passed: a
+passed: True

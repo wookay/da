@@ -1,4 +1,5 @@
-Ada stuff
+Ada
+http://www.gnu.org/software/gnat/
 
 
 $ gnat make test_ada.adb 2> stderr

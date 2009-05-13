@@ -1,4 +1,5 @@
-Scheme stuff
+Scheme
+http://practical-scheme.net/gauche/
 
 
 $ gosh test.scm 

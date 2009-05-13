@@ -1,4 +1,5 @@
-Octave stuff
+Octave
+http://www.gnu.org/software/octave/
 
 
 $ octave -q test.m

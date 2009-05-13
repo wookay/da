@@ -1,4 +1,5 @@
-OCaml stuff
+Objective Caml
+http://caml.inria.fr/ocaml/
 
 
 $ ocaml test.ml 

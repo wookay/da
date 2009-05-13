@@ -1,7 +1,9 @@
-haskell stuff
+Haskell
+http://www.haskell.org/
 
 
 $ runhaskell test.hs 
 passed: 1
 passed: 3
 passed: "a"
+passed: True

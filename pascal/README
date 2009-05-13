@@ -1,4 +1,5 @@
-PASCAL stuff
+Pascal
+http://www.freepascal.org/
 
 
 $ fpc test.pas -v0

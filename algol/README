@@ -1,4 +1,5 @@
-ALGOL stuff
+Algol
+http://www.gnu.org/software/marst/
 
 
 $ marst test.alg > test.c

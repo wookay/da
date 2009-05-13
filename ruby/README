@@ -1,7 +1,9 @@
-Ruby stuff
+Ruby
+http://ruby-lang.org/
 
 
 $ ruby test.rb
 passed: 1
 passed: 3
 passed: a
+passed: true

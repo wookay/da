@@ -1,4 +1,5 @@
-C stuff
+C
+http://gcc.gnu.org/
 
 
 $ gcc test_int.c -o test_int

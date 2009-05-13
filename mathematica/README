@@ -1,0 +1,9 @@
+Mathematica
+http://www.wolfram.com/
+
+
+$ /Applications/Mathematica.app/Contents/MacOS/MathKernel -noprompt -run "<<test.m"
+passed: 1
+passed: 3
+passed: a
+passed: True

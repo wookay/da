@@ -1,4 +1,5 @@
-PARI/GP stuff
+PARI/GP
+http://pari.math.u-bordeaux.fr/
 
 
 $ gp -q test.gp 
