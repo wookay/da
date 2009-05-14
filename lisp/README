@@ -1,0 +1,9 @@
+Lisp
+http://www.sbcl.org/
+
+
+$ sbcl --noinform --load test.lisp --eval "(quit)"
+passed: 1
+passed: 3
+passed: a
+passed: T
