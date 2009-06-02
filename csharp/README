@@ -1,0 +1,11 @@
+C#
+http://mono-project.com/
+
+
+$ mcs test.cs 
+$ mono test.exe 
+passed: 1
+passed: 3
+passed: a
+passed: a
+passed: True
