@@ -1,0 +1,9 @@
+F# Mono
+http://mono-project.com/
+http://go.microsoft.com/fwlink/?LinkId=151924
+
+
+$ mono /Applications/FSharp-1.9.6.16/bin/fsc.exe --nologo test.fs 
+$ mono test.exe 
+passed: 1
+passed: 3
