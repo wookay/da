@@ -24,6 +24,9 @@ end
 def run_tests show_ret=false
   dirs = Dir["*.#{PROGRAM_EXTENSION}"].select{|file|file=~/^test/}
   dirs.each do |file|
+    if defined? IGNORE_FILES
+      next if IGNORE_FILES.include? file
+    end
     ret = `#{PROGRAM_RUN file}` 
     if show_ret
       puts file

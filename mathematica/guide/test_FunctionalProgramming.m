@@ -20,8 +20,9 @@ assertEqual[ f[x,a] , f[#, a] & [x, y]       ]
 assertEqual[ f[y,a] , f[Slot[2], a] & [x, y] ]
 assertEqual[ f[y,a] , f[#2, a] & [x, y]      ]
 
-assertEqual[ f /@ expr    , Map[f, expr]     ]
-assertEqual[ {f[1], f[2]} , Map[f, {1, 2}]   ]
+assertEqual[ f /@ expr    , Map[f, expr]           ]
+assertEqual[ {f[1], f[2]} , Map[f, {1, 2}]         ]
+assertEqual[ {"1", "2"}   , Map[ToString, {1, 2}]  ]
 
 assertEqual[ f @@ expr    , Apply[f, expr]         ]
 assertEqual[ f[1, 2]      , Apply[f, {1, 2}]       ]

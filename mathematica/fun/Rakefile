@@ -1,4 +1,5 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
+IGNORE_FILES = %w{test_xml.m}
 load '../Rakefile'
