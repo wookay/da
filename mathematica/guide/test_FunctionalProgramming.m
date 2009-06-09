@@ -31,6 +31,7 @@ assertTrue[                 Apply[#1 == #2 &, {2, 2}]              ]
 
 assertEqual[ {f[a, {1}], f[b, {2}]} , MapIndexed[f, {a, b}]          ]
 
+assertEqual[ {f[a, b]}              , MapThread[f, {{a}, {b}}]       ]
 assertEqual[ {f[a, c], f[b, d]}     , MapThread[f, {{a, b}, {c, d}}] ]
 
 assertEqual[ {f[a], b}              , MapAt[f, {a, b}, 1]            ]
@@ -54,6 +55,7 @@ assertEqual[ a b                    , a * b                          ]
 assertEqual[ a b c                  , Fold[Times, 1, {a, b, c}]      ]
 assertEqual[ a + b + c              , Fold[Plus, 0, {a, b, c}]       ]
 assertEqual[ {1, a, a b, a b c}     , FoldList[Times, 1, {a, b, c}]  ]
+assertEqual[ {x, f[x, a]}           , FoldList[f, x, {a}]            ]
 
 assertEqual[ Sqrt[2]                , FixedPoint[(# + 2/# )/2 &, 1.0]     ]
 assertEqual[ {1.`, 1.5`, 1.4166666666666665`, 1.4142156862745097`, \
@@ -78,14 +80,15 @@ assertEqual[ {{ㅋ, ㅋ}, {ㅎ, ㅎ}} , Split[{ㅋ, ㅋ, ㅎ, ㅎ}] ]
 
 assertEqual[ 1 &                  , Identity '              ]
 
-assertEqual[ HoldForm[1 + 2 + 3 + 4 + 5] ,
-                                    Composition[HoldForm, Plus] @@ Range[5] ]
+assertEqual[ f[g[h[x, y]]]        , Composition[f, g, h][x, y]              ]
+assertEqual[ HoldForm[1 + 2 + 3]  , Composition[HoldForm, Plus] @@ Range[3] ]
 assertEqual[ 15                   , Composition[Plus] @@ Range[5]           ]
 assertEqual[ Plus                 , Composition[Identity, Plus]             ]
 
 assertEqual[ f[a][b]              , Operate[f, a[b]]                        ]
 assertEqual[ f[a][b]              , Operate[#[a] &, f[b]]                   ]
 
+assertEqual[ f[x] + g[x]          , Through[(f + g)[x]]                     ]
 assertEqual[ f[x, y] + g[x, y]    , Through[(f + g)[x, y]]                  ]
 
 assertEqual[ a.c + a.d + b.c + b.d , Distribute[(a + b).(c + d)]            ]

@@ -1,0 +1,66 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      1532,         56]
+NotebookOptionsPosition[      1212,         40]
+NotebookOutlinePosition[      1554,         55]
+CellTagsIndexPosition[      1511,         52]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ArrayPlot", "[", 
+   RowBox[{"DiamondMatrix", "[", "3", "]"}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.453421768236871*^9, 3.453421793571178*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[
+  RasterBox[{{1, 1, 1, 0, 1, 1, 1}, {1, 1, 0, 0, 0, 1, 1}, {1, 0, 0, 0, 0, 0, 
+   1}, {0, 0, 0, 0, 0, 0, 0}, {1, 0, 0, 0, 0, 0, 1}, {1, 1, 0, 0, 0, 1, 1}, {
+   1, 1, 1, 0, 1, 1, 1}}, {{0, 0}, {7, 7}}, {0, 1}],
+  Frame->Automatic,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  ImageSize->{46., Automatic}]], "Output",
+ CellChangeTimes->{{3.45342176978113*^9, 3.4534217939244633`*^9}}]
+}, Open  ]]
+},
+WindowSize->{640, 623},
+WindowMargins->{{206, Automatic}, {-42, Automatic}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 187, 4, 27, "Input"],
+Cell[757, 28, 439, 9, 61, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

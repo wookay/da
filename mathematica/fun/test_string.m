@@ -13,6 +13,7 @@ assertEqual[expected_, got_] :=
 assertEqual[ {"a", "b", "c"} , StringSplit["a,b,c", ","]                      ]
 assertEqual[ "abc"           , StringJoin[{"a", "b", "c"}]                    ]
 assertEqual[ "abcdefg"       , StringJoin[CharacterRange["a", "g"]]           ]
+assertEqual[ {1, Plus, 2}    , Riffle[{1, 2}, Plus]                           ]
 assertEqual[ "1+2+3"         , StringJoin[Riffle[Map[ToString,{1,2,3}], "+"]] ]
 assertEqual[ "a,b,c"         , StringJoin[Riffle[{"a","b","c"}, ","]]         ]
 assertEqual[ "abc,"          , StringJoin[{"a","b","c"}, ","]                 ]
