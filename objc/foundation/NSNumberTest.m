@@ -15,7 +15,7 @@
   [assert_equal a:@"10000000" b:number];
 
   NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-  [numberFormatter setFormat: @"#,###"];
+  [numberFormatter setNumberStyle:kCFNumberFormatterDecimalStyle];
   [numberFormatter setGroupingSeparator:@","];
   [assert_equal a:@"," b:[numberFormatter groupingSeparator]];
   [assert_equal a:@"10,000,000" b:[numberFormatter stringForObjectValue:number]];
