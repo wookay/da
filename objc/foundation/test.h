@@ -34,3 +34,4 @@
 @interface NSXMLDocumentTest : UnitTestable {} @end
 @interface NSXMLParserTest : UnitTestable {} @end
 @interface NSHostTest : UnitTestable {} @end
+@interface NSPredicateTest : UnitTestable {} @end

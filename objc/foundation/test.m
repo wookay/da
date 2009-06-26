@@ -32,6 +32,7 @@ int main (int argc, const char * argv[]) {
   [unittest run:@"NSXMLDocumentTest"];
   [unittest run:@"NSXMLParserTest"];
   [unittest run:@"NSHostTest"];
+  [unittest run:@"NSPredicateTest"];
   [unittest report];
 
   [pool release];

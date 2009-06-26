@@ -46,12 +46,23 @@
   NSString* strip = [@" ab cd " stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
   [assert_equal a:@"ab cd" b:strip];
 
+  [assert_equal a:@"ab1" b:[@"ab1" substringFromIndex:0]];
+  [assert_equal a:@"b1" b:[@"ab1" substringFromIndex:1]];
   [assert_equal a:@"1" b:[@"ab1" substringFromIndex:2]];
+
+  [assert_equal a:@"" b:[@"ab1" substringToIndex:0]];
+  [assert_equal a:@"a" b:[@"ab1" substringToIndex:1]];
+  [assert_equal a:@"ab" b:[@"ab1" substringToIndex:2]];
+
+  [assert_equal a:@"a" b:[@"ab1" substringWithRange:NSMakeRange(0, 1)]];
+  [assert_equal a:@"b" b:[@"ab1" substringWithRange:NSMakeRange(1, 1)]];
+  [assert_equal a:@"1" b:[@"ab1" substringWithRange:NSMakeRange(2, 1)]];
 
   [assert_equal bool:false bool:[@"0 a,b,c" boolValue]];
   [assert_equal bool:true bool:[@"1 a,b,c" boolValue]];
 
   [assert_equal a:@"1" b:[NSString stringWithFormat:@"%s", "1"]];
+  [assert_equal a:@"1    " b:[NSString stringWithFormat:@"% -5s", "1"]];
 }
 
 @end
