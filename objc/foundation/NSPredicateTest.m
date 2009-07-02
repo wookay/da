@@ -9,6 +9,9 @@
 
   // FIXME: make a test
   /*
+
+  http://cocoawithlove.com/2009/06/verifying-that-string-is-email-address.html
+
   NSDictionary* row = [NSDictionary dictionaryWithObjectsAndKeys:
             @"aFirstname", @"firstname",
             @"aLastname", @"lastname",
