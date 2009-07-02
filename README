@@ -2,10 +2,10 @@ da
 ==
 
 
-             factor/      java/        ocaml/       php/         slang/
-ada/         forth/       javascript/  octave/      potion/      smalltalk/
-algol/       fortran/     lisp/        oo/          prolog/
-basic/       fsharp/      lua/         pari_gp/     python/
+             factor/      java/        ocaml/       php/         scratch/
+ada/         forth/       javascript/  octave/      potion/      slang/
+algol/       fortran/     lisp/        oo/          prolog/      smalltalk/
+basic/       fsharp/      lua/         pari_gp/     python/      squeak/
 c/           haskell/     mathematica/ pascal/      ruby/
 csharp/      io/          maxmsp/      pcastl/      scala/
 erlang/      j/           objc/        perl/        scheme/
