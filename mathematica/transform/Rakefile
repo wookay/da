@@ -1,0 +1,5 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+IGNORE_FILES = %w{}
+load '../Rakefile'

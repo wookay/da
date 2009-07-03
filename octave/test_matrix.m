@@ -1,4 +1,4 @@
-# test.matrix.m
+# test_matrix.m
 #                           wookay.noh at gmail.com
 
 function void = assert_equal(expected, got)

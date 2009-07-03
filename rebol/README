@@ -1,0 +1,9 @@
+REBOL
+http://www.rebol.com/
+
+
+$ rebol -q test.r
+passed: 1
+passed: 3
+passed: a
+passed: true

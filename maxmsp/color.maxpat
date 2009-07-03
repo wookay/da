@@ -1,9 +1,9 @@
 {
 	"patcher" : 	{
 		"fileversion" : 1,
-		"rect" : [ 41.0, 46.0, 864.0, 682.0 ],
+		"rect" : [ 80.0, 45.0, 864.0, 682.0 ],
 		"bglocked" : 0,
-		"defrect" : [ 41.0, 46.0, 864.0, 682.0 ],
+		"defrect" : [ 80.0, 45.0, 864.0, 682.0 ],
 		"openrect" : [ 0.0, 0.0, 0.0, 0.0 ],
 		"openinpresentation" : 0,
 		"default_fontsize" : 18.0,
@@ -16,6 +16,34 @@
 		"boxanimatetime" : 200,
 		"imprint" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"maxclass" : "message",
+					"numoutlets" : 1,
+					"bgcolor" : [ 0.0, 1.0, 0.0, 1.0 ],
+					"fontname" : "Monaco",
+					"outlettype" : [ "" ],
+					"fontsize" : 18.0,
+					"patching_rect" : [ 613.0, 635.0, 132.0, 29.0 ],
+					"numinlets" : 2,
+					"id" : "obj-25"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"maxclass" : "newobj",
+					"text" : "prepend color",
+					"numoutlets" : 1,
+					"fontname" : "Monaco",
+					"outlettype" : [ "" ],
+					"fontsize" : 18.0,
+					"patching_rect" : [ 612.0, 518.0, 151.0, 31.0 ],
+					"numinlets" : 1,
+					"id" : "obj-23"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"maxclass" : "button",
 					"numoutlets" : 1,
@@ -106,6 +134,7 @@
 					"maxclass" : "message",
 					"text" : "colorWithName red",
 					"numoutlets" : 1,
+					"bgcolor" : [ 0.866667, 0.866667, 0.866667, 1.0 ],
 					"fontname" : "Arial",
 					"outlettype" : [ "" ],
 					"fontsize" : 11.595187,
@@ -246,7 +275,7 @@
 , 			{
 				"box" : 				{
 					"maxclass" : "message",
-					"text" : "#ffff",
+					"text" : "#ff00",
 					"numoutlets" : 1,
 					"fontname" : "Monaco",
 					"outlettype" : [ "" ],
@@ -659,6 +688,24 @@
 				"patchline" : 				{
 					"source" : [ "obj-36", 0 ],
 					"destination" : [ "obj-30", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"source" : [ "obj-7", 0 ],
+					"destination" : [ "obj-23", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"source" : [ "obj-23", 0 ],
+					"destination" : [ "obj-25", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ]
 				}
