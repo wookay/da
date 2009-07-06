@@ -13,5 +13,6 @@
 - (bool) empty:(char)question ;
 - (id) concat:(id)obj ;
 - (id) gsub:(id)pattern to:(id)replacement ;
+- (BOOL) included:(NSString*)aString ;
 
 @end

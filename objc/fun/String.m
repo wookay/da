@@ -50,4 +50,9 @@
                withString:replacement];
 }
 
+- (BOOL) included:(NSString*)aString {
+  NSRange range = [self rangeOfString:aString];
+  return NSNotFound != range.location;
+}
+
 @end

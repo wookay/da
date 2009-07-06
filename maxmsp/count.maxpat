@@ -20,9 +20,10 @@
 					"maxclass" : "button",
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"blinkcolor" : [ 0.0, 1.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.0, 0.45098, 1.0, 0.74902 ],
 					"patching_rect" : [ 209.0, 103.0, 69.0, 69.0 ],
 					"numinlets" : 1,
+					"blinkcolor" : [ 1.0, 0.952941, 0.039216, 1.0 ],
 					"id" : "obj-31"
 				}
 
@@ -34,8 +35,8 @@
 					"numoutlets" : 1,
 					"fontname" : "Monaco",
 					"outlettype" : [ "int" ],
-					"fontsize" : 18.0,
 					"patching_rect" : [ 127.0, 186.0, 32.5, 31.0 ],
+					"fontsize" : 18.0,
 					"numinlets" : 2,
 					"id" : "obj-30"
 				}
@@ -48,8 +49,8 @@
 					"numoutlets" : 1,
 					"fontname" : "Monaco",
 					"outlettype" : [ "int" ],
-					"fontsize" : 18.0,
 					"patching_rect" : [ 232.0, 186.0, 32.5, 31.0 ],
+					"fontsize" : 18.0,
 					"numinlets" : 2,
 					"id" : "obj-28"
 				}
@@ -59,11 +60,11 @@
 				"box" : 				{
 					"maxclass" : "number",
 					"numoutlets" : 2,
+					"htextcolor" : [ 0.388235, 0.807843, 0.105882, 1.0 ],
 					"fontname" : "Arial",
 					"outlettype" : [ "int", "bang" ],
-					"fontsize" : 48.0,
 					"patching_rect" : [ 209.0, 286.0, 122.0, 62.0 ],
-					"htextcolor" : [ 0.388235, 0.807843, 0.105882, 1.0 ],
+					"fontsize" : 48.0,
 					"numinlets" : 1,
 					"id" : "obj-26"
 				}
@@ -76,9 +77,10 @@
 					"annotation" : "",
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
-					"blinkcolor" : [ 1.0, 0.0, 0.0, 1.0 ],
+					"bgcolor" : [ 0.635294, 0.635294, 0.635294, 0.74902 ],
 					"patching_rect" : [ 127.0, 103.0, 69.0, 69.0 ],
 					"numinlets" : 1,
+					"blinkcolor" : [ 1.0, 1.0, 0.0, 1.0 ],
 					"id" : "obj-21"
 				}
 
@@ -89,10 +91,10 @@
 					"text" : "count.maxpat\nwookay.noh at gmail.com",
 					"linecount" : 2,
 					"numoutlets" : 0,
-					"bgcolor" : [ 0.545098, 0.85098, 0.592157, 1.0 ],
 					"fontname" : "Monaco",
-					"fontsize" : 18.0,
+					"bgcolor" : [ 0.545098, 0.85098, 0.592157, 1.0 ],
 					"patching_rect" : [ 16.0, 20.0, 268.0, 55.0 ],
+					"fontsize" : 18.0,
 					"numinlets" : 1,
 					"id" : "obj-12"
 				}
@@ -106,8 +108,8 @@
 					"numoutlets" : 1,
 					"fontname" : "Monaco",
 					"outlettype" : [ "int" ],
-					"fontsize" : 18.0,
 					"patching_rect" : [ 209.0, 232.0, 65.0, 31.0 ],
+					"fontsize" : 18.0,
 					"numinlets" : 3,
 					"id" : "obj-10"
 				}
@@ -116,8 +118,8 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"source" : [ "obj-10", 0 ],
-					"destination" : [ "obj-26", 0 ],
+					"source" : [ "obj-28", 0 ],
+					"destination" : [ "obj-10", 1 ],
 					"hidden" : 0,
 					"midpoints" : [  ]
 				}
@@ -125,16 +127,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-21", 0 ],
-					"destination" : [ "obj-30", 0 ],
-					"hidden" : 0,
-					"midpoints" : [  ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"source" : [ "obj-30", 0 ],
+					"source" : [ "obj-31", 0 ],
 					"destination" : [ "obj-10", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ]
@@ -152,7 +145,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-31", 0 ],
+					"source" : [ "obj-30", 0 ],
 					"destination" : [ "obj-10", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ]
@@ -161,8 +154,17 @@
 			}
 , 			{
 				"patchline" : 				{
-					"source" : [ "obj-28", 0 ],
-					"destination" : [ "obj-10", 1 ],
+					"source" : [ "obj-21", 0 ],
+					"destination" : [ "obj-30", 0 ],
+					"hidden" : 0,
+					"midpoints" : [  ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"source" : [ "obj-10", 0 ],
+					"destination" : [ "obj-26", 0 ],
 					"hidden" : 0,
 					"midpoints" : [  ]
 				}

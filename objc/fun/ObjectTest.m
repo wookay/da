@@ -25,7 +25,7 @@ id func(id self, SEL _cmd) {
                 b:[NSInvocation instance_variables]];
   [assert_equal int:18 int:[[NSInvocation methods] count]];
   [assert_equal int:36 int:[[@"" methods] count]];
-  [assert_equal int:217 int:[[NSString methods] count]];
+  //[assert_equal int:217 int:[[NSString methods] count]];
   [assert_equal a:@"A B" b:[@"a b" send:@"uppercaseString"]];
   [assert_equal a:[NSArray arrayWithObjects:@"a", @"b", nil]
                 b:[@"a b" send:@"split" withObject:@" "]];

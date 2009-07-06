@@ -1,0 +1,9 @@
+Clojure
+http://github.com/richhickey/clojure/
+
+
+$ clj test.clj
+passed: 1
+passed: 3
+passed: a
+passed: true

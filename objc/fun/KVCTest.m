@@ -13,12 +13,12 @@
 
 - (void) unittest {
 
-  id obj = [NSArray arrayWithObjects:
-     [NSArray array],
-     [NSArray array], nil];
+//  id obj = [NSArray arrayWithObjects:
+//    [NSArray array],
+//    [NSArray array], nil];
   //id obj = [NSDictionary dictionary];//\'Array arrayWithObjects:@"1", nil];
-  id b = [obj valueForKey:@"@sum.@count"];
-  NSLog(@"%@", [b class]);
+//  id b = [obj valueForKey:@"@sum.@count"];
+//  NSLog(@"%@", [b class]);
 
   //[obj setValue:@"value" forKey:@"key"];
   //[assert_equal a:@"value" b:[obj valueForKey:@"key"]];
