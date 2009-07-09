@@ -21,7 +21,3 @@ EOF
 
 doc = Hpricot.parse data
 assert_equal "<body>body text</body>", (doc/:body).to_s
-
-require 'xml-object'
-html = XMLObject.new data
-assert_equal "body text", html.body

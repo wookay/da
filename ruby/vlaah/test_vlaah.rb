@@ -15,7 +15,7 @@ require 'vlaah'
 
 VLAAH::Base.application_key = @@APIKEY
 
-topic = VLAAH::Topic.find "홍민희"
+topic = VLAAH::Topic.find "Vlaah"
 assert_equal VLAAH::CommentList, topic.comments.class
 assert_equal VLAAH::CommentList, topic.comments.send(:raw_data, '') rescue nil
 

@@ -9,9 +9,9 @@ class Fixnum
   end
 
   def self.numero_methods ops, opt
-    require 'md5'
+    require 'digest/md5'
     for op in ops
-      m = "m#{MD5::md5 op}"
+      m = "m#{Digest::MD5.hexdigest op}"
       class_eval <<-EOF
         alias :#{m} #{op}
         def #{op} a

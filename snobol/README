@@ -1,0 +1,8 @@
+SNOBOL
+http://www.snobol4.org/csnobol4/
+
+
+$ snobol4 -b test.sno
+passed: 1
+passed: 3
+passed: a

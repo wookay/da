@@ -6,12 +6,12 @@
 static VALUE assert_equal(VALUE self, VALUE expected, VALUE got) {
   if (rb_equal(expected, got)) {
     printf("passed: ");
-    rb_io_puts(1, &expected, rb_stdout);
+    rb_io_puts(0, &expected, rb_stdout);
   } else {
     printf("Assertion failed\nExpected: ");
     rb_io_puts(1, &expected, rb_stdout);
     printf("Got: ");
-    rb_io_puts(1, &got, rb_stdout);
+    rb_io_puts(0, &got, rb_stdout);
   }
   return Qnil;
 }

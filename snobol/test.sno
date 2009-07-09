@@ -1,0 +1,23 @@
+# test.sno
+#                           wookay.noh at gmail.com
+
+  DEFINE("assert_equal(expected,got)") :(EOF)
+assert_equal
+  ident(expected,got)
+    :s(equal)f(not_equal)
+equal
+  OUTPUT = "passed: " expected
+  :(return)
+not_equal
+  OUTPUT = "Assertion failed"
+  OUTPUT = "Expected: " expected
+  OUTPUT = "Got: " got
+  :(return)
+EOF
+
+
+  assert_equal( 1   , 1     )
+  three = 1 + 2
+  assert_equal( 3   , three )
+  assert_equal( "a" , "a"   )
+END

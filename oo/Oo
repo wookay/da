@@ -1,6 +1,48 @@
 #!/usr/bin/ruby
-# Oo
+# oo
 #                           wookay.noh at gmail.com
 
-require 'rules/oo.rb'
+require 'code_set'
+
+OO_COPYRIGHT = ""
+OO_VERSION = "0.1"
+
+class Oo
+  def initialize
+    @hash = {}
+  end
+  def ioo
+    @hash['help'] = 'Oo help'
+    @hash['copyright'] = OO_COPYRIGHT
+    prompt = "Oo> "
+    while input = readline(prompt, false)
+      break if 'quit'==input
+    end
+  end
+  def self.runtime argv
+    case argv
+    when []
+      puts "Oo #{OO_VERSION}"
+      require "readline"
+      include Readline
+      Oo.new.ioo
+    when %w{--help}
+      puts <<EOF
+    Usage: Oo [--] [programfile] [arguments]
+      --copyright     print the copyright
+      --version       print the version
+EOF
+    when %w{--copyright}
+      puts OO_COPYRIGHT
+    when %w{--version}
+      puts "Oo #{OO_VERSION}"
+    else
+      oo = Oo.new
+      oo.main *argv
+    end
+  end
+  def main file, *argv
+    eval open(file).read if File.exists? file.to_s
+  end
+end
 Oo.runtime ARGV

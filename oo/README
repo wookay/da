@@ -2,7 +2,7 @@ Oo
 http://github.com/wookay/da/tree/master/oo
 
 
-$ ./Oo test.oo
+$ ./oo test.oo
 passed: 1
 passed: 3
-passed: 5
+passed: 6

@@ -1,10 +1,17 @@
-# test.oo
-#                           wookay.noh at gmail.com
+assert_code = code_set { |a, b| a if a==b }
+assert_code.bang <<INPUT, <<OUTPUT
+assert_equal(1, 1)
+assert_equal(3, 1+2)
+assert_equal("a", "a")
+assert_equal(true, 1==1)
+INPUT
+passed: 1
+passed: 3
+passed: a
+passed: true
+OUTPUT
 
-1은 1?
-
-1+2는 3
-1+2는 3?
-
-규칙은 rules/math.rb
-2+3은 5?
+assert_equal = assert_code.get_function
+assert_equal(1, 1)
+assert_equal(3, 1+2)
+assert_equal(6, 1+2+3)

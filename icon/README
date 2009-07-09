@@ -1,0 +1,9 @@
+Icon
+http://www.cs.arizona.edu/icon/
+
+
+$ icon test.icn
+passed: 1
+passed: 3
+passed: a
+passed: 1

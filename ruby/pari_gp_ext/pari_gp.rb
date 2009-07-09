@@ -71,11 +71,11 @@ class Polpattern
     key = opt[:key]
     vx = @hx[key]
     if vx
-      @hy[@polxy[vx]]
+      @hy[@polxy[vx]].to_s
     else
       dx = @data.index(key) || 0
       pdx = @polxy[dx] || 0
-      @data[pdx, (pdx-dx).abs].scan(/\w/).to_s
+      @data[pdx, (pdx-dx).abs].scan(/\w/).join''
     end
   end
   def key opt
@@ -86,7 +86,7 @@ class Polpattern
     else
       dy = @data.index(value) || 0
       pdy = @polyx[dy] || 0
-      @data[pdy, (pdy-dy).abs].scan(/\w/).to_s
+      @data[pdy, (pdy-dy).abs].scan(/\w/).join''
     end
   end
 end
