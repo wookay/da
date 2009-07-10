@@ -1,5 +1,7 @@
-# test.oo
+# test.rb
 #                           wookay.noh at gmail.com
+
+require 'codeset'
 
 code = CodeSet.new { |expected, got| expected if expected==got }
 code.bang <<INPUT, <<OUTPUT

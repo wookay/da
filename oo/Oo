@@ -2,10 +2,10 @@
 # oo
 #                           wookay.noh at gmail.com
 
-require 'code_set'
-
 OO_COPYRIGHT = ""
 OO_VERSION = "0.1"
+
+require 'codeset/codeset'
 
 class Oo
   def initialize

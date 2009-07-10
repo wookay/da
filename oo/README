@@ -5,4 +5,5 @@ http://github.com/wookay/da/tree/master/oo
 $ ./oo test.oo
 passed: 1
 passed: 3
-passed: 6
+passed: a
+passed: true

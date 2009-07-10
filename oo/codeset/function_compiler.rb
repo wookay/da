@@ -1,3 +1,6 @@
+# function_compiler.rb
+#                           wookay.noh at gmail.com
+
 CompiledFunction = Struct.new :name, :arity, :args
 LazyObject = Struct.new :obj, :meth, :arg
 
@@ -7,7 +10,6 @@ class FunctionCompiler
   alias trace :nothing
   alias pop :nothing
   alias leave :nothing
-
   def initialize
     @stack = []
   end
@@ -34,6 +36,11 @@ class FunctionCompiler
   end
   def opt_minus
     infix '-'
+  end
+  def duparray ary
+    Array.new(ary).each do |obj|
+      @stack.push obj
+    end
   end
   def infix meth
     arg = @stack.pop
