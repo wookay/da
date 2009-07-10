@@ -12,9 +12,25 @@ passed: 0
 passed: string
 OUTPUT
 
-
 assert_equal = method_of code, :assert_equal
 assert_equal 1    , 1
 assert_equal 3    , 1+2
 assert_equal "a"  , "a"
 assert_equal true , 1==1
+
+
+__END__
+code.bang <<INPUT, <<OUTPUT
+assert_equal(0, 1)
+assert_equal("string", "...")
+INPUT
+Assertion failed
+Expected: 0
+Got: 1
+Assertion failed
+Expected: string
+Got: ...
+OUTPUT
+
+assert_equal = method_of code, :assert_equal
+assert_equal 1    , 1

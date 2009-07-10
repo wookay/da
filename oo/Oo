@@ -28,9 +28,9 @@ class Oo
       Oo.new.ioo
     when %w{--help}
       puts <<EOF
-    Usage: Oo [--] [programfile] [arguments]
-      --copyright     print the copyright
-      --version       print the version
+Usage: oo [--] [programfile] [arguments]
+  --copyright     print the copyright
+  --version       print the version
 EOF
     when %w{--copyright}
       puts OO_COPYRIGHT

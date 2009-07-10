@@ -25,9 +25,11 @@ class Patternizer
   def solve_char_group size, values, text
   end
   def solve_single_line size, values, text
-    solve_each_group size,values, text.lines.to_a
+    solve_each_group size, values, text.lines.to_a
   end
-  def solve_multi_line size, values, text
+  def solve_multi_lines size, values, text
+    solve_each_group size, values,
+      text.lines.enum_for(:each_slice, text.lines.count/size).to_a.map{|a|a.join}
   end
   def solve_each_group size, values, group
     output_array = []
