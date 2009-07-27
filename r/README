@@ -1,0 +1,9 @@
+R
+http://www.r-project.org/
+
+
+$ r --slave -f test.r     
+passed: 1 
+passed: 3 
+passed: a 
+passed: TRUE

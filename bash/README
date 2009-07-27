@@ -1,0 +1,7 @@
+BASH
+http://www.gnu.org/software/bash/
+
+
+$ bash test.sh 
+passed: 1
+passed: 3
