@@ -1,0 +1,7 @@
+LOLCODE
+http://lolcode.com/
+
+
+$ lolcode -f test.lol
+passed 1
+passed 3
