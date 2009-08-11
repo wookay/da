@@ -1,0 +1,40 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+PROGRAM_ALCHEMY_COMPILE = 'gcc'
+PROGRAM_FLEX_COMPILE = 'mxmlc'
+PROGRAM_EXTENSION = 'c'
+
+task :default do
+  sh "rake -T"
+end
+
+desc "run tests and display only results"
+task :p do
+  run_tests
+end
+
+desc "clean up"
+task :clean do
+  `rm -f *swf *swc *o *bc *exe`
+end
+
+def run_tests show_ret=false
+  if ENV['ALCHEMY_HOME']
+    ENV['PATH']="#{ENV['ALCHEMY_HOME']}/achacks:#{ENV['PATH']}"
+  else
+    puts 'needs source $ALCHEMY_HOME/alchemy-setup'
+    exit
+  end
+
+  unittest = 'unittest.c'
+  swc = unittest.gsub(".#{PROGRAM_EXTENSION}", '.swc')
+  alchemy_compile = "#{PROGRAM_ALCHEMY_COMPILE} -O3 -swc -o #{swc} #{unittest}"
+  puts alchemy_compile
+  puts `#{alchemy_compile}`
+
+  file = 'Test.as'
+  flex_compile = "#{PROGRAM_FLEX_COMPILE} -compiler.library-path+=#{swc} -target-player=10.0.0 #{file}"
+  puts flex_compile
+  puts `#{flex_compile}`
+end
