@@ -1,0 +1,10 @@
+ruby-opengl
+http://ruby-opengl.rubyforge.org/
+
+
+$ ./shell.rb
+opengl> @nodes
+#<Cube:0x1ace3a0>
+#<Cube2:0x1ace38c>
+opengl> quit
+exit
