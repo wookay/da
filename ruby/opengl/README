@@ -4,7 +4,8 @@ http://ruby-opengl.rubyforge.org/
 
 $ ./shell.rb
 opengl> @nodes
-#<Cube:0x1ace3a0>
-#<Cube2:0x1ace38c>
+#<Cube:0x1ad28ec>
+#<Cube2:0x1ad28c4>
+#<Cube3:0x1ad289c>
 opengl> quit
 exit

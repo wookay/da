@@ -1,7 +1,7 @@
 require 'opengl'
 require 'node'
 
-class Cube2
+class Cube3
   def initialize
     @angle = Angle.new 30.0
   end
@@ -12,8 +12,8 @@ class Cube2
 
   def draw
     glPushMatrix
-      glTranslatef(5.0, 12.0, -40.0)
-      glRotatef(@angle.degree, 0.0, 0.5, 0.0)
+      glTranslatef(-5.0, 12.0, -40.0)
+      glRotatef(@angle.degree, 0.5, 0.0, 0.0)
       glBegin(GL_QUADS)
         glColor3f(1.0, 1.0, 0.0)
         glVertex3f(-2.0, -2.0, 2.0)

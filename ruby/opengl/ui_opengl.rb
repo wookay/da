@@ -2,36 +2,39 @@ require 'opengl'
 require 'scene'
 
 module UIOpenGL
-  def load_nodes
+  def load_scene
+    @scene = Scene.new
     require 'node_cube'
     require 'node_cube2'
-    @nodes = [Cube.new, Cube2.new]
+    require 'node_cube3'
+    @nodes = [Cube.new, Cube2.new, Cube3.new]
   end
 
   def draw_scene
-    Scene::draw_nodes do
+    @scene.draw_nodes do
       @nodes.each do |node|
         node.draw
       end
     end
   end
   
-  def update_data value
-    @nodes.each do |node|
-      node.update
+  def update_scene value
+    @scene.update_nodes do
+      @nodes.each do |node|
+        node.update
+      end
     end
-  	glutPostRedisplay
-  	glutTimerFunc 25, method(:update_data).to_proc, 0
+    glutTimerFunc 25, method(:update_scene).to_proc, 0
   end
   
   def show_window
-    load_nodes
+    load_scene
 
     glutInit
     glutInitWindowSize 480, 320
     glutCreateWindow 
     glutDisplayFunc method(:draw_scene).to_proc
-    glutTimerFunc 25, method(:update_data).to_proc, 0
+    glutTimerFunc 25, method(:update_scene).to_proc, 0
 
   	glEnable GL_DEPTH_TEST
   	glEnable GL_COLOR_MATERIAL
@@ -47,7 +50,7 @@ module UIOpenGL
     Thread.new do
       @status = {}
       loop do
-        check_files
+        autoload_save_files
         sleep 1
       end
     end
@@ -59,7 +62,7 @@ module UIOpenGL
   def stop_opengl
   end
 
-  def check_files
+  def autoload_save_files
     Dir['*.rb'].each do |lib|
       file, mtime = @status[lib]
       if file
