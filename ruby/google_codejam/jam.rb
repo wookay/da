@@ -10,18 +10,23 @@ class Jam
       @in = open ARGV.first
     end
   end 
-  def feed line_per_case=1
+  def feed rule=1
     dataset_size = @in.readline.to_i
     if 0==dataset_size
       puts "#{$0} < input_data"
     end
     1.upto dataset_size do |case_num|
-      if 1==line_per_case
-        yield case_num, @in.readline
-      else
-        ary = []
-        line_per_case.times { ary.push @in.readline }
-        yield case_num, ary
+      case rule
+      when Fixnum
+        lines_per_case = rule
+        if 1==line_size_per_case
+          yield case_num, @in.readline
+        else
+          lines = line_size_per_case.times.map { @in.readline }
+          yield case_num, lines
+        end
+      when Proc
+        yield case_num, rule.call(@in)
       end
     end
   end
@@ -32,14 +37,5 @@ class Jam
   def input_file filename
     @in = open filename
     self
-  end
-  def act
-    feed do |case_num, line|
-      puts "Case ##{case_num}:"
-      ary = line.split(' ')
-      translate(*ary).each do |result|
-        puts result
-      end
-    end
   end
 end

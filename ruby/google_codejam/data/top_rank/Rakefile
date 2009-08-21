@@ -1,0 +1,35 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+PROGRAM_COMPILE = 'g++' 
+PROGRAM_EXTENSION = 'cpp'
+
+task :default do
+  sh "rake -T"
+end
+
+desc 'run'
+task :p, :name do |t, args|
+  name = args.name
+  if name
+    cmd = "#{PROGRAM_COMPILE} #{name}.cpp -o #{name}"
+    puts cmd
+    puts `#{cmd}` 
+    run = "./#{args.name} < ../#{name[0..-3]}/#{name[-1,1]}-large-practice.in"
+    puts run
+    puts `#{run}`
+  else
+    Dir['*_*'].each do |filename|
+      name,ext = filename.split '.'
+      puts "rake p[#{name}]"
+    end
+  end
+end
+
+desc 'clean up'
+task :clean do
+  names = Dir['*_*'].map{|filename| filename.split('.').first }.join ' '
+  cmd = "rm -f #{names}"
+  puts cmd
+  `#{cmd}` 
+end
