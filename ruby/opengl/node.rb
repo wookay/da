@@ -1,5 +1,5 @@
 module Step
-  def step_in_circular var, step, range
+  def circular var, step, range
     value = send var
     value += step
     if step > 0
@@ -13,7 +13,7 @@ module Step
     end
     send "#{var}=", value
   end
-  def step_in_bound var, step, range
+  def bound var, step, range
     @direction = step>0 ? :up : :down if not @direction
     value = send var
     case @direction

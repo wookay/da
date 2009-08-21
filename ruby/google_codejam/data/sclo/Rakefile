@@ -1,0 +1,29 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+PROGRAMS = { :B => 'always_turn_left' }
+#PROGRAMS = { :A => 'alien_numbers' }
+PROGRAM_COMPILE = 'g++' 
+PROGRAM_EXTENSION = 'cpp'
+
+task :default do
+  sh "rake -T"
+end
+
+desc 'run'
+task :p do
+  PROGRAMS.each do |name, out|
+    cmd = "#{PROGRAM_COMPILE} #{name}.cpp -o #{out}"
+    puts cmd
+    puts `#{cmd}` 
+  end
+end
+
+desc 'clean up'
+task :clean do
+  PROGRAMS.each do |name, out|
+    cmd = "rm #{out}" 
+    puts cmd
+    puts `#{cmd}` 
+  end
+end

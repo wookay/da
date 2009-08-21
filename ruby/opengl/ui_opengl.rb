@@ -2,33 +2,19 @@ require 'opengl'
 require 'scene'
 
 module UIOpenGL
-  def load_scene
-    @scene = Scene.new
-    require 'node_cube'
-    require 'node_cube2'
-    require 'node_cube3'
-    @nodes = [Cube.new, Cube2.new, Cube3.new]
-  end
+  include Scene
 
   def draw_scene
-    @scene.draw_nodes do
-      @nodes.each do |node|
-        node.draw
-      end
-    end
+    draw_nodes
   end
   
   def update_scene value
-    @scene.update_nodes do
-      @nodes.each do |node|
-        node.update
-      end
-    end
+    update_nodes
     glutTimerFunc 25, method(:update_scene).to_proc, 0
   end
   
   def show_window
-    load_scene
+    load_nodes
 
     glutInit
     glutInitWindowSize 480, 320

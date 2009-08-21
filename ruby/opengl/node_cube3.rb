@@ -7,7 +7,7 @@ class Cube3
   end
 
   def update
-    @angle.step_in_circular :degree, 2, 0..360
+    @angle.circular :degree, 2, 0..360
   end
 
   def draw
