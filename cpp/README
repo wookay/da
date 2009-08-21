@@ -1,0 +1,8 @@
+C++
+http://www.research.att.com/~bs/
+
+
+$ g++ test.cpp -o test
+$ ./test 
+passed: 1
+passed: 3
