@@ -97,13 +97,13 @@ class String
     case jamotype
     when :chosung_chosung
       case [self, ch]
-      when ['ㄱ', 'ㄱ']
+      when %w{ㄱ ㄱ}
         'ㄲ'
-      when ['ㄷ', 'ㄷ']
+      when %w{ㄷ ㄷ}
         'ㄸ'
-      when ['ㅅ', 'ㅅ']
+      when %w{ㅅ ㅅ}
         'ㅆ'
-      when ['ㅈ', 'ㅈ']
+      when %w{ㅈ ㅈ}
         'ㅉ'
       end
 
@@ -122,31 +122,31 @@ class String
         jungsung = self.separate.last
       end
       case [jungsung, ch]
-      when ['ㅏ','ㅣ']
+      when %w{ㅏ ㅣ}
         'ㅐ'
-      when ['ㅑ','ㅣ']
-        'ㅒ'
-      when ['ㅓ','ㅣ']
-        'ㅔ'
-      when ['ㅕ','ㅣ']
-        'ㅖ'
-      when ['ㅗ','ㅏ']
-        'ㅘ'
-      when ['ㅘ','ㅣ']
-        'ㅙ'
-      when ['ㅗ','ㅐ']
-        'ㅙ'
-      when ['ㅗ','ㅣ']
-        'ㅚ'
-      when ['ㅜ','ㅓ']
-        'ㅝ'
-      when ['ㅝ','ㅣ']
-        'ㅞ'
-      when ['ㅜ','ㅔ']
-        'ㅞ'
-      when ['ㅜ','ㅣ']
-        'ㅟ'
-      when ['ㅡ','ㅣ']
+      when %w{ㅑ ㅣ}
+        'ㅒ'     
+      when %w{ㅓ ㅣ}
+        'ㅔ'     
+      when %w{ㅕ ㅣ}
+        'ㅖ'     
+      when %w{ㅗ ㅏ}
+        'ㅘ'     
+      when %w{ㅘ ㅣ}
+        'ㅙ'     
+      when %w{ㅗ ㅐ}
+        'ㅙ'     
+      when %w{ㅗ ㅣ}
+        'ㅚ'     
+      when %w{ㅜ ㅓ}
+        'ㅝ'     
+      when %w{ㅝ ㅣ}
+        'ㅞ'     
+      when %w{ㅜ ㅔ}
+        'ㅞ'     
+      when %w{ㅜ ㅣ}
+        'ㅟ'     
+      when %w{ㅡ ㅣ}
         'ㅢ'
       end
     when :jungsung_jongsung
@@ -194,7 +194,7 @@ class String
         'ㄺ'
       when %w{ㄹ ㅁ}
         'ㄻ'
-	  when %w{ㄹ ㅂ}
+      when %w{ㄹ ㅂ}
         'ㄼ'
       when %w{ㄹ ㅅ}
         'ㄽ'
