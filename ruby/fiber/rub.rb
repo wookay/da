@@ -12,12 +12,7 @@ class Worker
     @code = ''
   end
   def feed datatype, obj
-    case datatype
-    when :keyword
-      token = "#{obj} "
-    else
-      token = "#{obj}"
-    end
+    token = "#{obj} "
     @code.concat token
     result = nil
     begin
