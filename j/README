@@ -1,2 +1,9 @@
 J
 http://www.jsoftware.com/
+
+
+$ /Applications/j602/bin/jconsole test.ijs
+passed: 1
+passed: 3
+passed: a
+passed: 1

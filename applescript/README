@@ -1,0 +1,9 @@
+AppleScript
+http://developer.apple.com/applescript/
+
+
+$ osascript test.scpt
+passed: 1
+passed: 3
+passed: a
+passed: true

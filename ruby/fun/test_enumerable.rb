@@ -1,4 +1,4 @@
-# test_egg_drop.rb
+# test_enumerable.rb
 #                           wookay.noh at gmail.com
 
 def assert_equal expected, got
@@ -7,5 +7,15 @@ def assert_equal expected, got
     "Assertion failed\nExpected: #{expected}\nGot: #{got}"
 end
 
-require 'egg_drop'
-#assert_equal [7,2,1], translate('3', '3', '3')
+
+class Gen
+  include Enumerable 
+  def each
+    yield 1
+    yield 2
+    yield 3
+  end
+end
+
+gen = Gen.new
+assert_equal [1,2,3] , gen.to_a

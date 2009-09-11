@@ -1,4 +1,4 @@
-# test_fiber.rb
+# test_word.rb
 #                           wookay.noh at gmail.com
 
 def assert_equal expected, got

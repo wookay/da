@@ -1,4 +1,4 @@
-# test_fibo.rb
+# test_fibonacci.rb
 #                           wookay.noh at gmail.com
 
 def assert_equal expected, got

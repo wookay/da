@@ -2,6 +2,7 @@
 #                           wookay.noh at gmail.com
 
 require 'stringio'
+
 class Jam
   def initialize
     if ARGV.empty?
@@ -10,15 +11,24 @@ class Jam
       @in = open ARGV.first
     end
   end 
-  def feed rule=1
-    dataset_size = @in.readline.to_i
+
+  def parse rule
+    rule.call @in
+  end
+
+  def feed rule=1, options={}
+    if options[:dataset_size]
+      dataset_size = options[:dataset_size]
+    else
+      dataset_size = @in.readline.to_i
+    end
     if 0==dataset_size
       puts "#{$0} < input_data"
     end
     1.upto dataset_size do |case_num|
       case rule
       when Fixnum
-        lines_per_case = rule
+        line_size_per_case = rule
         if 1==line_size_per_case
           yield case_num, @in.readline
         else
