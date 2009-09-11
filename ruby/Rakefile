@@ -1,3 +1,4 @@
+# encoding: utf-8
 # Rakefile
 #                           wookay.noh at gmail.com
 
@@ -21,7 +22,7 @@ end
 def run_tests show_ret=false
   dirs = Dir["*.#{PROGRAM_EXTENSION}"].select{|file|file=~/^test/}
   dirs.each do |file|
-    ret = `#{PROGRAM_RUN} #{file}` 
+    ret = `#{PROGRAM_RUN} #{file}`.unpack('U*').pack('U*')
     if show_ret
       puts file
       ret.split("\n").each do |line|
