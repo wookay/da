@@ -54,4 +54,7 @@ class Rub < Fiber
   def send obj
     resume :method, obj
   end
+  def LF
+    resume :syntax, LF
+  end
 end
