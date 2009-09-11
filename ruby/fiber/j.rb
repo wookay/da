@@ -5,7 +5,7 @@ require 'fiber'
 
 JCONSOLE = '/Applications/j602/bin/jconsole'
 if not File.exists? JCONSOLE
-  puts "please download J http://www.jsoftware.com/"
+  puts "please download J : http://www.jsoftware.com/"
   exit
 end
 

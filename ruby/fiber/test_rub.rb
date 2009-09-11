@@ -10,6 +10,6 @@ end
 require 'rub'
 
 rub = Rub.new
-assert_equal 1 , rub.object(1)
-assert_equal SyntaxError, rub.send('+')
-assert_equal 3 , rub.object(2)
+assert_equal 1           , rub.object(1)
+assert_equal SyntaxError , rub.send('+')
+assert_equal 3           , rub.object(2)

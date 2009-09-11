@@ -1,7 +1,7 @@
 NB. test.ijs
 NB.                            wookay.noh at gmail.com
 
-assert_equals =. 3 : 0
+assert_equal =. 3 : 0
   if. =/ y do.
     stdout 'passed: '
     echo 1 {. y
@@ -16,9 +16,9 @@ assert_equals =. 3 : 0
 
 true =. 1
 
-assert_equals 1    , 1
-assert_equals 3    , 1+2
-assert_equals 'a'  , 'a'
-assert_equals true , 1=1
+assert_equal 1    , 1
+assert_equal 3    , 1+2
+assert_equal 'a'  , 'a'
+assert_equal true , 1=1
 
 exit''
