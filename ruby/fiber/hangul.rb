@@ -18,10 +18,13 @@ class Worker
           @text = pre.join.concat [last, char].johab
         when String
           @text.concat [last, char].johab
+        else
+          puts :eee
         end
       else
         @text.concat char 
       end
+      @text
     when :depose
       separated = @text.separate
       separated.pop
@@ -71,7 +74,7 @@ JUNGSUNG_OFFSET = 28
 JONGSUNG_DIVIDE = 28
 
 class String
-  def separate jamo=:all
+  def separate jamotype=:all # chosung anti_chosung
     separated = []
     self.unpack('U*').each do |c|
       n = (c & 0xFFFF).to_i
@@ -81,25 +84,26 @@ class String
         n = n % (21 * 28)  # '가' ~ '깋'에서의 순서
         n2 = n / 28;    # 중성
         n3 = n % 28;    # 종성
-        case jamo
+        case jamotype
         when :all
           separated << CHOSUNG[n1] << JUNGSUNG[n2]
           separated << JONGSUNG[n3] if not 0==n3
         when :chosung
           separated << CHOSUNG[n1]
-        when :jungsung
+        when :anti_chosung
           separated << JUNGSUNG[n2]
-        when :jongsung
           separated << JONGSUNG[n3] if not 0==n3
-        when :jongsung_with_nil
-          separated << JONGSUNG[n3]
         end
       else
-        case c
-        when Fixnum
-          separated << [c].pack('U')
+        case jamotype
+        when :chosung
         else
-          separated << c.to_a.pack('U')
+          case c
+          when Fixnum
+            separated << [c].pack('U')
+          else
+            separated << c.to_a.pack('U')
+          end
         end
       end
     end 
@@ -124,12 +128,21 @@ class String
 
     when :chosung_jungsung
       if CHOSUNG.include? self
+        hana = nil
         chosung = self
       else
-        chosung = self.separate.last
+        *hana, dul = self.separate
+        chosung = dul
       end
       char = 0xAC00 + CHOSUNG.index(chosung) * CHOSUNG_OFFSET + JUNGSUNG.index(ch) * JUNGSUNG_OFFSET
-      [char].pack('U')
+      chojung = [char].pack('U')
+      case hana
+      when nil
+        chojung 
+      when Array
+        [hana.johab, chojung]
+      end
+
     when :jungsung_jungsung
       if JUNGSUNG.include? self
         jungsung = self
@@ -164,22 +177,30 @@ class String
       when %w{ㅡ ㅣ}
         'ㅢ'
       end
+
     when :jungsung_jongsung
       if JUNGSUNG.include? self
-        [self, ch].join
+        [self, ch]
       else
-        char = 0xAC00 + JONGSUNG.index(ch) % JONGSUNG_DIVIDE
-        self.separate.each do |c|
-          if CHOSUNG.include? c
-            char += CHOSUNG.index(c) * CHOSUNG_OFFSET
-          elsif JUNGSUNG.include? c
-            char += JUNGSUNG.index(c) * JUNGSUNG_OFFSET
-          else #?
-            puts :c
+        if JONGSUNG.include? ch
+          char = 0xAC00 + JONGSUNG.index(ch) % JONGSUNG_DIVIDE
+          self.separate.each do |c|
+            if CHOSUNG.include? c
+              char += CHOSUNG.index(c) * CHOSUNG_OFFSET
+            elsif JUNGSUNG.include? c
+              char += JUNGSUNG.index(c) * JUNGSUNG_OFFSET
+            else #?
+              puts :c
+            end
           end
+          [char].pack('U')
         end
-        [char].pack('U')
       end
+
+    when :jongsung_jungsung
+      *separated, jongsung = self.separate
+      [separated.johab, [jongsung, ch].johab]
+
     when :jongsung_jongsung
       char = 0xAC00
       if JONGSUNG.include? self
@@ -246,6 +267,10 @@ class String
     JONGSUNG.include? self
   end
 end
+class NilClass
+  def jamo
+  end
+end
 
 class Cycle
   attr_accessor :char
@@ -259,25 +284,16 @@ class Array
     self.each do |current|
       case last.state
       when nil
-        case current.jamo
-        when nil
-          ary.push current
-          last.char = current
-          last.state = nil
-        when :jungsung
-          last.char = current
-          last.state = current.jamo
-        else
-          last.char = current
-          last.state = current.jamo
-        end
+        ary.push last.char
+        last.char = current
+        last.state = current.jamo
 
 
       when :chosung
         case current.jamo
         when nil
           ary.push last.char
-          last.char = nil
+          last.char = current
           last.state = nil
         when :chosung
           if last.char.combinable? :chosung_chosung, current
@@ -288,24 +304,46 @@ class Array
           end
           last.state = :chosung
         when :jungsung
-          last.char = last.char.combine :chosung_jungsung, current
-          last.state = :jungsung
+          comb = last.char.combine :chosung_jungsung, current
+          case comb
+          when Array
+            hana, dul = comb
+            ary.push hana
+            last.char = dul
+            last.state = :jungsung
+          when String
+            last.char = comb
+            last.state = :jungsung
+          end
         when :jonsung
           ary.push last.char
-          last.char = current.jamo
+          last.char = current
           last.state = :jongsung
         end
 
       when :jungsung
         case current.jamo
         when nil
+          ary.push last.char
+          last.char = current
+          last.state = nil
         when :chosung, :jongsung
-          if last.char.combinable? :jungsung_jongsung, current
+          comb = last.char.combine :jungsung_jongsung, current
+          case comb
+          when nil
+            last.char = current
+            last.state = :jongsung
+          when Array
+            hana, dul = comb
+            ary.push hana
+            last.char = dul
+            last.state = :chosung
+          when String
             last.char = last.char.combine :jungsung_jongsung, current
+            last.state = :jongsung
           else
             puts :c
           end
-          last.state = :jongsung
         when :jungsung
           if last.char.combinable? :jungsung_jungsung, current
             last.char = last.char.combine :jungsung_jungsung, current
@@ -321,10 +359,25 @@ class Array
         case current.jamo
         when nil
           ary.push last.char
-          ary.push current
-          last.char = nil
+          last.char = current
           last.state = nil
         when :jungsung
+          comb = last.char.combine :jongsung_jungsung, current
+          case comb
+          when nil
+            last.char = current
+            last.state = :jungsung
+          when Array
+            hana, dul = comb
+            ary.push hana
+            last.char = dul
+            last.state = :jungsung
+          when String
+            last.char = comb
+            last.state = :jungsung
+          else
+            puts :c
+          end
         when :chosung, :jongsung
           if last.char.combinable? :jongsung_jongsung, current
             last.char = last.char.combine :jongsung_jongsung, current
@@ -338,15 +391,11 @@ class Array
       end
     end
 
-    case last.state
-    when :chosung, :jungsung, :jongsung
-      ary.push last.char
-      last.state = nil
-    end
+    ary.push last.char
+    last.state = nil
     ary.join
   end 
 end
-
 
 
 __END__
@@ -356,6 +405,11 @@ def assert_equal expected, got
     "Assertion failed\nExpected: #{expected}\nGot: #{got}"
 end
 
+assert_equal %w{( ㅏ ㄱ )}, '(짝)'.separate(:anti_chosung)
+assert_equal '한', %w{ㅎ ㅏ ㄴ}.johab
+assert_equal '한그', %w{한ㄱ ㅡ}.johab
+assert_equal 'ㅐ오개ㅣㅗ', %w{ㅐ ㅇ ㅗ ㄱ ㅐ ㅣ ㅗ}.johab
+assert_equal 'ㅐ옥', %w{ㅐ ㅇ ㅗ ㄱ}.johab
 assert_equal '한', %w{하 ㄴ}.johab
 assert_equal '한그', %w{한ㄱ ㅡ}.johab
 assert_equal '그', %w{ㄱ ㅡ}.johab
