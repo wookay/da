@@ -31,6 +31,8 @@ class Worker
       result = separated.pop
       @text = separated.johab
       result
+    when :text
+      @text
     end
   end
 end
@@ -54,6 +56,9 @@ class Hangul < Fiber
   def pop
     resume :pop, nil
   end
+  def text
+    resume :text, nil
+  end
 end
 
 
@@ -65,9 +70,8 @@ CHOSUNG_OFFSET = 21 * 28
 JUNGSUNG_OFFSET = 28
 JONGSUNG_DIVIDE = 28
 
-
 class String
-  def separate
+  def separate jamo=:all
     separated = []
     self.unpack('U*').each do |c|
       n = (c & 0xFFFF).to_i
@@ -77,8 +81,19 @@ class String
         n = n % (21 * 28)  # '가' ~ '깋'에서의 순서
         n2 = n / 28;    # 중성
         n3 = n % 28;    # 종성
-        separated << CHOSUNG[n1] << JUNGSUNG[n2]
-        separated << JONGSUNG[n3] if not 0==n3
+        case jamo
+        when :all
+          separated << CHOSUNG[n1] << JUNGSUNG[n2]
+          separated << JONGSUNG[n3] if not 0==n3
+        when :chosung
+          separated << CHOSUNG[n1]
+        when :jungsung
+          separated << JUNGSUNG[n2]
+        when :jongsung
+          separated << JONGSUNG[n3] if not 0==n3
+        when :jongsung_with_nil
+          separated << JONGSUNG[n3]
+        end
       else
         case c
         when Fixnum
@@ -295,7 +310,8 @@ class Array
           if last.char.combinable? :jungsung_jungsung, current
             last.char = last.char.combine :jungsung_jungsung, current
           else
-            puts :c
+            ary.push last.char
+            last.char = current
           end
           last.state = :jungsung
         end
