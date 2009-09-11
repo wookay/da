@@ -2,26 +2,40 @@
 #                           wookay.noh at gmail.com
 
 require 'fiber'
+require 'timeout'
+
+LF = "\n"
 
 class Worker
   def initialize
+    @timeout = 0.1
     @code = ''
   end
   def feed datatype, obj
-    token = "#{obj}"
+    case datatype
+    when :keyword
+      token = "#{obj} "
+    else
+      token = "#{obj}"
+    end
     @code.concat token
+    result = nil
     begin
-      result = eval @code
+      status = Timeout::timeout @timeout do
+        result = eval @code
+      end
+      case datatype
+      when :object
+        case obj
+        when Fixnum
+          result = result.to_i
+        end
+      end
+    rescue SyntaxError => e
+      result = @code
     rescue Exception => e
       result = e.class
     end
-    case datatype
-    when :object
-      case obj
-      when Fixnum
-        result = result.to_i
-      end
-    end 
     result
   end
 end
@@ -35,6 +49,9 @@ class Rub < Fiber
         datatype, obj = Fiber.yield result
       end
     end
+  end
+  def keyword obj
+    resume :keyword, obj
   end
   def object obj
     resume :object, obj
