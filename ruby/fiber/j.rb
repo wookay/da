@@ -37,7 +37,11 @@ class Worker
       when /|value error:/
         result = @code
       when Fixnum
-        result = result.empty? ? nil : result = result.to_i
+        case result
+        when Timeout::Error
+        else
+          result = result.empty? ? nil : result = result.to_i
+        end
       end
     when :copula
       case obj
