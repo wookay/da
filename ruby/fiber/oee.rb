@@ -1,7 +1,9 @@
+#!/usr/bin/env ruby
 # encoding: utf-8
 # oee.rb
 #                           wookay.noh at gmail.com
 
+$LOAD_PATH.unshift "#{File.dirname __FILE__}"
 require 'hangul'
 
 class String
@@ -51,6 +53,7 @@ end
 
 
 
+puts STDIN.read.force_encoding("UTF-8").ㅓㅔㅔ if $0==__FILE__
 __END__
 
 def assert_equal expected, got

@@ -199,7 +199,11 @@ class String
 
     when :jongsung_jungsung
       *separated, jongsung = self.separate
-      [separated.johab, [jongsung, ch].johab]
+      if separated.empty?
+        [jongsung, ch]
+      else
+        [separated.johab, [jongsung, ch].johab]
+      end
 
     when :jongsung_jongsung
       char = 0xAC00
@@ -287,7 +291,6 @@ class Array
         ary.push last.char
         last.char = current
         last.state = current.jamo
-
 
       when :chosung
         case current.jamo
