@@ -22,7 +22,7 @@ EOF
     end
     ret
   end
-  def ㅏㅐㅐ
+  def ㅏㅔㅔ
     ret = ''
     self.split("\n").each_slice 2 do |cho_line, jungjong_line|
       line = cho_line.split(' ').zip(jungjong_line.split(' ')).map do |cho_word, jungjong_word|
@@ -63,11 +63,11 @@ assert_equal <<EOF, " (짝) ".ㅓㅔㅔ
 ㅉ
 (ㅏㄱ)
 EOF
-assert_equal "허경영\n", <<EOF.ㅏㅐㅐ
+assert_equal "허경영\n", <<EOF.ㅏㅔㅔ
 ㅎㄱㅇ
 ㅓㅕ영
 EOF
-assert_equal "넌 행복해지고\n", <<EOF.ㅏㅐㅐ
+assert_equal "넌 행복해지고\n", <<EOF.ㅏㅔㅔ
 ㄴ ㅎㅂㅎㅈㄱ
 ㅓㄴ ㅐ오개ㅣㅗ
 EOF

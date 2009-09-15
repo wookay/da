@@ -17,7 +17,7 @@ assert_equal <<EOF, '허경영'.ㅓㅔㅔ
 ㅎㄱㅇ
 ㅓㅕ영
 EOF
-assert_equal "허경영\n", <<EOF.ㅏㅐㅐ
+assert_equal "허경영\n", <<EOF.ㅏㅔㅔ
 ㅎㄱㅇ
 ㅓㅕ영
 EOF
