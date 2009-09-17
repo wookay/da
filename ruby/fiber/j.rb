@@ -37,8 +37,7 @@ class Worker
       when /|value error:/
         result = @code
       when Fixnum
-        case result
-        when Timeout::Error
+        if Timeout::Error == result
         else
           result = result.empty? ? nil : result = result.to_i
         end
