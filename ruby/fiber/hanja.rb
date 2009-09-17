@@ -94,6 +94,15 @@ end
 
 class String
   def self.include_HanjaCalculus
+    def - char
+      separated = self.hanja_separate
+      if separated.include? char
+        separated.delete_at separated.index(char)
+        separated.hanja_johab
+      else
+        self
+      end
+    end
     def + char
       if self.empty?
         char
@@ -120,6 +129,15 @@ class HanjaObject
   end
   def + char
     (self.ary + [char]).hanja_johab
+  end
+  def - char
+    separated = self.ary
+    if separated.include? char
+      separated.delete_at separated.index(char)
+      separated.hanja_johab
+    else
+      self
+    end
   end
 end
 

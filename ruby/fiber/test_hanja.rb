@@ -28,6 +28,10 @@ assert_equal '⼇⼳', hanja.depose
 assert_equal '鉉', hanja.compose('⾦')
 
 String.include_HanjaCalculus
-assert_equal '林', '⽊'+'⽊'
-assert_equal '林', '⽊'*2
-assert_equal '鉉', '⾦'+'⼇'+'⼳'
+assert_equal '林'   , '⽊'+'⽊'
+assert_equal '林'   , '⽊'*2
+assert_equal '鉉'   , '⾦'+'⼇'+'⼳'
+assert_equal '⽊'   , '林'-'⽊'
+assert_equal '⼇⼳' , ('鉉'-'⾦').join
+assert_equal '⾦'   , '鉉'-'⼇'-'⼳'
+assert_equal nil    , '鉉'-'⼇'-'⼳'-'⾦'
