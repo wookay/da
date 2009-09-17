@@ -23,7 +23,8 @@ end
 if defined? USE_TEST_DIC
   HANJA_DIC = { 
     0x6797 => [12106, 12106],
-    0x660E => [12103, 12105]
+    0x660E => [12103, 12105],
+    0x9249 => [12039, 12083, 12198]
   }
 else
   HANJA_DIC = get_hanja_dic
@@ -37,24 +38,25 @@ class Worker
   def feed pose, char
     case pose
     when :compose
-      *pre, last = @text.split ''
-      if last
-        case pre
-        when Array
-          @text = pre.join.concat [last, char].hanja_johab
-        when String
-          @text.concat [last, char].hanja_johab
-        else
-          puts :eee
-        end
+      separated = @text.hanja_separate
+      case separated.size
+      when 0
+        @text.concat char
       else
-        @text.concat char 
+        johab = (separated + [char]).hanja_johab
+        @text = johab
       end
       @text
     when :depose
       separated = @text.hanja_separate
       separated.pop
-      @text = separated.hanja_johab
+      johab = separated.hanja_johab
+      case johab
+      when HanjaObject
+        @text = johab.join
+      else
+        @text = johab
+      end
     when :pop
       separated = @text.hanja_separate
       result = separated.pop
@@ -90,20 +92,6 @@ class Hanja < Fiber
   end
 end
 
-
-class String
-  def hanja_separate
-    ret = []
-    self.unpack('U*').each do |k|
-      v = HANJA_DIC[k]
-      v.each do |x|
-        ret.push [x].pack('U')
-      end
-    end
-    ret
-  end
-end
-
 class String
   def self.include_HanjaCalculus
     def + char
@@ -125,20 +113,52 @@ class String
   end
 end
 
+HanjaObject = Struct.new :ary
+class HanjaObject
+  def join
+    self.ary.join
+  end
+  def + char
+    (self.ary + [char]).hanja_johab
+  end
+end
+
+
+class String
+  def hanja_separate
+    ret = []
+    self.unpack('U*').each do |k|
+      v = HANJA_DIC[k]
+      if v
+        v.each do |x|
+          ret.push [x].pack('U')
+        end
+      else
+        ret.push [k].pack('U')
+      end
+    end
+    ret
+  end
+end
+
 class Array
   def hanja_johab
-    a, b = self
-    found = ''
-    if b
-      s = [a.unpack('U').first, b.unpack('U').first].sort
+    found = nil
+    case self.size
+    when 0
+    when 1
+      found = first
+    else 
+      s = self.map { |x| x.unpack('U').first }.sort
       HANJA_DIC.each do |k, v|
         if v == s
           found = [k].pack('U')
           break
         end
       end
-    elsif a
-      found = a
+      if not found
+        found = HanjaObject.new self
+      end
     end
     found
   end
