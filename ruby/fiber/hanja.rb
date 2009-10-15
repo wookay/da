@@ -20,14 +20,28 @@ def get_hanja_dic
   hash
 end
 
+def get_hanja_hangul_dic
+  hash = {}
+  open('hanja_utf8_hangul.txt', 'r:utf-8').readlines.map do |line|
+    hanja, unicode, hangul, _ = line[1..-1].split('",').map{|x|x.gsub('"','')}
+    hash[hanja] = hangul if unicode[0]=='U'
+  end
+  hash
+end
+
 if defined? USE_TEST_DIC
   HANJA_DIC = { 
     0x6797 => [12106, 12106],
     0x660E => [12103, 12105],
     0x9249 => [12039, 12083, 12198]
   }
+  HANJA_HANGUL_DIC = {
+    '明'   => '명'
+  }
 else
+  USE_TEST_DIC = true
   HANJA_DIC = get_hanja_dic
+  HANJA_HANGUL_DIC = get_hanja_hangul_dic
 end
 
 
@@ -57,6 +71,12 @@ class Worker
       else
         @text = johab
       end
+    when :hangul
+      @text.unpack('U*').map do |ch|
+        hanja = [ch].pack('U')
+        found = HANJA_HANGUL_DIC[hanja]
+        found ? found : hanja
+      end.join
     when :pop
       separated = @text.hanja_separate
       result = separated.pop
@@ -89,6 +109,9 @@ class Hanja < Fiber
   end
   def text
     resume :text, nil
+  end
+  def to_hangul
+    resume :hangul, nil
   end
 end
 

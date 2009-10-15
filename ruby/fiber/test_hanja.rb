@@ -23,6 +23,11 @@ assert_equal '明', hanja.compose('⽉')
 assert_equal '⽇', hanja.depose
 
 hanja = Hanja.new
+assert_equal '⽇', hanja.compose('⽇')
+assert_equal '明', hanja.compose('⽉')
+assert_equal '명', hanja.to_hangul
+
+hanja = Hanja.new
 assert_equal '鉉', hanja.compose('鉉')
 assert_equal '⼇⼳', hanja.depose
 assert_equal '鉉', hanja.compose('⾦')
