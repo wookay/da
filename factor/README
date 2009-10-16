@@ -1,2 +1,9 @@
 Factor
 http://factorcode.org/
+
+
+$ factor test.factor 
+passed: 1
+passed: 3
+passed: a
+passed: t

@@ -37,14 +37,19 @@ USING: kernel tools.test math ;
 [ [ 1 2 + ]         ] [ [ + ] [ 1 2 ] prepose          ] unit-test
 [ [ 2 3 + ]         ] [ 2 3 [ + ] 2curry               ] unit-test
 [ [ 3 4 5 + ]       ] [ 3 4 5 [ + ] 3curry             ] unit-test
-[ [ + - * ]         ] [ [ + ] [ - ] [ * ] 3compose     ] unit-test
                                                        
+[                   ] [ [ ] call                       ] unit-test
 [ 5                 ] [ [ 2 3 + ] call                 ] unit-test
 [ 1 2 3 1           ] [ 1 [ 2 3 ] keep                 ] unit-test
 [ 1 5 4             ] [ 1 2 3 4  [ + ] dip             ] unit-test
-[ 3 0               ] [ 1 2 [ + ] 0 slip               ] unit-test
-[ 1 2 7 0           ] [ 1 2 [ 3 4 + ] 0 slip           ] unit-test
 [ 15                ] [ 2 3 [ + ] [ * ] bi             ] unit-test
+
+! mnestic told me kindly, thanks
+[ 2 3               ] [ 1 [ 1 + ] [ 2 + ] bi           ] unit-test
+[ 2 4               ] [ 1 2 [ 1 + ] [ 2 + ] bi*        ] unit-test
+[ 2 3               ] [ 1 2 [ 1 + ] bi@                ] unit-test
+
+
 [ 20                ] [ 2 3 4 [ + ] [ * ] bi*          ] unit-test
 [ 0 1 2 12          ] [ 0 1 2 3 4 5 [ + ] bi@          ] unit-test
 [ 1 2 20            ] [ 1 2 3 4 [ * ] [ + ] [ + ] tri  ] unit-test
@@ -53,14 +58,12 @@ USING: kernel tools.test math ;
                                                      
 [ 5 2 3             ] [ 2 3 [ + ] 2keep                ] unit-test
 [ 5 4 5             ] [ 2 3 4 5 [ + ] 2dip             ] unit-test
-[ 5 0 0             ] [ 2 3 [ + ] 0 0 2slip            ] unit-test
 [ 5 6               ] [ 2 3 [ + ] [ * ] 2bi            ] unit-test
 [ 5 20              ] [ 2 3 4 5 [ + ] [ * ] 2bi*       ] unit-test
 [ 5 9               ] [ 2 3 4 5 [ + ] 2bi@             ] unit-test
 [ 5 -1 6            ] [ 2 3 [ + ] [ - ] [ * ] 2tri     ] unit-test
                                                        
 [ 3 9 3 4 5         ] [ 3 4 5 [ + ] 3keep              ] unit-test
-[ 5 0 0 0           ] [ 2 3 [ + ] 0 0 0 3slip          ] unit-test
 [ 3 9 3 20          ] [ 3 4 5 [ + ] [ * ] 3bi          ] unit-test
 [ 3 9 3 -1 3 20     ] [ 3 4 5 [ + ] [ - ] [ * ] 3tri   ] unit-test
 
