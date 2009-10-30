@@ -1,9 +1,0 @@
-Oo
-http://github.com/wookay/da/tree/master/oo
-
-
-$ ./oo test.oo
-passed: 1
-passed: 3
-passed: a
-passed: true
