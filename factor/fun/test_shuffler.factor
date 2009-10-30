@@ -43,6 +43,7 @@ USING: kernel tools.test math ;
 [ 1 2 3 1           ] [ 1 [ 2 3 ] keep                 ] unit-test
 [ 1 5 4             ] [ 1 2 3 4  [ + ] dip             ] unit-test
 [ 15                ] [ 2 3 [ + ] [ * ] bi             ] unit-test
+[ 15                ] [ 2 3 + 3 *                      ] unit-test
 
 ! mnestic told me kindly, thanks
 [ 2 3               ] [ 1 [ 1 + ] [ 2 + ] bi           ] unit-test

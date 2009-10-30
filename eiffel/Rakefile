@@ -1,9 +1,8 @@
-# encoding: utf-8
 # Rakefile
 #                           wookay.noh at gmail.com
 
-PROGRAM_RUN = '/Applications/factor/factor'
-PROGRAM_EXTENSION = 'factor'
+PROGRAM_COMPILE = 'se c' 
+PROGRAM_EXTENSION = 'e'
 
 task :default do
   sh "rake -T"
@@ -22,7 +21,8 @@ end
 def run_tests show_ret=false
   dirs = Dir["*.#{PROGRAM_EXTENSION}"].select{|file|file=~/^test/}
   dirs.each do |file|
-    ret = `#{PROGRAM_RUN} #{file}`.unpack('U*').pack('U*')
+    output = file.gsub(".#{PROGRAM_EXTENSION}", '')
+    ret = `#{PROGRAM_COMPILE} #{file} -o #{output}; ./#{output}; rm #{output} #{output}.id *.h *.o *.c`
     if show_ret
       puts file
       ret.split("\n").each do |line|
@@ -31,10 +31,10 @@ def run_tests show_ret=false
     else
       print "#{file.ljust dirs.map{|x|x.size}.max}  "
     end
-    passed = ret.scan(/^Unit Test: /).size
-    failed_message = ret.split("\n").reject{|line|line =~ /^Unit Test: /}
-    failed = failed_message.select{|line|line =~ /^=== Expected:/}.size
-    puts "\n#{failed_message.join"\n"}" if failed > 0
+    passed = ret.scan(/^passed: /).size
+    failed_message = ret.split("\n").reject{|line|line =~ /^passed/}
+    failed = failed_message.select{|line|line =~ /^Assertion failed/}.size
+    puts "\n#{failed_message.join"\n"}" if not failed_message.empty?
     puts "OK, passed #{passed} test#{'s' if passed > 1}."
     puts "Oops, failed #{failed} test#{'s' if failed > 1}." if failed > 0
   end

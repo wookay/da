@@ -65,6 +65,10 @@ class Hangul < Fiber
 end
 
 
+CHOSUNG_ENGLISH = %w{r R s e E f a q Q t T o w W c z x v g}
+JUNGSUNG_ENGLISH = %w{k o i O j p u P h hk ho hl y n nj np nl b m ml l}
+JONGSUNG_ENGLISH = [nil] + %w{r R rt s sw sg e f fr fa fq ft fx fv fg a q qt t T d w c z x v g}
+
 CHOSUNG = %w{ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ}
 JUNGSUNG = %w{ㅏ ㅐ ㅑ ㅒ ㅓ ㅔ ㅕ ㅖ ㅗ ㅘ ㅙ ㅚ ㅛ ㅜ ㅝ ㅞ ㅟ ㅠ ㅡ ㅢ ㅣ}
 JONGSUNG = [nil] + %w{ㄱ ㄲ ㄳ ㄴ ㄵ ㄶ ㄷ ㄹ ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ ㅁ ㅂ ㅄ ㅅ ㅆ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ}

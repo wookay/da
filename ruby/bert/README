@@ -1,0 +1,8 @@
+http://github.com/blog/531-introducing-bert-and-bert-rpc
+
+
+$ ernie -p 9999 -n 10 -h calc.rb
+...
+
+$ ruby rpc.rb
+3

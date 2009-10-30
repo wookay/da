@@ -1,0 +1,8 @@
+Eiffel
+http://smarteiffel.loria.fr/
+
+
+$ se c test.e -o test
+$ ./test
+passed: 1
+passed: 3
