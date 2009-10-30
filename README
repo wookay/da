@@ -2,14 +2,13 @@ da
 ==
 
 
-              eiffel/       javascript/   pari_gp/      scala/
-actionscript/ erlang/       joy/          pascal/       scheme/
-ada/          factor/       lisp/         pcastl/       scratch/
-algol/        forth/        lolcode/      perl/         slang/
-applescript/  fortran/      lua/          php/          smalltalk/
-bash/         fsharp/       mathematica/  potion/       snobol/
-basic/        haskell/      maxmsp/       prolog/       squeak/
-c/            icon/         objc/         python/
-clojure/      io/           ocaml/        r/
-cpp/          j/            octave/       rebol/
-csharp/       java/         oo/           ruby/
+              csharp/       j/            ocaml/        r/
+actionscript/ eiffel/       java/         octave/       rebol/
+ada/          erlang/       javascript/   pari_gp/      ruby/
+algol/        factor/       joy/          pascal/       scala/
+applescript/  forth/        lisp/         pcastl/       scheme/
+bash/         fortran/      lolcode/      perl/         scratch/
+basic/        fsharp/       lua/          php/          slang/
+c/            haskell/      mathematica/  potion/       smalltalk/
+clojure/      icon/         maxmsp/       prolog/       snobol/
+cpp/          io/           objc/         python/       squeak/
