@@ -14,11 +14,16 @@ USING: kernel tools.test math ;
   [ 3 9 9 9    ] [ 1 2 9 9 9 [ + ] 3dip    ] unit-test
   [ 3 9 9 9 9  ] [ 1 2 9 9 9 9 [ + ] 4dip  ] unit-test
 
+  [ 1 2 [ + ]  ] [ 1 [ + ] [ 2 ] dip       ] unit-test
+  [ 1 [ 2 ]    ] [ 0 1 [ 2 ] [ + ] dip     ] unit-test
+
   [ 11 6       ] [ 5 6 [ + ] keep          ] unit-test
   [ 11 5 6     ] [ 5 6 [ + ] 2keep         ] unit-test
   [ 4 11 6     ] [ 4 5 6 [ + ] keep        ] unit-test
   [ 4 11 5 6   ] [ 4 5 6 [ + ] 2keep       ] unit-test
   [ 4 11 4 5 6 ] [ 4 5 6 [ + ] 3keep       ] unit-test
+
+  [ 5 [ + ] 6 [ + ] ] [ 5 [ + ] [ 6 ] keep ] unit-test
 
   ! cleave combinators : bi
   [ 8 9        ] [ 6 [ 2 + ] [ 3 + ] bi    ] unit-test

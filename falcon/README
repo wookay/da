@@ -1,0 +1,9 @@
+Falcon
+http://falconpl.org
+
+
+$ falcon test.fal
+passed: 1
+passed: 3
+passed: a
+passed: true
