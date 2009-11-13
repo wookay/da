@@ -54,23 +54,3 @@ end
 
 
 puts STDIN.read.force_encoding("UTF-8").ㅓㅔㅔ if $0==__FILE__
-__END__
-
-def assert_equal expected, got
-  puts expected == got ?
-    "passed: #{expected.inspect}" :
-    "Assertion failed\nExpected: #{expected.inspect}\nGot: #{got.inspect}"
-end
-
-assert_equal <<EOF, " (짝) ".ㅓㅔㅔ
-ㅉ
-(ㅏㄱ)
-EOF
-assert_equal "허경영\n", <<EOF.ㅏㅔㅔ
-ㅎㄱㅇ
-ㅓㅕ영
-EOF
-assert_equal "넌 행복해지고\n", <<EOF.ㅏㅔㅔ
-ㄴ ㅎㅂㅎㅈㄱ
-ㅓㄴ ㅐ오개ㅣㅗ
-EOF
