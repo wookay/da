@@ -1,9 +1,12 @@
 #! core.sequences
 #!                               wookay.noh at gmail.com
 
-USING: sequences sequences.private ;
+USING: sequences sequences.private kernel ;
 USING: math ;
 USING: tools.test ; #! unit-test
+
+[ 1 ] [ t [ 1 ] [ 2 ] if ] unit-test 
+[ 2 ] [ f [ 1 ] [ 2 ] if ] unit-test 
 
 [ 1 ] [ { } [ 1 ] [ 2 ] if-empty ] unit-test 
 [ 1 ] [ "" [ 1 ] [ 2 ] if-empty ] unit-test 
