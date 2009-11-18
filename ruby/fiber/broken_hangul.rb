@@ -1,3 +1,4 @@
+# encoding: utf-8
 # broken_hangul.rb
 #                           wookay.noh at gmail.com
 
@@ -21,4 +22,13 @@ def recover_typing_dubul_in_english_keyboard str
     hangul.compose ch
   end
   hangul.text
+end
+
+require 'cgi'
+def recover_escaped_utf8 str
+  CGI.unescape(str)
+end
+def recover_escaped_cp949 str
+  cp949 = CGI.unescape(str).unpack('C*').pack('U*')
+  recover_cp949_encoding_iso8859_decode cp949
 end

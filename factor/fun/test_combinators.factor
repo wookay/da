@@ -1,10 +1,15 @@
-USING: kernel tools.test math ;
+USING: kernel tools.test math sequences ;
+IN: test_combinators
 
-! fundamental combinators : call
+! fundamental combinators : call execute(
 [ 3            ] [ [ 1 2 + ] call              ] unit-test
 [ 3            ] [ 1 [ 2 + ] call              ] unit-test
 [ 3            ] [ 1 2 [ + ] call              ] unit-test
 [ 3            ] [ 1 2 + [ ] call              ] unit-test
+
+: three ( -- n ) 3 ;
+[ { 3 3 }      ] [ { three three } [ execute ( -- n ) ] map ] unit-test
+
 
 
 ! data flow combinators
