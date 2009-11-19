@@ -29,15 +29,31 @@ ALIAS: 추가       append
 ALIAS: 追加       append
 ALIAS: 추가(追加) append
 
+ALIAS: 분리       cut
+ALIAS: 分離       cut
+ALIAS: 분리(分離) cut
+
 USING: kernel ;
+ALIAS: 이단       bi
+ALIAS: 二段       bi
+ALIAS: 이단(二段) bi
+
+ALIAS: 이단*       bi*
+ALIAS: 二段*       bi*
+ALIAS: 이단(二段)* bi*
+
+ALIAS: 삼단       tri
+ALIAS: 三段       tri
+ALIAS: 삼단(三段) tri
+
 ALIAS: 부정       not
 ALIAS: 否定       not
 ALIAS: 부정(否定) not
 
 USING: splitting ;
-ALIAS: 절단       split
-ALIAS: 切斷       split
-ALIAS: 절단(切斷) split
+ALIAS: 분할       split
+ALIAS: 分割       split
+ALIAS: 분할(分割) split
 
 USING: tools.test ;
 : 시험       ( quot quot -- ) unit-test ;
