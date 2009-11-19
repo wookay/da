@@ -40,6 +40,6 @@ ALIAS: 切斷       split
 ALIAS: 절단(切斷) split
 
 USING: tools.test ;
-: 시도       ( quot quot -- ) unit-test ;
-: 試圖       ( quot quot -- ) unit-test ;
-: 시도(試圖) ( quot quot -- ) unit-test ;
+: 시험       ( quot quot -- ) unit-test ;
+: 試驗       ( quot quot -- ) unit-test ;
+: 시험(試驗) ( quot quot -- ) unit-test ;
