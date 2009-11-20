@@ -16,12 +16,16 @@ end
 
 require 'hangul'
 def recover_typing_dubul_in_english_keyboard str
-  dubul = map_english_to_dubul(str)
-  hangul = Hangul.new
-  dubul.each do |ch|
-    hangul.compose ch
-  end
-  hangul.text
+  map_english_to_dubul(str).johab
+end
+def recover_typing_sebul_in_english_keyboard str
+  map_english_to_sebul(str).johab
+end
+def recover_typing_english_in_dubul_keyboard str
+  map_dubul_to_english str
+end
+def recover_typing_english_in_sebul_keyboard str
+  map_sebul_to_english str
 end
 
 require 'cgi'

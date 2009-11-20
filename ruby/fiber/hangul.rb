@@ -65,19 +65,40 @@ class Hangul < Fiber
 end
 
 
-CHOSUNG_ENGLISH = %w{r R s e E f a q Q t T o w W c z x v g}
-JUNGSUNG_ENGLISH = %w{k o i O j p u P h hk ho hl y n nj np nl b m ml l}
-JONGSUNG_ENGLISH = [nil] + %w{r R rt s sw sg e f fr fa fq ft fx fv fg a q qt t T d w c z x v g}
+DUBUL_CHOSUNG_ENGLISH = %w{r R s e E f a q Q t T o w W c z x v g}
+DUBUL_JUNGSUNG_ENGLISH = %w{k o i O j p u P h hk ho hl y n nj np nl b m ml l}
+DUBUL_JONGSUNG_ENGLISH = [nil] + %w{r R rt s sw sg e f fr fa fq ft fx fv fg a q qt t T d w c z x v g}
+
+SEBUL_CHOSUNG_ENGLISH = %w{k kk h u uu y i ; ;; n nn j l ll o 0 ' p m}
+SEBUL_JUNGSUNG_ENGLISH = %w{f r 6 G t c e 7 v vf vr vd 4 b bt bc bd 5 g 8 d}
+SEBUL_JONGSUNG_ENGLISH = [nil] + %w{x ! V s E S A w @ F D T % $ R z 3 X q 2 a # Z C W Q 1}
+
 CHOSUNG = %w{ㄱ ㄲ ㄴ ㄷ ㄸ ㄹ ㅁ ㅂ ㅃ ㅅ ㅆ ㅇ ㅈ ㅉ ㅊ ㅋ ㅌ ㅍ ㅎ}
 JUNGSUNG = %w{ㅏ ㅐ ㅑ ㅒ ㅓ ㅔ ㅕ ㅖ ㅗ ㅘ ㅙ ㅚ ㅛ ㅜ ㅝ ㅞ ㅟ ㅠ ㅡ ㅢ ㅣ}
 JONGSUNG = [nil] + %w{ㄱ ㄲ ㄳ ㄴ ㄵ ㄶ ㄷ ㄹ ㄺ ㄻ ㄼ ㄽ ㄾ ㄿ ㅀ ㅁ ㅂ ㅄ ㅅ ㅆ ㅇ ㅈ ㅊ ㅋ ㅌ ㅍ ㅎ}
 
-DUBUL_TABLE = Hash[ [CHOSUNG_ENGLISH+JUNGSUNG_ENGLISH+JONGSUNG_ENGLISH,CHOSUNG+JUNGSUNG+JONGSUNG].transpose ]
+DUBUL_TABLE = Hash[ [DUBUL_CHOSUNG_ENGLISH+DUBUL_JUNGSUNG_ENGLISH+DUBUL_JONGSUNG_ENGLISH,CHOSUNG+JUNGSUNG+JONGSUNG].transpose ]
+SEBUL_TABLE = Hash[ [SEBUL_CHOSUNG_ENGLISH+SEBUL_JUNGSUNG_ENGLISH+SEBUL_JONGSUNG_ENGLISH,CHOSUNG+JUNGSUNG+JONGSUNG].transpose ].merge(Hash[*%w{/ ㅗ 9 ㅜ & “ * ” ( ' ) ~ - ) _ ; = > \\ : | ￦ H 0 J 1 K 2 L 3 : 4 Y 5 U 6 I 7 O 8 P 9 [ ( \{ % ] < \} / " · ^ = B ? N - M " < , > . ? ! ` * ~ ※}])
 
 def map_english_to_dubul str
   str.scan(/./).map do |ch|
     DUBUL_TABLE[ch] or ch
   end
+end
+def map_english_to_sebul str
+  str.scan(/./).map do |ch|
+    SEBUL_TABLE[ch] or ch
+  end
+end
+def map_dubul_to_english str
+  str.separate.map do |ch|
+    DUBUL_TABLE.key(ch) or ch
+  end.join
+end
+def map_sebul_to_english str
+  str.separate.map do |ch|
+    SEBUL_TABLE.key(ch) or ch
+  end.join
 end
 
 JOSA = {'이' => '가', '은' => '는', '을' => '를', '과' => '와', '으로' => '로'}
