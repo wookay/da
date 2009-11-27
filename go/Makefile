@@ -4,4 +4,6 @@ GOFILES=test.go
 include $(GOROOT)/src/Make.cmd
 
 p:
+	@make > /dev/null
 	@./test
+	@rm *.8 test

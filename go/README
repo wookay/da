@@ -7,3 +7,4 @@ $ 8l -o test _go_.8
 $ ./test
 passed: 1
 passed: 3
+passed: 1
