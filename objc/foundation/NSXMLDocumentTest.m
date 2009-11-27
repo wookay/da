@@ -7,6 +7,7 @@
 
 - (void) unittest {
 
+#if ! TARGET_CPU_X86
   id xml = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\
 <topic name=\"SmallTalk\" normalized-name=\"smalltalk\" usual-name=\"Smalltalk\">\
     <degree plus=\"40\" minus=\"0\" total=\"40\" />\
@@ -24,6 +25,7 @@
   nodes = [doc nodesForXPath:@"//@normalized-name" error:&err];
   [assert_equal a:@"smalltalk" b:[[nodes objectAtIndex:0] stringValue]];
   [doc release];
+#endif
 
 }
 

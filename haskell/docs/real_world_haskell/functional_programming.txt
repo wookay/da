@@ -1,0 +1,13 @@
+-- Real World Haskellby Bryan O'Sullivan, Don Stewart, and John Goerzen
+-- Chapter 4. Functional programming
+-- http://book.realworldhaskell.org/read/functional-programming.html
+
+Prelude> :module +Data.List
+Prelude Data.List> 
+
+Prelude> :type odd
+odd :: (Integral a) => a -> Bool
+Prelude> :type filter
+filter :: (a -> Bool) -> [a] -> [a]
+Prelude> filter odd [1,2,3,4,5]
+[1,3,5]

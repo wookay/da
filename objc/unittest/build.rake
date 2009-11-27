@@ -1,7 +1,14 @@
 # build.rake
 #                           wookay.noh at gmail.com
 
+IPHONE_SDK = "3.1.2"
+
 DEPLOY="/deploy/var/mobile/"
+
+def cmd command
+  puts command
+  sh command
+end
 
 if defined? DIR
   APP=DIR.split('/').last
@@ -20,12 +27,12 @@ if defined? DIR
   if defined? BUILD_ARM
     task :arm do end
   else
-    desc "build with iPhoneOS2.2.sdk"
+    desc "build with iPhoneOS#{IPHONE_SDK}.sdk"
     task :arm => :arm_link do
     end
   end
 
-  desc "build with iPhoneSimulator2.2.sdk"
+  desc "build with iPhoneSimulator#{IPHONE_SDK}.sdk"
   task :mac => :mac_link do
   end
 
@@ -60,14 +67,14 @@ if defined? DIR
   else
     desc "deploy arm to #{DEPLOY}"
     task :deploy => :arm do
-      sh "cp #{DIR}/#{APP}_arm_test #{DEPLOY}"
+      cmd "cp #{DIR}/#{APP}_arm_test #{DEPLOY}"
     end
   end
 
   desc "clean up"
   task :clean do
     CLEANUP=nil if not defined? CLEANUP
-    sh "rm -f #{APP}_arm_test #{APP}_mac_test* #{UNITTEST.o} #{CLEANUP} *.o"
+    cmd "rm -f #{APP}_arm_test #{APP}_mac_test* #{UNITTEST.o} #{CLEANUP} *.o"
   end
 else
   dirs = Dir["*"].select{|dir| not IGNORE_FILES.include? dir }
@@ -77,21 +84,21 @@ else
 
   task :all do
     dirs.each do |dir|
-      sh "cd #{dir} && rake all"
+      cmd "cd #{dir} && rake all"
     end
   end
 
-  desc "build with iPhoneSimulator2.2.sdk"
+  desc "build with iPhoneSimulator#{IPHONE_SDK}.sdk"
   task :mac do
     dirs.each do |dir|
-      sh "cd #{dir} && rake mac"
+      cmd "cd #{dir} && rake mac"
     end
   end
 
-  desc "build with iPhoneOS2.2.sdk"
+  desc "build with iPhoneOS#{IPHONE_SDK}.sdk"
   task :arm do
     dirs.each do |dir|
-      sh "cd #{dir} && rake arm"
+      cmd "cd #{dir} && rake arm"
     end
   end
 
@@ -113,7 +120,7 @@ else
   desc "deploy arm to #{DEPLOY}"
   task :deploy => :arm do
     dirs.each do |dir|
-      sh "cd #{dir} && rake deploy"
+      cmd "cd #{dir} && rake deploy"
     end
 	arm_tests = Dir['*/*arm_test'].map do |f|
       './' + f.split('/').last
@@ -136,7 +143,7 @@ EOF
   desc "clean up"
   task :clean do
     dirs.each do |dir|
-      sh "cd #{dir} && rake clean"
+      cmd "cd #{dir} && rake clean"
     end
   end
 end
@@ -145,11 +152,11 @@ FRAMEWORKS=%w{Foundation} if not defined? FRAMEWORKS
 FRAMEWORK=FRAMEWORKS.map{|f|" -framework #{f} "}.join ' '
 
 ARM_CC="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.0"
-ARM_SYSROOT="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk"
-ARM_CFLAGS="-x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot #{ARM_SYSROOT} -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=2.2"
-ARM_LDFLAGS="-arch armv6 -isysroot #{ARM_SYSROOT} -mmacosx-version-min=10.5 -Wl,-dead_strip -miphoneos-version-min=2.2 #{FRAMEWORK}"
+ARM_SYSROOT="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS#{IPHONE_SDK}.sdk"
+ARM_CFLAGS="-x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot #{ARM_SYSROOT} -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=#{IPHONE_SDK}"
+ARM_LDFLAGS="-arch armv6 -isysroot #{ARM_SYSROOT} -mmacosx-version-min=10.5 -Wl,-dead_strip -miphoneos-version-min=#{IPHONE_SDK} #{FRAMEWORK}"
 MAC_CC="/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/gcc-4.0"
-MAC_SYSROOT="/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator2.2.sdk"
+MAC_SYSROOT="/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator#{IPHONE_SDK}.sdk"
 MAC_CFLAGS="-x objective-c -arch i386 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -D__IPHONE_OS_VERSION_MIN_REQUIRED=20000 -isysroot #{MAC_SYSROOT} -fvisibility=hidden -mmacosx-version-min=10.5 -gdwarf-2"
 MAC_LDFLAGS="-arch i386 -isysroot #{MAC_SYSROOT} -mmacosx-version-min=10.5 #{FRAMEWORK}"
 
@@ -174,12 +181,13 @@ class Builder
 
   def compile objs=[] 
     objs.each do |obj|
+      puts "objm #{obj.m}"
       if should_compile? obj
         case arch
         when :mac
-          sh "#{MAC_CC} -c #{MAC_CFLAGS} #{obj.m} -o #{obj.mac.o}" 
+          cmd "#{MAC_CC} -c #{MAC_CFLAGS} #{obj.m} -o #{obj.mac.o}" 
         when :arm
-          sh "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
+          cmd "#{ARM_CC} -c #{ARM_CFLAGS} #{obj.m} -o #{obj.arm.o}" 
         end
       end
     end
@@ -200,7 +208,7 @@ class Builder
     if should_link? app, objs
       case arch
       when :mac
-        sh "#{MAC_CC} #{MAC_LDFLAGS} -o #{app} #{objs_arch_o}"
+        cmd "#{MAC_CC} #{MAC_LDFLAGS} -o #{app} #{objs_arch_o}"
         if dyld_fallback?
           ENV['DYLD_FALLBACK_FRAMEWORK_PATH']="#{MAC_SYSROOT}/System/Library/Frameworks"
           open "#{app}.sh", 'w' do |f|
@@ -210,10 +218,10 @@ class Builder
 #{passed}DYLD_FALLBACK_FRAMEWORK_PATH="#{MAC_SYSROOT}/System/Library/Frameworks" #{DIR}/#{app}
 EOF
           end
-          sh "chmod +x #{app}.sh"
+          cmd "chmod +x #{app}.sh"
         end
       when :arm
-        sh "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
+        cmd "#{ARM_CC} #{ARM_LDFLAGS} -o #{app} #{objs_arch_o}"
       end
     end
   end
@@ -247,17 +255,21 @@ class String
       self + '.arm'
     end
   end
+  def regularize
+    gsub('["','').gsub('"]','')
+  end
   def m
-    if self=~/\.c$/
-      self
-    elsif self=~/\.m$/
-      self
+    file = self.regularize
+    if file=~/\.c$/
+      file
+    elsif file=~/\.m$/
+      file
     else
-      self + '.m'
+      file + '.m'
     end
   end
   def o
-    self + '.o'
+    self.regularize + '.o'
   end
 end
 

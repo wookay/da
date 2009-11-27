@@ -15,3 +15,4 @@ IN: test
 3   1 2 + assert_equal 
 "a" "a"   assert_equal 
 t   1 1 = assert_equal
+1   1 3 / 1 3 / 1 3 / + + assert_equal

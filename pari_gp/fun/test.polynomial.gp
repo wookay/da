@@ -34,7 +34,7 @@ assert_equal( 45             , D6(5)         )
 assert_equal( Pi/6            , Radians(30)     )
 assert_equal( Pi/3            , Radians(60)     )
 assert_equal( Pi/2            , Radians(90)     )
-assert_equal( degree*Pi/180   , Radians(degree) )
+\\assert_equal( degree*Pi/180   , Radians(degree) )
 
 assert_equal( 768             , Screen(1024)    )
 

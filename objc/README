@@ -7,6 +7,8 @@ passed: 1
 passed: 3
 passed: a
 passed: true
+passed: 1
+
 
 $ rake p
 arabic         OK, passed 5 tests.

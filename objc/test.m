@@ -23,7 +23,7 @@
 @implementation String
 + (void) assert:(id)expected equals:(id)got {
   NSString* message;
-  if ([expected isEqualTo:got]) {
+  if ([expected isEqualToString:got]) {
     message = [NSString stringWithFormat:@"passed: %@", expected];
   } else {
     message = [NSString stringWithFormat:
@@ -53,10 +53,11 @@
 int main (int argc, const char * argv[]) {
   NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 
-  [Number assert:1    equals:1    ];
-  [Number assert:3    equals:1+2  ];
-  [String assert:@"a" equals:@"a" ];
-  [Bool   assert:true equals:1==1 ];
+  [Number assert:1    equals:1              ];
+  [Number assert:3    equals:1+2            ];
+  [String assert:@"a" equals:@"a"           ];
+  [Bool   assert:true equals:1==1           ];
+  [Number assert:1    equals:1./3+1./3+1./3 ];
 
   [pool release];
   return 0;

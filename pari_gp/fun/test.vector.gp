@@ -28,7 +28,7 @@ assert_equal( ["1", "2", "3"]      , Vec("123")                                )
 assert_equal( ["1", "2", "3"]      , Set([1, 2, 3])                            )
 assert_equal( ["1"]                , setintersect(Set([1, 2, 3]), Set([1, 5])) )
 assert_equal( ["2", "3"]           , setminus(Set([1, 2, 3]), Set([1, 5]))     )
-assert_equal( ["1", "2", "3", "5"] , setunion([1, 2, 3], [1, 5])               )
+assert_equal( [1, 2, 3, 5]         , setunion([1, 2, 3], [1, 5])               )
 
 read("fun.vector") \\ vecjoin
 assert_equal( [2,3,4]              , apply(x->x+1, [1,2,3])                      )

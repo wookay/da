@@ -8,6 +8,10 @@ def recover_cp949_encoding_iso8859_decode str
   cp949 = str.unpack('U*').pack('C*')
   Iconv::iconv('UTF-8','CP949', cp949).first
 end
+def make_cp949_encoding_iso8859_decode str
+  cp949 = Iconv::iconv('CP949','UTF-8', str).first
+  cp949.unpack('C*').pack('U*')
+end
 
 def recover_utf8_encoding_cp949_decode str
   cp949 = Iconv::iconv('CP949','UTF-8', str).first
@@ -35,4 +39,16 @@ end
 def recover_escaped_cp949 str
   cp949 = CGI.unescape(str).unpack('C*').pack('U*')
   recover_cp949_encoding_iso8859_decode cp949
+end
+
+def recover str
+  str
+#  case str.unpack('C*').select{|x| 
+#    puts x
+#    x.to_i > 170 && x.to_i < 200}.size
+#  when 0
+#    str  
+#  else
+#    recover_utf8_encoding_cp949_decode str
+#  end
 end

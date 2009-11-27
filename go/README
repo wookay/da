@@ -1,0 +1,9 @@
+Go
+http://golang.org/
+
+
+$ 8g -o _go_.8 test.go 
+$ 8l -o test _go_.8
+$ ./test
+passed: 1
+passed: 3

@@ -1,0 +1,76 @@
+-- Real World Haskellby Bryan O'Sullivan, Don Stewart, and John Goerzen
+-- Chapter 2. Types and Functions
+-- http://book.realworldhaskell.org/read/types-and-functions.html
+
+
+-- The combination of :: and the type after it is called a type signature.
+Prelude> :type 'a'
+'a' :: Char
+Prelude> 'a' :: Char
+'a'
+Prelude> 'a'
+'a'
+
+-- Function application
+Prelude> odd 3
+True
+Prelude> compare 2 3
+LT
+Prelude> compare 2 2
+EQ
+
+-- composite data types: lists
+Prelude> head [1,2,3]
+1
+Prelude> head ['a','b','c']
+'a'
+Prelude> tail [1,2,3]
+[2,3]
+
+-- A tuple is a fixed-size collection of values, where each value can have a different type
+Prelude> (1, "abc")
+(1,"abc")
+Prelude> fst (1,"abc")
+1
+Prelude> snd (1,"abc")
+"abc"
+
+-- fst accepts a 2-tuple of types a and b and returns something of type a
+fst :: (a, b) -> a
+
+-- Let's take a look at a function's type
+Prelude> :type head
+head :: [a] -> a
+Prelude> head "abc"
+'a'
+
+Prelude> :type null
+null :: [a] -> Bool
+Prelude> null ""
+True
+
+Prelude> :type fst
+fst :: (a, b) -> a
+
+Prelude> :type take
+take :: Int -> [a] -> [a]
+Prelude> take 2 "abcd"
+"ab"
+
+
+($) :: (a -> b) -> a -> b
+(.) :: (b -> c) -> (a -> b) -> a -> c
+
+("a") :: [Char]
+(++) :: [a] -> [a] -> [a]
+("a"++) :: [Char] -> [Char]
+
+(:) :: a -> [a] -> [a]
+(1:) :: (Num a) => [a] -> [a]
+('a':) :: [Char] -> [Char]
+
+(,) :: a -> b -> (a, b)
+(,,) :: a -> b -> c -> (a, b, c)
+(,,,) :: a -> b -> c -> d -> (a, b, c, d)
+((,)1) :: (Num t) => b -> (t, b)
+((,)'a') :: b -> (Char, b)

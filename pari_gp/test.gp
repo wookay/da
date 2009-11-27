@@ -15,4 +15,6 @@ assert_equal( "a" , "a" )
 true = 1
 assert_equal( true , 1==1 )
 
+assert_equal( 1    , 1/3+1/3+1/3 )
+
 quit

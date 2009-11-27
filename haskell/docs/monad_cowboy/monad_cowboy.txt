@@ -1,0 +1,75 @@
+-- The Greenhorn's Guide to becoming a Monad Cowboy
+-- http://www.muitovar.com/monad/moncow.xhtml
+
+-- Saddle up
+
+Prelude> :l monad_cowboy
+[1 of 1] Compiling MonadCowboy      ( monad_cowboy.hs, interpreted )
+Ok, modules loaded: MonadCowboy.
+
+
+
+-- monad_cowboy.hs
+flop :: a -> (a -> b) -> b
+flop x f = f x
+
+
+*MonadCowboy> 3.0 `flop` 5.0 `flop` (/)
+
+<interactive>:1:11:
+    No instance for (Fractional (t -> b))
+      arising from the literal `5.0' at <interactive>:1:11-13
+    Possible fix: add an instance declaration for (Fractional (t -> b))
+    In the second argument of `flop', namely `5.0'
+    In the first argument of `flop', namely `3.0 `flop` 5.0'
+    In the expression: 3.0 `flop` 5.0 `flop` (/)
+
+
+
+-- monad_cowboy.hs
+newtype Wrapped a = Wrap a
+
+wrflop :: Wrapped a -> (a -> Wrapped b) -> Wrapped b 
+wrflop (Wrap x) f =  f x  
+
+divwrp :: Wrapped Double -> Wrapped Double -> Wrapped Double
+divwrp x y = x `wrflop`(\u -> y `wrflop` (\v -> (Wrap (u/v))))   
+
+ 
+*MonadCowboy> divwrp (Wrap 3.0) (Wrap 5.0)    
+
+<interactive>:1:0:
+    No instance for (Show (Wrapped Double))
+      arising from a use of `print' at <interactive>:1:0-27
+    Possible fix:
+      add an instance declaration for (Show (Wrapped Double))
+    In a stmt of a 'do' expression: print it
+
+
+
+-- monad_cowboy.hs
+instance Show a => Show (Wrapped a) where
+            show (Wrap a) = "Wrapped: " ++ (show a)
+
+
+*MonadCowboy> divwrp (Wrap 3.0) (Wrap 5.0)    
+Wrapped: 0.6
+
+
+
+-- monad_cowboy.hs
+instance Monad Wrapped where
+         (>>=) (Wrap x) f =  f x
+         return x = Wrap x
+
+divwrp2 :: Wrapped Double -> Wrapped Double -> Wrapped Double
+divwrp2 x y = do
+              u <- x
+              v <- y
+              return (u/v)
+
+*MonadCowboy> divwrp2 (Wrap 3.0) (Wrap 5.0)
+Wrapped: 0.6
+
+*MonadCowboy> unwrap (Wrap 0.6)
+0.6

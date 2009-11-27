@@ -1,9 +1,0 @@
-Potion
-http://github.com/why/potion/
-
-
-$ potion test.pn
-passed: 1
-passed: 3
-passed: a
-passed: true

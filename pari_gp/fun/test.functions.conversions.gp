@@ -40,7 +40,7 @@ assert_equal( Mod(1, 3) + O(x^16) , Ser(Mod(2, 3) + 2)          )
 
 assert_equal( ["1"]               , Set([1, 1, 1])              ) 
 assert_equal( ["1"]               , Set(1)                      ) 
-assert_equal( ["1"]               , Set("1")                    ) 
+assert_equal( ["\"1\""]           , Set("1")                    ) 
 
 assert_equal( "nil"                  , Str(nil)                    ) 
 assert_equal( Vecsmall([97, 98, 99]) , Vecsmall("abc")             ) 
@@ -49,6 +49,6 @@ assert_equal( "p1"                   , Str(p, 01)                  )
 assert_equal( "abcdefghijklmno"      , Strchr(vector(15, i, i+96)) )
 
 read("fun.string") \\ split
-assert_equal( ["pari_gp", "da"]      , vecextract(split(Strexpand("$PWD"),"/"), "-1..-2"))
+assert_equal( ["fun", "pari_gp"]     , vecextract(split(Strexpand("$PWD"),"/"), "-1..-2"))
 
 quit
