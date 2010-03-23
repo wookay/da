@@ -6,7 +6,7 @@ require 'iconv'
 
 def recover_cp949_encoding_iso8859_decode str
   cp949 = str.unpack('U*').pack('C*')
-  Iconv::iconv('UTF-8','CP949', cp949).first
+  Iconv::iconv('UTF-8//IGNORE','CP949', cp949).first
 end
 def make_cp949_encoding_iso8859_decode str
   cp949 = Iconv::iconv('CP949','UTF-8', str).first

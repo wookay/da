@@ -12,6 +12,8 @@ require 'broken_hangul'
 
 assert_equal '안녕하세요~', recover_typing_dubul_in_english_keyboard('dkssudgktpdy~')
 assert_equal '안녕하세요~', recover_typing_sebul_in_english_keyboard('jfsheamfncj4)')
+#assert_equal '안녕하세요~', recover_typing_sebul_in_english_keyboard('hdcu3jva')
+
 assert_equal '안녕하세요~', recover_cp949_encoding_iso8859_decode('¾È³çÇÏ¼¼¿ä~')
 assert_equal '¾È³çÇÏ¼¼¿ä~', make_cp949_encoding_iso8859_decode('안녕하세요~')
 assert_equal '°¡ÆR', make_cp949_encoding_iso8859_decode('가힣')

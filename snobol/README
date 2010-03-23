@@ -6,3 +6,4 @@ $ snobol4 -b test.sno
 passed: 1
 passed: 3
 passed: a
+passed: 1.

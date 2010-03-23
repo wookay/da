@@ -21,7 +21,7 @@ class Test {
   }
 
   static void assert_equal(String expected, String got) {
-    if (expected==got) {
+    if (expected.equals(got)) {
       System.out.println("passed: " + expected);
     } else {
       System.out.println("Assertion failed\nExpected: " + expected +
@@ -35,5 +35,8 @@ class Test {
     assert_equal( "a"  , "a"  );
     assert_equal( 'a'  , 'a'  );
     assert_equal( true , 1==1 );
+
+    assert_equal( "--" , "++".replace("+","-") );
+   
   }
 }
