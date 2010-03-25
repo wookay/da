@@ -19,9 +19,18 @@ task :p do
   run_tests
 end
 
-def run_tests show_ret=false
+task :TestString do
+  run_test true, 'TestString.java'
+end
+
+def run_tests show_ret=false, filter=nil
   dirs = Dir["*.#{PROGRAM_EXTENSION}"].select{|file|file=~/^Test/}
   dirs.each do |file|
+    run_test show_ret, file
+  end
+end
+
+def run_test show_ret, file
     output = file.gsub(".#{PROGRAM_EXTENSION}", '')
     ret = `#{PROGRAM_COMPILE} #{file} ; #{PROGRAM_RUN} #{output}; rm #{output}.class`
     if show_ret
@@ -38,5 +47,4 @@ def run_tests show_ret=false
     puts "\n#{failed_message.join"\n"}" if not failed_message.empty?
     puts "OK, passed #{passed} test#{'s' if passed > 1}."
     puts "Oops, failed #{failed} test#{'s' if failed > 1}." if failed > 0
-  end
 end

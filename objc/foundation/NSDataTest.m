@@ -3,15 +3,15 @@
 
 #import "test.h"
 
-@implementation NSDataTest
+@implementation TestSuite (NSData)
 
-- (void) unittest {
+- (void) test_NSData {
 
   NSData* data = [NSData data];
-  [assert_equal a:@"<>" b:data];
+  assert_equal(@"<>", [data inspect]);
 
   data = [@"a" dataUsingEncoding:NSUTF8StringEncoding]; 
-  [assert_equal a:@"<61>" b:data];
+  assert_equal(@"<61>", data.inspect);
 
 }
 

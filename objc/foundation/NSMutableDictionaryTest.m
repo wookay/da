@@ -3,24 +3,24 @@
 
 #import "test.h"
 
-@implementation NSMutableDictionaryTest
+@implementation TestSuite (NSMutableDictionary)
 
-- (void) unittest {
+- (void) test_NSMutableDictionary {
 
   NSMutableDictionary* hash = [NSMutableDictionary dictionary];
-  [assert_equal a:@"{}" b:hash];
+  assert_equal(@"{}", [hash inspect]);
 
-  [assert_equal a:nil b:[hash valueForKey:@"key"]];
+  assert_equal(nil, [hash valueForKey:@"key"]);
 
   [hash setObject:@"value" forKey:@"key"];
-  [assert_equal a:@"{key = value; }" b:hash];
+  assert_equal(@"{key = value}", hash.inspect);
 
   [hash setObject:@"value2" forKey:@"key2"];
-  //[assert_equal a:@"{key = value; key2 = value2; }" b:hash];
-  [assert_equal a:@"value2" b:[hash valueForKey:@"key2"]];
+  assert_equal(@"{key = value, key2 = value2}", hash.inspect);
+  assert_equal(@"value2", [hash valueForKey:@"key2"]);
 
   for(id key in hash) {
-    [assert_equal _true:[[hash allKeys] containsObject:key]];
+    assert_equal(true, [[hash allKeys] containsObject:key]);
   }
  
 }

@@ -3,9 +3,9 @@
 
 #import "test.h"
 
-@implementation NSXMLDocumentTest
+@implementation TestSuite (NSXMLDocument)
 
-- (void) unittest {
+- (void) test_NSXMLDocument {
 
 #if ! TARGET_CPU_X86
   id xml = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\
@@ -19,11 +19,11 @@
     initWithXMLString:xml options:NSXMLDocumentTidyXML error:&err];
   NSArray *nodes = [doc nodesForXPath:@"//degree" error:&err];
   id attr = [[[nodes objectAtIndex:0] attributes] objectAtIndex:0];
-  [assert_equal a:@"plus" b:[attr name]];
-  [assert_equal a:@"40" b:[attr stringValue]];
+  assert_equal(@"plus", [attr name]);
+  assert_equal(@"40", [attr stringValue]);
 
   nodes = [doc nodesForXPath:@"//@normalized-name" error:&err];
-  [assert_equal a:@"smalltalk" b:[[nodes objectAtIndex:0] stringValue]];
+  assert_equal(@"smalltalk", [[nodes objectAtIndex:0] stringValue]);
   [doc release];
 #endif
 

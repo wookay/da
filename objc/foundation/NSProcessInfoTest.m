@@ -3,12 +3,12 @@
 
 #import "test.h"
 
-@implementation NSProcessInfoTest
+@implementation TestSuite (NSProcessInfo)
 
-- (void) unittest {
+- (void) test_NSProcessInfo {
 
   NSProcessInfo* info = [NSProcessInfo processInfo];
-  [assert_equal _true:([[info environment] count] > 0)];
+  assert_equal(true, ([[info environment] count] > 0));
 
 }
 

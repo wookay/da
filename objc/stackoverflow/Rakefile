@@ -1,0 +1,8 @@
+# Rakefile
+#                           wookay.noh at gmail.com
+
+CLASSES    = %w{NSArraySortByMostFrequent NSStringHexToBytes NSNumberThousandComma}
+FRAMEWORKS=%w{Foundation}
+
+DIR = File.dirname __FILE__
+load '../build_script/build.rake'

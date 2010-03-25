@@ -3,19 +3,19 @@
 
 #import "test.h"
 
-@implementation NSUserDefaultsTest
+@implementation TestSuite (NSUserDefaults)
 
-- (void) unittest {
+- (void) test_NSUserDefaults {
 
   NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
   NSArray* dogs;
   dogs = [defaults arrayForKey:@"dogs"];
-  [assert_equal a:nil b:dogs];
+  assert_equal(nil, dogs);
 
   NSArray* newDogs = [NSArray arrayWithObjects:@"1", @"2", nil];
   [defaults setObject:newDogs forKey:@"dogs"];
   dogs = [defaults arrayForKey:@"dogs"];
-  [assert_equal a:@"(1, 2)" b:dogs];
+  assert_equal(@"[1, 2]", dogs.inspect);
 
 }
 

@@ -3,13 +3,13 @@
 
 #import "test.h"
 
-@implementation NSNotificationTest
+@implementation TestSuite (NSNotification)
 
-- (void) unittest {
+- (void) test_NSNotification {
 
   NSNotification* noti = [NSNotification notificationWithName:@"name" object:@"object"];
-  [assert_equal a:@"name" b:[noti name]];
-  [assert_equal a:@"object" b:[noti object]];
+  assert_equal(@"name", [noti name]);
+  assert_equal(@"object", [noti object]);
 
 }
 

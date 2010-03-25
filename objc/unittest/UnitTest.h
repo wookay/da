@@ -1,65 +1,44 @@
-// UnitTest.h
-//                           wookay.noh at gmail.com
+//
+//  UnitTest.h
+//  Bloque
+//
+//  Created by Woo-Kyoung Noh on 05/03/10.
+//  Copyright 2010 factorcat. All rights reserved.
+//
 
-#import <Foundation/Foundation.h> 
-#import <QuartzCore/CATransform3D.h>
+#import <Foundation/Foundation.h>
+#import "Inspect.h"
+#import "NSNumberExt.h"
+#import "NSStringExt.h"
+#import "Logger.h"
 
-@interface UnitTest : NSObject {
-  int passedCount;
-  int failedCount;
-
-  id currentTargetClass;
-  NSMutableArray* builder;
-}
-
-- (void) a:(id)expected b:(id)got ;
-- (void) a:(id)expected SEL:(SEL)got ;
-- (void) a:(id)expected Class:(Class)got ;
-- (void) a:(id)expected NSRange:(NSRange)got ;
-- (void) a:(id)expected CGPoint:(CGPoint)got ;
-- (void) a:(id)expected CGSize:(CGSize)got ;
-- (void) CGRect:(CGRect)expected CGRect:(CGRect)got ;
-- (void) a:(id)expected CGRect:(CGRect)got ;
-- (void) a:(id)expected CGAffineTransform:(CGAffineTransform)got ;
-- (void) a:(id)expected CGContextRef:(CGContextRef)got ;
-- (void) a:(id)expected CGGlyph:(CGGlyph)got ;
-- (void) a:(id)expected CATransform3D:(CATransform3D)got ;
-- (void) bool:(BOOL)expected bool:(BOOL)got ;
-- (void) _true:(BOOL)got ;
-- (void) _false:(BOOL)got ;
-- (void) _nil:(id)got ;
-- (void) int:(int)expected int:(int)got ;
-- (void) int:(int)expected b:(id)got ;
-- (void) float:(float)expected float:(float)got ; 
-- (void) float:(float)expected b:(id)got ; 
-- (void) double:(double)expected double:(double)got ; 
-- (void) double:(double)expected b:(id)got ; 
-- (void) hasPrefix:(id)expected b:(id)got ;
-- (void) hasSuffix:(id)expected b:(id)got ;
-- (void) oneOf:(id)expected b:(id)got ;
-- (void) SEL:(SEL)expected SEL:(SEL)got ;
-
-- (int) passedCount ;
-- (int) failedCount ;
-- (void) report ;
-- (void) add_result:(BOOL)cond expected:(id)expected got:(id)got ;
-- (void) passed:(id)expected got:(id)got ;
-- (void) failed:(id)expected got:(id)got ;
-- (void) puts:(id)message ;
-- (void) run:(id)targetClassString ;
-- (void) buildup:(bool)success expected:(id)expected got:(id)got ;
-
-+ (id) create ;
-+ (id) createBuilder ;
-- (NSArray*) builder ;
-
+@interface TestSuite : NSObject
 @end
 
+#define assert_equal(expected, got) \
+ do { \
+	__typeof__(expected) __expected = (expected); \
+	__typeof__(got) __got = (got); \
+	NSValue* expected_encoded = [NSValue valueWithValue:&__expected withObjCType: @encode(__typeof__(expected))]; \
+	NSValue* got_encoded = [NSValue valueWithValue:&__got withObjCType: @encode(__typeof__(got))]; \
+	[UnitTest assert:got_encoded equals:expected_encoded inFile:[NSString stringWithUTF8String:__FILE__] atLine:__LINE__]; \
+} while(0)
 
 
-@interface UnitTestable : NSObject {
-  id assert_equal;
-}
-- (void) unittest ;
-+ (id) create:(id)obj ;
+@interface UnitTest : NSObject
++(void) setup ;
++(void) report ;
++(void) assert:(id)got equals:(id)expected inFile:(NSString*)file atLine:(int)line ;
++(id) target:(NSString*)targetClassString ;
++(void) run_all_tests ;
+@end
+
+@interface NSObject (UnitTest)
+-(void) run_test:(SEL)sel ;
+-(void) run_tests ;
+-(NSArray*) methods ;
+@end
+
+@interface NSValue (Ext)
++ valueWithValue:(const void *)aValue withObjCType:(const char *)aTypeDescription ;
 @end

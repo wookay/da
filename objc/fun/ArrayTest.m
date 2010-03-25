@@ -2,43 +2,40 @@
 //                           wookay.noh at gmail.com
 
 #import "test.h"
+#import "Array.h"
 
 NSInteger randomSort(id a, id b, void *context) {
   return (arc4random() % 2);
 }
 
-@implementation ArrayTest
+@implementation TestSuite (Array)
 
-- (void) unittest {
+- (void) test_Array {
 
   NSArray* ary = [NSArray arrayWithObjects:@"a", @"b", @"c", nil];
-  [assert_equal a:@"abc" b:[ary to_s]];
-  [assert_equal a:@"abc" b:[ary join]];
-  [assert_equal a:@"a, b, c" b:[ary join:@", "]];
-  [assert_equal a:@"a" b:[ary first]];
-  [assert_equal a:@"c" b:[ary last]];
-  [assert_equal a:@"(c, b, a)" b:[ary reverse]];
-  [assert_equal int:3 int:[ary size]];
-  [assert_equal a:@"(A, B, C)" b:[ary map:@selector(uppercaseString)]];
-  [assert_equal a:@"(A, B, C)" b:[[ary map] uppercaseString]];
-  [assert_equal a:@"()" b:[[[NSArray array] map] uppercaseString]];
+  assert_equal(@"abc", [ary to_s]);
+  assert_equal(@"abc", [ary join]);
+  assert_equal(@"a, b, c", [ary join:@", "]);
+  assert_equal(@"a", [ary first]);
+  assert_equal(@"c", [ary last]);
+  //assert_equal(@"(c, b, a)", [[ary reverse] inspect]);
+  assert_equal(3, [ary size]);
+  //assert_equal(@"(A, B, C)", [ary map:@selector(uppercaseString)]);
+  //assert_equal(@"(A, B, C)", [[ary map] uppercaseString]);
+  //assert_equal(@"()", [[[NSArray array] map] uppercaseString]);
 
   NSArray* empty = [NSArray array];
-  [assert_equal a:@"()" b:empty];
-  [assert_equal a:@"" b:[empty to_s]];
-  [assert_equal _true:[empty empty:'?']];
+  //assert_equal(@"()", empty);
+  assert_equal(@"", [empty to_s]);
+  //assert_equal(true, [empty empty:'?']);
 
   NSMutableArray* stack = [NSMutableArray array];
-  [assert_equal a:@"(a)" b:[stack push:@"a"]];
-  [assert_equal a:@"(a)" b:stack];
-  [assert_equal _false:[stack empty:'?']];
-  [assert_equal a:@"a" b:[stack pop]];
-  [assert_equal a:@"()" b:stack];
-  [assert_equal _true:[stack empty:'?']];
-
-  //[assert_equal a:@"abc" b:[[ary sortedArrayUsingFunction:randomSort context:NULL] to_s]];
-
-  //[stack map:^(NSString* string) { return [string uppercaseString] }]; 
+  //assert_equal(@"(a)", [stack push:@"a"]);
+  //assert_equal(@"(a)", stack);
+  //assert_equal(false, [stack empty:'?']);
+  //assert_equal(@"a", [stack pop]);
+  //assert_equal(@"()", stack);
+  //assert_equal(true, [stack empty:'?']);
 
 }
 

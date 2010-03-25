@@ -3,14 +3,14 @@
 
 #import "test.h"
 
-@implementation NSErrorTest
+@implementation TestSuite (NSError)
 
-- (void) unittest {
+- (void) test_NSError {
 
   NSError* error = [NSError errorWithDomain:@"domain"
                             code:0
                             userInfo:nil];
-  [assert_equal a:@"domain" b:[error domain]];
+  assert_equal(@"domain", [error domain]);
 
 }
 

@@ -1,10 +1,17 @@
 # Rakefile
 #                           wookay.noh at gmail.com
 
-IGNORE_FILES = %w{appkit README Rakefile touch macruby uikit pari_gp_ext test.m twitter}
-load 'unittest/build.rake'
+IGNORE_FILES = %w{
+README         build_script/  fun/           quartzcore/    uikit/
+Rakefile       cg/            hangul/        stackoverflow/ vlaah/
+UnitTest/      chipmunk/      math/          test.m
+appkit/        coregraphics/  me2day/        touch/
+arabic/                       pari_gp_ext/   twitter/
+}.map{|f| f.gsub('/','')}
 
-require 'unittest/build.rb'
+load 'build_script/build.rake'
+
+require 'build_script/build.rb'
 make 'test.m' do |m|
   m.compile 'test.m'
   m.link

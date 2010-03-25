@@ -3,9 +3,9 @@
 
 #import "test.h"
 
-@implementation NSInvocationOperationTest
+@implementation TestSuite (NSInvocationOperation)
 
-- (void) unittest {
+- (void) test_NSInvocationOperation {
 
   #if TARGET_CPU_X86
   NSString* target = @"test target";
@@ -13,26 +13,26 @@
   NSInvocationOperation* op = [[NSInvocationOperation alloc]
     initWithTarget:target selector:selector object:nil];
   NSInvocation* invocation = [op invocation];
-  [assert_equal a:@"test target" b:[invocation target]];
-  [assert_equal a:@"length" SEL:[invocation selector]];
+  assert_equal(@"test target", [invocation target]);
+  assert_equal(@selector(length), [invocation selector]);
   [invocation invoke];
   int value;
   [invocation getReturnValue:&value];
-  [assert_equal int:11 int:value];
+  assert_equal(11, value);
 
   NSUInteger ret = (NSUInteger) [target performSelector:@selector(length)];
-  [assert_equal int:11 int:ret];
+  assert_equal(11, ret);
   #endif
 
   id number = [NSDecimalNumber numberWithInt:100];
   SEL plus = @selector(decimalNumberByAdding:);
-  [assert_equal _true:[number respondsToSelector:plus]];
-  [assert_equal int:200 b:[number performSelector:plus withObject:[NSDecimalNumber numberWithInt:100]]];
+  assert_equal(true, [number respondsToSelector:plus]);
+  assert_equal(200, [number performSelector:plus withObject:[NSDecimalNumber numberWithInt:100]]);
 
   Class class = NSClassFromString(@"NSString");
-  [assert_equal a:@"NSString" b:NSStringFromClass(class)];
-  [assert_equal a:@"NSCFString" b:NSStringFromClass([@"" class])];
-  [assert_equal a:@"NSDecimalNumber" b:NSStringFromClass([number class])];
+  assert_equal(@"NSString", NSStringFromClass(class));
+  assert_equal(@"NSCFString", NSStringFromClass([@"" class]));
+  assert_equal(@"NSDecimalNumber", NSStringFromClass([number class]));
 
 }
 

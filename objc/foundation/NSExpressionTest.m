@@ -5,9 +5,9 @@
 
 #define I(n) [NSNumber numberWithInt:n]
 
-@implementation NSExpressionTest
+@implementation TestSuite (NSExpression)
 
-- (void) unittest {
+- (void) test_NSExpression {
 
 #if TARGET_CPU_X86
   NSArray* values = [NSArray arrayWithObjects:I(1), I(2), nil];
@@ -16,7 +16,7 @@
   NSExpression* func = [NSExpression expressionForFunction:@"sum:"
                                      arguments:args];
   id result = [func expressionValueWithObject:nil context:nil];
-  [assert_equal a:I(3) b:result];
+  assert_equal(I(3), result);
 #endif
   
 }

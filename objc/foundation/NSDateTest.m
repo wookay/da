@@ -3,13 +3,13 @@
 
 #import "test.h"
 
-@implementation NSDateTest
+@implementation TestSuite (NSDate)
 
-- (void) unittest {
+- (void) test_NSDate {
 
   NSDate* today = [NSDate date];
-  [assert_equal int:[@"YYYY-MM-DD HH:MM:SS +HHMM" length]
-                int:[[today description] length]];
+  assert_equal([@"YYYY-MM-DD HH:MM:SS +HHMM" length],
+               [[today description] length]);
 
   #if TARGET_CPU_X86
   // NSDate* sept = [NSDate dateWithString:@"2008-09-10 11:12:13 +0900"];

@@ -3,13 +3,13 @@
 
 #import "test.h"
 
-@implementation NSNullTest
+@implementation TestSuite (NSNull)
 
-- (void) unittest {
+- (void) test_NSNull {
 
   NSNull* null = [NSNull null];
-  [assert_equal a:@"<null>" b:null];
-  [assert_equal a:[NSNull null] b:null];
+  assert_equal(@"<null>", null.inspect);
+  assert_equal([NSNull null], null);
 
 }
 

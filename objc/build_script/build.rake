@@ -12,10 +12,11 @@ end
 
 if defined? DIR
   APP=DIR.split('/').last
-  CLASSES=[] if not defined? CLASSES
-  TEST_CLASSES=open('test.m').read.scan(/@"(.*Test.*)"/).map{|t|t.to_s}
-  UNITTEST= DIR=='unittest' ? 'UnitTest' : '../unittest/UnitTest'
-  OBJECTS= CLASSES + TEST_CLASSES + [UNITTEST, 'test']
+  TEST_CLASSES=Dir["#{DIR}/*.m"].select{|t| t=~/Test/}.map{|t|t.split('/').last}
+  UNITTEST_CLASSES = %w{Inspect Logger UnitTest NSStringExt NSNumberExt}.map do |file|
+     DIR=='build_script' ? file : "../UnitTest/#{file}"
+  end
+  OBJECTS= CLASSES + TEST_CLASSES + UNITTEST_CLASSES + ['test']
   $PASSED=nil
   task :default do
     puts `rake -T --silent`
@@ -74,7 +75,8 @@ if defined? DIR
   desc "clean up"
   task :clean do
     CLEANUP=nil if not defined? CLEANUP
-    cmd "rm -f #{APP}_arm_test #{APP}_mac_test* #{UNITTEST.o} #{CLEANUP} *.o"
+    unittests = UNITTEST_CLASSES.map{|t|"#{t}*.o"}.join(' ')
+    cmd "rm -f #{APP}_arm_test #{APP}_mac_test* #{unittests} #{CLEANUP} *.o"
   end
 else
   dirs = Dir["*"].select{|dir| not IGNORE_FILES.include? dir }
@@ -181,7 +183,7 @@ class Builder
 
   def compile objs=[] 
     objs.each do |obj|
-      puts "objm #{obj.m}"
+      #puts "compile #{obj.m}"
       if should_compile? obj
         case arch
         when :mac

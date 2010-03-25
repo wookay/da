@@ -5,9 +5,9 @@
 
 //#define HTTP 0
 
-@implementation NSMutableURLRequestTest
+@implementation TestSuite (NSMutableURLRequest)
 
-- (void) unittest {
+- (void) test_NSMutableURLRequest {
 
 #ifdef HTTP
   NSString *urlString = @"http://localhost:3000/info";
@@ -21,8 +21,8 @@
   NSHTTPURLResponse *response;
   NSData *data = [NSURLConnection sendSynchronousRequest:request 
                    returningResponse:&response error:&error];
-  [assert_equal int:200 int:[response statusCode]];
-  [assert_equal a:@"{}" b:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+  assert_equal(200, [response statusCode]);
+  assert_equal(@"{}", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
 #endif
  

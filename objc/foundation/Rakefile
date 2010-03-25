@@ -5,4 +5,4 @@ CLASSES    = %w{}
 FRAMEWORKS = %w{Foundation}
 
 DIR = File.dirname __FILE__
-load '../unittest/build.rake'
+load '../build_script/build.rake'

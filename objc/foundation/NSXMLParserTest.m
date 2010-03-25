@@ -3,17 +3,17 @@
 
 #import "test.h"
 
-@implementation NSXMLParserTest
+@implementation TestSuite (NSXMLParser)
 
 - (void) parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-  [assert_equal oneOf:@"topic degree people percent" b:elementName];
+  assert_equal(true, [_w(@"topic degree people percent") containsObject:elementName]);
 }
 
 - (void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-  [assert_equal oneOf:@"topic degree people percent" b:elementName];
+  assert_equal(true, [_w(@"topic degree people percent") containsObject:elementName]);
 }
 
-- (void) unittest {
+- (void) test_NSXMLParser {
 
   id xml = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\
 <topic name=\"SmallTalk\" normalized-name=\"smalltalk\" usual-name=\"Smalltalk\">\

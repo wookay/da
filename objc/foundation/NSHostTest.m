@@ -3,9 +3,9 @@
 
 #import "test.h"
 
-@implementation NSHostTest
+@implementation TestSuite (NSHost)
 
-- (void) unittest {
+- (void) test_NSHost {
 
   //NSHost* host = [NSHost currentHost];
   //[host name]

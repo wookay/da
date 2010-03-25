@@ -3,16 +3,16 @@
 
 #import "test.h"
 
-@implementation NSFileManagerTest
+@implementation TestSuite (NSFileManager)
 
-- (void) unittest {
+- (void) test_NSFileManager {
 
   NSFileManager* fileManager = [NSFileManager defaultManager];
   NSString* path = @".";
   NSString* displayName = [fileManager displayNameAtPath:path];
   NSString* pathExtension = [displayName pathExtension];
-  [assert_equal a:@"foundation" b:displayName];
-  [assert_equal a:@"" b:pathExtension];
+  assert_equal(@"foundation", displayName);
+  assert_equal(@"", pathExtension);
 
 }
 

@@ -3,15 +3,15 @@
 
 #import "test.h"
 
-@implementation NSMutableArrayTest
+@implementation TestSuite (NSMutableArray)
 
-- (void) unittest {
+- (void) test_NSMutableArray {
 
   NSMutableArray* ary = [NSMutableArray array];
-  [assert_equal a:@"()" b:ary];
+  assert_equal(@"[]", [ary inspect]);
 
   [ary addObject:@"a"];
-  [assert_equal a:@"(a)" b:ary];
+  assert_equal(@"[a]", [ary inspect]);
   
 }
 

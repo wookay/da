@@ -2,6 +2,7 @@
 //                           wookay.noh at gmail.com
 
 #import "test.h"
+#import "Singleton.h"
 
 @implementation SingletonTest
 
@@ -9,7 +10,7 @@
 
   Singleton* singletonA = [Singleton sharedMethod];
   Singleton* singletonB = [Singleton sharedMethod];
-  [assert_equal a:singletonA b:singletonB];
+  assert_equal(singletonA, singletonB);
 
 }
 

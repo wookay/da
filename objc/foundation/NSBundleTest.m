@@ -3,9 +3,9 @@
 
 #import "test.h"
 
-@implementation NSBundleTest
+@implementation TestSuite (NSBundle)
 
-- (void) unittest {
+- (void) test_NSBundle {
 
   NSBundle* bundle = [NSBundle bundleWithPath:@"/etc/hosts"];
   NSString* path = [bundle bundlePath];
@@ -15,8 +15,7 @@
                                          encoding:NSUTF8StringEncoding];
   NSString* contentsOfFile = [NSString stringWithContentsOfFile:path
                                        encoding:NSUTF8StringEncoding error:nil];
-  [assert_equal int:[contents length]
-                int:[contentsOfFile length]];
+  assert_equal([contents length], [contentsOfFile length]);
 
 }
 

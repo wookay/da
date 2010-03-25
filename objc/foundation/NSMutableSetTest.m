@@ -3,20 +3,20 @@
 
 #import "test.h"
 
-@implementation NSMutableSetTest
+@implementation TestSuite (NSMutableSet)
 
-- (void) unittest {
+- (void) test_NSMutableSet {
 
   NSMutableSet* set = [NSMutableSet set];
   [set addObject:@"a"];
   [set addObject:@"b"];
   [set addObject:@"a"];
-  [assert_equal int:2 int:[set count]];
-  [assert_equal a:nil b:[set member:@"c"]];
-  [assert_equal bool:true bool:[set containsObject:@"a"]];
+  assert_equal(2, [set count]);
+  assert_equal(nil, [set member:@"c"]);
+  assert_equal(true, [set containsObject:@"a"]);
 
   for(id obj in set) {
-    [assert_equal _true:[set containsObject:obj]];
+    assert_equal(true, [set containsObject:obj]);
   }
 
 }

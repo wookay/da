@@ -5,20 +5,20 @@
 
 #define U(s) [NSString stringWithUTF8String:s]
 
-@implementation NSLocaleTest
+@implementation TestSuite (NSLocale)
 
-- (void) unittest {
+- (void) test_NSLocale {
 
   id countryCodes = [NSLocale ISOCountryCodes];
-  [assert_equal _true:10 < [countryCodes count]];
+  assert_equal(true, 10 < [countryCodes count]);
 
   id locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ko_KR"];
 
   NSString* arabic = [locale displayNameForKey:NSLocaleIdentifier value:@"ar"];
-  [assert_equal a:U("아랍어") b:arabic];
+  assert_equal(U("아랍어"), arabic);
 
   NSString* spanish = [locale displayNameForKey:NSLocaleIdentifier value:@"es_ES"];
-  [assert_equal a:U("스페인어 (스페인)") b:spanish];
+  assert_equal(U("스페인어 (스페인)"), spanish);
 
 }
 

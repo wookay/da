@@ -3,9 +3,9 @@
 
 #import "test.h"
 
-@implementation NSPredicateTest
+@implementation TestSuite (NSPredicate)
 
-- (void) unittest {
+- (void) test_NSPredicate {
 
   // FIXME: make a test
   /*
