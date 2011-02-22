@@ -1,7 +1,7 @@
 # build.rake
 #                           wookay.noh at gmail.com
 
-IPHONE_SDK = "3.1.2"
+IPHONE_SDK = "4.2"
 
 DEPLOY="/deploy/var/mobile/"
 
@@ -153,7 +153,7 @@ end
 FRAMEWORKS=%w{Foundation} if not defined? FRAMEWORKS
 FRAMEWORK=FRAMEWORKS.map{|f|" -framework #{f} "}.join ' '
 
-ARM_CC="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.0"
+ARM_CC="/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.2"
 ARM_SYSROOT="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS#{IPHONE_SDK}.sdk"
 ARM_CFLAGS="-x objective-c -arch armv6 -fmessage-length=0 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -mdynamic-no-pic -Wreturn-type -Wunused-variable -isysroot #{ARM_SYSROOT} -fvisibility=hidden -gdwarf-2 -mthumb -miphoneos-version-min=#{IPHONE_SDK}"
 ARM_LDFLAGS="-arch armv6 -isysroot #{ARM_SYSROOT} -mmacosx-version-min=10.5 -Wl,-dead_strip -miphoneos-version-min=#{IPHONE_SDK} #{FRAMEWORK}"
