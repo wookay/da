@@ -1,0 +1,9 @@
+CoffeeScript
+http://jashkenas.github.com/coffee-script/ 
+
+
+$ coffee test.coffee 
+passed: 3
+passed: a
+passed: true
+passed: 1
