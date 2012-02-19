@@ -1,0 +1,10 @@
+Julia
+http://julialang.org/
+
+
+$ julia test.j
+passed: 1
+passed: 3
+passed: a
+passed: true
+passed: 1
