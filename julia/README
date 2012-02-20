@@ -2,7 +2,7 @@ Julia
 http://julialang.org/
 
 
-$ julia test.j
+$ julia test.ju
 passed: 1
 passed: 3
 passed: a
