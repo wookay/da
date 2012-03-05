@@ -1,4 +1,4 @@
-# test.ju
+# test.jl
 #                           wookay.noh at gmail.com
 
 function assert_equal(expected, got)
