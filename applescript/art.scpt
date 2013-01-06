@@ -1,5 +1,8 @@
 -- art.scpt
 -- wookay.noh at gmail.com
+--
+-- 실행방법: 파일을 저장한 후 맥 터미널 영어 입력 상태에서 다음과 같이 입력
+-- osascript art.scpt
 
 tell application "System Events"
   delay 1
